@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://bey5x08s88nwy"]
+
+[ext_resource type="Texture2D" uid="uid://dh13bx01yu78m" path="res://Media/sprites/kaisouko_look.png" id="1_hoqt7"]
+[ext_resource type="Script" path="res://Scripts/ParallaxLayerAuto.gd" id="2_q7ai5"]
+[ext_resource type="Texture2D" uid="uid://dqya23lpwqwc5" path="res://Media/sprites/clouds.png" id="2_srusm"]
+[ext_resource type="Texture2D" uid="uid://c6cckqobux4ov" path="res://Media/sprites/mountain.png" id="4_xxxf1"]
+[ext_resource type="Texture2D" uid="uid://o3mgqx5thpxh" path="res://Media/sprites/ground.png" id="5_igysm"]
+
+[node name="Forest" type="Node2D"]
+
+[node name="KaisoukoLook" type="Sprite2D" parent="."]
+position = Vector2(228, 805)
+texture = ExtResource("1_hoqt7")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1920, 0)
+script = ExtResource("2_q7ai5")
+
+[node name="Clouds" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(960, 540)
+texture = ExtResource("2_srusm")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1920, 0)
+script = ExtResource("2_q7ai5")
+SPEED = -300
+
+[node name="Mountain" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(926, 652)
+texture = ExtResource("4_xxxf1")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1920, 0)
+script = ExtResource("2_q7ai5")
+SPEED = -600
+
+[node name="Ground" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(1920, 1051)
+texture = ExtResource("5_igysm")
