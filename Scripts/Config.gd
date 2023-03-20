@@ -8,7 +8,7 @@ func _ready():
 
 
 	# Debug on second monitor
-	DisplayServer.window_set_current_screen(1)
+	# DisplayServer.window_set_current_screen(1)
 
 	# var monitors = DisplayServer.get_screen_count()
 	# print("monitors: %s"%[monitors]) 
