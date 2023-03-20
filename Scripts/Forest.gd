@@ -12,4 +12,5 @@ func _ready():
 func spawn_slime():
 	var slime = SLIME.instantiate()
 	slime.position = $"EnemySpawnPos".position
+	slime.connect("ded", spawn_slime)
 	add_child(slime)

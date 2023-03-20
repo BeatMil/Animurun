@@ -258,8 +258,9 @@ position = Vector2(1472, 1066)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundBody"]
 shape = SubResource("RectangleShape2D_iy05h")
 
-[node name="Chiichan" type="RigidBody2D" parent="."]
+[node name="Chiichan" type="RigidBody2D" parent="." groups=["chiichan"]]
 position = Vector2(492, 737)
+lock_rotation = true
 script = ExtResource("6_o6v6y")
 
 [node name="ChiichanPos" type="Node2D" parent="Chiichan"]
@@ -292,6 +293,6 @@ libraries = {
 position = Vector2(454, -144)
 
 [node name="EnemySpawnPos" type="Marker2D" parent="."]
-position = Vector2(2400, 804)
+position = Vector2(2400, 837)
 
 [connection signal="animation_finished" from="Chiichan/AnimationPlayer" to="Chiichan" method="_on_animation_player_animation_finished"]

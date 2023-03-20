@@ -3,7 +3,10 @@
 [ext_resource type="Script" path="res://Scripts/Slime.gd" id="1_veqpa"]
 [ext_resource type="Texture2D" uid="uid://dc2yr8fulgylt" path="res://Media/sprites/slime_spritesheet.png" id="2_65awk"]
 
-[sub_resource type="Animation" id="Animation_0yhxo"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7vn5"]
+size = Vector2(192, 172)
+
+[sub_resource type="Animation" id="Animation_q5iy4"]
 resource_name = "idle"
 length = 0.001
 tracks/0/type = "value"
@@ -19,7 +22,7 @@ tracks/0/keys = {
 "values": [1]
 }
 
-[sub_resource type="Animation" id="Animation_63apm"]
+[sub_resource type="Animation" id="Animation_jfkii"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -33,10 +36,22 @@ tracks/0/keys = {
 "update": 1,
 "values": [1]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SlimeSpritesheet:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
-[sub_resource type="Animation" id="Animation_ns8c2"]
+[sub_resource type="Animation" id="Animation_8usju"]
 resource_name = "hurt"
-length = 0.001
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -49,16 +64,25 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_bfc5r"]
-_data = {
-"RESET": SubResource("Animation_63apm"),
-"hurt": SubResource("Animation_ns8c2"),
-"idle": SubResource("Animation_0yhxo")
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SlimeSpritesheet:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.898039, 0.156863, 0.188235, 1), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7vn5"]
-size = Vector2(192, 172)
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yhx8y"]
+_data = {
+"RESET": SubResource("Animation_jfkii"),
+"hurt": SubResource("Animation_8usju"),
+"idle": SubResource("Animation_q5iy4")
+}
 
 [node name="Slime" type="RigidBody2D"]
 gravity_scale = 2.0
@@ -66,18 +90,24 @@ max_contacts_reported = 1
 contact_monitor = true
 script = ExtResource("1_veqpa")
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(3.8147e-06, -3.50001)
+scale = Vector2(9.6, 8.65)
+
 [node name="SlimeSpritesheet" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_65awk")
 hframes = 2
 frame = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("")
-libraries = {
-"": SubResource("AnimationLibrary_bfc5r")
-}
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_y7vn5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yhx8y")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
