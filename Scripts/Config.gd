@@ -2,6 +2,10 @@ extends Node
 
 
 func _ready():
+	# 120 fps?
+	Engine.physics_ticks_per_second = 120
+
+
 	# var monitors = DisplayServer.get_screen_count()
 	# print("monitors: %s"%[monitors]) 
 

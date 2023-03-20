@@ -35,6 +35,10 @@ toggle_fullscreen={
 ]
 }
 
+[physics]
+
+2d/default_gravity=9800.0
+
 [rendering]
 
 environment/defaults/default_clear_color=Color(0.431373, 0.568627, 0.615686, 1)
