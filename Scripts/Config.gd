@@ -6,14 +6,15 @@ func _ready():
 	Engine.physics_ticks_per_second = 120
 
 
+
+	# Debug on second monitor
+	DisplayServer.window_set_current_screen(1)
+
 	# var monitors = DisplayServer.get_screen_count()
 	# print("monitors: %s"%[monitors]) 
 
-	# var current_screen = DisplayServer.window_get_current_screen(1)
+	# var current_screen = DisplayServer.window_get_current_screen()
 	# print("current_screen: %s"%[current_screen]) 
-
-	# DisplayServer.window_set_current_screen(0)
-	# DisplayServer.window_set_current_screen(1)
 	pass
 
 
