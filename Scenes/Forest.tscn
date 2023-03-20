@@ -25,7 +25,7 @@ texture = ExtResource("2_srusm")
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(1920, 0)
 script = ExtResource("2_q7ai5")
-SPEED = -300
+SPEED = -200
 
 [node name="Mountain" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(926, 652)

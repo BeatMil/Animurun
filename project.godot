@@ -13,7 +13,7 @@ config_version=5
 config/name="animurun"
 run/main_scene="res://Scenes/Forest.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Media/animu_run_icon.png"
 
 [autoload]
 
@@ -37,4 +37,4 @@ toggle_fullscreen={
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0.215686, 0.411765, 0.466667, 1)
+environment/defaults/default_clear_color=Color(0.431373, 0.568627, 0.615686, 1)
