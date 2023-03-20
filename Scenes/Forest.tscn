@@ -157,6 +157,20 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(129, -113), Vector2(70, -113), Vector2(0, 0)]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawn_hitbox01"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8jhmc"]
 _data = {
@@ -251,7 +265,7 @@ script = ExtResource("6_o6v6y")
 [node name="ChiichanRun" type="Sprite2D" parent="Chiichan/ChiichanPos"]
 texture = ExtResource("7_fn6nb")
 hframes = 7
-frame = 4
+frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chiichan"]
 position = Vector2(30.5, 11.5)
@@ -271,5 +285,8 @@ autoplay = "intro"
 libraries = {
 "": SubResource("AnimationLibrary_svweh")
 }
+
+[node name="Attack01HitboxPos" type="Marker2D" parent="Chiichan"]
+position = Vector2(454, -144)
 
 [connection signal="animation_finished" from="Chiichan/AnimationPlayer" to="Chiichan" method="_on_animation_player_animation_finished"]
