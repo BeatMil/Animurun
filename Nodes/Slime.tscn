@@ -84,7 +84,7 @@ _data = {
 "idle": SubResource("Animation_q5iy4")
 }
 
-[node name="Slime" type="RigidBody2D"]
+[node name="Slime" type="RigidBody2D" groups=["enemy", "slime"]]
 gravity_scale = 2.0
 max_contacts_reported = 1
 contact_monitor = true

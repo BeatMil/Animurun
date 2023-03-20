@@ -18,7 +18,7 @@ func _on_body_entered(body):
 	if body.is_in_group("chiichan"):
 		is_moving = false
 		turn_off_all_collision()
-		apply_impulse(Vector2(2000, -2000))
+		apply_impulse(Vector2(1000, -1000))
 		apply_torque_impulse(100000)
 		$"AnimationPlayer".play("hurt")
 
