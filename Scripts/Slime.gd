@@ -22,6 +22,7 @@ func _on_body_entered(body):
 		apply_torque_impulse(100000)
 		$"AnimationPlayer".play("hurt")
 
+		body.anim_player.play("hurt")
 
 
 func turn_off_all_collision():

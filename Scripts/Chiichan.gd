@@ -21,7 +21,6 @@ func spawn_hitbox01():
 	add_child(hitbox)
 
 
-
 func _on_animation_player_animation_finished(anim_name):
-	if anim_name == "attack01":
+	if anim_name == "attack01" or anim_name == "hurt":
 		anim_player.play("run")
