@@ -1,6 +1,11 @@
 extends RigidBody2D
 
 
+# Configs
+var is_alive = true
+
+
+# Constants
 @onready var anim_player = $AnimationPlayer
 var ATTACK01_HITBOX = preload("res://Nodes/Hitboxes/attack01_hitbox.tscn")
 
@@ -11,6 +16,9 @@ func _ready():
 
 
 func _input(event):
+	if not is_alive:
+		return
+
 	if event.is_action_pressed("ui_accept"):
 		anim_player.play("attack01")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bey5x08s88nwy"]
+[gd_scene load_steps=34 format=3 uid="uid://bey5x08s88nwy"]
 
 [ext_resource type="Script" path="res://Scripts/Forest.gd" id="1_eprf7"]
 [ext_resource type="Texture2D" uid="uid://dh13bx01yu78m" path="res://Media/sprites/kaisouko_look.png" id="1_hoqt7"]
@@ -13,6 +13,8 @@
 [ext_resource type="AudioStream" uid="uid://dd4t8hc1wr3s0" path="res://Media/sfx/sword_attack02.wav" id="9_30q6b"]
 [ext_resource type="AudioStream" uid="uid://4v3ipdlb1tan" path="res://Media/sfx/sword_attack01.wav" id="10_0d8bh"]
 [ext_resource type="AudioStream" uid="uid://cpwu06ws2r1cl" path="res://Media/sfx/hitHurt.wav" id="12_yfpkb"]
+[ext_resource type="Script" path="res://Scripts/DedWall.gd" id="14_em37p"]
+[ext_resource type="AudioStream" uid="uid://cat3cfvygslnu" path="res://Media/sfx/dedExplosion.wav" id="15_prsb8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iy05h"]
 size = Vector2(2953, 287)
@@ -415,6 +417,97 @@ volumetric_fog_length = 80.71
 volumetric_fog_detail_spread = 0.615572
 volumetric_fog_ambient_inject = 0.52
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3t337"]
+size = Vector2(678.5, 2685)
+
+[sub_resource type="Animation" id="Animation_ukyrn"]
+resource_name = "ded"
+length = 2.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("15_prsb8")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/AudioStreamPlayer:bus")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"smolBus"]
+}
+
+[sub_resource type="Animation" id="Animation_xkxle"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/AudioStreamPlayer:bus")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Master"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u3vp8"]
+_data = {
+"RESET": SubResource("Animation_xkxle"),
+"ded": SubResource("Animation_ukyrn")
+}
+
+[sub_resource type="Animation" id="Animation_giwag"]
+resource_name = "shake"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -30), Vector2(0, 0), Vector2(0, -30), Vector2(0, 0), Vector2(0, -10), Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8j0fk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bkvre"]
+_data = {
+"RESET": SubResource("Animation_8j0fk"),
+"shake": SubResource("Animation_giwag")
+}
+
 [node name="Forest" type="Node2D"]
 position = Vector2(-1, 0)
 script = ExtResource("1_eprf7")
@@ -499,4 +592,34 @@ position = Vector2(2400, 837)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3nkag")
 
+[node name="DedWalls" type="Node" parent="."]
+script = ExtResource("14_em37p")
+
+[node name="DedWallArea2D" type="Area2D" parent="DedWalls"]
+position = Vector2(-363, 96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DedWalls/DedWallArea2D"]
+shape = SubResource("RectangleShape2D_3t337")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DedWalls"]
+libraries = {
+"": SubResource("AnimationLibrary_u3vp8")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DedWalls/AnimationPlayer"]
+
+[node name="CameraWrap" type="Node2D" parent="."]
+editor_description = "Dedwalls plays camera shake"
+
+[node name="Camera2D" type="Camera2D" parent="CameraWrap"]
+anchor_mode = 0
+
+[node name="CameraPlayer" type="AnimationPlayer" parent="CameraWrap"]
+unique_name_in_owner = true
+editor_description = "Dedwalls plays camera shake"
+libraries = {
+"": SubResource("AnimationLibrary_bkvre")
+}
+
 [connection signal="animation_finished" from="Chiichan/AnimationPlayer" to="Chiichan" method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="DedWalls/DedWallArea2D" to="DedWalls" method="_on_ded_wall_area_2d_body_entered"]
