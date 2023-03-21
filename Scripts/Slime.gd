@@ -23,6 +23,7 @@ func _on_body_entered(body):
 		$"AnimationPlayer".play("hurt")
 
 		body.anim_player.play("hurt")
+		body.apply_impulse(Vector2(-500, -100))
 
 
 func turn_off_all_collision():
