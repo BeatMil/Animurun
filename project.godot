@@ -40,4 +40,4 @@ toggle_fullscreen={
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0.431373, 0.568627, 0.615686, 1)
+environment/defaults/default_clear_color=Color(0.133333, 0.2, 0.219608, 1)
