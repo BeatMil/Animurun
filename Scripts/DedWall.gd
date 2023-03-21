@@ -11,4 +11,4 @@ func _on_ded_wall_area_2d_body_entered(body):
 		$"AnimationPlayer".play("ded")
 		$"%CameraPlayer".play("shake")
 
-		body.is_alive = false # chiichan is ded
+		body.ded() # chiichan is ded

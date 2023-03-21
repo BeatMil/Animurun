@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 
 var SLIME = preload("res://Nodes/Slime.tscn")
