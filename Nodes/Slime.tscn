@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b28eftt4uyeng"]
+[gd_scene load_steps=9 format=3 uid="uid://b28eftt4uyeng"]
 
 [ext_resource type="Script" path="res://Scripts/Slime.gd" id="1_veqpa"]
 [ext_resource type="Texture2D" uid="uid://dc2yr8fulgylt" path="res://Media/sprites/slime_spritesheet.png" id="2_65awk"]
+[ext_resource type="AudioStream" uid="uid://b36cb8pbyil84" path="res://Media/sfx/dead.wav" id="3_v53ox"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7vn5"]
 size = Vector2(192, 172)
@@ -35,7 +36,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_8usju"]
 resource_name = "hurt"
-length = 2.0
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -60,6 +61,21 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(0.898039, 0.156863, 0.188235, 1), Color(1, 1, 1, 1)]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_v53ox")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_q5iy4"]
 resource_name = "idle"
@@ -94,12 +110,6 @@ script = ExtResource("1_veqpa")
 position = Vector2(3.8147e-06, -3.50001)
 scale = Vector2(9.6, 8.65)
 
-[node name="SlimeSpritesheet" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_65awk")
-hframes = 2
-frame = 1
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_y7vn5")
@@ -108,6 +118,14 @@ shape = SubResource("RectangleShape2D_y7vn5")
 libraries = {
 "": SubResource("AnimationLibrary_yhx8y")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
+
+[node name="SlimeSpritesheet" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_65awk")
+hframes = 2
+frame = 1
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
