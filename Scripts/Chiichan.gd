@@ -30,7 +30,6 @@ func _input(event):
 
 	if event.is_action_pressed("ui_accept"):
 		anim_player.play("attack01")
-		# can_move_to_default_pos = false
 
 
 func spawn_hitbox01():

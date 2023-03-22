@@ -1,9 +1,11 @@
 extends RigidBody2D
 
 
+@export var speed: Vector2
+
+
 # Config
 var is_moving = true
-var speed = Vector2(-500*2, 0) # faster slime for debug; 
 
 
 # Signals
@@ -13,6 +15,10 @@ signal ded
 func _integrate_forces(_state):
 	if is_moving:
 		linear_velocity = speed
+
+
+func activate_speed():
+	$"AnimationPlayer".play("speed")
 
 
 func _on_body_entered(body):

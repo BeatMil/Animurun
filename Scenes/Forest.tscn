@@ -460,7 +460,7 @@ glow_levels/2 = 7.69
 glow_levels/3 = 7.46
 glow_intensity = 0.44
 glow_blend_mode = 1
-glow_hdr_threshold = 0.82
+glow_hdr_threshold = 0.8
 glow_hdr_scale = 0.95
 glow_hdr_luminance_cap = 2.69
 fog_light_color = Color(0.498039, 0.121569, 0.223529, 1)
@@ -615,7 +615,7 @@ script = ExtResource("1_eprf7")
 
 [node name="KaisoukoLook" type="Sprite2D" parent="."]
 modulate = Color(1.2, 1.2, 1.2, 1)
-self_modulate = Color(0.988235, 0.776471, 1, 1)
+self_modulate = Color(0.988235, 0.772549, 1, 1)
 position = Vector2(196, 686)
 texture = ExtResource("1_hoqt7")
 
