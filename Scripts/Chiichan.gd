@@ -6,7 +6,7 @@ extends RigidBody2D
 
 # Configs
 var is_alive = true
-var can_move_to_default_pos = true
+var can_move_to_default_pos = false
 var speed = Vector2(100, 0)
 
 
@@ -20,7 +20,7 @@ func _ready():
 
 
 func _integrate_forces(_state):
-	if position.x < default_pos.position.x and can_move_to_default_pos:
+	if position.x < default_pos.position.x and can_move_to_default_pos and is_alive:
 		linear_velocity = speed
 
 
@@ -40,12 +40,20 @@ func spawn_hitbox01():
 
 func hit_by_slime():
 	anim_player.play("hurt")
-	apply_impulse(Vector2(-500 - linear_velocity.x, -100))
+
+	if can_move_to_default_pos: # running to default_pos
+		apply_impulse(Vector2(-700*2.2, -100))
+	else:
+		apply_impulse(Vector2(-700, -100))
+
+
 	can_move_to_default_pos = false
 
 
 func ded():
 	is_alive = false
+	can_move_to_default_pos = false
+	apply_impulse(Vector2(-800, -100))
 	$"%DedMenu".show_menu()
 
 
