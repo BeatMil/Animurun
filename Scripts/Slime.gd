@@ -3,6 +3,7 @@ extends RigidBody2D
 
 # Config
 var is_moving = true
+var speed = Vector2(-500*2, 0) # faster slime for debug; 
 
 
 # Signals
@@ -11,19 +12,20 @@ signal ded
 
 func _integrate_forces(_state):
 	if is_moving:
-		linear_velocity = Vector2(-500, 0)
+		linear_velocity = speed
 
 
 func _on_body_entered(body):
 	if body.is_in_group("chiichan"):
+		# slime got pushed away
 		is_moving = false
 		turn_off_all_collision()
 		apply_impulse(Vector2(1000, -1000))
 		apply_torque_impulse(100000)
 		$"AnimationPlayer".play("hurt")
 
-		body.anim_player.play("hurt")
-		body.apply_impulse(Vector2(-500, -100))
+		# chiichan got pushed away
+		body.hit_by_slime()
 
 
 func turn_off_all_collision():

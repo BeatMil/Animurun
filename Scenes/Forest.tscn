@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bey5x08s88nwy"]
+[gd_scene load_steps=40 format=3 uid="uid://bey5x08s88nwy"]
 
 [ext_resource type="Script" path="res://Scripts/Forest.gd" id="1_eprf7"]
 [ext_resource type="Texture2D" uid="uid://dh13bx01yu78m" path="res://Media/sprites/kaisouko_look.png" id="1_hoqt7"]
@@ -342,10 +342,71 @@ tracks/4/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_tft38"]
+resource_name = "attack01_2"
+length = 0.833342
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChiichanPos/ChiichanRun:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.583333, 0.666667, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChiichanPos/ChiichanRun:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_fn6nb")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ChiichanPos/ChiichanRun:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("9_30q6b")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("10_0d8bh")
+}],
+"times": PackedFloat32Array(0, 0.25)
+}
+tracks/3/use_blend = true
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8jhmc"]
 _data = {
 "RESET": SubResource("Animation_450t4"),
 "attack01": SubResource("Animation_gbfl8"),
+"attack01_2": SubResource("Animation_tft38"),
 "hurt": SubResource("Animation_uv8rb"),
 "run": SubResource("Animation_c0ony")
 }
@@ -418,8 +479,11 @@ volumetric_fog_length = 80.71
 volumetric_fog_detail_spread = 0.615572
 volumetric_fog_ambient_inject = 0.52
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6xcg"]
+size = Vector2(5582, 773)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3t337"]
-size = Vector2(678.5, 2685)
+size = Vector2(793.25, 6458.5)
 
 [sub_resource type="Animation" id="Animation_xkxle"]
 length = 0.001
@@ -589,11 +653,12 @@ position = Vector2(1472, 1066)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundBody"]
 shape = SubResource("RectangleShape2D_iy05h")
 
-[node name="Chiichan" type="RigidBody2D" parent="." groups=["chiichan"]]
+[node name="Chiichan" type="RigidBody2D" parent="." node_paths=PackedStringArray("default_pos") groups=["chiichan"]]
 self_modulate = Color(1.5, 1.5, 1.5, 1)
 position = Vector2(492, 737)
 lock_rotation = true
 script = ExtResource("6_o6v6y")
+default_pos = NodePath("../Markers/ChiichanDefaultPos")
 
 [node name="ChiichanPos" type="Node2D" parent="Chiichan"]
 
@@ -623,9 +688,6 @@ libraries = {
 [node name="Attack01HitboxPos" type="Marker2D" parent="Chiichan"]
 position = Vector2(454, -144)
 
-[node name="EnemySpawnPos" type="Marker2D" parent="."]
-position = Vector2(2400, 837)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3nkag")
 
@@ -633,9 +695,14 @@ environment = SubResource("Environment_3nkag")
 script = ExtResource("14_em37p")
 
 [node name="DedWallArea2D" type="Area2D" parent="DedWalls"]
-position = Vector2(-363, 96)
+position = Vector2(-698, 79)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DedWalls/DedWallArea2D"]
+position = Vector2(-1164, 1773.5)
+shape = SubResource("RectangleShape2D_a6xcg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DedWalls/DedWallArea2D"]
+position = Vector2(-57.375, -1886.75)
 shape = SubResource("RectangleShape2D_3t337")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DedWalls"]
@@ -719,6 +786,14 @@ size_flags_vertical = 3
 libraries = {
 "": SubResource("AnimationLibrary_astwt")
 }
+
+[node name="Markers" type="Node" parent="."]
+
+[node name="EnemySpawnPos" type="Marker2D" parent="Markers"]
+position = Vector2(2400, 837)
+
+[node name="ChiichanDefaultPos" type="Marker2D" parent="Markers"]
+position = Vector2(523, 749)
 
 [connection signal="animation_finished" from="Chiichan/AnimationPlayer" to="Chiichan" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="DedWalls/DedWallArea2D" to="DedWalls" method="_on_ded_wall_area_2d_body_entered"]
