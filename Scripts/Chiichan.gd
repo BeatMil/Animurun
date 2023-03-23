@@ -54,6 +54,7 @@ func ded():
 	is_alive = false
 	can_move_to_default_pos = false
 	apply_impulse(Vector2(-800, -100))
+	$"%DedMenu".process_mode = Node.PROCESS_MODE_INHERIT
 	$"%DedMenu".show_menu()
 
 
