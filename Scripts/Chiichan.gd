@@ -41,11 +41,23 @@ func spawn_hitbox01():
 func hit_by_slime():
 	anim_player.play("hurt")
 
-	if can_move_to_default_pos: # running to default_pos
-		apply_impulse(Vector2(-700*2.2, -100))
-	else:
-		apply_impulse(Vector2(-700, -100))
+	# Set linear_velocity to ZERO
+	# Make it easier to control how far chiichan would fly 
+	# When she collides while moving and while stay still
+	linear_velocity = Vector2.ZERO
+	apply_impulse(Vector2(-1500, -100))
 
+	can_move_to_default_pos = false
+
+
+func hit_by_speed_slime():
+	anim_player.play("hurt")
+
+	# Set linear_velocity to ZERO
+	# Make it easier to control how far chiichan would fly 
+	# When she collides while moving and while stay still
+	linear_velocity = Vector2.ZERO
+	apply_impulse(Vector2(-2000, -100))
 
 	can_move_to_default_pos = false
 

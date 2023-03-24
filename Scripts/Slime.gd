@@ -6,6 +6,7 @@ extends RigidBody2D
 
 # Config
 var is_moving = true
+var is_speed_slime = false
 
 
 # Signals
@@ -19,6 +20,7 @@ func _integrate_forces(_state):
 
 func activate_speed():
 	$"AnimationPlayer".play("speed")
+	is_speed_slime = true
 
 
 func _on_body_entered(body):
@@ -31,7 +33,12 @@ func _on_body_entered(body):
 		$"AnimationPlayer".play("hurt")
 
 		# chiichan got pushed away
-		body.hit_by_slime()
+		if is_speed_slime:
+			body.hit_by_speed_slime()
+		else:
+			body.hit_by_slime()
+
+		# body.hit_by_slime()
 
 
 func turn_off_all_collision():
