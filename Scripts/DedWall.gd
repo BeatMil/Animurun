@@ -8,7 +8,8 @@ func _ready():
 func _on_ded_wall_area_2d_body_entered(body):
 	if body.is_in_group("chiichan"):
 		# play ded particle and animation
-		$"AnimationPlayer".play("ded")
+		$"AnimationPlayer".play("ded_sfx")
 		$"%CameraPlayer".play("shake")
 
-		body.ded() # chiichan is ded
+		if body.is_alive:
+			body.ded() # chiichan is ded
