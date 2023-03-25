@@ -31,6 +31,9 @@ func _input(event):
 	if event.is_action_pressed("ui_accept"):
 		anim_player.play("attack01")
 
+	if event.is_action_pressed("block"):
+		anim_player.play("block")
+
 
 func spawn_hitbox01():
 	var hitbox = ATTACK01_HITBOX.instantiate()
@@ -70,6 +73,6 @@ func ded():
 
 
 func _on_animation_player_animation_finished(anim_name):
-	if anim_name == "attack01" or anim_name == "hurt":
+	if anim_name == "attack01" or anim_name == "hurt" or anim_name == "block":
 		anim_player.play("run")
 		can_move_to_default_pos = true

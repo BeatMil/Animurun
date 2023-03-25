@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bey5x08s88nwy"]
+[gd_scene load_steps=43 format=3 uid="uid://bey5x08s88nwy"]
 
 [ext_resource type="Script" path="res://Scripts/Forest.gd" id="1_eprf7"]
 [ext_resource type="Texture2D" uid="uid://dh13bx01yu78m" path="res://Media/sprites/kaisouko_look.png" id="1_hoqt7"]
@@ -14,6 +14,8 @@
 [ext_resource type="AudioStream" uid="uid://4v3ipdlb1tan" path="res://Media/sfx/sword_attack01.wav" id="10_0d8bh"]
 [ext_resource type="AudioStream" uid="uid://cpwu06ws2r1cl" path="res://Media/sfx/hitHurt.wav" id="12_yfpkb"]
 [ext_resource type="Script" path="res://Scripts/DedWall.gd" id="14_em37p"]
+[ext_resource type="Texture2D" uid="uid://2nmwcl48ddwq" path="res://Media/sprites/chiichan_block.png" id="14_lluli"]
+[ext_resource type="AudioStream" uid="uid://cj0tmbngsm3js" path="res://Media/sfx/block02.wav" id="15_micpd"]
 [ext_resource type="AudioStream" uid="uid://cat3cfvygslnu" path="res://Media/sfx/dedExplosion.wav" id="15_prsb8"]
 [ext_resource type="Script" path="res://Scripts/DedMenu.gd" id="16_p1od0"]
 
@@ -108,6 +110,18 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:mass")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10.0]
 }
 
 [sub_resource type="Animation" id="Animation_gbfl8"]
@@ -256,6 +270,97 @@ tracks/3/keys = {
 }
 tracks/3/use_blend = true
 
+[sub_resource type="Animation" id="Animation_bucmy"]
+resource_name = "block"
+length = 0.8
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChiichanPos/ChiichanRun:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChiichanPos/ChiichanRun:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("14_lluli")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ChiichanPos/ChiichanRun:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("15_micpd")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ChiichanPos:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.583333, 0.75),
+"transitions": PackedFloat32Array(0.5, 1, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(72, 37), Vector2(72, 7), Vector2(72, 0), Vector2(72, 37)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:mass")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(0, 1),
+"update": 0,
+"values": [10.0, 1.0]
+}
+
 [sub_resource type="Animation" id="Animation_uv8rb"]
 resource_name = "hurt"
 length = 0.333338
@@ -335,6 +440,18 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0)
 }
 tracks/5/use_blend = true
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ChiichanPos:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_c0ony"]
 resource_name = "run"
@@ -401,12 +518,25 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ChiichanPos:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8jhmc"]
 _data = {
 "RESET": SubResource("Animation_450t4"),
 "attack01": SubResource("Animation_gbfl8"),
 "attack01_2": SubResource("Animation_tft38"),
+"block": SubResource("Animation_bucmy"),
 "hurt": SubResource("Animation_uv8rb"),
 "run": SubResource("Animation_c0ony")
 }
@@ -501,7 +631,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_ukyrn"]
-resource_name = "ded"
+resource_name = "ded_sfx"
 length = 2.0
 tracks/0/type = "audio"
 tracks/0/imported = false
@@ -534,7 +664,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u3vp8"]
 _data = {
 "RESET": SubResource("Animation_xkxle"),
-"ded": SubResource("Animation_ukyrn")
+"ded_sfx": SubResource("Animation_ukyrn")
 }
 
 [sub_resource type="Animation" id="Animation_8j0fk"]
@@ -680,6 +810,7 @@ shape = SubResource("RectangleShape2D_iy05h")
 [node name="Chiichan" type="RigidBody2D" parent="." node_paths=PackedStringArray("default_pos") groups=["chiichan"]]
 self_modulate = Color(1.5, 1.5, 1.5, 1)
 position = Vector2(492, 737)
+mass = 10.0
 max_contacts_reported = 3
 contact_monitor = true
 lock_rotation = true
@@ -763,6 +894,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("16_p1od0")
+metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/DedMenu"]
 layout_mode = 1
@@ -771,6 +903,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/DedMenu/VBoxContainer"]
 layout_mode = 2
