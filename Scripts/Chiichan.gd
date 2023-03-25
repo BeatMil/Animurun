@@ -6,6 +6,7 @@ extends RigidBody2D
 
 # Configs
 var is_alive = true
+var is_blocking = false
 var can_move_to_default_pos = false
 var speed = Vector2(100, 0)
 
@@ -32,6 +33,7 @@ func _input(event):
 		anim_player.play("attack01")
 
 	if event.is_action_pressed("block"):
+		is_blocking = true
 		anim_player.play("block")
 
 
@@ -42,7 +44,10 @@ func spawn_hitbox01():
 
 
 func hit_by_slime():
-	anim_player.play("hurt")
+	if is_blocking:
+		anim_player.play("block_impact")
+	else:
+		anim_player.play("hurt")
 
 	# Set linear_velocity to ZERO
 	# Make it easier to control how far chiichan would fly 
@@ -54,7 +59,10 @@ func hit_by_slime():
 
 
 func hit_by_speed_slime():
-	anim_player.play("hurt")
+	if is_blocking:
+		anim_player.play("block_impact")
+	else:
+		anim_player.play("hurt")
 
 	# Set linear_velocity to ZERO
 	# Make it easier to control how far chiichan would fly 
@@ -73,6 +81,7 @@ func ded():
 
 
 func _on_animation_player_animation_finished(anim_name):
-	if anim_name == "attack01" or anim_name == "hurt" or anim_name == "block":
+	if anim_name == "attack01" or anim_name == "hurt" or anim_name == "block" or anim_name == "block_impact":
+		is_blocking = false
 		anim_player.play("run")
 		can_move_to_default_pos = true
