@@ -7,8 +7,10 @@ extends RigidBody2D
 # Configs
 var is_alive = true
 var is_blocking = false
+var is_stunned = false
 var can_move_to_default_pos = false
 var speed = Vector2(100, 0)
+
 
 
 # Constants
@@ -27,6 +29,9 @@ func _integrate_forces(_state):
 
 func _input(event):
 	if not is_alive:
+		return
+
+	if is_stunned:
 		return
 
 	if event.is_action_pressed("ui_accept"):
@@ -48,6 +53,8 @@ func hit_by_slime():
 		anim_player.play("block_impact")
 	else:
 		anim_player.play("hurt")
+	
+	is_stunned = true
 
 	# Set linear_velocity to ZERO
 	# Make it easier to control how far chiichan would fly 
@@ -63,6 +70,8 @@ func hit_by_speed_slime():
 		anim_player.play("block_impact")
 	else:
 		anim_player.play("hurt")
+
+	is_stunned = true
 
 	# Set linear_velocity to ZERO
 	# Make it easier to control how far chiichan would fly 
@@ -85,3 +94,5 @@ func _on_animation_player_animation_finished(anim_name):
 		is_blocking = false
 		anim_player.play("run")
 		can_move_to_default_pos = true
+
+		is_stunned = false
