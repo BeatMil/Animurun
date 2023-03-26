@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 
-@export var speed: Vector2
+var speed: Vector2 = Vector2(-1000, 0)
 
 
 # Config
@@ -21,6 +21,7 @@ func _integrate_forces(_state):
 func activate_speed():
 	$"AnimationPlayer".play("speed")
 	is_speed_slime = true
+	speed = speed * 2
 
 
 func _on_body_entered(body):

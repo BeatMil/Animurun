@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cg20q3ed3ke77"
-path="res://.godot/imported/chole_start.wav-8f1e5f9544e42a9f28645fb11b3b515d.sample"
+path="res://.godot/imported/chole_start.wav-44349b8a27e3b936dad5090ceefcaed8.sample"
 
 [deps]
 
-source_file="res://Media/sfx/chole_start.wav"
-dest_files=["res://.godot/imported/chole_start.wav-8f1e5f9544e42a9f28645fb11b3b515d.sample"]
+source_file="res://media/sfx/chole_start.wav"
+dest_files=["res://.godot/imported/chole_start.wav-44349b8a27e3b936dad5090ceefcaed8.sample"]
 
 [params]
 

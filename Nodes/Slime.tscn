@@ -1,9 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://b28eftt4uyeng"]
+[gd_scene load_steps=11 format=3 uid="uid://beswjnm8i5nhp"]
 
-[ext_resource type="Script" path="res://Scripts/Slime.gd" id="1_veqpa"]
-[ext_resource type="Texture2D" uid="uid://dc2yr8fulgylt" path="res://Media/sprites/slime_spritesheet.png" id="2_65awk"]
-[ext_resource type="AudioStream" uid="uid://buqe4ddxwekc2" path="res://Media/sfx/charge01.wav" id="3_210s2"]
-[ext_resource type="AudioStream" uid="uid://b36cb8pbyil84" path="res://Media/sfx/dead.wav" id="3_v53ox"]
+[ext_resource type="AudioStream" uid="uid://b36cb8pbyil84" path="res://media/sfx/dead.wav" id="1_530xr"]
+[ext_resource type="Script" path="res://scripts/Slime.gd" id="1_r2hq7"]
+[ext_resource type="AudioStream" uid="uid://buqe4ddxwekc2" path="res://media/sfx/charge01.wav" id="2_tghh5"]
+[ext_resource type="Texture2D" uid="uid://dc2yr8fulgylt" path="res://media/sprites/slime_spritesheet.png" id="3_ufbf4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7vn5"]
 size = Vector2(192, 172)
@@ -84,7 +84,7 @@ tracks/2/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("3_v53ox")
+"stream": ExtResource("1_530xr")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -155,7 +155,7 @@ tracks/1/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("3_210s2")
+"stream": ExtResource("2_tghh5")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -197,8 +197,7 @@ _data = {
 gravity_scale = 2.0
 max_contacts_reported = 1
 contact_monitor = true
-script = ExtResource("1_veqpa")
-speed = Vector2(-1000, 0)
+script = ExtResource("1_r2hq7")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(3.8147e-06, -3.50001)
@@ -217,7 +216,7 @@ libraries = {
 
 [node name="SlimeSpritesheet" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_65awk")
+texture = ExtResource("3_ufbf4")
 hframes = 2
 frame = 1
 

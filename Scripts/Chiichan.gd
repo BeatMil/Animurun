@@ -15,7 +15,7 @@ var speed = Vector2(100, 0)
 
 # Constants
 @onready var anim_player = $AnimationPlayer
-var ATTACK01_HITBOX = preload("res://Nodes/Hitboxes/attack01_hitbox.tscn")
+var ATTACK01_HITBOX = preload("res://nodes/hitboxes/attack01_hitbox.tscn")
 
 
 func _ready():

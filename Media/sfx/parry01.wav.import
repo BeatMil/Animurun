@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cavppioiw03v4"
-path="res://.godot/imported/parry01.wav-8a55f3bc21f8c670271848aa9fc2820a.sample"
+path="res://.godot/imported/parry01.wav-6142a28f2dc9c9b1cb3a18cb8c11a83d.sample"
 
 [deps]
 
-source_file="res://Media/sfx/parry01.wav"
-dest_files=["res://.godot/imported/parry01.wav-8a55f3bc21f8c670271848aa9fc2820a.sample"]
+source_file="res://media/sfx/parry01.wav"
+dest_files=["res://.godot/imported/parry01.wav-6142a28f2dc9c9b1cb3a18cb8c11a83d.sample"]
 
 [params]
 

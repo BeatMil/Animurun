@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bkhmobrqs5i52"
-path="res://.godot/imported/lava_long.wav-5a845fb0fd3d68d8500bb9c9fdb5e4c9.sample"
+path="res://.godot/imported/lava_long.wav-b69f4ffa1f91f23a441cddbde01eab94.sample"
 
 [deps]
 
-source_file="res://Media/sfx/lava_long.wav"
-dest_files=["res://.godot/imported/lava_long.wav-5a845fb0fd3d68d8500bb9c9fdb5e4c9.sample"]
+source_file="res://media/sfx/lava_long.wav"
+dest_files=["res://.godot/imported/lava_long.wav-b69f4ffa1f91f23a441cddbde01eab94.sample"]
 
 [params]
 

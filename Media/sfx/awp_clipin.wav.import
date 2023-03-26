@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bvqib41boqlva"
-path="res://.godot/imported/awp_clipin.wav-18f65d02d3b18b8601352193ab7e52e4.sample"
+path="res://.godot/imported/awp_clipin.wav-6957532c5f20829067423cb70806168e.sample"
 
 [deps]
 
-source_file="res://Media/sfx/awp_clipin.wav"
-dest_files=["res://.godot/imported/awp_clipin.wav-18f65d02d3b18b8601352193ab7e52e4.sample"]
+source_file="res://media/sfx/awp_clipin.wav"
+dest_files=["res://.godot/imported/awp_clipin.wav-6957532c5f20829067423cb70806168e.sample"]
 
 [params]
 

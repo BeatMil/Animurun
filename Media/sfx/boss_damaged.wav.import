@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dfgh1nqrncbvk"
-path="res://.godot/imported/boss_damaged.wav-8df9fc45844d2d933cc763b65db8fc6f.sample"
+path="res://.godot/imported/boss_damaged.wav-baacfde2083d5bbd88d950c5b1a93643.sample"
 
 [deps]
 
-source_file="res://Media/sfx/boss_damaged.wav"
-dest_files=["res://.godot/imported/boss_damaged.wav-8df9fc45844d2d933cc763b65db8fc6f.sample"]
+source_file="res://media/sfx/boss_damaged.wav"
+dest_files=["res://.godot/imported/boss_damaged.wav-baacfde2083d5bbd88d950c5b1a93643.sample"]
 
 [params]
 

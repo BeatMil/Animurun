@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cfvn2utm3yqqw"
-path="res://.godot/imported/kirby_star.wav-5a0fb0c06646e2907cade6906a0c466b.sample"
+path="res://.godot/imported/kirby_star.wav-dfe51bf3858ca969152d71c2630e37e1.sample"
 
 [deps]
 
-source_file="res://Media/sfx/kirby_star.wav"
-dest_files=["res://.godot/imported/kirby_star.wav-5a0fb0c06646e2907cade6906a0c466b.sample"]
+source_file="res://media/sfx/kirby_star.wav"
+dest_files=["res://.godot/imported/kirby_star.wav-dfe51bf3858ca969152d71c2630e37e1.sample"]
 
 [params]
 
