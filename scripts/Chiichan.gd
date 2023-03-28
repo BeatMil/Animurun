@@ -2,9 +2,7 @@ extends RigidBody2D
 
 
 @export var default_pos: Node
-@export_range(0, 100, 5) var fav_num: int
 
-# nice
 
 # Configs
 var is_alive = true
