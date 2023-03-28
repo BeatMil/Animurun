@@ -3,10 +3,11 @@ extends Node
 
 # Preloads
 var SLIME = preload("res://nodes/Slime.tscn")
+var ROCKY = preload("res://nodes/Rocky.tscn")
 
 
 # Configs
-var enemy_spawn_order: Array = [spawn_slime, spawn_slime, spawn_speed_slime]
+var enemy_spawn_order: Array = [spawn_rocky, spawn_speed_slime]
 var order_index: int = 0
 
 
@@ -38,3 +39,10 @@ func spawn_speed_slime() -> void:
 	slime.position = $"Markers/EnemySpawnPos".position
 	slime.connect("ded", spawner)
 	add_child(slime)
+
+
+func spawn_rocky() -> void:
+	var rocky = ROCKY.instantiate()
+	rocky.position = $"Markers/EnemySpawnPos".position
+	rocky.connect("ded", spawner)
+	add_child(rocky)

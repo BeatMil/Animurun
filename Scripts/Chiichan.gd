@@ -74,9 +74,20 @@ func hit_by_speed_slime():
 
 	is_stunned = true
 
-	# Set linear_velocity to ZERO
-	# Make it easier to control how far chiichan would fly 
-	# When she collides while moving and while stay still
+	linear_velocity = Vector2.ZERO
+	apply_impulse(Vector2(-2000, -100))
+
+	can_move_to_default_pos = false
+
+
+func hit_by_rocky():
+	if is_blocking:
+		anim_player.play("block_impact")
+	else:
+		anim_player.play("hurt")
+	
+	is_stunned = true
+
 	linear_velocity = Vector2.ZERO
 	apply_impulse(Vector2(-2000, -100))
 
@@ -93,7 +104,6 @@ func ded():
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "attack01" or anim_name == "hurt" or anim_name == "block" or anim_name == "block_impact":
 		is_blocking = false
-		anim_player.play("run")
-		can_move_to_default_pos = true
-
 		is_stunned = false
+		can_move_to_default_pos = true
+		anim_player.play("run")
