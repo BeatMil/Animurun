@@ -19,7 +19,6 @@ func _ready() -> void:
 
 
 func spawner() -> void:
-	print("=====================")
 	enemy_spawn_order[order_index].call()
 	order_index += 1
 	if order_index >= enemy_order_size:
@@ -31,7 +30,6 @@ func spawn_slime() -> void:
 	slime.position = $"Markers/EnemySpawnPos".position
 	slime.connect("ded", spawner)
 	add_child(slime)
-	print("SPAWN SLIME!")
 
 
 func spawn_speed_slime() -> void:
