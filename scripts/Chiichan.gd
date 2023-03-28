@@ -44,6 +44,7 @@ func _input(event):
 
 func spawn_hitbox01():
 	var hitbox = ATTACK01_HITBOX.instantiate()
+	hitbox.chiichan = self
 	hitbox.position = $Attack01HitboxPos.position
 	add_child(hitbox)
 
@@ -98,6 +99,10 @@ func ded():
 	can_move_to_default_pos = false
 	apply_impulse(Vector2(-800, -100))
 	$"%DedMenu".show_menu()
+
+
+func sword_deflect():
+	$"AnimationPlayer".play("sword_deflect")
 
 
 func _on_animation_player_animation_finished(anim_name):

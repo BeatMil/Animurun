@@ -35,6 +35,10 @@ func _on_body_entered(body):
 		body.hit_by_rocky()
 
 
+func hurt(): # rocky got him by greatsword
+	$"AnimationPlayer".play("hurt")
+
+
 func turn_off_all_collision():
 	collision_layer = 0b00000000000000000000
 	collision_mask = 0b00000000000000000000

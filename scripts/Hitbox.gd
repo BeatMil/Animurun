@@ -1,6 +1,6 @@
 extends Area2D
 
-var type = 0
+var chiichan
 
 
 func _on_timer_timeout():
@@ -14,3 +14,7 @@ func _on_body_entered(body):
 		body.apply_impulse(Vector2(2000, -2000))
 		body.apply_torque_impulse(100000)
 		body.get_node("AnimationPlayer").play("hurt")
+
+	if body.is_in_group("rocky"):
+		chiichan.sword_deflect()
+		body.hurt()
