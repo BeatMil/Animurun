@@ -35,14 +35,13 @@ func _input(event):
 		return
 
 	if event.is_action_pressed("ui_accept"):
-		anim_player.play("attack01")
+		attack01()
 
 	if event.is_action_pressed("block"):
-		is_blocking = true
-		anim_player.play("block")
+		block()
 
 
-func spawn_hitbox01():
+func spawn_hitbox01(): # used by AnimationPlayer
 	var hitbox = ATTACK01_HITBOX.instantiate()
 	hitbox.chiichan = self
 	hitbox.position = $Attack01HitboxPos.position
@@ -103,10 +102,21 @@ func ded():
 
 func sword_deflect():
 	$"AnimationPlayer".play("sword_deflect")
+	is_stunned = true
+	apply_impulse(Vector2(-900, -100))
+
+
+func attack01():
+		anim_player.play("attack01_2")
+
+
+func block():
+		is_blocking = true
+		anim_player.play("block")
 
 
 func _on_animation_player_animation_finished(anim_name):
-	if anim_name == "attack01" or anim_name == "hurt" or anim_name == "block" or anim_name == "block_impact":
+	if anim_name in ["attack01", "hurt", "block", "block_impact", "attack01_2"]:
 		is_blocking = false
 		is_stunned = false
 		can_move_to_default_pos = true
