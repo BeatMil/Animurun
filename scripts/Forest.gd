@@ -7,7 +7,7 @@ var ROCKY = preload("res://nodes/Rocky.tscn")
 
 
 # Configs
-var enemy_spawn_order: Array = [spawn_rocky, spawn_speed_slime]
+var enemy_spawn_order: Array = [spawn_slime, spawn_speed_slime, spawn_rocky]
 var order_index: int = 0
 
 
@@ -21,9 +21,10 @@ func _ready() -> void:
 
 func spawner() -> void:
 	enemy_spawn_order[order_index].call()
-	order_index += 1
-	if order_index >= enemy_order_size:
-		order_index = 0
+
+	## very complicated way of doing by Jero (chatGPT)
+	## Reset spawn order cycle
+	order_index = (order_index + 1) % enemy_order_size 
 
 
 func spawn_slime() -> void:
