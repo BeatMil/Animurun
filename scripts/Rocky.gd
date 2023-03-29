@@ -2,6 +2,7 @@ extends RigidBody2D
 
 
 var speed: Vector2 = Vector2(-1000, 0)
+var push_back: Vector2 = Vector2(-4000, -100)
 
 
 # Config
@@ -32,7 +33,7 @@ func _on_body_entered(body):
 		$"AnimationPlayer".play("hurt")
 
 		# chiichan got pushed away
-		body.push(Vector2(-2000, -100))
+		body.push(push_back)
 
 
 func hurt(): # rocky got him by greatsword
