@@ -107,7 +107,7 @@ func sword_deflect():
 
 
 func attack01():
-		anim_player.play("attack01_2")
+	anim_player.play("attack01_2")
 
 
 func block():
