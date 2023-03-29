@@ -50,7 +50,7 @@ func spawn_hitbox01(): # used by AnimationPlayer
 	add_child(hitbox)
 
 
-func hit_by_slime():
+func push(power: Vector2):
 	if state == States.BLOCKING:
 		anim_player.play("block_impact")
 	else:
@@ -62,35 +62,7 @@ func hit_by_slime():
 	# Make it easier to control how far chiichan would fly 
 	# When she collides while moving and while stay still
 	linear_velocity = Vector2.ZERO
-	apply_impulse(Vector2(-1500, -100))
-
-	can_move_to_default_pos = false
-
-
-func hit_by_speed_slime():
-	if state == States.BLOCKING:
-		anim_player.play("block_impact")
-	else:
-		anim_player.play("hurt")
-
-	state = States.STUNNED
-
-	linear_velocity = Vector2.ZERO
-	apply_impulse(Vector2(-2000, -100))
-
-	can_move_to_default_pos = false
-
-
-func hit_by_rocky():
-	if state == States.BLOCKING:
-		anim_player.play("block_impact")
-	else:
-		anim_player.play("hurt")
-	
-	state = States.STUNNED
-
-	linear_velocity = Vector2.ZERO
-	apply_impulse(Vector2(-2000, -100))
+	apply_impulse(power)
 
 	can_move_to_default_pos = false
 

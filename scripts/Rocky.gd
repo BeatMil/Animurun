@@ -32,7 +32,7 @@ func _on_body_entered(body):
 		$"AnimationPlayer".play("hurt")
 
 		# chiichan got pushed away
-		body.hit_by_rocky()
+		body.push(Vector2(-2000, -100))
 
 
 func hurt(): # rocky got him by greatsword

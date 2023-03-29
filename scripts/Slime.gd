@@ -35,9 +35,9 @@ func _on_body_entered(body):
 
 		# chiichan got pushed away
 		if is_speed_slime:
-			body.hit_by_speed_slime()
+			body.push(Vector2(-2000, -100))
 		else:
-			body.hit_by_slime()
+			body.push(Vector2(-1500, -100))
 
 		# body.hit_by_slime()
 
