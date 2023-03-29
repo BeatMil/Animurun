@@ -4,13 +4,15 @@ extends RigidBody2D
 @export var default_pos: Node
 
 
+# Beat's own state machine XD
+enum States {RUNNING, ATTACKING, STUNNED, BLOCKING, BLOCK_IMPACT, SWORD_DEFLECT}
+
+
 # Configs
+var state = States.RUNNING
 var is_alive = true
-var is_blocking = false
-var is_stunned = false
 var can_move_to_default_pos = false
 var speed = Vector2(100, 0)
-
 
 
 # Constants
@@ -31,7 +33,7 @@ func _input(event):
 	if not is_alive:
 		return
 
-	if is_stunned:
+	if state == States.STUNNED:
 		return
 
 	if event.is_action_pressed("ui_accept"):
@@ -49,12 +51,12 @@ func spawn_hitbox01(): # used by AnimationPlayer
 
 
 func hit_by_slime():
-	if is_blocking:
+	if state == States.BLOCKING:
 		anim_player.play("block_impact")
 	else:
 		anim_player.play("hurt")
 	
-	is_stunned = true
+	state = States.STUNNED
 
 	# Set linear_velocity to ZERO
 	# Make it easier to control how far chiichan would fly 
@@ -66,12 +68,12 @@ func hit_by_slime():
 
 
 func hit_by_speed_slime():
-	if is_blocking:
+	if state == States.BLOCKING:
 		anim_player.play("block_impact")
 	else:
 		anim_player.play("hurt")
 
-	is_stunned = true
+	state = States.STUNNED
 
 	linear_velocity = Vector2.ZERO
 	apply_impulse(Vector2(-2000, -100))
@@ -80,12 +82,12 @@ func hit_by_speed_slime():
 
 
 func hit_by_rocky():
-	if is_blocking:
+	if state == States.BLOCKING:
 		anim_player.play("block_impact")
 	else:
 		anim_player.play("hurt")
 	
-	is_stunned = true
+	state = States.STUNNED
 
 	linear_velocity = Vector2.ZERO
 	apply_impulse(Vector2(-2000, -100))
@@ -102,7 +104,7 @@ func ded():
 
 func sword_deflect():
 	$"AnimationPlayer".play("sword_deflect")
-	is_stunned = true
+	state = States.STUNNED
 	apply_impulse(Vector2(-900, -100))
 
 
@@ -111,13 +113,12 @@ func attack01():
 
 
 func block():
-		is_blocking = true
-		anim_player.play("block")
+	state = States.BLOCKING
+	anim_player.play("block")
 
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name in ["attack01", "hurt", "block", "block_impact", "attack01_2"]:
-		is_blocking = false
-		is_stunned = false
+		state = States.RUNNING
 		can_move_to_default_pos = true
 		anim_player.play("run")
