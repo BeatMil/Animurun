@@ -18,3 +18,7 @@ func _on_body_entered(body):
 	if body.is_in_group("rocky"):
 		chiichan.sword_deflect()
 		body.hurt()
+
+	if body.is_in_group("bomby"):
+		body.hurt()
+		chiichan.push(Vector2(-2000, -900))
