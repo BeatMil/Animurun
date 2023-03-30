@@ -5,7 +5,7 @@ extends RigidBody2D
 
 
 # Beat's own state machine XD
-enum States {RUNNING, ATTACKING, STUNNED, BLOCKING, BLOCK_IMPACT, SWORD_DEFLECT}
+enum States {RUNNING, ATTACKING, STUNNED, BLOCKING, BLOCK_IMPACT, SWORD_DEFLECT, DODGING}
 
 
 # Configs
@@ -41,6 +41,9 @@ func _input(event):
 
 	if event.is_action_pressed("block"):
 		block()
+
+	if event.is_action_pressed("dodge"):
+		dodge()
 
 
 func spawn_hitbox01(): # used by AnimationPlayer
@@ -89,8 +92,13 @@ func block():
 	anim_player.play("block")
 
 
+func dodge():
+	state = States.DODGING
+	anim_player.play("dodge")
+
+
 func _on_animation_player_animation_finished(anim_name):
-	if anim_name in ["attack01", "hurt", "block", "block_impact", "attack01_2"]:
+	if anim_name in ["attack01", "hurt", "block", "block_impact", "attack01_2", "dodge"]:
 		state = States.RUNNING
 		can_move_to_default_pos = true
 		anim_player.play("run")

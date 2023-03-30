@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://b16ck10efgool"]
+[gd_scene load_steps=50 format=3 uid="uid://b16ck10efgool"]
 
 [ext_resource type="Script" path="res://scripts/Forest.gd" id="1_4e02h"]
 [ext_resource type="Texture2D" uid="uid://dh13bx01yu78m" path="res://media/sprites/kaisouko_look.png" id="1_88375"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bxjft2o05bs63" path="res://media/sprites/chiichan_run.png" id="15_it6uo"]
 [ext_resource type="AudioStream" uid="uid://cat3cfvygslnu" path="res://media/sfx/dedExplosion.wav" id="16_ww0km"]
 [ext_resource type="Texture2D" uid="uid://dyjx2w2gd2jbp" path="res://media/sprites/sword_deflect.png" id="17_pc2sv"]
+[ext_resource type="Texture2D" uid="uid://bc8aor20lysxc" path="res://media/sprites/chiichan_dodge.png" id="18_cd6wo"]
 
 [sub_resource type="GDScript" id="GDScript_t755h"]
 script/source = "extends ParallaxLayer
@@ -764,6 +765,98 @@ tracks/5/keys = {
 "values": [Color(0.988235, 0.980392, 0.85098, 1), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_snods"]
+resource_name = "dodge"
+length = 0.8
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChiichanPos/ChiichanRun:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChiichanPos/ChiichanRun:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("18_cd6wo")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ChiichanPos/ChiichanRun:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("11_fbjua")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ChiichanPos:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1666, 0.583333, 0.75),
+"transitions": PackedFloat32Array(0.5, 0.5, 1, 0.5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(33, 30), Vector2(33, 30), Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:mass")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ChiichanPos/ChiichanRun:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.583333, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.25098), Color(1, 1, 1, 0.25098), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8jhmc"]
 _data = {
 "RESET": SubResource("Animation_450t4"),
@@ -771,6 +864,7 @@ _data = {
 "attack01_2": SubResource("Animation_tft38"),
 "block": SubResource("Animation_bucmy"),
 "block_impact": SubResource("Animation_gbugi"),
+"dodge": SubResource("Animation_snods"),
 "hurt": SubResource("Animation_uv8rb"),
 "run": SubResource("Animation_c0ony"),
 "sword_deflect": SubResource("Animation_erit4")
