@@ -89,6 +89,8 @@ _data = {
 }
 
 [node name="Bomby" type="RigidBody2D" groups=["bomby", "enemy"]]
+collision_layer = 4
+collision_mask = 3
 gravity_scale = 2.0
 max_contacts_reported = 1
 contact_monitor = true

@@ -97,6 +97,16 @@ func dodge():
 	anim_player.play("dodge")
 
 
+func dodge_collision():
+	collision_layer = 0b00000000000000001000
+	collision_mask = 0b00000000000000000001
+
+
+func normal_collision():
+	collision_layer = 0b00000000000000000010
+	collision_mask = 0b00000000000000000001
+
+
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name in ["attack01", "hurt", "block", "block_impact", "attack01_2", "dodge"]:
 		state = States.RUNNING
