@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://vdxvonovhl55"
-path="res://.godot/imported/tank.wav-92e0565a9595237d7499651257ea6024.sample"
+path="res://.godot/imported/tank.wav-3e409c8e255653935a5ab3e2f9caf328.sample"
 
 [deps]
 
-source_file="res://media/sfx/tank.wav"
-dest_files=["res://.godot/imported/tank.wav-92e0565a9595237d7499651257ea6024.sample"]
+source_file="res://Media/sfx/tank.wav"
+dest_files=["res://.godot/imported/tank.wav-3e409c8e255653935a5ab3e2f9caf328.sample"]
 
 [params]
 

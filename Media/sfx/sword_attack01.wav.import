@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://4v3ipdlb1tan"
-path="res://.godot/imported/sword_attack01.wav-93a36621a9c9962936bc806aad8cc69f.sample"
+path="res://.godot/imported/sword_attack01.wav-4c8cc90fd9e2b61cd36efed0ece798dc.sample"
 
 [deps]
 
-source_file="res://media/sfx/sword_attack01.wav"
-dest_files=["res://.godot/imported/sword_attack01.wav-93a36621a9c9962936bc806aad8cc69f.sample"]
+source_file="res://Media/sfx/sword_attack01.wav"
+dest_files=["res://.godot/imported/sword_attack01.wav-4c8cc90fd9e2b61cd36efed0ece798dc.sample"]
 
 [params]
 

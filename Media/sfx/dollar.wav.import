@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c564jcf51ij1a"
-path="res://.godot/imported/dollar.wav-8df14bdf927232356b5fc1bea464bf50.sample"
+path="res://.godot/imported/dollar.wav-d5db914f584509b83e1093ccde92448f.sample"
 
 [deps]
 
-source_file="res://media/sfx/dollar.wav"
-dest_files=["res://.godot/imported/dollar.wav-8df14bdf927232356b5fc1bea464bf50.sample"]
+source_file="res://Media/sfx/dollar.wav"
+dest_files=["res://.godot/imported/dollar.wav-d5db914f584509b83e1093ccde92448f.sample"]
 
 [params]
 

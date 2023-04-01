@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://tedr3kxs1fvd"
-path="res://.godot/imported/suspense2.wav-fa86a7dc5c836b04317209809be50e6e.sample"
+path="res://.godot/imported/suspense2.wav-e3b60d058353f79fe3b28791f63c0742.sample"
 
 [deps]
 
-source_file="res://media/sfx/suspense2.wav"
-dest_files=["res://.godot/imported/suspense2.wav-fa86a7dc5c836b04317209809be50e6e.sample"]
+source_file="res://Media/sfx/suspense2.wav"
+dest_files=["res://.godot/imported/suspense2.wav-e3b60d058353f79fe3b28791f63c0742.sample"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bg0ttk80e600k"
-path="res://.godot/imported/laugh.wav-fea5d342fe85a542a8a75e67ace48271.sample"
+path="res://.godot/imported/laugh.wav-621ed9896993f6621713d12cf27ea559.sample"
 
 [deps]
 
-source_file="res://media/sfx/laugh.wav"
-dest_files=["res://.godot/imported/laugh.wav-fea5d342fe85a542a8a75e67ace48271.sample"]
+source_file="res://Media/sfx/laugh.wav"
+dest_files=["res://.godot/imported/laugh.wav-621ed9896993f6621713d12cf27ea559.sample"]
 
 [params]
 

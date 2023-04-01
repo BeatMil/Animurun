@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c1deehyydily3"
-path="res://.godot/imported/health_increase.wav-5692a39ad914dc5834410832265b39ca.sample"
+path="res://.godot/imported/health_increase.wav-553a50f38ab7956d77f25fefb0c61980.sample"
 
 [deps]
 
-source_file="res://media/sfx/health_increase.wav"
-dest_files=["res://.godot/imported/health_increase.wav-5692a39ad914dc5834410832265b39ca.sample"]
+source_file="res://Media/sfx/health_increase.wav"
+dest_files=["res://.godot/imported/health_increase.wav-553a50f38ab7956d77f25fefb0c61980.sample"]
 
 [params]
 
