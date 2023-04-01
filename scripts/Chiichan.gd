@@ -28,6 +28,11 @@ func _ready():
 
 func _physics_process(delta):
 	if state != States.STUNNED:
+		# On ground play run animation
+		if is_on_floor():
+			if not anim_player.is_playing():
+				anim_player.play("run")
+
 		# Jump
 		if Input.is_action_just_pressed("jump"):
 			if is_on_floor():
@@ -45,6 +50,7 @@ func _physics_process(delta):
 			velocity = Vector2(speed * delta, velocity.y)
 		else:
 			lerp_velocity_x()
+	
 
 	# Add gravity and calculate movements
 	gravity()
