@@ -17,7 +17,13 @@ var order_index: int = 0
 
 
 func _ready() -> void:
+	pass
 	spawner()
+
+
+func _process(_delta):
+	# debug pp
+	$"CanvasLayer/chiichan_velocity".text = str($"Chiichan".velocity)
 
 
 func spawner() -> void:
@@ -55,3 +61,7 @@ func spawn_bomby() -> void:
 	bomby.position = $"Markers/EnemySpawnPos".position
 	bomby.connect("ded", spawner)
 	add_child(bomby)
+
+
+func _on_spawn_timer_timeout():
+	spawner()

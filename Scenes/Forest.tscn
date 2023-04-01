@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://b16ck10efgool"]
+[gd_scene load_steps=51 format=3 uid="uid://b16ck10efgool"]
 
 [ext_resource type="Script" path="res://scripts/Forest.gd" id="1_4e02h"]
 [ext_resource type="Texture2D" uid="uid://dh13bx01yu78m" path="res://media/sprites/kaisouko_look.png" id="1_88375"]
@@ -122,18 +122,6 @@ tracks/6/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath(".:mass")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
 
 [sub_resource type="Animation" id="Animation_gbfl8"]
 resource_name = "attack01"
@@ -219,18 +207,6 @@ tracks/5/keys = {
 "args": [],
 "method": &"spawn_hitbox01"
 }]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath(".:mass")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_tft38"]
@@ -318,18 +294,6 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(30, -43), Vector2(10, -43), Vector2(0, 0)]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath(".:mass")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
 
 [sub_resource type="Animation" id="Animation_bucmy"]
 resource_name = "block"
@@ -397,18 +361,6 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(0.5, 1, 0.5, 0.5),
 "update": 0,
 "values": [Vector2(72, 37), Vector2(72, 7), Vector2(72, 0), Vector2(72, 37)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".:mass")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [4.0, 2.0, 1.0]
 }
 
 [sub_resource type="Animation" id="Animation_gbugi"]
@@ -561,34 +513,22 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath(".:mass")
+tracks/5/path = NodePath("ChiichanPos/ChiichanRun:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("ChiichanPos/ChiichanRun:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.166667, 0.583333, 0.75),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.25098), Color(1, 1, 1, 0.25098), Color(1, 1, 1, 1)]
 }
-tracks/7/type = "method"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath(".")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.7497),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
@@ -691,30 +631,75 @@ tracks/6/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
-tracks/7/type = "value"
+tracks/7/type = "method"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath(".:mass")
+tracks/7/path = NodePath(".")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0.0416667),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-tracks/8/type = "method"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath(".")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"normal_collision"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_fgy5s"]
+resource_name = "jump"
+length = 0.125013
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChiichanPos/ChiichanRun:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChiichanPos:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"normal_collision"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"jump"
 }]
 }
 
@@ -795,25 +780,13 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
-tracks/6/type = "value"
+tracks/6/type = "method"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath(".:mass")
+tracks/6/path = NodePath(".")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-tracks/7/type = "method"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath(".")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -911,6 +884,7 @@ _data = {
 "block_impact": SubResource("Animation_gbugi"),
 "dodge": SubResource("Animation_snods"),
 "hurt": SubResource("Animation_uv8rb"),
+"jump": SubResource("Animation_fgy5s"),
 "run": SubResource("Animation_c0ony"),
 "sword_deflect": SubResource("Animation_erit4")
 }
@@ -1212,13 +1186,11 @@ position = Vector2(1472, 1066)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundBody"]
 shape = SubResource("RectangleShape2D_iy05h")
 
-[node name="Chiichan" type="RigidBody2D" parent="." node_paths=PackedStringArray("default_pos") groups=["chiichan"]]
+[node name="Chiichan" type="CharacterBody2D" parent="." node_paths=PackedStringArray("default_pos") groups=["chiichan"]]
 self_modulate = Color(1.5, 1.5, 1.5, 1)
-position = Vector2(492, 737)
+position = Vector2(503, 692)
 collision_layer = 2
-max_contacts_reported = 3
-contact_monitor = true
-lock_rotation = true
+floor_constant_speed = true
 script = ExtResource("6_o6v6y")
 default_pos = NodePath("../Markers/ChiichanDefaultPos")
 
@@ -1281,6 +1253,7 @@ editor_description = "Dedwalls plays camera shake"
 position = Vector2(960, 540)
 
 [node name="Camera2D" type="Camera2D" parent="CameraWrap"]
+zoom = Vector2(0.8, 0.8)
 
 [node name="CameraPlayer" type="AnimationPlayer" parent="CameraWrap"]
 unique_name_in_owner = true
@@ -1354,6 +1327,14 @@ libraries = {
 "": SubResource("AnimationLibrary_astwt")
 }
 
+[node name="chiichan_velocity" type="Label" parent="CanvasLayer"]
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 139.0
+offset_bottom = 25.0
+scale = Vector2(3.2052, 3.59681)
+text = "chiichan_velocity: "
+
 [node name="Markers" type="Node" parent="."]
 
 [node name="EnemySpawnPos" type="Marker2D" parent="Markers"]
@@ -1362,6 +1343,9 @@ position = Vector2(2400, 837)
 [node name="ChiichanDefaultPos" type="Marker2D" parent="Markers"]
 position = Vector2(523, 749)
 
+[node name="SpawnTimer" type="Timer" parent="."]
+
 [connection signal="animation_finished" from="Chiichan/AnimationPlayer" to="Chiichan" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="DedWalls/DedWallArea2D" to="DedWalls" method="_on_ded_wall_area_2d_body_entered"]
 [connection signal="pressed" from="CanvasLayer/DedMenu/VBoxContainer/HBoxContainer/BoxContainer2/RestartButton" to="CanvasLayer/DedMenu" method="_on_restart_button_pressed"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
