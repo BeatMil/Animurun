@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://b16ck10efgool"]
+[gd_scene load_steps=55 format=3 uid="uid://b16ck10efgool"]
 
 [ext_resource type="Script" path="res://scripts/Forest.gd" id="1_4e02h"]
 [ext_resource type="Texture2D" uid="uid://dh13bx01yu78m" path="res://media/sprites/kaisouko_look.png" id="1_88375"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://lwgm73y41uvc" path="res://media/sprites/chiichan_jump.png" id="17_0460j"]
 [ext_resource type="Texture2D" uid="uid://dyjx2w2gd2jbp" path="res://media/sprites/sword_deflect.png" id="17_pc2sv"]
 [ext_resource type="Texture2D" uid="uid://bc8aor20lysxc" path="res://media/sprites/chiichan_dodge.png" id="18_cd6wo"]
+[ext_resource type="AudioStream" uid="uid://b030i7g3mmmse" path="res://media/sfx/smol_jump.wav" id="18_vfpg0"]
 [ext_resource type="Script" path="res://scripts/Wall.gd" id="20_himey"]
 
 [sub_resource type="GDScript" id="GDScript_t755h"]
@@ -740,6 +741,21 @@ tracks/6/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/7/type = "audio"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("18_vfpg0")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/7/use_blend = true
 
 [sub_resource type="Animation" id="Animation_c0ony"]
 resource_name = "run"
