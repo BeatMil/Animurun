@@ -2,7 +2,7 @@ extends RigidBody2D
 
 
 var speed: Vector2 = Vector2(-1000, 0)
-var push_back: Vector2 = Vector2(-4000, -100)
+var push_back: Vector2 = Vector2(-3000, -100)
 
 
 # Config
