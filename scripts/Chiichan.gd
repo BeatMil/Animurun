@@ -100,16 +100,11 @@ func push(power: Vector2):
 	else:
 		anim_player.play("hurt")
 		velocity += power
+
+		## add more pushback next times chiichan got hit
+		pushback_multiplier += 0.5
 	
 	state = States.STUNNED
-
-	pushback_multiplier += 0.5
-
-	# Set linear_velocity to ZERO
-	# Make it easier to control how far chiichan would fly 
-	# When she collides while moving and while stay still
-	# linear_velocity = Vector2.ZERO
-	# apply_impulse(power)
 
 
 func jump():
