@@ -1247,7 +1247,6 @@ shape = SubResource("RectangleShape2D_iy05h")
 self_modulate = Color(1.5, 1.5, 1.5, 1)
 position = Vector2(503, 692)
 collision_layer = 2
-floor_constant_speed = true
 script = ExtResource("6_o6v6y")
 default_pos = NodePath("../Markers/ChiichanDefaultPos")
 

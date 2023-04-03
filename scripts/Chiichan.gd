@@ -88,12 +88,13 @@ func spawn_hitbox01(): # used by AnimationPlayer
 func push(power: Vector2):
 	if state == States.BLOCKING:
 		anim_player.play("block_impact")
+		velocity += (power / 2)
 	else:
 		anim_player.play("hurt")
+		velocity += power
 	
 	state = States.STUNNED
 
-	velocity += power
 
 	# Set linear_velocity to ZERO
 	# Make it easier to control how far chiichan would fly 

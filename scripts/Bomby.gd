@@ -22,10 +22,7 @@ func _on_body_entered(body):
 		jump_off_screen()
 
 		# chiichan got pushed away
-		if body.state == body.States.BLOCKING:
-			body.push(Vector2(-9000, -3200))
-		else:
-			body.push(Vector2(-2000, -900))
+		body.push(Vector2(-9000, -1900))
 
 
 func hurt(): # bomby got him by greatsword, hitbox01.gd
