@@ -20,5 +20,5 @@ func _on_body_entered(body):
 		body.hurt()
 
 	if body.is_in_group("bomby"):
-		body.hurt()
-		chiichan.push(Vector2(-2000, -900))
+		body.jump_off_screen()
+		chiichan.push(Vector2(-9000, -1900))
