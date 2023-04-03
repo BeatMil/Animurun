@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://beswjnm8i5nhp"]
 
-[ext_resource type="AudioStream" uid="uid://b36cb8pbyil84" path="res://media/sfx/dead.wav" id="1_530xr"]
+[ext_resource type="AudioStream" uid="uid://b36cb8pbyil84" path="res://Media/sfx/dead.wav" id="1_530xr"]
 [ext_resource type="Script" path="res://scripts/Slime.gd" id="1_r2hq7"]
-[ext_resource type="AudioStream" uid="uid://buqe4ddxwekc2" path="res://media/sfx/charge01.wav" id="2_tghh5"]
-[ext_resource type="Texture2D" uid="uid://dc2yr8fulgylt" path="res://media/sprites/slime_spritesheet.png" id="3_ufbf4"]
+[ext_resource type="AudioStream" uid="uid://buqe4ddxwekc2" path="res://Media/sfx/charge01.wav" id="2_tghh5"]
+[ext_resource type="Texture2D" uid="uid://dc2yr8fulgylt" path="res://Media/sprites/slime_spritesheet.png" id="3_ufbf4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7vn5"]
 size = Vector2(192, 172)
