@@ -27,6 +27,12 @@ func _ready():
 
 
 func _physics_process(delta):
+	## stop chiichan from moving when she is ded
+	## but chiichan still move from velocity she receive
+	if not is_alive:
+		move_and_slide()
+		return
+
 	if state != States.STUNNED:
 		# On ground play run animation
 		if is_on_floor():

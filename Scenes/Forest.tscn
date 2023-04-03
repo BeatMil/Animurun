@@ -34,7 +34,7 @@ func _process(delta):
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iy05h"]
-size = Vector2(2953, 287)
+size = Vector2(4108, 287)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqcb5"]
 size = Vector2(199, 349)
@@ -1303,7 +1303,7 @@ position = Vector2(-1164, 1773.5)
 shape = SubResource("RectangleShape2D_a6xcg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DedWalls/DedWallArea2D"]
-position = Vector2(-57.375, -1886.75)
+position = Vector2(-338, -1886.75)
 shape = SubResource("RectangleShape2D_3t337")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DedWalls"]
