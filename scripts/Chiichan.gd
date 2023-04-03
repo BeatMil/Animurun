@@ -14,6 +14,7 @@ var is_alive = true
 var speed = 100000
 var jump_power = 900
 var gravity_power = 30
+var pushback_multiplier = 0.0 # amount of increase pushback
 
 
 # Constants
@@ -92,6 +93,7 @@ func spawn_hitbox01(): # used by AnimationPlayer
 
 
 func push(power: Vector2):
+	power = (pushback_multiplier * power) + power
 	if state == States.BLOCKING:
 		anim_player.play("block_impact")
 		velocity += (power / 2)
@@ -101,6 +103,7 @@ func push(power: Vector2):
 	
 	state = States.STUNNED
 
+	pushback_multiplier += 0.5
 
 	# Set linear_velocity to ZERO
 	# Make it easier to control how far chiichan would fly 
