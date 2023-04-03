@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cy5de7c0713cw"]
+[gd_scene load_steps=11 format=3 uid="uid://cy5de7c0713cw"]
 
 [ext_resource type="Script" path="res://scripts/Bomby.gd" id="1_fnt5c"]
-[ext_resource type="AudioStream" uid="uid://dnnfgqv01ld8w" path="res://media/sfx/explosion16.wav" id="2_yy77h"]
-[ext_resource type="Texture2D" uid="uid://vr6gm1cq4vvw" path="res://media/sprites/bomby.png" id="4_uehsa"]
+[ext_resource type="AudioStream" uid="uid://dnnfgqv01ld8w" path="res://Media/sfx/explosion16.wav" id="2_yy77h"]
+[ext_resource type="AudioStream" uid="uid://buqe4ddxwekc2" path="res://Media/sfx/charge01.wav" id="3_luyl2"]
+[ext_resource type="Texture2D" uid="uid://vr6gm1cq4vvw" path="res://Media/sprites/bomby.png" id="4_uehsa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7vn5"]
 size = Vector2(192, 172)
@@ -28,6 +29,18 @@ tracks/1/path = NodePath("Sprite2D:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -81,11 +94,56 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_xwss6"]
+resource_name = "speed"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(3, 3, 3, 1)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/MasterBus")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_luyl2")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.427451, 0.415686, 0.415686, 1), Color(1, 0.294118, 0.294118, 1), Color(0.427451, 0.415686, 0.415686, 1), Color(1, 0.294118, 0.294118, 1), Color(0.427451, 0.415686, 0.415686, 1), Color(1, 0.294118, 0.294118, 1), Color(0.427451, 0.415686, 0.415686, 1), Color(1, 0.294118, 0.294118, 1), Color(0.427451, 0.415686, 0.415686, 1), Color(1, 0.294118, 0.294118, 1), Color(0.427451, 0.415686, 0.415686, 1), Color(1, 0.294118, 0.294118, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yhx8y"]
 _data = {
 "RESET": SubResource("Animation_jfkii"),
 "hurt": SubResource("Animation_0641d"),
-"idle": SubResource("Animation_q5iy4")
+"idle": SubResource("Animation_q5iy4"),
+"speed": SubResource("Animation_xwss6")
 }
 
 [node name="Bomby" type="RigidBody2D" groups=["bomby", "enemy"]]
@@ -111,6 +169,8 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
 bus = &"smolBus"
+
+[node name="MasterBus" type="AudioStreamPlayer" parent="AnimationPlayer"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(10, -49)

@@ -6,6 +6,7 @@ var speed: Vector2 = Vector2(-1000, 0)
 
 # Config
 var is_moving = true
+var	is_speed_bomby = true
 
 
 # Signals
@@ -23,6 +24,12 @@ func _on_body_entered(body):
 
 		# chiichan got pushed away
 		body.push(Vector2(-9000, -1900))
+
+
+func activate_speed():
+	$"AnimationPlayer".play("speed")
+	is_speed_bomby = true
+	speed = speed * 2
 
 
 func hurt(): # bomby got him by greatsword, hitbox01.gd
