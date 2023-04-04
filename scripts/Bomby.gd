@@ -45,6 +45,12 @@ func jump_off_screen():
 		$"AnimationPlayer".play("hurt")
 
 
+func throw_bomb() -> void:
+	is_moving = false
+	$ShapePlayer.play("circle_shape")
+	apply_impulse(Vector2(-2000, -2000))
+
+
 func turn_off_all_collision():
 	collision_layer = 0b00000000000000000000
 	collision_mask = 0b00000000000000000000

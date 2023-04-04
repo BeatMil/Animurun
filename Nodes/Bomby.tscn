@@ -1,12 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://cy5de7c0713cw"]
+[gd_scene load_steps=16 format=3 uid="uid://cy5de7c0713cw"]
 
 [ext_resource type="Script" path="res://scripts/Bomby.gd" id="1_fnt5c"]
 [ext_resource type="AudioStream" uid="uid://dnnfgqv01ld8w" path="res://Media/sfx/explosion16.wav" id="2_yy77h"]
 [ext_resource type="AudioStream" uid="uid://buqe4ddxwekc2" path="res://Media/sfx/charge01.wav" id="3_luyl2"]
 [ext_resource type="Texture2D" uid="uid://vr6gm1cq4vvw" path="res://Media/sprites/bomby.png" id="4_uehsa"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7vn5"]
-size = Vector2(192, 172)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ys26t"]
+size = Vector2(174, 160)
 
 [sub_resource type="Animation" id="Animation_jfkii"]
 length = 0.001
@@ -146,6 +146,63 @@ _data = {
 "speed": SubResource("Animation_xwss6")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_fepvr"]
+radius = 93.0054
+
+[sub_resource type="Animation" id="Animation_j78p7"]
+resource_name = "circle_shape"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../CollisionShape2D:shape")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CircleShape2D_fepvr")]
+}
+
+[sub_resource type="Animation" id="Animation_obreh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../CollisionShape2D:shape")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("RectangleShape2D_ys26t")]
+}
+
+[sub_resource type="Animation" id="Animation_ovkct"]
+resource_name = "square_shape"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../CollisionShape2D:shape")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("RectangleShape2D_ys26t")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vfoif"]
+_data = {
+"RESET": SubResource("Animation_obreh"),
+"circle_shape": SubResource("Animation_j78p7"),
+"square_shape": SubResource("Animation_ovkct")
+}
+
 [node name="Bomby" type="RigidBody2D" groups=["bomby", "enemy"]]
 collision_layer = 4
 collision_mask = 3
@@ -159,8 +216,8 @@ position = Vector2(3.8147e-06, -3.50001)
 scale = Vector2(9.6, 8.65)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
-shape = SubResource("RectangleShape2D_y7vn5")
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_ys26t")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -171,6 +228,12 @@ libraries = {
 bus = &"smolBus"
 
 [node name="MasterBus" type="AudioStreamPlayer" parent="AnimationPlayer"]
+
+[node name="ShapePlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_vfoif")
+}
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(10, -49)

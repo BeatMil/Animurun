@@ -8,7 +8,7 @@ var BOMBY = preload("res://nodes/Bomby.tscn")
 
 
 # Configs
-var enemy_spawn_order: Array = [spawn_speed_bomby]
+var enemy_spawn_order: Array = [spawn_triple]
 var order_index: int = 0
 
 
@@ -69,6 +69,23 @@ func spawn_speed_bomby() -> void:
 	bomby.position = $"Markers/EnemySpawnPos".position
 	bomby.connect("ded", spawner)
 	add_child(bomby)
+
+
+func spawn_triple() -> void:
+	var bomby = BOMBY.instantiate()
+	bomby.position = $"Markers/EnemySpawnPos".position
+
+	var rocky = ROCKY.instantiate()
+	rocky.position = $"Markers/EnemySpawnPos".position
+
+	var slime = SLIME.instantiate()
+	slime.position = $"Markers/EnemySpawnPos".position
+
+	bomby.throw_bomb()
+	add_child(bomby)
+	await get_tree().create_timer(0.3).timeout
+
+	add_child(rocky)
 
 
 func _on_spawn_timer_timeout():
