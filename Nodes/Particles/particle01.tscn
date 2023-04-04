@@ -20,6 +20,7 @@ script = ExtResource("1_ig7m8")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 scale = Vector2(3, 3)
+emitting = false
 amount = 24
 process_material = SubResource("ParticleProcessMaterial_awf4k")
 lifetime = 5.0

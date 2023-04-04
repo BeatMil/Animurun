@@ -2,8 +2,9 @@ extends Node2D
 
 
 func _ready():
-	$Timer.wait_time = $GPUParticles2D.lifetime - 0.1
+	$Timer.wait_time = $GPUParticles2D.lifetime
 	$Timer.start()
+	$GPUParticles2D.emitting = true
 
 
 func _on_timer_timeout():
