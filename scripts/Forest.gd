@@ -8,7 +8,7 @@ var BOMBY = preload("res://nodes/Bomby.tscn")
 
 
 # Configs
-var enemy_spawn_order: Array = [spawn_triple02]
+var enemy_spawn_order: Array = [spawn_triple01]
 var order_index: int = 0
 
 
@@ -73,7 +73,7 @@ func spawn_speed_bomby() -> void:
 
 func spawn_triple01() -> void:
 	var bomby = BOMBY.instantiate()
-	bomby.position = $"Markers/EnemySpawnPos".position
+	bomby.position = $"Markers/EnemySpawnPos2".position
 
 	var rocky = ROCKY.instantiate()
 	rocky.position = $"Markers/EnemySpawnPos".position

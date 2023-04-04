@@ -5,10 +5,12 @@ extends RigidBody2D
 var speed: Vector2 = Vector2(-1000, 0)
 var is_moving = true
 var	is_speed_bomby = true
+var	is_throw_bomb = false
 
 
 # Preloads
 var PARTICLE01 = preload("res://Nodes/Particles/particle01.tscn")
+var EXPLOSION_HITBOX = preload("res://Nodes/Hitboxes/explosion_hitbox.tscn")
 
 
 # Signals
@@ -26,6 +28,10 @@ func _on_body_entered(body):
 
 		# chiichan got pushed away
 		body.push(Vector2(-9000, -1900))
+	
+	if body.is_in_group("ground") and is_throw_bomb:
+		spawn_hitbox()
+		jump_off_screen()
 
 
 func activate_speed():
@@ -51,11 +57,18 @@ func jump_off_screen():
 func spawn_particle() -> void:
 	var particle = PARTICLE01.instantiate()
 	particle.position = position
-	$"..".add_child(particle)
+	$"..".call_deferred("add_child", particle)
+
+
+func spawn_hitbox() -> void:
+	var explosion = EXPLOSION_HITBOX.instantiate()
+	explosion.position = position
+	$"..".call_deferred("add_child", explosion)
 
 
 func throw_bomb() -> void:
 	is_moving = false
+	is_throw_bomb = true
 	$ShapePlayer.play("circle_shape")
 	apply_impulse(Vector2(-2000, -2000))
 

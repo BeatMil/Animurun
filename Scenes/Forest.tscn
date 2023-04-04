@@ -42,7 +42,7 @@ bounce = 0.8
 size = Vector2(4108, 287)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqcb5"]
-size = Vector2(143, 357)
+size = Vector2(143, 305)
 
 [sub_resource type="Animation" id="Animation_450t4"]
 length = 0.001
@@ -1236,7 +1236,7 @@ SPEED = -600
 position = Vector2(1920, 1051)
 texture = ExtResource("4_f12gi")
 
-[node name="GroundBody" type="StaticBody2D" parent="."]
+[node name="GroundBody" type="StaticBody2D" parent="." groups=["ground"]]
 position = Vector2(1472, 1066)
 physics_material_override = SubResource("PhysicsMaterial_vax0k")
 
@@ -1257,7 +1257,7 @@ texture = ExtResource("17_0460j")
 offset = Vector2(0, 12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chiichan"]
-position = Vector2(30.5, 11.5)
+position = Vector2(28, 21)
 shape = SubResource("RectangleShape2D_xqcb5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Chiichan"]
@@ -1346,6 +1346,9 @@ text = "chiichan_velocity: "
 
 [node name="EnemySpawnPos" type="Marker2D" parent="Markers"]
 position = Vector2(2400, 837)
+
+[node name="EnemySpawnPos2" type="Marker2D" parent="Markers"]
+position = Vector2(2400, 767)
 
 [node name="ChiichanDefaultPos" type="Marker2D" parent="Markers"]
 position = Vector2(523, 749)
