@@ -42,7 +42,7 @@ bounce = 0.8
 size = Vector2(4108, 287)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqcb5"]
-size = Vector2(199, 349)
+size = Vector2(143, 357)
 
 [sub_resource type="Animation" id="Animation_450t4"]
 length = 0.001
@@ -68,7 +68,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("6_lhnwd")]
+"values": [ExtResource("17_0460j")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1253,7 +1253,7 @@ default_pos = NodePath("../Markers/ChiichanDefaultPos")
 [node name="ChiichanPos" type="Node2D" parent="Chiichan"]
 
 [node name="ChiichanRun" type="Sprite2D" parent="Chiichan/ChiichanPos"]
-texture = ExtResource("6_lhnwd")
+texture = ExtResource("17_0460j")
 offset = Vector2(0, 12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chiichan"]
@@ -1275,7 +1275,7 @@ libraries = {
 }
 
 [node name="Attack01HitboxPos" type="Marker2D" parent="Chiichan"]
-position = Vector2(454, -144)
+position = Vector2(361, -147)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3nkag")
