@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://bc8aor20lysxc" path="res://Media/sprites/chiichan_dodge.png" id="18_cd6wo"]
 [ext_resource type="AudioStream" uid="uid://b030i7g3mmmse" path="res://Media/sfx/smol_jump.wav" id="18_vfpg0"]
 [ext_resource type="Script" path="res://scripts/Wall.gd" id="20_himey"]
+[ext_resource type="Script" path="res://scripts/DedMenu.gd" id="23_d47am"]
 
 [sub_resource type="GDScript" id="GDScript_t755h"]
 script/source = "extends ParallaxLayer
@@ -1185,19 +1186,6 @@ _data = {
 "shake": SubResource("Animation_giwag")
 }
 
-[sub_resource type="GDScript" id="GDScript_cgyca"]
-script/source = "extends Control
-
-
-func _on_restart_button_pressed():
-	get_tree().change_scene_to_file(\"res://Scenes/Forest.tscn\")
-
-
-func show_menu():
-	$\"AnimationPlayer\".play(\"fade_in\")
-	$\"VBoxContainer/HBoxContainer/BoxContainer2/RestartButton\".grab_focus()
-"
-
 [sub_resource type="Animation" id="Animation_sl5fl"]
 length = 0.001
 tracks/0/type = "value"
@@ -1397,7 +1385,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("GDScript_cgyca")
+script = ExtResource("23_d47am")
 metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/DedMenu"]
