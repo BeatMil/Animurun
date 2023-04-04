@@ -1,12 +1,14 @@
 extends RigidBody2D
 
 
-var speed: Vector2 = Vector2(-1000, 0)
-
-
 # Config
+var speed: Vector2 = Vector2(-1000, 0)
 var is_moving = true
 var	is_speed_bomby = true
+
+
+# Preloads
+var PARTICLE01 = preload("res://Nodes/Particles/particle01.tscn")
 
 
 # Signals
@@ -43,6 +45,13 @@ func jump_off_screen():
 		apply_impulse(Vector2(1000, -1000))
 		apply_torque_impulse(100000)
 		$"AnimationPlayer".play("hurt")
+		spawn_particle() # vfx
+
+
+func spawn_particle() -> void:
+	var particle = PARTICLE01.instantiate()
+	particle.position = position
+	$"..".add_child(particle)
 
 
 func throw_bomb() -> void:
