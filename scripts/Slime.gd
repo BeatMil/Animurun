@@ -39,7 +39,12 @@ func _on_body_entered(body):
 		else:
 			body.push(Vector2(-1500, -100))
 
-		# body.hit_by_slime()
+
+func throw_slime(power: Vector2) -> void:
+	is_moving = false
+	apply_impulse(power)
+	await get_tree().create_timer(0.1).timeout
+	apply_torque_impulse(-100000)
 
 
 func turn_off_all_collision():
