@@ -1,9 +1,71 @@
-[gd_scene load_steps=3 format=3 uid="uid://bixi2741lfnmo"]
+[gd_scene load_steps=7 format=3 uid="uid://bixi2741lfnmo"]
 
 [ext_resource type="Script" path="res://scripts/ExplosionHitbox.gd" id="1_b8gr4"]
+[ext_resource type="Texture2D" uid="uid://dnq1nnxxelurt" path="res://Media/sprites/explosion_bad.png" id="2_688bg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pcvt"]
 size = Vector2(625, 625)
+
+[sub_resource type="Animation" id="Animation_cchfa"]
+resource_name = "explode"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExplosionBad:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.2, 0.2), Vector2(1.8, 1.8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ExplosionBad:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.694118, 0.694118, 1), Color(1, 1, 1, 1), Color(1, 0.694118, 0.694118, 1), Color(1, 1, 1, 1), Color(1, 0.694118, 0.694118, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4fvvs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExplosionBad:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.8, 1.8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ExplosionBad:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_akqmn"]
+_data = {
+"RESET": SubResource("Animation_4fvvs"),
+"explode": SubResource("Animation_cchfa")
+}
 
 [node name="Hitbox" type="Area2D"]
 collision_layer = 0
@@ -17,6 +79,17 @@ shape = SubResource("RectangleShape2D_3pcvt")
 wait_time = 0.4
 one_shot = true
 autostart = true
+
+[node name="ExplosionBad" type="Sprite2D" parent="."]
+position = Vector2(34, -81)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("2_688bg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "explode"
+libraries = {
+"": SubResource("AnimationLibrary_akqmn")
+}
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
