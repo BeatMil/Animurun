@@ -6,6 +6,33 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pcvt"]
 size = Vector2(625, 625)
 
+[sub_resource type="Animation" id="Animation_4fvvs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExplosionBad:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.8, 1.8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ExplosionBad:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_cchfa"]
 resource_name = "explode"
 length = 0.4
@@ -34,33 +61,6 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 0.694118, 0.694118, 1), Color(1, 1, 1, 1), Color(1, 0.694118, 0.694118, 1), Color(1, 1, 1, 1), Color(1, 0.694118, 0.694118, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_4fvvs"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ExplosionBad:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1.8, 1.8)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ExplosionBad:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_akqmn"]
 _data = {
 "RESET": SubResource("Animation_4fvvs"),
@@ -76,7 +76,7 @@ script = ExtResource("1_b8gr4")
 shape = SubResource("RectangleShape2D_3pcvt")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.4
+wait_time = 0.2
 one_shot = true
 autostart = true
 
