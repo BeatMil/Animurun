@@ -252,6 +252,7 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ShapePlayer"]
+bus = &"smolBus"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(10, -49)
