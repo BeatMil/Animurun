@@ -8,7 +8,7 @@ var BOMBY = preload("res://nodes/Bomby.tscn")
 
 
 # Configs
-var enemy_spawn_order: Array = [spawn_triple01]
+var enemy_spawn_order: Array = [spawn_triple04, spawn_triple03, spawn_triple03]
 var order_index: int = 0
 
 
@@ -83,7 +83,7 @@ func spawn_triple01() -> void:
 	slime.position = $"Markers/EnemySpawnPos".position
 
 	# add bomby
-	bomby.throw_bomb()
+	bomby.throw_bomb(Vector2(-2000, -2000))
 	add_child(bomby)
 	await get_tree().create_timer(0.3).timeout
 
@@ -116,6 +116,52 @@ func spawn_triple02() -> void:
 
 	add_child(slime3)
 	slime3.throw_slime(Vector2(-1900, -1900))
+
+
+func spawn_triple03() -> void:
+	var node1 = BOMBY.instantiate()
+	node1.position = $"Markers/EnemySpawnPos2".position
+
+	var node2 = BOMBY.instantiate()
+	node2.position = $"Markers/EnemySpawnPos2".position
+
+	var node3 = BOMBY.instantiate()
+	node3.connect("ded", spawner)
+	node3.position = $"Markers/EnemySpawnPos2".position
+
+	add_child(node1)
+	node1.throw_bomb(Vector2(-2000, -2500))
+	await get_tree().create_timer(0.3).timeout
+
+	add_child(node2)
+	node2.throw_bomb(Vector2(-2000, -2000))
+	await get_tree().create_timer(0.3).timeout
+
+	add_child(node3)
+	node3.throw_bomb(Vector2(-1900, -1900))
+
+
+func spawn_triple04() -> void:
+	var node1 = BOMBY.instantiate()
+	node1.position = $"Markers/EnemySpawnPos2".position
+
+	var node2 = BOMBY.instantiate()
+	node2.position = $"Markers/EnemySpawnPos2".position
+
+	var node3 = BOMBY.instantiate()
+	node3.connect("ded", spawner)
+	node3.position = $"Markers/EnemySpawnPos2".position
+
+	add_child(node1)
+	node1.throw_bomb(Vector2(-1500, -1500))
+	await get_tree().create_timer(0.3).timeout
+
+	add_child(node2)
+	node2.throw_bomb(Vector2(-1300, -1300))
+	await get_tree().create_timer(0.3).timeout
+
+	add_child(node3)
+	node3.throw_bomb(Vector2(-1000, -1000))
 
 
 func _on_spawn_timer_timeout():
