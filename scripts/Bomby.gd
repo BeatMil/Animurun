@@ -66,11 +66,11 @@ func spawn_hitbox() -> void:
 	$"..".call_deferred("add_child", explosion)
 
 
-func throw_bomb() -> void:
+func throw_bomb(power: Vector2) -> void:
 	is_moving = false
 	is_throw_bomb = true
 	$ShapePlayer.play("circle_shape")
-	apply_impulse(Vector2(-2000, -2000))
+	apply_impulse(power)
 
 
 func turn_off_all_collision():
