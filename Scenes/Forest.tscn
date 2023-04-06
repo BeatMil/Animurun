@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://b16ck10efgool"]
+[gd_scene load_steps=56 format=3 uid="uid://b16ck10efgool"]
 
 [ext_resource type="Script" path="res://scripts/Forest.gd" id="1_4e02h"]
 [ext_resource type="Texture2D" uid="uid://dh13bx01yu78m" path="res://Media/sprites/kaisouko_look.png" id="1_88375"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://bc8aor20lysxc" path="res://Media/sprites/chiichan_dodge.png" id="18_cd6wo"]
 [ext_resource type="AudioStream" uid="uid://b030i7g3mmmse" path="res://Media/sfx/smol_jump.wav" id="18_vfpg0"]
 [ext_resource type="Script" path="res://scripts/Wall.gd" id="20_himey"]
+[ext_resource type="AudioStream" uid="uid://q2ijwyc88yom" path="res://Media/sfx/sword_deflect.wav" id="21_v1gct"]
 [ext_resource type="PackedScene" uid="uid://crqfbet1r6xbr" path="res://Scenes/ded_menu.tscn" id="23_6ahis"]
 [ext_resource type="PackedScene" uid="uid://blolwrddpaefy" path="res://Scenes/pause_menu.tscn" id="24_vciyu"]
 [ext_resource type="PackedScene" uid="uid://cvyv7o0wtcd4o" path="res://Nodes/Taiga.tscn" id="25_cebnq"]
@@ -925,7 +926,7 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("13_f3mfm")
+"stream": ExtResource("21_v1gct")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -1308,7 +1309,7 @@ position = Vector2(2400, 767)
 position = Vector2(523, 749)
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.5
 
 [node name="Taiga" parent="." instance=ExtResource("25_cebnq")]
 position = Vector2(1969, 629)
