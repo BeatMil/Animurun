@@ -8,8 +8,10 @@ var BOMBY = preload("res://nodes/Bomby.tscn")
 
 
 # Configs
-var enemy_spawn_order: Array = [spawn_slime_rocks]
+var enemy_spawn_order: Array = [spawn_slime_rocks, spawn_triple01, spawn_triple02, spawn_triple03, spawn_five_bombs, spawn_triple05, spawn_triple04]
 var order_index: int = 0
+var is_random_spawn = true
+var rng = RandomNumberGenerator.new()
 
 
 # Reference
@@ -29,6 +31,9 @@ func _process(_delta):
 func spawner() -> void:
 	if not enemy_spawn_order.size():
 		return
+
+	if is_random_spawn:
+		order_index = rng.randi_range(0, enemy_order_size - 1)
 
 	enemy_spawn_order[order_index].call()
 
@@ -92,7 +97,7 @@ func spawn_triple01() -> void:
 
 	# add rocky
 	add_child(rocky)
-	await get_tree().create_timer(0.5, false).timeout
+	await get_tree().create_timer(0.2, false).timeout
 
 	# add slime
 	add_child(slime)
