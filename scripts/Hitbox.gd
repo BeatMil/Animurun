@@ -17,7 +17,7 @@ func _on_body_entered(body):
 			body.apply_impulse(Vector2(3000, -2500))
 			body.apply_torque_impulse(100000)
 		else:
-			body.apply_impulse(Vector2(2000, -2000))
+			body.apply_impulse(Vector2(3000, -1900))
 			body.apply_torque_impulse(100000)
 
 	if body.is_in_group("rocky"):
