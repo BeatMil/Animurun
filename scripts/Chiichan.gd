@@ -71,14 +71,20 @@ func _input(event):
 	if state == States.STUNNED:
 		return
 
+	### Prevent chiichan from chaining actions
+	### chiichan can chain dodge to attack, but not attack to dodge
+	### chiichan can basically chain anything to attack but not vise versa
+
 	if event.is_action_pressed("attack"):
 		attack01()
 
 	if event.is_action_pressed("block"):
-		block()
+		if state not in [States.BLOCK_IMPACT, States.ATTACKING, States.DODGING]:
+			block()
 
 	if event.is_action_pressed("dodge"):
-		dodge()
+		if state not in [States.BLOCK_IMPACT, States.ATTACKING]:
+			dodge()
 
 
 func lerp_velocity_x():
