@@ -95,6 +95,8 @@ func move_left(delta) ->  void:
 	var calculated_speed = speed
 	if state == States.ATTACKING:
 		calculated_speed = speed / 2
+	elif state == States.DODGING:
+		calculated_speed = speed * 1.5
 	velocity = Vector2(-calculated_speed * delta, velocity.y)
 
 
@@ -102,6 +104,8 @@ func move_right(delta) ->  void:
 	var calculated_speed = speed
 	if state == States.ATTACKING:
 		calculated_speed = speed / 2
+	elif state == States.DODGING:
+		calculated_speed = speed * 1.5
 	velocity = Vector2(calculated_speed * delta, velocity.y)
 
 
