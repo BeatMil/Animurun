@@ -52,9 +52,9 @@ func _physics_process(delta):
 		if Input.is_action_pressed("move_left") and Input.is_action_pressed("move_right"):
 			lerp_velocity_x()
 		elif Input.is_action_pressed("move_left"):
-			velocity = Vector2(-speed * delta, velocity.y)
+			move_left(delta)
 		elif Input.is_action_pressed("move_right"):
-			velocity = Vector2(speed * delta, velocity.y)
+			move_right(delta)
 		else:
 			lerp_velocity_x()
 	
@@ -83,6 +83,20 @@ func _input(event):
 
 func lerp_velocity_x():
 	velocity = velocity.lerp(Vector2(0, velocity.y), FRICTION)
+
+
+func move_left(delta) ->  void:
+	var calculated_speed = speed
+	if state == States.ATTACKING:
+		calculated_speed = speed / 2
+	velocity = Vector2(-calculated_speed * delta, velocity.y)
+
+
+func move_right(delta) ->  void:
+	var calculated_speed = speed
+	if state == States.ATTACKING:
+		calculated_speed = speed / 2
+	velocity = Vector2(calculated_speed * delta, velocity.y)
 
 
 func spawn_hitbox01(): # used by AnimationPlayer
@@ -129,6 +143,7 @@ func sword_deflect():
 
 
 func attack01():
+	state = States.ATTACKING
 	anim_player.play("attack01_2")
 
 
