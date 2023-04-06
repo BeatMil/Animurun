@@ -129,6 +129,7 @@ func push(power: Vector2):
 
 
 func jump():
+	state = States.RUNNING
 	anim_player.play("jump")
 	velocity += Vector2(0, -jump_power)
 
