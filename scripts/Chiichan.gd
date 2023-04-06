@@ -34,7 +34,7 @@ func _physics_process(delta):
 		move_and_slide()
 		return
 
-	if state != States.STUNNED:
+	if state not in [States.STUNNED, States.BLOCK_IMPACT]:
 		# On ground play run animation
 		if is_on_floor():
 			if not anim_player.is_playing():
@@ -108,17 +108,18 @@ func spawn_hitbox01(): # used by AnimationPlayer
 
 func push(power: Vector2):
 	power = (pushback_multiplier * power) + power
-	if state == States.BLOCKING:
+	if state == States.BLOCKING or state == States.BLOCK_IMPACT:
 		anim_player.play("block_impact")
 		velocity += (power / 2)
+		state = States.BLOCK_IMPACT
 	else:
 		anim_player.play("hurt")
 		velocity += power
 
 		## add more pushback next times chiichan got hit
 		pushback_multiplier += 0.5
+		state = States.STUNNED
 	
-	state = States.STUNNED
 
 
 func jump():
