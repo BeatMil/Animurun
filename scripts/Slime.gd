@@ -6,6 +6,7 @@ var speed: Vector2 = Vector2(-1000, 0)
 
 # Config
 var is_moving = true
+var is_throw_slime = false
 var is_speed_slime = false
 
 
@@ -24,6 +25,10 @@ func activate_speed():
 	speed = speed * 2
 
 
+func hurt():
+	$"AnimationPlayer".play("hurt")
+
+
 func _on_body_entered(body):
 	if body.is_in_group("chiichan"):
 		# slime got pushed away
@@ -31,7 +36,7 @@ func _on_body_entered(body):
 		turn_off_all_collision()
 		apply_impulse(Vector2(1000, -1000))
 		apply_torque_impulse(100000)
-		$"AnimationPlayer".play("hurt")
+		hurt()
 
 		# chiichan got pushed away
 		if is_speed_slime:
@@ -42,6 +47,7 @@ func _on_body_entered(body):
 
 func throw_slime(power: Vector2) -> void:
 	is_moving = false
+	is_throw_slime = true
 	apply_impulse(power)
 	await get_tree().create_timer(0.1).timeout
 	apply_torque_impulse(-100000)
@@ -50,6 +56,11 @@ func throw_slime(power: Vector2) -> void:
 func turn_off_all_collision():
 	collision_layer = 0b00000000000000000000
 	collision_mask = 0b00000000000000000000
+
+
+func turn_hit_boss_collision():
+	collision_layer = 0b00000000000000000000
+	collision_mask = 0b00000000000000010000
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():

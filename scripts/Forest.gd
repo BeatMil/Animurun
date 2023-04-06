@@ -8,7 +8,7 @@ var BOMBY = preload("res://nodes/Bomby.tscn")
 
 
 # Configs
-var enemy_spawn_order: Array = [spawn_triple04, spawn_triple03, spawn_triple03]
+var enemy_spawn_order: Array = [spawn_triple02]
 var order_index: int = 0
 
 
@@ -27,6 +27,9 @@ func _process(_delta):
 
 
 func spawner() -> void:
+	if not enemy_spawn_order.size():
+		return
+
 	enemy_spawn_order[order_index].call()
 
 	## very complicated way of doing by Jero (chatGPT)
@@ -162,6 +165,79 @@ func spawn_triple04() -> void:
 
 	add_child(node3)
 	node3.throw_bomb(Vector2(-1000, -1000))
+
+
+func spawn_triple05() -> void:
+	var slime1 = SLIME.instantiate()
+	slime1.position = $"Markers/EnemySpawnPos".position
+
+	var slime3 = SLIME.instantiate()
+	slime3.connect("ded", spawner)
+	slime3.position = $"Markers/EnemySpawnPos".position
+
+	add_child(slime1)
+	await get_tree().create_timer(0.1).timeout
+
+	add_child(slime3)
+
+
+func spawn_five_bombs() -> void:
+	var node1 = BOMBY.instantiate()
+	node1.position = $"Markers/EnemySpawnPos2".position
+
+	var node2 = BOMBY.instantiate()
+	node2.position = $"Markers/EnemySpawnPos2".position
+
+	var node3 = BOMBY.instantiate()
+	node3.position = $"Markers/EnemySpawnPos2".position
+
+	var node4 = BOMBY.instantiate()
+	node4.position = $"Markers/EnemySpawnPos2".position
+
+	var node5 = BOMBY.instantiate()
+	node5.connect("ded", spawner)
+	node5.position = $"Markers/EnemySpawnPos2".position
+
+	add_child(node1)
+	node1.throw_bomb(Vector2(-1000, -1000))
+	await get_tree().create_timer(0.3).timeout
+
+	add_child(node2)
+	node2.throw_bomb(Vector2(-1300, -1300))
+	await get_tree().create_timer(0.3).timeout
+
+	add_child(node3)
+	node3.throw_bomb(Vector2(-1500, -1500))
+	await get_tree().create_timer(0.3).timeout
+
+	add_child(node4)
+	node4.throw_bomb(Vector2(-1900, -1900))
+	await get_tree().create_timer(0.3).timeout
+
+	add_child(node5)
+	node5.throw_bomb(Vector2(-2100, -2100))
+	await get_tree().create_timer(0.3).timeout
+
+
+func spawn_2rock_1speed() -> void:
+	var rocky = ROCKY.instantiate()
+	rocky.position = $"Markers/EnemySpawnPos".position
+
+	var rocky2 = ROCKY.instantiate()
+	rocky2.position = $"Markers/EnemySpawnPos".position
+
+	var bomby = BOMBY.instantiate()
+	bomby.activate_speed()
+	bomby.connect("ded", spawner)
+	bomby.position = $"Markers/EnemySpawnPos".position
+
+	add_child(bomby)
+	await get_tree().create_timer(0.1).timeout
+
+	add_child(rocky)
+	await get_tree().create_timer(0.2).timeout
+
+	add_child(rocky2)
 
 
 func _on_spawn_timer_timeout():
