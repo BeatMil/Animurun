@@ -22,3 +22,11 @@ func _on_body_entered(body):
 	if body.is_in_group("bomby"):
 		body.jump_off_screen()
 		chiichan.push(Vector2(-9000, -1900))
+
+
+func _on_area_entered(area):
+	print(area)
+	if area.is_in_group("taiga"):
+		area.push_chiichan()
+		chiichan.sword_deflect()
+

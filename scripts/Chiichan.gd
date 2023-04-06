@@ -125,7 +125,7 @@ func ded():
 func sword_deflect():
 	$"AnimationPlayer".play("sword_deflect")
 	state = States.STUNNED
-	velocity = Vector2.ZERO
+	velocity = Vector2(-500, 0)
 
 
 func attack01():
@@ -158,6 +158,6 @@ func normal_collision():
 
 
 func _on_animation_player_animation_finished(anim_name):
-	if anim_name in ["attack01", "hurt", "block", "block_impact", "attack01_2", "dodge"]:
+	if anim_name in ["attack01", "hurt", "block", "block_impact", "attack01_2", "dodge", "sword_deflect"]:
 		state = States.RUNNING
 		anim_player.play("run")
