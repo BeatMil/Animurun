@@ -183,3 +183,8 @@ func _on_animation_player_animation_finished(anim_name):
 	if anim_name in ["attack01", "hurt", "block", "block_impact", "attack01_2", "dodge", "sword_deflect"]:
 		state = States.RUNNING
 		anim_player.play("run")
+
+		if pushback_multiplier >= 1.5:
+			$"ChiichanPos/sprite".self_modulate = Color(1, 0.6, 0.5)
+		elif pushback_multiplier >= 1:
+			$"ChiichanPos/sprite".self_modulate = Color(0.9, 0.9, 0.4)
