@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://cy5de7c0713cw"]
+[gd_scene load_steps=18 format=3 uid="uid://cy5de7c0713cw"]
 
 [ext_resource type="Script" path="res://scripts/Bomby.gd" id="1_fnt5c"]
 [ext_resource type="AudioStream" uid="uid://dnnfgqv01ld8w" path="res://Media/sfx/explosion16.wav" id="2_yy77h"]
+[ext_resource type="AudioStream" uid="uid://by7da76os06p5" path="res://Media/sfx/spawn_bomby.wav" id="3_adu14"]
 [ext_resource type="AudioStream" uid="uid://buqe4ddxwekc2" path="res://Media/sfx/charge01.wav" id="3_luyl2"]
 [ext_resource type="AudioStream" uid="uid://bbbtc3u6cbaqg" path="res://Media/sfx/bigJump.wav" id="4_t48kb"]
 [ext_resource type="Texture2D" uid="uid://vr6gm1cq4vvw" path="res://Media/sprites/bomby.png" id="4_uehsa"]
@@ -81,7 +82,7 @@ tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_q5iy4"]
 resource_name = "idle"
-length = 0.001
+length = 0.60001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -94,6 +95,21 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_adu14")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_xwss6"]
 resource_name = "speed"
@@ -236,6 +252,7 @@ position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_ys26t")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_yhx8y")
 }

@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://beswjnm8i5nhp"]
+[gd_scene load_steps=12 format=3 uid="uid://beswjnm8i5nhp"]
 
 [ext_resource type="AudioStream" uid="uid://b36cb8pbyil84" path="res://Media/sfx/dead.wav" id="1_530xr"]
 [ext_resource type="Script" path="res://scripts/Slime.gd" id="1_r2hq7"]
 [ext_resource type="AudioStream" uid="uid://buqe4ddxwekc2" path="res://Media/sfx/charge01.wav" id="2_tghh5"]
+[ext_resource type="AudioStream" uid="uid://dhfdcxcy8meft" path="res://Media/sfx/spawn_slime.wav" id="3_sn1n5"]
 [ext_resource type="Texture2D" uid="uid://dc2yr8fulgylt" path="res://Media/sprites/slime_spritesheet.png" id="3_ufbf4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7vn5"]
@@ -92,7 +93,7 @@ tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_q5iy4"]
 resource_name = "idle"
-length = 0.001
+length = 0.20001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -129,6 +130,21 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_sn1n5")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
 
 [sub_resource type="Animation" id="Animation_lctyq"]
 resource_name = "speed"
@@ -210,6 +226,7 @@ position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_y7vn5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_yhx8y")
 }
