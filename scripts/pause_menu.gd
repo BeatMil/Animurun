@@ -15,7 +15,7 @@ func _input(event):
 
 
 func _on_restart_button_pressed():
-	get_tree().change_scene_to_file("res://Scenes/Forest.tscn")
+	get_tree().change_scene_to_file("res://scenes/forest.tscn")
 	get_tree().paused = false
 
 

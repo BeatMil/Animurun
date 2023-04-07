@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=8 format=3 uid="uid://c1vlse56bmgi3"]
 
 [ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_j44sf"]
 [ext_resource type="AudioStream" uid="uid://dxulyiqmehvub" path="res://media/sfx/pause1.wav" id="2_22ag8"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3]
+[gd_scene load_steps=18 format=3 uid="uid://3q1ujloacd0k"]
 
 [ext_resource type="Script" path="res://scripts/bomby.gd" id="1_fnt5c"]
 [ext_resource type="AudioStream" uid="uid://dnnfgqv01ld8w" path="res://media/sfx/explosion16.wav" id="2_yy77h"]
@@ -269,7 +269,6 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ShapePlayer"]
-bus = &"smolBus"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(10, -49)

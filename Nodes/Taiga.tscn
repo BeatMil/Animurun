@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3]
+[gd_scene load_steps=11 format=3 uid="uid://ccj7pc6oqg054"]
 
 [ext_resource type="Texture2D" uid="uid://bh6f3tghypu7y" path="res://media/sprites/taiga_idle.png" id="1_bcect"]
 [ext_resource type="Script" path="res://scripts/taiga.gd" id="1_hgram"]

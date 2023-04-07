@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://brg8ucrmr27dn"]
+[gd_scene load_steps=57 format=3 uid="uid://dfr4ldwth3ac3"]
 
 [ext_resource type="Script" path="res://scripts/forest.gd" id="1_trs0b"]
 [ext_resource type="Texture2D" uid="uid://dh13bx01yu78m" path="res://media/sprites/kaisouko_look.png" id="2_b416e"]
@@ -23,9 +23,9 @@
 [ext_resource type="AudioStream" uid="uid://q2ijwyc88yom" path="res://media/sfx/sword_deflect.wav" id="21_ve0hw"]
 [ext_resource type="Script" path="res://scripts/wall.gd" id="22_e3h8j"]
 [ext_resource type="AudioStream" uid="uid://cat3cfvygslnu" path="res://media/sfx/dedExplosion.wav" id="23_gl0fv"]
-[ext_resource type="PackedScene" path="res://scenes/ded_menu.tscn" id="24_3kuhs"]
-[ext_resource type="PackedScene" path="res://Scenes/pause_menu.tscn" id="25_pyk6c"]
-[ext_resource type="PackedScene" path="res://Nodes/Taiga.tscn" id="26_et4pp"]
+[ext_resource type="PackedScene" uid="uid://d1h4ur6yhpscs" path="res://scenes/ded_menu.tscn" id="24_3kuhs"]
+[ext_resource type="PackedScene" uid="uid://c1vlse56bmgi3" path="res://scenes/pause_menu.tscn" id="25_pyk6c"]
+[ext_resource type="PackedScene" uid="uid://ccj7pc6oqg054" path="res://nodes/taiga.tscn" id="26_et4pp"]
 
 [sub_resource type="GDScript" id="GDScript_t755h"]
 script/source = "extends ParallaxLayer

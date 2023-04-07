@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpvt736wf2yfn"]
+
+[ext_resource type="Script" path="res://scripts/audio_test.gd" id="1_xmk52"]
+[ext_resource type="AudioStream" uid="uid://bbbtc3u6cbaqg" path="res://media/sfx/bigJump.wav" id="2_d3p52"]
+
+[sub_resource type="Animation" id="Animation_ufldj"]
+resource_name = "test_sound"
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_d3p52")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j50nc"]
+_data = {
+"test_sound": SubResource("Animation_ufldj")
+}
+
+[node name="AudioTest" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xmk52")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1168.0
+offset_top = 475.0
+offset_right = 1448.0
+offset_bottom = 606.0
+text = "sound test"
+
+[node name="VSlider" type="VSlider" parent="."]
+layout_mode = 0
+offset_left = 553.0
+offset_top = 99.0
+offset_right = 841.0
+offset_bottom = 1007.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_j50nc")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://d1h4ur6yhpscs"]
 
 [ext_resource type="Script" path="res://scripts/ded_menu.gd" id="1_ifrm0"]
 

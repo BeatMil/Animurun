@@ -2,9 +2,9 @@ extends Node
 
 
 # Preloads
-var SLIME = preload("res://nodes/Slime.tscn")
-var ROCKY = preload("res://nodes/Rocky.tscn")
-var BOMBY = preload("res://nodes/Bomby.tscn")
+var SLIME = preload("res://nodes/slime.tscn")
+var ROCKY = preload("res://nodes/rocky.tscn")
+var BOMBY = preload("res://nodes/bomby.tscn")
 
 
 # Configs
