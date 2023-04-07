@@ -1,5 +1,6 @@
 extends Area2D
 
+
 var chiichan
 
 

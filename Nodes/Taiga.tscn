@@ -1,9 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvyv7o0wtcd4o"]
+[gd_scene load_steps=11 format=3]
 
-[ext_resource type="Texture2D" uid="uid://bh6f3tghypu7y" path="res://Media/sprites/taiga_idle.png" id="1_bcect"]
-[ext_resource type="Script" path="res://scripts/Taiga.gd" id="1_hgram"]
-[ext_resource type="Texture2D" uid="uid://bldl65mghfmvm" path="res://Media/sprites/taiga_push.png" id="2_c6scr"]
-[ext_resource type="AudioStream" uid="uid://dfgh1nqrncbvk" path="res://Media/sfx/boss_damaged.wav" id="4_exm30"]
+[ext_resource type="Texture2D" uid="uid://bh6f3tghypu7y" path="res://media/sprites/taiga_idle.png" id="1_bcect"]
+[ext_resource type="Script" path="res://scripts/taiga.gd" id="1_hgram"]
+[ext_resource type="Texture2D" uid="uid://bldl65mghfmvm" path="res://media/sprites/taiga_push.png" id="2_c6scr"]
+[ext_resource type="AudioStream" uid="uid://dfgh1nqrncbvk" path="res://media/sfx/boss_damaged.wav" id="4_exm30"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ulq8r"]
 size = Vector2(332, 381)

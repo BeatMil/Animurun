@@ -1,5 +1,6 @@
 extends Area2D
 
+
 @export var taiga: Node
 
 

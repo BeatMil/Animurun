@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dh13bx01yu78m"
-path="res://.godot/imported/kaisouko_look.png-f10f47ddc1d813f0ae96d6324da115a6.ctex"
+path="res://.godot/imported/kaisouko_look.png-8815646d22b7dbac3a0bd9f9e98e0dc7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Media/sprites/kaisouko_look.png"
-dest_files=["res://.godot/imported/kaisouko_look.png-f10f47ddc1d813f0ae96d6324da115a6.ctex"]
+source_file="res://media/sprites/kaisouko_look.png"
+dest_files=["res://.godot/imported/kaisouko_look.png-8815646d22b7dbac3a0bd9f9e98e0dc7.ctex"]
 
 [params]
 

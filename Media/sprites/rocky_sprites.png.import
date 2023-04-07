@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cpjffb4qr0qqw"
-path="res://.godot/imported/rocky_sprites.png-226e8d52299cf5455b762df970fc40d8.ctex"
+path="res://.godot/imported/rocky_sprites.png-3d6adbc6d4a4631575620e7f9eab7a0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Media/sprites/rocky_sprites.png"
-dest_files=["res://.godot/imported/rocky_sprites.png-226e8d52299cf5455b762df970fc40d8.ctex"]
+source_file="res://media/sprites/rocky_sprites.png"
+dest_files=["res://.godot/imported/rocky_sprites.png-3d6adbc6d4a4631575620e7f9eab7a0b.ctex"]
 
 [params]
 

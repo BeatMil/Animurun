@@ -9,8 +9,8 @@ var	is_throw_bomb = false
 
 
 # Preloads
-var PARTICLE01 = preload("res://Nodes/Particles/particle01.tscn")
-var EXPLOSION_HITBOX = preload("res://Nodes/Hitboxes/explosion_hitbox.tscn")
+var PARTICLE01 = preload("res://nodes/particles/particle01.tscn")
+var EXPLOSION_HITBOX = preload("res://nodes/hitboxes/explosion_hitbox.tscn")
 
 
 # Signals

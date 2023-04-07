@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dqitlkmc0bqcp"
-path="res://.godot/imported/parry_yellow_laser.wav-da323ec374802866f9310eefeeab76b4.sample"
+path="res://.godot/imported/parry_yellow_laser.wav-9f698a9a50e0f4eed24f195c796280af.sample"
 
 [deps]
 
-source_file="res://Media/sfx/parry_yellow_laser.wav"
-dest_files=["res://.godot/imported/parry_yellow_laser.wav-da323ec374802866f9310eefeeab76b4.sample"]
+source_file="res://media/sfx/parry_yellow_laser.wav"
+dest_files=["res://.godot/imported/parry_yellow_laser.wav-9f698a9a50e0f4eed24f195c796280af.sample"]
 
 [params]
 

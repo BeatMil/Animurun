@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://crqfbet1r6xbr"]
+[gd_scene load_steps=5 format=3]
 
-[ext_resource type="Script" path="res://scripts/DedMenu.gd" id="1_ifrm0"]
+[ext_resource type="Script" path="res://scripts/ded_menu.gd" id="1_ifrm0"]
 
 [sub_resource type="Animation" id="Animation_sl5fl"]
 length = 0.001

@@ -1,31 +1,31 @@
-[gd_scene load_steps=57 format=3 uid="uid://b16ck10efgool"]
+[gd_scene load_steps=57 format=3 uid="uid://brg8ucrmr27dn"]
 
-[ext_resource type="Script" path="res://scripts/Forest.gd" id="1_4e02h"]
-[ext_resource type="Texture2D" uid="uid://dh13bx01yu78m" path="res://Media/sprites/kaisouko_look.png" id="1_88375"]
-[ext_resource type="Texture2D" uid="uid://dqya23lpwqwc5" path="res://Media/sprites/clouds.png" id="2_2w2oa"]
-[ext_resource type="Texture2D" uid="uid://c6cckqobux4ov" path="res://Media/sprites/mountain.png" id="3_stxvw"]
-[ext_resource type="Texture2D" uid="uid://o3mgqx5thpxh" path="res://Media/sprites/ground.png" id="4_f12gi"]
-[ext_resource type="Texture2D" uid="uid://cd3ts6q6vfyre" path="res://Media/sprites/chiichan_hitted.png" id="6_lhnwd"]
-[ext_resource type="Script" path="res://scripts/Chiichan.gd" id="6_o6v6y"]
-[ext_resource type="Texture2D" uid="uid://dgcyrp7yhf30r" path="res://Media/sprites/sword_attack01_b.png" id="7_ten5j"]
-[ext_resource type="AudioStream" uid="uid://dd4t8hc1wr3s0" path="res://Media/sfx/sword_attack02.wav" id="8_pu6vn"]
-[ext_resource type="AudioStream" uid="uid://4v3ipdlb1tan" path="res://Media/sfx/sword_attack01.wav" id="9_0rs7d"]
-[ext_resource type="Texture2D" uid="uid://2nmwcl48ddwq" path="res://Media/sprites/chiichan_block.png" id="10_tucaf"]
-[ext_resource type="AudioStream" uid="uid://cj0tmbngsm3js" path="res://Media/sfx/block02.wav" id="11_fbjua"]
-[ext_resource type="Texture2D" uid="uid://bv2i0f07e50fw" path="res://Media/sprites/chiichan_block_impact.png" id="12_mv1qp"]
-[ext_resource type="AudioStream" uid="uid://bl505quhmyg4f" path="res://Media/sfx/hitHurt2.wav" id="13_f3mfm"]
-[ext_resource type="AudioStream" uid="uid://cpwu06ws2r1cl" path="res://Media/sfx/hitHurt.wav" id="14_fvjol"]
-[ext_resource type="Texture2D" uid="uid://bxjft2o05bs63" path="res://Media/sprites/chiichan_run.png" id="15_it6uo"]
-[ext_resource type="AudioStream" uid="uid://cat3cfvygslnu" path="res://Media/sfx/dedExplosion.wav" id="16_ww0km"]
-[ext_resource type="Texture2D" uid="uid://lwgm73y41uvc" path="res://Media/sprites/chiichan_jump.png" id="17_0460j"]
-[ext_resource type="Texture2D" uid="uid://dyjx2w2gd2jbp" path="res://Media/sprites/sword_deflect.png" id="17_pc2sv"]
-[ext_resource type="Texture2D" uid="uid://bc8aor20lysxc" path="res://Media/sprites/chiichan_dodge.png" id="18_cd6wo"]
-[ext_resource type="AudioStream" uid="uid://b030i7g3mmmse" path="res://Media/sfx/smol_jump.wav" id="18_vfpg0"]
-[ext_resource type="Script" path="res://scripts/Wall.gd" id="20_himey"]
-[ext_resource type="AudioStream" uid="uid://q2ijwyc88yom" path="res://Media/sfx/sword_deflect.wav" id="21_v1gct"]
-[ext_resource type="PackedScene" uid="uid://crqfbet1r6xbr" path="res://Scenes/ded_menu.tscn" id="23_6ahis"]
-[ext_resource type="PackedScene" uid="uid://blolwrddpaefy" path="res://Scenes/pause_menu.tscn" id="24_vciyu"]
-[ext_resource type="PackedScene" uid="uid://cvyv7o0wtcd4o" path="res://Nodes/Taiga.tscn" id="25_cebnq"]
+[ext_resource type="Script" path="res://scripts/forest.gd" id="1_trs0b"]
+[ext_resource type="Texture2D" uid="uid://dh13bx01yu78m" path="res://media/sprites/kaisouko_look.png" id="2_b416e"]
+[ext_resource type="Texture2D" uid="uid://dqya23lpwqwc5" path="res://media/sprites/clouds.png" id="3_6vtol"]
+[ext_resource type="Texture2D" uid="uid://c6cckqobux4ov" path="res://media/sprites/mountain.png" id="4_oa7ea"]
+[ext_resource type="Texture2D" uid="uid://o3mgqx5thpxh" path="res://media/sprites/ground.png" id="5_rf2wy"]
+[ext_resource type="Script" path="res://scripts/chiichan.gd" id="6_b8mqq"]
+[ext_resource type="Texture2D" uid="uid://lwgm73y41uvc" path="res://media/sprites/chiichan_jump.png" id="7_5vrbo"]
+[ext_resource type="Texture2D" uid="uid://dgcyrp7yhf30r" path="res://media/sprites/sword_attack01_b.png" id="8_3na0k"]
+[ext_resource type="AudioStream" uid="uid://dd4t8hc1wr3s0" path="res://media/sfx/sword_attack02.wav" id="9_7jirt"]
+[ext_resource type="AudioStream" uid="uid://4v3ipdlb1tan" path="res://media/sfx/sword_attack01.wav" id="10_2yepl"]
+[ext_resource type="Texture2D" uid="uid://2nmwcl48ddwq" path="res://media/sprites/chiichan_block.png" id="11_kdo51"]
+[ext_resource type="AudioStream" uid="uid://cj0tmbngsm3js" path="res://media/sfx/block02.wav" id="12_dybn8"]
+[ext_resource type="Texture2D" uid="uid://bv2i0f07e50fw" path="res://media/sprites/chiichan_block_impact.png" id="13_m2knb"]
+[ext_resource type="AudioStream" uid="uid://bl505quhmyg4f" path="res://media/sfx/hitHurt2.wav" id="14_d0pk3"]
+[ext_resource type="Texture2D" uid="uid://bc8aor20lysxc" path="res://media/sprites/chiichan_dodge.png" id="15_bbvwl"]
+[ext_resource type="Texture2D" uid="uid://cd3ts6q6vfyre" path="res://media/sprites/chiichan_hitted.png" id="16_tov52"]
+[ext_resource type="AudioStream" uid="uid://cpwu06ws2r1cl" path="res://media/sfx/hitHurt.wav" id="17_ghv7i"]
+[ext_resource type="AudioStream" uid="uid://b030i7g3mmmse" path="res://media/sfx/smol_jump.wav" id="18_snu5y"]
+[ext_resource type="Texture2D" uid="uid://bxjft2o05bs63" path="res://media/sprites/chiichan_run.png" id="19_axqug"]
+[ext_resource type="Texture2D" uid="uid://dyjx2w2gd2jbp" path="res://media/sprites/sword_deflect.png" id="20_3pbpf"]
+[ext_resource type="AudioStream" uid="uid://q2ijwyc88yom" path="res://media/sfx/sword_deflect.wav" id="21_ve0hw"]
+[ext_resource type="Script" path="res://scripts/wall.gd" id="22_e3h8j"]
+[ext_resource type="AudioStream" uid="uid://cat3cfvygslnu" path="res://media/sfx/dedExplosion.wav" id="23_gl0fv"]
+[ext_resource type="PackedScene" path="res://scenes/ded_menu.tscn" id="24_3kuhs"]
+[ext_resource type="PackedScene" path="res://Scenes/pause_menu.tscn" id="25_pyk6c"]
+[ext_resource type="PackedScene" path="res://Nodes/Taiga.tscn" id="26_et4pp"]
 
 [sub_resource type="GDScript" id="GDScript_t755h"]
 script/source = "extends ParallaxLayer
@@ -70,7 +70,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("17_0460j")]
+"values": [ExtResource("7_5vrbo")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -147,7 +147,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("7_ten5j")]
+"values": [ExtResource("8_3na0k")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -171,11 +171,11 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("8_pu6vn")
+"stream": ExtResource("9_7jirt")
 }, {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("9_0rs7d")
+"stream": ExtResource("10_2yepl")
 }],
 "times": PackedFloat32Array(0, 0.25)
 }
@@ -248,7 +248,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("7_ten5j")]
+"values": [ExtResource("8_3na0k")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -272,11 +272,11 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("8_pu6vn")
+"stream": ExtResource("9_7jirt")
 }, {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("9_0rs7d")
+"stream": ExtResource("10_2yepl")
 }],
 "times": PackedFloat32Array(0, 0.25)
 }
@@ -349,7 +349,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("10_tucaf")]
+"values": [ExtResource("11_kdo51")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -373,7 +373,7 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("11_fbjua")
+"stream": ExtResource("12_dybn8")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -443,7 +443,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("12_mv1qp")]
+"values": [ExtResource("13_m2knb")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -467,7 +467,7 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("13_f3mfm")
+"stream": ExtResource("14_d0pk3")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -523,7 +523,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("18_cd6wo")]
+"values": [ExtResource("15_bbvwl")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -547,7 +547,7 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("11_fbjua")
+"stream": ExtResource("12_dybn8")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -608,7 +608,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("6_lhnwd")]
+"values": [ExtResource("16_tov52")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -668,7 +668,7 @@ tracks/5/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("14_fvjol")
+"stream": ExtResource("17_ghv7i")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -754,7 +754,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("17_0460j")]
+"values": [ExtResource("7_5vrbo")]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -790,7 +790,7 @@ tracks/6/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("18_vfpg0")
+"stream": ExtResource("18_snu5y")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -835,7 +835,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("15_it6uo")]
+"values": [ExtResource("19_axqug")]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -902,7 +902,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("17_pc2sv")]
+"values": [ExtResource("20_3pbpf")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -926,7 +926,7 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("21_v1gct")
+"stream": ExtResource("21_ve0hw")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -1093,7 +1093,7 @@ tracks/0/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("16_ww0km")
+"stream": ExtResource("23_gl0fv")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -1171,13 +1171,14 @@ _data = {
 }
 
 [node name="Forest" type="Node"]
-script = ExtResource("1_4e02h")
+script = ExtResource("1_trs0b")
 
 [node name="KaisoukoLook" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1.2, 1.2, 1.2, 1)
 self_modulate = Color(0.988235, 0.772549, 1, 1)
 position = Vector2(196, 686)
-texture = ExtResource("1_88375")
+texture = ExtResource("2_b416e")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -1187,7 +1188,7 @@ script = SubResource("GDScript_t755h")
 
 [node name="Clouds" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(960, 540)
-texture = ExtResource("2_2w2oa")
+texture = ExtResource("3_6vtol")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(1920, 0)
@@ -1196,7 +1197,7 @@ SPEED = -200
 
 [node name="Mountain" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(926, 652)
-texture = ExtResource("3_stxvw")
+texture = ExtResource("4_oa7ea")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(1920, 0)
@@ -1205,7 +1206,7 @@ SPEED = -600
 
 [node name="Ground" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
 position = Vector2(1920, 1051)
-texture = ExtResource("4_f12gi")
+texture = ExtResource("5_rf2wy")
 
 [node name="GroundBody" type="StaticBody2D" parent="." groups=["ground"]]
 position = Vector2(1472, 1066)
@@ -1218,13 +1219,13 @@ shape = SubResource("RectangleShape2D_iy05h")
 self_modulate = Color(0.980392, 0.933333, 0.411765, 1)
 position = Vector2(503, 692)
 collision_layer = 2
-script = ExtResource("6_o6v6y")
+script = ExtResource("6_b8mqq")
 default_pos = NodePath("../Markers/ChiichanDefaultPos")
 
 [node name="ChiichanPos" type="Node2D" parent="Chiichan"]
 
 [node name="sprite" type="Sprite2D" parent="Chiichan/ChiichanPos"]
-texture = ExtResource("17_0460j")
+texture = ExtResource("7_5vrbo")
 offset = Vector2(0, 12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chiichan"]
@@ -1258,7 +1259,7 @@ script = SubResource("GDScript_8pq36")
 position = Vector2(2214, 24)
 collision_layer = 0
 collision_mask = 10
-script = ExtResource("20_himey")
+script = ExtResource("22_e3h8j")
 taiga = NodePath("../../Taiga")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DedWalls/Wall"]
@@ -1300,11 +1301,11 @@ libraries = {
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="DedMenu" parent="CanvasLayer" node_paths=PackedStringArray("pause_menu") instance=ExtResource("23_6ahis")]
+[node name="DedMenu" parent="CanvasLayer" node_paths=PackedStringArray("pause_menu") instance=ExtResource("24_3kuhs")]
 unique_name_in_owner = true
 pause_menu = NodePath("../PauseMenu")
 
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("24_vciyu")]
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("25_pyk6c")]
 
 [node name="chiichan_velocity" type="Label" parent="CanvasLayer"]
 offset_left = -1.0
@@ -1328,7 +1329,7 @@ position = Vector2(523, 749)
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="Taiga" parent="." instance=ExtResource("25_cebnq")]
+[node name="Taiga" parent="." instance=ExtResource("26_et4pp")]
 position = Vector2(1969, 629)
 
 [connection signal="animation_finished" from="Chiichan/AnimationPlayer" to="Chiichan" method="_on_animation_player_animation_finished"]

@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dakrishjwcwbt"]
+[gd_scene load_steps=10 format=3]
 
-[ext_resource type="Script" path="res://scripts/Rocky.gd" id="1_g3df8"]
-[ext_resource type="AudioStream" uid="uid://b36cb8pbyil84" path="res://Media/sfx/dead.wav" id="2_pp68n"]
-[ext_resource type="AudioStream" uid="uid://d3dh6mlnwvx0u" path="res://Media/sfx/spawn_rocky.wav" id="3_k11rv"]
-[ext_resource type="Texture2D" uid="uid://cpjffb4qr0qqw" path="res://Media/sprites/rocky_sprites.png" id="4_43e04"]
+[ext_resource type="Script" path="res://scripts/rocky.gd" id="1_g3df8"]
+[ext_resource type="AudioStream" uid="uid://b36cb8pbyil84" path="res://media/sfx/dead.wav" id="2_pp68n"]
+[ext_resource type="AudioStream" uid="uid://d3dh6mlnwvx0u" path="res://media/sfx/spawn_rocky.wav" id="3_k11rv"]
+[ext_resource type="Texture2D" uid="uid://cpjffb4qr0qqw" path="res://media/sprites/rocky_sprites.png" id="4_43e04"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7vn5"]
 size = Vector2(192, 172)

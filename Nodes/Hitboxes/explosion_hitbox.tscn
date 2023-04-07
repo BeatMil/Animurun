@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bixi2741lfnmo"]
+[gd_scene load_steps=7 format=3]
 
-[ext_resource type="Script" path="res://scripts/ExplosionHitbox.gd" id="1_b8gr4"]
-[ext_resource type="Texture2D" uid="uid://dnq1nnxxelurt" path="res://Media/sprites/explosion_bad.png" id="2_688bg"]
+[ext_resource type="Script" path="res://scripts/explosion_hitbox.gd" id="1_b8gr4"]
+[ext_resource type="Texture2D" uid="uid://dnq1nnxxelurt" path="res://media/sprites/explosion_bad.png" id="2_688bg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pcvt"]
 size = Vector2(625, 625)

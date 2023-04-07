@@ -1,10 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://beswjnm8i5nhp"]
+[gd_scene load_steps=12 format=3 uid="uid://df453qy6e5f53"]
 
-[ext_resource type="AudioStream" uid="uid://b36cb8pbyil84" path="res://Media/sfx/dead.wav" id="1_530xr"]
-[ext_resource type="Script" path="res://scripts/Slime.gd" id="1_r2hq7"]
-[ext_resource type="AudioStream" uid="uid://buqe4ddxwekc2" path="res://Media/sfx/charge01.wav" id="2_tghh5"]
-[ext_resource type="AudioStream" uid="uid://dhfdcxcy8meft" path="res://Media/sfx/spawn_slime.wav" id="3_sn1n5"]
-[ext_resource type="Texture2D" uid="uid://dc2yr8fulgylt" path="res://Media/sprites/slime_spritesheet.png" id="3_ufbf4"]
+[ext_resource type="Script" path="res://scripts/slime.gd" id="1_5cpnf"]
+[ext_resource type="AudioStream" uid="uid://b36cb8pbyil84" path="res://media/sfx/dead.wav" id="2_iprbe"]
+[ext_resource type="AudioStream" uid="uid://dhfdcxcy8meft" path="res://media/sfx/spawn_slime.wav" id="3_uatge"]
+[ext_resource type="AudioStream" uid="uid://buqe4ddxwekc2" path="res://media/sfx/charge01.wav" id="4_us6ao"]
+[ext_resource type="Texture2D" uid="uid://dc2yr8fulgylt" path="res://media/sprites/slime_spritesheet.png" id="5_senxi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7vn5"]
 size = Vector2(192, 172)
@@ -85,7 +85,7 @@ tracks/2/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("1_530xr")
+"stream": ExtResource("2_iprbe")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -140,7 +140,7 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("3_sn1n5")
+"stream": ExtResource("3_uatge")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -171,7 +171,7 @@ tracks/1/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("2_tghh5")
+"stream": ExtResource("4_us6ao")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -215,7 +215,7 @@ collision_mask = 3
 gravity_scale = 2.0
 max_contacts_reported = 1
 contact_monitor = true
-script = ExtResource("1_r2hq7")
+script = ExtResource("1_5cpnf")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(3.8147e-06, -3.50001)
@@ -235,7 +235,7 @@ libraries = {
 
 [node name="SlimeSpritesheet" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_ufbf4")
+texture = ExtResource("5_senxi")
 hframes = 2
 frame = 1
 

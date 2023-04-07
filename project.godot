@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="animurun"
-run/main_scene="res://scenes/Forest.tscn"
+run/main_scene="res://scenes/forest.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 boot_splash/image="res://media/splash/gurara_meteo_splash.png"
 config/icon="res://media/animu_run_icon.png"
 
 [autoload]
 
-Config="*res://scripts/Config.gd"
+Config="*res://scripts/config.gd"
 
 [display]
 

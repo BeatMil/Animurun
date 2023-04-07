@@ -1,11 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://cy5de7c0713cw"]
+[gd_scene load_steps=18 format=3]
 
-[ext_resource type="Script" path="res://scripts/Bomby.gd" id="1_fnt5c"]
-[ext_resource type="AudioStream" uid="uid://dnnfgqv01ld8w" path="res://Media/sfx/explosion16.wav" id="2_yy77h"]
-[ext_resource type="AudioStream" uid="uid://by7da76os06p5" path="res://Media/sfx/spawn_bomby.wav" id="3_adu14"]
-[ext_resource type="AudioStream" uid="uid://buqe4ddxwekc2" path="res://Media/sfx/charge01.wav" id="3_luyl2"]
-[ext_resource type="AudioStream" uid="uid://bbbtc3u6cbaqg" path="res://Media/sfx/bigJump.wav" id="4_t48kb"]
-[ext_resource type="Texture2D" uid="uid://vr6gm1cq4vvw" path="res://Media/sprites/bomby.png" id="4_uehsa"]
+[ext_resource type="Script" path="res://scripts/bomby.gd" id="1_fnt5c"]
+[ext_resource type="AudioStream" uid="uid://dnnfgqv01ld8w" path="res://media/sfx/explosion16.wav" id="2_yy77h"]
+[ext_resource type="AudioStream" uid="uid://by7da76os06p5" path="res://media/sfx/spawn_bomby.wav" id="3_adu14"]
+[ext_resource type="AudioStream" uid="uid://buqe4ddxwekc2" path="res://media/sfx/charge01.wav" id="3_luyl2"]
+[ext_resource type="AudioStream" uid="uid://bbbtc3u6cbaqg" path="res://media/sfx/bigJump.wav" id="4_t48kb"]
+[ext_resource type="Texture2D" uid="uid://vr6gm1cq4vvw" path="res://media/sprites/bomby.png" id="4_uehsa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ys26t"]
 size = Vector2(174, 160)
