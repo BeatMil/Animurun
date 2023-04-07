@@ -1315,6 +1315,7 @@ wait_time = 0.5
 position = Vector2(1969, 629)
 
 [connection signal="animation_finished" from="Chiichan/AnimationPlayer" to="Chiichan" method="_on_animation_player_animation_finished"]
+[connection signal="animation_started" from="Chiichan/AnimationPlayer" to="Chiichan" method="_on_animation_player_animation_started"]
 [connection signal="body_entered" from="DedWalls/Wall" to="DedWalls/Wall" method="_on_body_entered"]
 [connection signal="body_entered" from="DedWalls/DedWallArea2D" to="DedWalls" method="_on_ded_wall_area_2d_body_entered"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

@@ -131,7 +131,6 @@ func push(power: Vector2):
 		state = States.STUNNED
 	
 
-
 func jump():
 	state = States.RUNNING
 	anim_player.play("jump")
@@ -193,3 +192,8 @@ func _on_animation_player_animation_finished(anim_name):
 			$"ChiichanPos/sprite".self_modulate = Color(1, 0.6, 0.5)
 		elif pushback_multiplier >= 1:
 			$"ChiichanPos/sprite".self_modulate = Color(0.9, 0.9, 0.4)
+
+
+func _on_animation_player_animation_started(anim_name):
+	if anim_name == "jump":
+		$"ChiichanPos/sprite".modulate = Color(1, 1, 1)
