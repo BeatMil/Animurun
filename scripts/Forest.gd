@@ -8,7 +8,7 @@ var BOMBY = preload("res://nodes/Bomby.tscn")
 
 
 # Configs
-var enemy_spawn_order: Array = [spawn_slime_rocks, spawn_triple01, spawn_triple02, spawn_triple03, spawn_five_bombs, spawn_triple05, spawn_triple04]
+var enemy_spawn_order: Array = [spawn_triple01, spawn_triple02, spawn_triple03, spawn_triple04, spawn_triple05, spawn_five_bombs, spawn_five_ground_bombs, spawn_2rock_1speed, spawn_2rock_1slime, spawn_slime_rocks, spawn_2bomb_rock_slime]
 var order_index: int = 0
 var is_random_spawn = true
 var rng = RandomNumberGenerator.new()
@@ -160,16 +160,17 @@ func spawn_triple04() -> void:
 	node3.connect("ded", spawner)
 	node3.position = $"Markers/EnemySpawnPos2".position
 
-	add_child(node1)
-	node1.throw_bomb(Vector2(-1500, -1500))
+	add_child(node3)
+	node3.throw_bomb(Vector2(-1000, -1000))
 	await get_tree().create_timer(0.3, false).timeout
 
 	add_child(node2)
-	node2.throw_bomb(Vector2(-1300, -1300))
+	node2.throw_bomb(Vector2(-1900, -1900))
 	await get_tree().create_timer(0.3, false).timeout
 
-	add_child(node3)
-	node3.throw_bomb(Vector2(-1000, -1000))
+	add_child(node1)
+	node1.throw_bomb(Vector2(-2200, -2200))
+
 
 
 func spawn_triple05() -> void:
@@ -324,6 +325,32 @@ func spawn_slime_rocks() -> void:
 	await get_tree().create_timer(0.2, false).timeout
 
 	add_child(rocky2)
+
+
+func spawn_2rock_1slime() -> void:
+	var rocky = ROCKY.instantiate()
+	rocky.position = $"Markers/EnemySpawnPos".position
+
+	var rocky2 = ROCKY.instantiate()
+	rocky2.position = $"Markers/EnemySpawnPos".position
+
+	var slime = SLIME.instantiate()
+	slime.connect("ded", spawner)
+	slime.position = $"Markers/EnemySpawnPos".position
+
+	add_child(rocky)
+	await get_tree().create_timer(0.1, false).timeout
+
+	add_child(rocky2)
+	await get_tree().create_timer(0.5, false).timeout
+
+	add_child(slime)
+	slime.activate_speed()
+
+
+func smol_shake() -> void:
+	$"%CameraPlayer".stop()
+	$"%CameraPlayer".play("smol_shake")
 
 
 func _on_spawn_timer_timeout():

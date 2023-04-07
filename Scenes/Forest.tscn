@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://b16ck10efgool"]
+[gd_scene load_steps=57 format=3 uid="uid://b16ck10efgool"]
 
 [ext_resource type="Script" path="res://scripts/Forest.gd" id="1_4e02h"]
 [ext_resource type="Texture2D" uid="uid://dh13bx01yu78m" path="res://Media/sprites/kaisouko_look.png" id="1_88375"]
@@ -1147,10 +1147,27 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(0, -30), Vector2(0, 0), Vector2(0, -30), Vector2(0, 0), Vector2(0, -10), Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_yuk7d"]
+resource_name = "smol_shake"
+length = 0.40001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -30), Vector2(0, 0), Vector2(0, -30), Vector2(0, 0), Vector2(0, -10), Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bkvre"]
 _data = {
 "RESET": SubResource("Animation_8j0fk"),
-"shake": SubResource("Animation_giwag")
+"shake": SubResource("Animation_giwag"),
+"smol_shake": SubResource("Animation_yuk7d")
 }
 
 [node name="Forest" type="Node"]

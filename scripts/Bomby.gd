@@ -15,6 +15,11 @@ var EXPLOSION_HITBOX = preload("res://Nodes/Hitboxes/explosion_hitbox.tscn")
 
 # Signals
 signal ded
+signal shake
+
+
+func _ready():
+	connect("shake", $"..".smol_shake)
 
 
 func _integrate_forces(_state):
@@ -52,6 +57,7 @@ func jump_off_screen():
 		apply_torque_impulse(100000)
 		$"AnimationPlayer".play("hurt")
 		spawn_particle() # vfx
+		emit_signal("shake")
 
 
 func spawn_particle() -> void:
