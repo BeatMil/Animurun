@@ -25,7 +25,7 @@
 [ext_resource type="AudioStream" uid="uid://cat3cfvygslnu" path="res://media/sfx/dedExplosion.wav" id="23_gl0fv"]
 [ext_resource type="PackedScene" uid="uid://d1h4ur6yhpscs" path="res://scenes/ded_menu.tscn" id="24_3kuhs"]
 [ext_resource type="PackedScene" uid="uid://c1vlse56bmgi3" path="res://scenes/pause_menu.tscn" id="25_pyk6c"]
-[ext_resource type="PackedScene" uid="uid://ccj7pc6oqg054" path="res://nodes/taiga.tscn" id="26_et4pp"]
+[ext_resource type="PackedScene" uid="uid://ccj7pc6oqg054" path="res://nodes/Taiga.tscn" id="26_et4pp"]
 
 [sub_resource type="GDScript" id="GDScript_t755h"]
 script/source = "extends ParallaxLayer
