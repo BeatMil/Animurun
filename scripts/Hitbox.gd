@@ -16,6 +16,9 @@ func _on_body_entered(body):
 		if body.is_throw_slime:
 			body.apply_impulse(Vector2(3000, -2500))
 			body.apply_torque_impulse(100000)
+		elif body.is_speed_slime:
+			body.apply_impulse(Vector2(4000, -2000))
+			body.apply_torque_impulse(100000)
 		else:
 			body.apply_impulse(Vector2(3000, -1900))
 			body.apply_torque_impulse(100000)
