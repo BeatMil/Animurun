@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://ccj7pc6oqg054"]
 
-[ext_resource type="Texture2D" uid="uid://bh6f3tghypu7y" path="res://media/sprites/taiga_idle.png" id="1_bcect"]
-[ext_resource type="Script" path="res://scripts/taiga.gd" id="1_hgram"]
-[ext_resource type="Texture2D" uid="uid://bldl65mghfmvm" path="res://media/sprites/taiga_push.png" id="2_c6scr"]
-[ext_resource type="AudioStream" uid="uid://dfgh1nqrncbvk" path="res://media/sfx/boss_damaged.wav" id="4_exm30"]
+[ext_resource type="Script" path="res://scripts/taiga.gd" id="1_ghwim"]
+[ext_resource type="Texture2D" uid="uid://bh6f3tghypu7y" path="res://media/sprites/taiga_idle.png" id="2_cxtik"]
+[ext_resource type="AudioStream" uid="uid://dfgh1nqrncbvk" path="res://media/sfx/boss_damaged.wav" id="3_rj035"]
+[ext_resource type="Texture2D" uid="uid://bldl65mghfmvm" path="res://media/sprites/taiga_push.png" id="4_c336g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ulq8r"]
 size = Vector2(332, 381)
@@ -20,7 +20,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_bcect")]
+"values": [ExtResource("2_cxtik")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -84,7 +84,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_bcect")]
+"values": [ExtResource("2_cxtik")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -144,7 +144,7 @@ tracks/5/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("4_exm30")
+"stream": ExtResource("3_rj035")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -164,7 +164,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_bcect")]
+"values": [ExtResource("2_cxtik")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -216,7 +216,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_c6scr")]
+"values": [ExtResource("4_c336g")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -272,14 +272,14 @@ max_contacts_reported = 1
 contact_monitor = true
 freeze = true
 freeze_mode = 1
-script = ExtResource("1_hgram")
+script = ExtResource("1_ghwim")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(14, -24.5)
 shape = SubResource("RectangleShape2D_ulq8r")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_bcect")
+texture = ExtResource("2_cxtik")
 hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
