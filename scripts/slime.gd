@@ -53,7 +53,13 @@ func activate_boom_then(): # hitbox.gd run this
 
 func spawn_blue_spark() -> void:
 	var particle = BLUE_SPARK.instantiate()
-	add_child(particle)
+	particle.node_to_follow =  self
+	$"..".add_child(particle)
+
+
+func let_blue_spark_go() -> void:
+	if $"..".has_node("blue_spark"):
+		$"../blue_spark".is_following = false
 
 
 func hurt():

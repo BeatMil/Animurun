@@ -28,5 +28,6 @@ func _on_body_entered(body) -> void:
 		body.apply_impulse(Vector2(-1000, -1000))
 		body.apply_torque_impulse(-100000)
 		body.turn_off_all_collision()
+		body.let_blue_spark_go()
 		body.hurt()
 		hurt()
