@@ -10,6 +10,10 @@ func hurt() -> void:
 	$AnimationPlayer.play("hurt")
 
 
+func freeze() -> void:
+	$AnimationPlayer.pause()
+
+
 func _on_animation_player_animation_finished(anim_name) -> void:
 	if anim_name == "push" or anim_name == "hurt":
 		$AnimationPlayer.play("idle")

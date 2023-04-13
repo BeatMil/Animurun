@@ -3,6 +3,7 @@ extends RigidBody2D
 
 var speed: Vector2 = Vector2(-1000, 0)
 @onready var chiichan = $"../Chiichan"
+var BLUE_SPARK = preload("res://nodes/particles/blue_spark.tscn")
 
 
 # Config
@@ -28,11 +29,31 @@ func activate_speed():
 
 
 func activate_boom(): # hitbox.gd run this
-	chiichan.freeze()
+	disconnect("ded", $"..".spawner)
+	chiichan.super_hit()
+	self.is_moving = false
+	self.linear_velocity = Vector2.ZERO
+	self.angular_velocity = 0
+	self.custom_integrator = true
+	$"../ParallaxBackground".freeze()
+	$"../Taiga".freeze()
+	$"../BackgroundDim".freeze()
 	# camera.zoom
 	# self.shining_meteo()
 	# self.push_to_taigo
 	pass
+
+
+func activate_boom_then(): # hitbox.gd run this
+	self.apply_impulse(Vector2(2000, 1000))
+	spawn_blue_spark()
+	await get_tree().create_timer(0.1, false).timeout
+	self.apply_torque_impulse(100000)
+
+
+func spawn_blue_spark() -> void:
+	var particle = BLUE_SPARK.instantiate()
+	add_child(particle)
 
 
 func hurt():
@@ -69,7 +90,7 @@ func turn_off_all_collision():
 
 
 func turn_hit_boss_collision():
-	collision_layer = 0b00000000000000000000
+	collision_layer = 0b00000000000000000100
 	collision_mask = 0b00000000000000010000
 
 

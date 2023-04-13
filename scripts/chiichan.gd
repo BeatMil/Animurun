@@ -21,6 +21,7 @@ var is_freezing = false
 # Constants
 @onready var anim_player = $AnimationPlayer
 var ATTACK01_HITBOX = preload("res://nodes/hitboxes/attack01_hitbox.tscn")
+var SUPER_HIT_HITBOX = preload("res://nodes/hitboxes/super_hit_hitbox.tscn")
 const FRICTION = 0.1
 
 
@@ -121,6 +122,12 @@ func spawn_hitbox01(): # used by AnimationPlayer
 	add_child(hitbox)
 
 
+func spawn_super_hit_hitbox(): # used by AnimationPlayer
+	var hitbox = SUPER_HIT_HITBOX.instantiate()
+	hitbox.position = $SuperHitHitboxPos.global_position
+	$"..".add_child(hitbox)
+
+
 func push(power: Vector2):
 	power = (pushback_multiplier * power) + power
 	if state == States.BLOCKING or state == States.BLOCK_IMPACT:
@@ -134,7 +141,7 @@ func push(power: Vector2):
 		## add more pushback next times chiichan got hit
 		pushback_multiplier += 0.5
 		state = States.STUNNED
-	
+
 
 func jump():
 	state = States.RUNNING
@@ -184,6 +191,11 @@ func freeze() -> void:
 
 func unfreeze() -> void:
 	is_freezing = false
+
+
+func super_hit() -> void:
+	freeze()
+	$AnimationPlayer.play("super_hit")
 
 
 func dodge_collision():

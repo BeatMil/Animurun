@@ -14,7 +14,7 @@ func _on_body_entered(body):
 		body.turn_hit_boss_collision()
 		body.hurt()
 
-		if body.is_boom_slime:
+		if body.is_boom_slime: # Big cinematic scene XD
 			body.activate_boom()
 		elif body.is_speed_slime:
 			body.apply_impulse(Vector2(4000, -2000))

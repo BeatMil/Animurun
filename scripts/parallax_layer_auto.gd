@@ -5,4 +5,5 @@ extends ParallaxLayer
 
 
 func _process(delta):
-	motion_offset.x += SPEED * delta
+	if not $"..".is_freeze:
+		motion_offset.x += SPEED * delta
