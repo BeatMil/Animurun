@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://ccj7pc6oqg054"]
+[gd_scene load_steps=12 format=3 uid="uid://ro6ueq5n41wr"]
 
 [ext_resource type="Script" path="res://scripts/taiga.gd" id="1_ghwim"]
-[ext_resource type="Texture2D" uid="uid://bh6f3tghypu7y" path="res://media/sprites/taiga_idle.png" id="2_cxtik"]
+[ext_resource type="Texture2D" uid="uid://bh6f3tghypu7y" path="res://media/sprites/taiga/taiga_idle.png" id="2_cxtik"]
+[ext_resource type="Texture2D" uid="uid://vhj6plrlei4i" path="res://media/sprites/taiga/taiga_hurt.png" id="3_a0b0a"]
 [ext_resource type="AudioStream" uid="uid://dfgh1nqrncbvk" path="res://media/sfx/boss_damaged.wav" id="3_rj035"]
-[ext_resource type="Texture2D" uid="uid://bldl65mghfmvm" path="res://media/sprites/taiga_push.png" id="4_c336g"]
+[ext_resource type="Texture2D" uid="uid://bldl65mghfmvm" path="res://media/sprites/taiga/taiga_push.png" id="4_c336g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ulq8r"]
 size = Vector2(332, 381)
@@ -84,7 +85,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_cxtik")]
+"values": [ExtResource("3_a0b0a")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -96,7 +97,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [2]
+"values": [1]
 }
 tracks/2/type = "value"
 tracks/2/imported = false

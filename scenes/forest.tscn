@@ -29,7 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://d1h4ur6yhpscs" path="res://scenes/ded_menu.tscn" id="24_3kuhs"]
 [ext_resource type="PackedScene" uid="uid://c1vlse56bmgi3" path="res://scenes/pause_menu.tscn" id="25_pyk6c"]
 [ext_resource type="Texture2D" uid="uid://bcxjtirdkl6pf" path="res://media/sprites/cinimatics/taiga_phase1/super_hit01.png" id="25_x8hod"]
-[ext_resource type="PackedScene" uid="uid://ccj7pc6oqg054" path="res://nodes/taiga.tscn" id="26_et4pp"]
+[ext_resource type="PackedScene" uid="uid://ro6ueq5n41wr" path="res://nodes/taiga.tscn" id="26_et4pp"]
 [ext_resource type="Texture2D" uid="uid://dkyiapdpotj7x" path="res://media/sprites/cinimatics/taiga_phase1/super_hit02.png" id="26_hqt3g"]
 [ext_resource type="AudioStream" uid="uid://ccvb7cacaeh25" path="res://media/sfx/charge_02.wav" id="27_7a8he"]
 [ext_resource type="AudioStream" uid="uid://cavppioiw03v4" path="res://media/sfx/parry01.wav" id="28_68vij"]

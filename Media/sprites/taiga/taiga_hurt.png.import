@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh6f3tghypu7y"
-path="res://.godot/imported/taiga_idle.png-b4330c5c1836c5083cc74e1d524a838b.ctex"
+uid="uid://vhj6plrlei4i"
+path="res://.godot/imported/taiga_hurt.png-0a0d2f57fd2deddb1ed1a92a8ab5a5fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://media/sprites/taiga_idle.png"
-dest_files=["res://.godot/imported/taiga_idle.png-b4330c5c1836c5083cc74e1d524a838b.ctex"]
+source_file="res://media/sprites/taiga/taiga_hurt.png"
+dest_files=["res://.godot/imported/taiga_hurt.png-0a0d2f57fd2deddb1ed1a92a8ab5a5fe.ctex"]
 
 [params]
 
