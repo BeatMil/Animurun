@@ -185,11 +185,11 @@ func gravity():
 		velocity += Vector2(0, gravity_power)
 
 
-func freeze() -> void:
+func freeze() -> void: # used during super_hit
 	is_freezing = true
 
 
-func unfreeze() -> void:
+func unfreeze() -> void: # used during super_hit
 	is_freezing = false
 
 
