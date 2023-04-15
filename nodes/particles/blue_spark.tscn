@@ -35,6 +35,7 @@ texture = ExtResource("1_8spe4")
 lifetime = 5.0
 speed_scale = 4.0
 explosiveness = 0.5
+fixed_fps = 0
 
 [node name="Timer" type="Timer" parent="."]
 

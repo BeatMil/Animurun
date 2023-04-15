@@ -22,6 +22,8 @@ var is_freezing = false
 @onready var anim_player = $AnimationPlayer
 var ATTACK01_HITBOX = preload("res://nodes/hitboxes/attack01_hitbox.tscn")
 var SUPER_HIT_HITBOX = preload("res://nodes/hitboxes/super_hit_hitbox.tscn")
+var CHRAGE_PARTICLE = preload("res://nodes/particles/charging_particle.tscn")
+
 const FRICTION = 0.1
 
 
@@ -196,6 +198,13 @@ func unfreeze() -> void: # used during super_hit
 func super_hit() -> void:
 	freeze()
 	$AnimationPlayer.play("super_hit")
+
+
+func spawn_charge_particle(): # used by AnimationPlayer
+	var hitbox = CHRAGE_PARTICLE.instantiate()
+	hitbox.time_before_queue_free = 0.4
+	hitbox.z_index = 9
+	add_child(hitbox)
 
 
 func dodge_collision():

@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8d58leqf38sc"]
+
+[ext_resource type="Script" path="res://scripts/particle.gd" id="1_wpt73"]
+[ext_resource type="Texture2D" uid="uid://bwnnsjvyqeped" path="res://media/sprites/particle_effects/glowing_circle.png" id="2_aayvn"]
+
+[sub_resource type="Curve" id="Curve_xnpyp"]
+_data = [Vector2(0, 0.0272727), 0.0, 0.0, 0, 0, Vector2(0.502347, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_mhp01"]
+width = 2048
+curve = SubResource("Curve_xnpyp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8ma7s"]
+emission_shape = 1
+emission_sphere_radius = 384.0
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+radial_accel_min = -100.0
+radial_accel_max = -90.0
+scale_min = 0.5
+scale_max = 0.7
+scale_curve = SubResource("CurveTexture_mhp01")
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_esud8"]
+
+[node name="charging_particle" type="Node2D"]
+script = ExtResource("1_wpt73")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_8ma7s")
+texture = ExtResource("2_aayvn")
+speed_scale = 6.0
+fixed_fps = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_esud8")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
