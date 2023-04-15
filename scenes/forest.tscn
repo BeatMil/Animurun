@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://46hwm47l0ics"]
+[gd_scene load_steps=70 format=3 uid="uid://46hwm47l0ics"]
 
 [ext_resource type="Script" path="res://scripts/forest.gd" id="1_trs0b"]
 [ext_resource type="Texture2D" uid="uid://dh13bx01yu78m" path="res://media/sprites/kaisouko_look.png" id="2_b416e"]
@@ -1304,6 +1304,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 540)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:zoom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.8, 0.8)]
+}
 
 [sub_resource type="Animation" id="Animation_giwag"]
 resource_name = "shake"
@@ -1336,11 +1360,57 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(0, -30), Vector2(0, 0), Vector2(0, -30), Vector2(0, 0), Vector2(0, -10), Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_xbyk0"]
+resource_name = "smol_shake_2"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -30), Vector2(0, 0), Vector2(0, -30), Vector2(0, 0), Vector2(0, -10), Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gff3c"]
+resource_name = "super_hit_zoom"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(960, 540), Vector2(1200, 449)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bkvre"]
 _data = {
 "RESET": SubResource("Animation_8j0fk"),
 "shake": SubResource("Animation_giwag"),
-"smol_shake": SubResource("Animation_yuk7d")
+"smol_shake": SubResource("Animation_yuk7d"),
+"smol_shake_2": SubResource("Animation_xbyk0"),
+"super_hit_zoom": SubResource("Animation_gff3c")
 }
 
 [node name="Forest" type="Node"]

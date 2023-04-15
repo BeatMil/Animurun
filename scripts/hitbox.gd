@@ -16,6 +16,7 @@ func _on_body_entered(body):
 
 		if body.is_boom_slime: # Big cinematic scene XD
 			body.activate_boom()
+			$"../../CameraWrap/CameraPlayer".play("super_hit_zoom")
 		elif body.is_speed_slime:
 			body.apply_impulse(Vector2(4000, -2000))
 			body.apply_torque_impulse(100000)

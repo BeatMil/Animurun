@@ -356,7 +356,7 @@ func spawn_boom_slime() -> void:
 	slime.position = $"Markers/EnemySpawnPos2".position
 
 	add_child(slime)
-	slime.throw_slime(Vector2(-3000, -2500))
+	slime.throw_slime(Vector2(-3000, -2700))
 
 
 func smol_shake() -> void:

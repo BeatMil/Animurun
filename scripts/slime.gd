@@ -45,7 +45,7 @@ func activate_boom(): # hitbox.gd run this
 
 
 func activate_boom_then(): # hitbox.gd run this
-	self.apply_impulse(Vector2(2000, 1000))
+	self.apply_impulse(Vector2(2200, 1000))
 	spawn_blue_spark()
 	await get_tree().create_timer(0.1, false).timeout
 	self.apply_torque_impulse(100000)
