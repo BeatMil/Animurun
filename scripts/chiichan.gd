@@ -193,6 +193,7 @@ func freeze() -> void: # used during super_hit
 
 func unfreeze() -> void: # used during super_hit
 	is_freezing = false
+	$AnimationPlayer.play("run")
 
 
 func super_hit() -> void:
@@ -226,6 +227,8 @@ func _on_animation_player_animation_finished(anim_name):
 			$"ChiichanPos/sprite".self_modulate = Color(1, 0.6, 0.5)
 		elif pushback_multiplier >= 1:
 			$"ChiichanPos/sprite".self_modulate = Color(0.9, 0.9, 0.4)
+	elif anim_name == "super_hit":
+		self.unfreeze()
 
 
 func _on_animation_player_animation_started(anim_name):

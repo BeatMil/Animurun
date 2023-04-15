@@ -31,3 +31,11 @@ func _on_body_entered(body) -> void:
 		body.let_blue_spark_go()
 		body.hurt()
 		hurt()
+
+		if body.is_boom_slime: # hit by chiichan super_hit
+			$AnimationPlayer.queue("mad")
+
+			# unfreeze stuffs
+			$"../ParallaxBackground".unfreeze()
+			$"../BackgroundDim".unfreeze()
+			$"../CameraWrap/CameraPlayer".play_backwards("super_hit_zoom")
