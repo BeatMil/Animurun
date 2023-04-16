@@ -9,7 +9,8 @@ var BOMBY = preload("res://nodes/bomby.tscn")
 
 # Configs
 # var enemy_spawn_order: Array = [spawn_triple01, spawn_triple02, spawn_triple03, spawn_triple04, spawn_triple05, spawn_five_bombs, spawn_five_ground_bombs, spawn_2rock_1speed, spawn_2rock_1slime, spawn_slime_rocks, spawn_2bomb_rock_slime]
-var enemy_spawn_order: Array = [spawn_boom_slime]
+# var enemy_spawn_order: Array = [spawn_boom_slime]
+var enemy_spawn_order: Array = []
 var order_index: int = 0
 var is_random_spawn = true
 var rng = RandomNumberGenerator.new()
@@ -27,6 +28,7 @@ func _ready() -> void:
 func _process(_delta):
 	# debug pp
 	$"CanvasLayer/chiichan_velocity".text = str($"Chiichan".velocity)
+	$"CanvasLayer/chiichan_state".text = str($"Chiichan".States.keys()[$"Chiichan".state])
 
 
 func spawner() -> void:
@@ -171,7 +173,6 @@ func spawn_triple04() -> void:
 
 	add_child(node1)
 	node1.throw_bomb(Vector2(-2200, -2200))
-
 
 
 func spawn_triple05() -> void:

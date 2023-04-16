@@ -1615,6 +1615,14 @@ offset_bottom = 25.0
 scale = Vector2(3.2052, 3.59681)
 text = "chiichan_velocity: "
 
+[node name="chiichan_state" type="Label" parent="CanvasLayer"]
+offset_left = 1.0
+offset_top = 58.0
+offset_right = 141.0
+offset_bottom = 84.0
+scale = Vector2(3.2052, 3.59681)
+text = "chiichan_state: "
+
 [node name="Markers" type="Node" parent="."]
 
 [node name="EnemySpawnPos" type="Marker2D" parent="Markers"]
