@@ -15,7 +15,6 @@ script = ExtResource("1_dk4dq")
 shape = SubResource("RectangleShape2D_3pcvt")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
 one_shot = true
 autostart = true
 
