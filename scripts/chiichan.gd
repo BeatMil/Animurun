@@ -5,7 +5,16 @@ extends CharacterBody2D
 
 
 # Beat's own state machine XD
-enum States {RUNNING, ATTACKING, STUNNED, BLOCKING, BLOCK_IMPACT, SWORD_DEFLECT, DODGING}
+enum States {
+	RUNNING,
+	ATTACKING,
+	STUNNED,
+	BLOCKING,
+	BLOCK_IMPACT,
+	SWORD_DEFLECT,
+	DODGING,
+	PARRY,
+	}
 
 
 # Configs
@@ -23,7 +32,6 @@ var is_freezing = false
 var ATTACK01_HITBOX = preload("res://nodes/hitboxes/attack01_hitbox.tscn")
 var SUPER_HIT_HITBOX = preload("res://nodes/hitboxes/super_hit_hitbox.tscn")
 var CHRAGE_PARTICLE = preload("res://nodes/particles/charging_particle.tscn")
-
 const FRICTION = 0.1
 
 
@@ -132,7 +140,7 @@ func spawn_super_hit_hitbox(): # used by AnimationPlayer
 
 func push(power: Vector2):
 	power = (pushback_multiplier * power) + power
-	if state == States.BLOCKING or state == States.BLOCK_IMPACT:
+	if state in [States.BLOCK_IMPACT, States.BLOCK_IMPACT, States.PARRY]:
 		anim_player.play("block_impact")
 		velocity += (power / 2)
 		state = States.BLOCK_IMPACT
@@ -168,8 +176,12 @@ func sword_deflect():
 
 
 func attack01():
-	state = States.ATTACKING
 	anim_player.play("attack01_2")
+
+
+func set_state(_state) -> void:
+	state = _state
+	print("set state: %s"%[States.find_key(_state)])
 
 
 func block():

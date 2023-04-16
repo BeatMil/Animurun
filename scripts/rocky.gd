@@ -25,7 +25,7 @@ func activate_speed():
 
 func _on_body_entered(body):
 	if body.is_in_group("chiichan"):
-		# slime got pushed away
+		# rock got pushed away
 		is_moving = false
 		turn_off_all_collision()
 		apply_impulse(Vector2(1000, -1000))
