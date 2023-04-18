@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://46hwm47l0ics"]
+[gd_scene load_steps=71 format=3 uid="uid://46hwm47l0ics"]
 
 [ext_resource type="Script" path="res://scripts/forest.gd" id="1_trs0b"]
 [ext_resource type="Texture2D" uid="uid://dh13bx01yu78m" path="res://media/sprites/kaisouko_look.png" id="2_b416e"]
@@ -22,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://cpwu06ws2r1cl" path="res://media/sfx/hitHurt.wav" id="17_ghv7i"]
 [ext_resource type="AudioStream" uid="uid://b030i7g3mmmse" path="res://media/sfx/smol_jump.wav" id="18_snu5y"]
 [ext_resource type="Texture2D" uid="uid://dyjx2w2gd2jbp" path="res://media/sprites/sword_deflect.png" id="20_3pbpf"]
+[ext_resource type="Texture2D" uid="uid://kba1gj20m6bi" path="res://media/sprites/chiichan_jump_hand.png" id="21_he37d"]
 [ext_resource type="AudioStream" uid="uid://q2ijwyc88yom" path="res://media/sfx/sword_deflect.wav" id="21_ve0hw"]
 [ext_resource type="Script" path="res://scripts/wall.gd" id="22_e3h8j"]
 [ext_resource type="Texture2D" uid="uid://dcmn2cf0r3fq5" path="res://media/sprites/chiichan_run_hands.png" id="22_hulc3"]
@@ -745,7 +746,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("7_5vrbo")]
+"values": [ExtResource("21_he37d")]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
