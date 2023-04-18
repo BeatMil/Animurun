@@ -18,9 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://bv2i0f07e50fw" path="res://media/sprites/chiichan_block_impact.png" id="13_m2knb"]
 [ext_resource type="AudioStream" uid="uid://bl505quhmyg4f" path="res://media/sfx/hitHurt2.wav" id="14_d0pk3"]
 [ext_resource type="Texture2D" uid="uid://bc8aor20lysxc" path="res://media/sprites/chiichan_dodge.png" id="15_bbvwl"]
-[ext_resource type="Texture2D" uid="uid://cd3ts6q6vfyre" path="res://media/sprites/chiichan_hitted.png" id="16_tov52"]
 [ext_resource type="AudioStream" uid="uid://cpwu06ws2r1cl" path="res://media/sfx/hitHurt.wav" id="17_ghv7i"]
 [ext_resource type="AudioStream" uid="uid://b030i7g3mmmse" path="res://media/sfx/smol_jump.wav" id="18_snu5y"]
+[ext_resource type="Texture2D" uid="uid://coe2xhuyo7vme" path="res://media/sprites/chiichan_hitted_hands.png" id="19_jm7gu"]
 [ext_resource type="Texture2D" uid="uid://dyjx2w2gd2jbp" path="res://media/sprites/sword_deflect.png" id="20_3pbpf"]
 [ext_resource type="Texture2D" uid="uid://kba1gj20m6bi" path="res://media/sprites/chiichan_jump_hand.png" id="21_he37d"]
 [ext_resource type="AudioStream" uid="uid://q2ijwyc88yom" path="res://media/sfx/sword_deflect.wav" id="21_ve0hw"]
@@ -600,7 +600,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("16_tov52")]
+"values": [ExtResource("19_jm7gu")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
