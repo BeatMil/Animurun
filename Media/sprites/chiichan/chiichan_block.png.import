@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyjx2w2gd2jbp"
-path="res://.godot/imported/sword_deflect.png-10ec0ddc2349815daa24708b71f35803.ctex"
+uid="uid://2nmwcl48ddwq"
+path="res://.godot/imported/chiichan_block.png-25e27594c9d20dbfacf0ee839744acee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://media/sprites/sword_deflect.png"
-dest_files=["res://.godot/imported/sword_deflect.png-10ec0ddc2349815daa24708b71f35803.ctex"]
+source_file="res://media/sprites/chiichan/chiichan_block.png"
+dest_files=["res://.godot/imported/chiichan_block.png-25e27594c9d20dbfacf0ee839744acee.ctex"]
 
 [params]
 

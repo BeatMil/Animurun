@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://46hwm47l0ics"]
+[gd_scene load_steps=71 format=3 uid="uid://sa8iqc45gidu"]
 
 [ext_resource type="Script" path="res://scripts/forest.gd" id="1_trs0b"]
 [ext_resource type="Texture2D" uid="uid://dh13bx01yu78m" path="res://media/sprites/kaisouko_look.png" id="2_b416e"]
@@ -8,25 +8,24 @@
 [ext_resource type="Texture2D" uid="uid://c6cckqobux4ov" path="res://media/sprites/mountain.png" id="4_oa7ea"]
 [ext_resource type="Texture2D" uid="uid://o3mgqx5thpxh" path="res://media/sprites/ground.png" id="5_rf2wy"]
 [ext_resource type="Script" path="res://scripts/chiichan.gd" id="6_b8mqq"]
-[ext_resource type="Texture2D" uid="uid://lwgm73y41uvc" path="res://media/sprites/chiichan_jump.png" id="7_5vrbo"]
-[ext_resource type="Texture2D" uid="uid://dgcyrp7yhf30r" path="res://media/sprites/sword_attack01_b.png" id="8_3na0k"]
 [ext_resource type="Script" path="res://scripts/background_dim.gd" id="8_qtgtl"]
 [ext_resource type="AudioStream" uid="uid://dd4t8hc1wr3s0" path="res://media/sfx/sword_attack02.wav" id="9_7jirt"]
 [ext_resource type="AudioStream" uid="uid://4v3ipdlb1tan" path="res://media/sfx/sword_attack01.wav" id="10_2yepl"]
-[ext_resource type="Texture2D" uid="uid://2nmwcl48ddwq" path="res://media/sprites/chiichan_block.png" id="11_kdo51"]
+[ext_resource type="Texture2D" uid="uid://lwgm73y41uvc" path="res://media/sprites/chiichan/chiichan_jump.png" id="10_6dhh6"]
+[ext_resource type="Texture2D" uid="uid://dgcyrp7yhf30r" path="res://media/sprites/chiichan/sword_attack01_b.png" id="11_felwj"]
 [ext_resource type="AudioStream" uid="uid://cj0tmbngsm3js" path="res://media/sfx/block02.wav" id="12_dybn8"]
-[ext_resource type="Texture2D" uid="uid://bv2i0f07e50fw" path="res://media/sprites/chiichan_block_impact.png" id="13_m2knb"]
+[ext_resource type="Texture2D" uid="uid://d0vgnfre8gwpw" path="res://media/sprites/chiichan/chiichan_block_hands.png" id="14_cnjnu"]
 [ext_resource type="AudioStream" uid="uid://bl505quhmyg4f" path="res://media/sfx/hitHurt2.wav" id="14_d0pk3"]
-[ext_resource type="Texture2D" uid="uid://bc8aor20lysxc" path="res://media/sprites/chiichan_dodge.png" id="15_bbvwl"]
+[ext_resource type="Texture2D" uid="uid://bv2i0f07e50fw" path="res://media/sprites/chiichan/chiichan_block_impact.png" id="16_arhhh"]
 [ext_resource type="AudioStream" uid="uid://cpwu06ws2r1cl" path="res://media/sfx/hitHurt.wav" id="17_ghv7i"]
+[ext_resource type="Texture2D" uid="uid://bc8aor20lysxc" path="res://media/sprites/chiichan/chiichan_dodge.png" id="18_eoger"]
 [ext_resource type="AudioStream" uid="uid://b030i7g3mmmse" path="res://media/sfx/smol_jump.wav" id="18_snu5y"]
-[ext_resource type="Texture2D" uid="uid://coe2xhuyo7vme" path="res://media/sprites/chiichan_hitted_hands.png" id="19_jm7gu"]
-[ext_resource type="Texture2D" uid="uid://dyjx2w2gd2jbp" path="res://media/sprites/sword_deflect.png" id="20_3pbpf"]
-[ext_resource type="Texture2D" uid="uid://kba1gj20m6bi" path="res://media/sprites/chiichan_jump_hand.png" id="21_he37d"]
+[ext_resource type="Texture2D" uid="uid://coe2xhuyo7vme" path="res://media/sprites/chiichan/chiichan_hitted_hands.png" id="19_hrs51"]
+[ext_resource type="Texture2D" uid="uid://kba1gj20m6bi" path="res://media/sprites/chiichan/chiichan_jump_hand.png" id="21_4kcug"]
 [ext_resource type="AudioStream" uid="uid://q2ijwyc88yom" path="res://media/sfx/sword_deflect.wav" id="21_ve0hw"]
 [ext_resource type="Script" path="res://scripts/wall.gd" id="22_e3h8j"]
-[ext_resource type="Texture2D" uid="uid://dcmn2cf0r3fq5" path="res://media/sprites/chiichan_run_hands.png" id="22_hulc3"]
 [ext_resource type="AudioStream" uid="uid://cat3cfvygslnu" path="res://media/sfx/dedExplosion.wav" id="23_gl0fv"]
+[ext_resource type="Texture2D" uid="uid://dcmn2cf0r3fq5" path="res://media/sprites/chiichan/chiichan_run_hands.png" id="23_lpcms"]
 [ext_resource type="PackedScene" uid="uid://d1h4ur6yhpscs" path="res://scenes/ded_menu.tscn" id="24_3kuhs"]
 [ext_resource type="PackedScene" uid="uid://c1vlse56bmgi3" path="res://scenes/pause_menu.tscn" id="25_pyk6c"]
 [ext_resource type="Texture2D" uid="uid://bcxjtirdkl6pf" path="res://media/sprites/cinimatics/taiga_phase1/super_hit01.png" id="25_x8hod"]
@@ -34,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://dkyiapdpotj7x" path="res://media/sprites/cinimatics/taiga_phase1/super_hit02.png" id="26_hqt3g"]
 [ext_resource type="AudioStream" uid="uid://ccvb7cacaeh25" path="res://media/sfx/charge_02.wav" id="27_7a8he"]
 [ext_resource type="AudioStream" uid="uid://cavppioiw03v4" path="res://media/sfx/parry01.wav" id="28_68vij"]
+[ext_resource type="Texture2D" uid="uid://dyjx2w2gd2jbp" path="res://media/sprites/chiichan/sword_deflect.png" id="28_n1xid"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vax0k"]
 bounce = 0.8
@@ -122,7 +122,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("7_5vrbo")]
+"values": [ExtResource("10_6dhh6")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -223,7 +223,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("8_3na0k")]
+"values": [ExtResource("11_felwj")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -341,7 +341,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("11_kdo51")]
+"values": [ExtResource("14_cnjnu")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -353,7 +353,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1]
+"values": [2]
 }
 tracks/3/type = "audio"
 tracks/3/imported = false
@@ -373,40 +373,40 @@ tracks/3/use_blend = true
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("ChiichanPos:position")
+tracks/4/path = NodePath("ChiichanPos/sprite:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.583333, 0.75),
-"transitions": PackedFloat32Array(0.5, 1, 0.5, 0.5),
-"update": 0,
-"values": [Vector2(72, 37), Vector2(72, 7), Vector2(72, 0), Vector2(72, 37)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("ChiichanPos/sprite:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
-tracks/6/type = "method"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath(".")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"normal_collision"
 }]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ChiichanPos/sprite:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(36, -30)]
 }
 
 [sub_resource type="Animation" id="Animation_gbugi"]
@@ -435,7 +435,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("13_m2knb")]
+"values": [ExtResource("16_arhhh")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -515,7 +515,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("15_bbvwl")]
+"values": [ExtResource("18_eoger")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -600,7 +600,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("19_jm7gu")]
+"values": [ExtResource("19_hrs51")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -746,7 +746,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("21_he37d")]
+"values": [ExtResource("21_4kcug")]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -814,7 +814,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("8_3na0k")]
+"values": [ExtResource("11_felwj")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -939,7 +939,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("22_hulc3")]
+"values": [ExtResource("23_lpcms")]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -1130,7 +1130,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("20_3pbpf")]
+"values": [ExtResource("28_n1xid")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1546,7 +1546,7 @@ default_pos = NodePath("../Markers/ChiichanDefaultPos")
 
 [node name="sprite" type="Sprite2D" parent="Chiichan/ChiichanPos"]
 z_index = 10
-texture = ExtResource("7_5vrbo")
+texture = ExtResource("10_6dhh6")
 offset = Vector2(0, 12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chiichan"]

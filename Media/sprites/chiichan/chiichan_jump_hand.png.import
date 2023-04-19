@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgcyrp7yhf30r"
-path="res://.godot/imported/sword_attack01_b.png-0778bc70d0f884393b6b6410f02d9155.ctex"
+uid="uid://kba1gj20m6bi"
+path="res://.godot/imported/chiichan_jump_hand.png-95cb6daa27a0886afcb91af471078c4d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://media/sprites/sword_attack01_b.png"
-dest_files=["res://.godot/imported/sword_attack01_b.png-0778bc70d0f884393b6b6410f02d9155.ctex"]
+source_file="res://media/sprites/chiichan/chiichan_jump_hand.png"
+dest_files=["res://.godot/imported/chiichan_jump_hand.png-95cb6daa27a0886afcb91af471078c4d.ctex"]
 
 [params]
 

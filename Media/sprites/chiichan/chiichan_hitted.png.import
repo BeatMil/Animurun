@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2nmwcl48ddwq"
-path="res://.godot/imported/chiichan_block.png-022738860b665bed35852c5946c553a8.ctex"
+uid="uid://cd3ts6q6vfyre"
+path="res://.godot/imported/chiichan_hitted.png-ec264a54063bb7c7d60409dee3f33ddc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://media/sprites/chiichan_block.png"
-dest_files=["res://.godot/imported/chiichan_block.png-022738860b665bed35852c5946c553a8.ctex"]
+source_file="res://media/sprites/chiichan/chiichan_hitted.png"
+dest_files=["res://.godot/imported/chiichan_hitted.png-ec264a54063bb7c7d60409dee3f33ddc.ctex"]
 
 [params]
 

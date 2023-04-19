@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://coe2xhuyo7vme"
-path="res://.godot/imported/chiichan_hitted_hands.png-b04b6e4a33799ce309bd5172692a95f7.ctex"
+uid="uid://dyjx2w2gd2jbp"
+path="res://.godot/imported/sword_deflect.png-58c099e7683ed9b565ba506d10913e31.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://media/sprites/chiichan_hitted_hands.png"
-dest_files=["res://.godot/imported/chiichan_hitted_hands.png-b04b6e4a33799ce309bd5172692a95f7.ctex"]
+source_file="res://media/sprites/chiichan/sword_deflect.png"
+dest_files=["res://.godot/imported/sword_deflect.png-58c099e7683ed9b565ba506d10913e31.ctex"]
 
 [params]
 

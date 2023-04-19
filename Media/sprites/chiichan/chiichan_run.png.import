@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcmn2cf0r3fq5"
-path="res://.godot/imported/chiichan_run_hands.png-b254d74936de230ade9c20a4d25ea8c3.ctex"
+uid="uid://bxjft2o05bs63"
+path="res://.godot/imported/chiichan_run.png-6043fb58be41acdeeb5416ea68103913.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://media/sprites/chiichan_run_hands.png"
-dest_files=["res://.godot/imported/chiichan_run_hands.png-b254d74936de230ade9c20a4d25ea8c3.ctex"]
+source_file="res://media/sprites/chiichan/chiichan_run.png"
+dest_files=["res://.godot/imported/chiichan_run.png-6043fb58be41acdeeb5416ea68103913.ctex"]
 
 [params]
 

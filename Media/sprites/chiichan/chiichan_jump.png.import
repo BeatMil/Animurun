@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc8aor20lysxc"
-path="res://.godot/imported/chiichan_dodge.png-211277dfa84a80f3ab2bf5cd42f46738.ctex"
+uid="uid://lwgm73y41uvc"
+path="res://.godot/imported/chiichan_jump.png-32f139a76aa6582caa7245699fd0d18f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://media/sprites/chiichan_dodge.png"
-dest_files=["res://.godot/imported/chiichan_dodge.png-211277dfa84a80f3ab2bf5cd42f46738.ctex"]
+source_file="res://media/sprites/chiichan/chiichan_jump.png"
+dest_files=["res://.godot/imported/chiichan_jump.png-32f139a76aa6582caa7245699fd0d18f.ctex"]
 
 [params]
 

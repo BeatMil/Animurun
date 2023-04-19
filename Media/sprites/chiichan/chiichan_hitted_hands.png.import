@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cd3ts6q6vfyre"
-path="res://.godot/imported/chiichan_hitted.png-b764c70e9a091bfc8a3ca7f28b47b8b6.ctex"
+uid="uid://coe2xhuyo7vme"
+path="res://.godot/imported/chiichan_hitted_hands.png-4f39a588efa3fd41ee514f07d7ab187f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://media/sprites/chiichan_hitted.png"
-dest_files=["res://.godot/imported/chiichan_hitted.png-b764c70e9a091bfc8a3ca7f28b47b8b6.ctex"]
+source_file="res://media/sprites/chiichan/chiichan_hitted_hands.png"
+dest_files=["res://.godot/imported/chiichan_hitted_hands.png-4f39a588efa3fd41ee514f07d7ab187f.ctex"]
 
 [params]
 

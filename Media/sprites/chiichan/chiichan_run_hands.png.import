@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgc1ylk2clroj"
-path="res://.godot/imported/sword_swing.png-4629efd7661bb87b2a7bb23607967d39.ctex"
+uid="uid://dcmn2cf0r3fq5"
+path="res://.godot/imported/chiichan_run_hands.png-cd7d276334c8ca42f03b25ddc1a4325e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://media/sprites/sword_swing.png"
-dest_files=["res://.godot/imported/sword_swing.png-4629efd7661bb87b2a7bb23607967d39.ctex"]
+source_file="res://media/sprites/chiichan/chiichan_run_hands.png"
+dest_files=["res://.godot/imported/chiichan_run_hands.png-cd7d276334c8ca42f03b25ddc1a4325e.ctex"]
 
 [params]
 
