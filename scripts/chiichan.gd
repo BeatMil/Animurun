@@ -32,7 +32,7 @@ var is_freezing = false
 var ATTACK01_HITBOX = preload("res://nodes/hitboxes/attack01_hitbox.tscn")
 var SUPER_HIT_HITBOX = preload("res://nodes/hitboxes/super_hit_hitbox.tscn")
 var CHRAGE_PARTICLE = preload("res://nodes/particles/charging_particle.tscn")
-const FRICTION = 0.1
+const FRICTION = 0.06
 
 
 func _ready():
@@ -50,7 +50,7 @@ func _physics_process(delta):
 		move_and_slide()
 		return
 
-	if state not in [States.STUNNED, States.BLOCK_IMPACT]:
+	if state not in [States.STUNNED, States.BLOCK_IMPACT, States.BLOCKING]:
 		# On ground play run animation
 		if is_on_floor():
 			if not anim_player.is_playing():
@@ -63,7 +63,6 @@ func _physics_process(delta):
 		elif Input.is_action_just_released("jump"):
 			release_jump()
 
-
 		# normal movement
 		if Input.is_action_pressed("move_left") and Input.is_action_pressed("move_right"):
 			lerp_velocity_x()
@@ -73,6 +72,9 @@ func _physics_process(delta):
 			move_right(delta)
 		else:
 			lerp_velocity_x()
+
+	elif state == States.BLOCKING: # chiichan can slide block
+		lerp_velocity_x()
 	
 
 	# Add gravity and calculate movements
@@ -140,7 +142,7 @@ func spawn_super_hit_hitbox(): # used by AnimationPlayer
 
 func push(power: Vector2):
 	power = (pushback_multiplier * power) + power
-	if state in [States.BLOCK_IMPACT, States.BLOCK_IMPACT, States.PARRY]:
+	if state in [States.BLOCKING, States.BLOCK_IMPACT, States.PARRY]:
 		anim_player.play("block_impact")
 		velocity += (power / 2)
 		state = States.BLOCK_IMPACT
@@ -181,7 +183,6 @@ func attack01():
 
 func set_state(_state) -> void:
 	state = _state
-	print("set state: %s"%[States.find_key(_state)])
 
 
 func block():
