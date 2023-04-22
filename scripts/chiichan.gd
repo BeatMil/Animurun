@@ -15,6 +15,7 @@ enum States {
 	DODGING,
 	PARRY,
 	PARRY_SUCCESS,
+	PARRY_SWORD,
 	}
 
 
@@ -137,6 +138,14 @@ func spawn_hitbox01(): # used by AnimationPlayer
 
 func spawn_super_hit_hitbox(): # used by AnimationPlayer
 	var hitbox = SUPER_HIT_HITBOX.instantiate()
+	hitbox.is_sword = true
+	hitbox.position = $SuperHitHitboxPos.global_position
+	$"..".add_child(hitbox)
+
+
+func spawn_super_hit_hitbox_hand(): # used by AnimationPlayer
+	var hitbox = SUPER_HIT_HITBOX.instantiate()
+	hitbox.is_hand = true
 	hitbox.position = $SuperHitHitboxPos.global_position
 	$"..".add_child(hitbox)
 
@@ -212,7 +221,7 @@ func unfreeze() -> void: # used during super_hit
 
 func super_hit() -> void:
 	freeze()
-	$AnimationPlayer.play("super_hit")
+	$AnimationPlayer.play("super_hit_hand")
 
 
 func spawn_charge_particle(): # used by AnimationPlayer
@@ -241,7 +250,7 @@ func _on_animation_player_animation_finished(anim_name):
 			$"ChiichanPos/sprite".self_modulate = Color(1, 0.6, 0.5)
 		elif pushback_multiplier >= 1:
 			$"ChiichanPos/sprite".self_modulate = Color(0.9, 0.9, 0.4)
-	elif anim_name == "super_hit":
+	elif anim_name in ["super_hit", "super_hit_hand"]:
 		self.unfreeze()
 
 

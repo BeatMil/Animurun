@@ -9,8 +9,10 @@ var BOMBY = preload("res://nodes/bomby.tscn")
 
 # Configs
 # var enemy_spawn_order: Array = [spawn_triple01, spawn_triple02, spawn_triple03, spawn_triple04, spawn_triple05, spawn_five_bombs, spawn_five_ground_bombs, spawn_2rock_1speed, spawn_2rock_1slime, spawn_slime_rocks, spawn_2bomb_rock_slime]
-# var enemy_spawn_order: Array = [spawn_boom_slime]
-var enemy_spawn_order: Array = []
+# var enemy_spawn_order: Array = [spawn_boom_slime_sword]
+var enemy_spawn_order: Array = [spawn_boom_slime_hand]
+# var enemy_spawn_order: Array = [spawn_slime]
+# var enemy_spawn_order: Array = []
 var order_index: int = 0
 var is_random_spawn = true
 var rng = RandomNumberGenerator.new()
@@ -350,7 +352,7 @@ func spawn_2rock_1slime() -> void:
 	slime.activate_speed()
 
 
-func spawn_boom_slime() -> void:
+func spawn_boom_slime_sword() -> void:
 	var slime = SLIME.instantiate()
 	slime.is_boom_slime = true
 	slime.connect("ded", spawner)
@@ -358,6 +360,16 @@ func spawn_boom_slime() -> void:
 
 	add_child(slime)
 	slime.throw_slime(Vector2(-3000, -2700))
+
+
+func spawn_boom_slime_hand() -> void:
+	var slime = SLIME.instantiate()
+	slime.is_boom_slime = true
+	slime.connect("ded", spawner)
+	slime.position = $"Markers/EnemySpawnPos2".position
+
+	add_child(slime)
+	slime.throw_slime(Vector2(-3000, -1200))
 
 
 func smol_shake() -> void:

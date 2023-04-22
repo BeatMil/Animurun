@@ -29,6 +29,7 @@ func activate_speed():
 
 
 func activate_boom(): # hitbox.gd run this
+	$"../CameraWrap/CameraPlayer".play("super_hit_zoom")
 	disconnect("ded", $"..".spawner)
 	chiichan.super_hit()
 	self.is_moving = false
@@ -44,8 +45,8 @@ func activate_boom(): # hitbox.gd run this
 	pass
 
 
-func activate_boom_then(): # hitbox.gd run this
-	self.apply_impulse(Vector2(2200, 1000))
+func activate_boom_then(_power: Vector2): # hitbox.gd run this
+	self.apply_impulse(_power)
 	spawn_blue_spark()
 	await get_tree().create_timer(0.1, false).timeout
 	self.apply_torque_impulse(100000)
@@ -69,6 +70,10 @@ func hurt():
 func _on_body_entered(body):
 	if body.is_in_group("chiichan"):
 		if body.state == body.States.PARRY:
+			if is_boom_slime:
+				activate_boom()
+				return
+
 			# chiichan parry slime
 			is_moving = false
 			turn_hit_boss_collision()
@@ -77,7 +82,6 @@ func _on_body_entered(body):
 
 			if is_boom_slime: # Big cinematic scene XD
 				activate_boom()
-				$"../../CameraWrap/CameraPlayer".play("super_hit_zoom")
 			elif is_speed_slime:
 				apply_impulse(Vector2(4000, -2000))
 				apply_torque_impulse(100000)

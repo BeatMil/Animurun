@@ -5,6 +5,11 @@ extends Area2D
 var HIT_SPARK = preload("res://nodes/particles/hit_spark.tscn")
 
 
+# Configs
+var is_hand = false
+var is_sword = false
+
+
 func _spawn_hit_spark(_node_pos: Node) -> void:
 	var hitbox = HIT_SPARK.instantiate()
 	hitbox.position = _node_pos.position
@@ -13,7 +18,11 @@ func _spawn_hit_spark(_node_pos: Node) -> void:
 
 func _on_body_entered(body):
 	if body.is_in_group("slime"):
-		body.activate_boom_then()
+		if is_sword:
+			body.activate_boom_then(Vector2(2200, 1000))
+		elif is_hand:
+			body.activate_boom_then(Vector2(2200, -300))
+		body.turn_hit_boss_collision()
 		_spawn_hit_spark(body)
 		$"../CameraWrap/CameraPlayer".play("smol_shake_2")
 
