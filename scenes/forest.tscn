@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://sa8iqc45gidu"]
+[gd_scene load_steps=74 format=3 uid="uid://sa8iqc45gidu"]
 
 [ext_resource type="Script" path="res://scripts/forest.gd" id="1_trs0b"]
 [ext_resource type="Texture2D" uid="uid://dh13bx01yu78m" path="res://media/sprites/kaisouko_look.png" id="2_b416e"]
@@ -34,6 +34,8 @@
 [ext_resource type="AudioStream" uid="uid://ccvb7cacaeh25" path="res://media/sfx/charge_02.wav" id="27_7a8he"]
 [ext_resource type="AudioStream" uid="uid://cavppioiw03v4" path="res://media/sfx/parry01.wav" id="28_68vij"]
 [ext_resource type="Texture2D" uid="uid://dyjx2w2gd2jbp" path="res://media/sprites/chiichan/sword_deflect.png" id="28_n1xid"]
+[ext_resource type="Texture2D" uid="uid://c37avc23ljqxu" path="res://media/sprites/chiichan/chiichan_parry_success.png" id="30_pk4jm"]
+[ext_resource type="AudioStream" uid="uid://di8b0mm7tq04a" path="res://media/sfx/laserShoot.wav" id="31_h70ww"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vax0k"]
 bounce = 0.8
@@ -407,6 +409,23 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(36, -30)]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [7],
+"method": &"set_state"
+}, {
+"args": [1],
+"method": &"set_state"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_gbugi"]
@@ -1184,6 +1203,86 @@ tracks/5/keys = {
 "values": [Color(0.988235, 0.980392, 0.85098, 1), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_onuwh"]
+resource_name = "parry_success"
+length = 0.333342
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChiichanPos/sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChiichanPos/sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("30_pk4jm")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ChiichanPos/sprite:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("31_h70ww")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ChiichanPos:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0833333),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(-10, 10), Vector2(0, 10)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ChiichanPos/sprite:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.988235, 0.980392, 0.85098, 1), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8jhmc"]
 _data = {
 "RESET": SubResource("Animation_450t4"),
@@ -1194,6 +1293,7 @@ _data = {
 "hurt": SubResource("Animation_uv8rb"),
 "jump": SubResource("Animation_fgy5s"),
 "old_attack": SubResource("Animation_gbfl8"),
+"parry_success": SubResource("Animation_onuwh"),
 "run": SubResource("Animation_c0ony"),
 "super_hit": SubResource("Animation_v15od"),
 "sword_deflect": SubResource("Animation_erit4")

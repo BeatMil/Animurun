@@ -14,6 +14,7 @@ enum States {
 	SWORD_DEFLECT,
 	DODGING,
 	PARRY,
+	PARRY_SUCCESS,
 	}
 
 
@@ -142,10 +143,10 @@ func spawn_super_hit_hitbox(): # used by AnimationPlayer
 
 func push(power: Vector2):
 	power = (pushback_multiplier * power) + power
-	if state in [States.BLOCKING, States.BLOCK_IMPACT, States.PARRY]:
-		anim_player.play("block_impact")
+	if state in [States.BLOCKING, States.BLOCK_IMPACT, States.PARRY, States.PARRY_SUCCESS]:
+		anim_player.play("parry_success")
 		velocity += (power / 2)
-		state = States.BLOCK_IMPACT
+		state = States.PARRY_SUCCESS
 	else:
 		anim_player.play("hurt")
 		velocity += power
@@ -232,7 +233,7 @@ func normal_collision():
 
 
 func _on_animation_player_animation_finished(anim_name):
-	if anim_name in ["attack01", "hurt", "block", "block_impact", "attack01_2", "dodge", "sword_deflect"]:
+	if anim_name in ["attack01", "hurt", "block", "block_impact", "attack01_2", "dodge", "sword_deflect", "parry_success"]:
 		state = States.RUNNING
 		anim_player.play("run")
 

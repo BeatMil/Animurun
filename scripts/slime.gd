@@ -68,18 +68,35 @@ func hurt():
 
 func _on_body_entered(body):
 	if body.is_in_group("chiichan"):
-		# slime got pushed away
-		is_moving = false
-		turn_off_all_collision()
-		apply_impulse(Vector2(1000, -1000))
-		apply_torque_impulse(100000)
-		hurt()
+		if body.state == body.States.PARRY:
+			# chiichan parry slime
+			is_moving = false
+			turn_hit_boss_collision()
+			hurt()
+			body.push(Vector2(-1500, -100)) # push chiichan
 
-		# chiichan got pushed away
-		if is_speed_slime:
-			body.push(Vector2(-2000, -100))
+			if is_boom_slime: # Big cinematic scene XD
+				activate_boom()
+				$"../../CameraWrap/CameraPlayer".play("super_hit_zoom")
+			elif is_speed_slime:
+				apply_impulse(Vector2(4000, -2000))
+				apply_torque_impulse(100000)
+			else:
+				apply_impulse(Vector2(3000, -1900))
+				apply_torque_impulse(100000)
 		else:
-			body.push(Vector2(-1500, -100))
+			# slime got pushed away
+			is_moving = false
+			turn_off_all_collision()
+			apply_impulse(Vector2(1000, -1000))
+			apply_torque_impulse(100000)
+			hurt()
+
+			# chiichan got pushed away
+			if is_speed_slime:
+				body.push(Vector2(-2000, -100))
+			else:
+				body.push(Vector2(-1500, -100))
 
 
 func throw_slime(power: Vector2) -> void:
