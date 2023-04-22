@@ -21,6 +21,7 @@ func _on_animation_player_animation_finished(anim_name) -> void:
 
 func _on_body_entered(body) -> void:
 	if body.is_in_group("chiichan"):
+		body.set_state(body.States.RUNNING) # chiichan can't parry this
 		body.push(Vector2(-4000, 0))
 		push_chiichan()
 
