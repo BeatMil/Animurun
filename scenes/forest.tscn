@@ -18,7 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://bl505quhmyg4f" path="res://media/sfx/hitHurt2.wav" id="14_d0pk3"]
 [ext_resource type="Texture2D" uid="uid://bv2i0f07e50fw" path="res://media/sprites/chiichan/chiichan_block_impact.png" id="16_arhhh"]
 [ext_resource type="AudioStream" uid="uid://cpwu06ws2r1cl" path="res://media/sfx/hitHurt.wav" id="17_ghv7i"]
-[ext_resource type="Texture2D" uid="uid://bc8aor20lysxc" path="res://media/sprites/chiichan/chiichan_dodge.png" id="18_eoger"]
+[ext_resource type="Texture2D" uid="uid://dqutvk52hfl70" path="res://media/sprites/chiichan/chiichan_dodge_hands.png" id="18_02cit"]
 [ext_resource type="AudioStream" uid="uid://b030i7g3mmmse" path="res://media/sfx/smol_jump.wav" id="18_snu5y"]
 [ext_resource type="Texture2D" uid="uid://coe2xhuyo7vme" path="res://media/sprites/chiichan/chiichan_hitted_hands.png" id="19_hrs51"]
 [ext_resource type="Texture2D" uid="uid://kba1gj20m6bi" path="res://media/sprites/chiichan/chiichan_jump_hand.png" id="21_4kcug"]
@@ -534,7 +534,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("18_eoger")]
+"values": [ExtResource("18_02cit")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
