@@ -251,8 +251,6 @@ func _on_animation_player_animation_finished(anim_name):
 		"dodge",
 		"sword_deflect",
 		"parry_success",
-		"super_hit_hand",
-		"super_hit"
 		]:
 		state = States.RUNNING
 		anim_player.play("run")
@@ -263,6 +261,7 @@ func _on_animation_player_animation_finished(anim_name):
 			$"ChiichanPos/sprite".self_modulate = Color(0.9, 0.9, 0.4)
 	elif anim_name in ["super_hit", "super_hit_hand"]:
 		self.unfreeze()
+		state = States.RUNNING
 
 
 func _on_animation_player_animation_started(anim_name):
