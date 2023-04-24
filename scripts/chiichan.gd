@@ -242,7 +242,18 @@ func normal_collision():
 
 
 func _on_animation_player_animation_finished(anim_name):
-	if anim_name in ["attack01", "hurt", "block", "block_impact", "attack01_2", "dodge", "sword_deflect", "parry_success"]:
+	if anim_name in [
+		"attack01",
+		"hurt",
+		"block",
+		"block_impact",
+		"attack01_2",
+		"dodge",
+		"sword_deflect",
+		"parry_success",
+		"super_hit_hand",
+		"super_hit"
+		]:
 		state = States.RUNNING
 		anim_player.play("run")
 
