@@ -32,6 +32,7 @@ func _on_body_entered(body):
 		jump_off_screen()
 
 		# chiichan got pushed away
+		body.set_state(body.States.RUNNING) # chiichan can't parry this
 		body.push(Vector2(-9000, -1900))
 	
 	if body.is_in_group("ground") and is_throw_bomb:
