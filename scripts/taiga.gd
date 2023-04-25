@@ -32,6 +32,7 @@ func _on_body_entered(body) -> void:
 		body.let_blue_spark_go()
 		body.hurt()
 		hurt()
+		$"..".tutorial_phase_helper += 1 # progress through tutorial phase
 
 		if body.is_boom_slime: # hit by chiichan super_hit
 			$AnimationPlayer.queue("mad")

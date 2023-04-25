@@ -13,9 +13,10 @@ var BOMBY = preload("res://nodes/bomby.tscn")
 # var enemy_spawn_order: Array = [spawn_boom_slime_hand]
 var enemy_spawn_order: Array = [spawn_slime, spawn_bomby]
 # var enemy_spawn_order: Array = []
-var order_index: int = 0
-var is_random_spawn = true
+var order_index: int = 0 # spawner helper
+var is_random_spawn = false
 var rng = RandomNumberGenerator.new()
+var tutorial_phase_helper = 0
 
 
 # Reference
@@ -34,6 +35,9 @@ func _process(_delta):
 
 
 func spawner() -> void:
+	if tutorial_phase_helper >= 2: # chiichan hits 2 slimes to end tutorial phase
+		spawn_phase_one()
+
 	if not enemy_spawn_order.size():
 		return
 
@@ -45,6 +49,14 @@ func spawner() -> void:
 	## very complicated way of doing by Jero (chatGPT)
 	## Reset spawn order cycle
 	order_index = (order_index + 1) % enemy_order_size 
+
+
+func spawn_tutorial_phase() -> void:
+	enemy_spawn_order = [spawn_slime, spawn_bomby]
+
+
+func spawn_phase_one() -> void:
+	enemy_spawn_order = [spawn_triple01, spawn_triple02, spawn_triple03]
 
 
 func spawn_slime() -> void:
