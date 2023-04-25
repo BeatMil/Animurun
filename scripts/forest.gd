@@ -11,8 +11,8 @@ var BOMBY = preload("res://nodes/bomby.tscn")
 # var enemy_spawn_order: Array = [spawn_triple01, spawn_triple02, spawn_triple03, spawn_triple04, spawn_triple05, spawn_five_bombs, spawn_five_ground_bombs, spawn_2rock_1speed, spawn_2rock_1slime, spawn_slime_rocks, spawn_2bomb_rock_slime]
 # var enemy_spawn_order: Array = [spawn_boom_slime_sword]
 # var enemy_spawn_order: Array = [spawn_boom_slime_hand]
-var enemy_spawn_order: Array = [spawn_slime, spawn_bomby]
-# var enemy_spawn_order: Array = []
+# var enemy_spawn_order: Array = [spawn_slime, spawn_bomby]
+var enemy_spawn_order: Array = []
 var order_index: int = 0 # spawner helper
 var is_random_spawn = false
 var rng = RandomNumberGenerator.new()
@@ -56,7 +56,8 @@ func spawn_tutorial_phase() -> void:
 
 
 func spawn_phase_one() -> void:
-	enemy_spawn_order = [spawn_triple01, spawn_triple02, spawn_triple03]
+	enemy_spawn_order = [spawn_triple01, spawn_triple03, spawn_triple02]
+	enemy_order_size = enemy_spawn_order.size()
 
 
 func spawn_slime() -> void:
