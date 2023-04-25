@@ -200,6 +200,18 @@ tracks/7/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ChiichanPos/sprite:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1.8, 1.8, 1.8, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_tft38"]
 resource_name = "attack01_2"
@@ -381,10 +393,10 @@ tracks/4/path = NodePath("ChiichanPos/sprite:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.3332),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(0.317647, 0.92549, 0.486275, 1), Color(1, 1, 1, 1)]
 }
 tracks/5/type = "method"
 tracks/5/imported = false
@@ -428,6 +440,18 @@ tracks/7/keys = {
 "args": [1],
 "method": &"set_state"
 }]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ChiichanPos/sprite:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1.8, 1.8, 1.8, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_gbugi"]
@@ -998,7 +1022,19 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.333333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.988235, 0.980392, 0.85098, 1), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ChiichanPos/sprite:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_c0ony"]
@@ -1103,6 +1139,30 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, -9)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ChiichanPos/sprite:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ChiichanPos/sprite:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_v15od"]
@@ -1748,6 +1808,7 @@ default_pos = NodePath("../Markers/ChiichanDefaultPos")
 [node name="ChiichanPos" type="Node2D" parent="Chiichan"]
 
 [node name="sprite" type="Sprite2D" parent="Chiichan/ChiichanPos"]
+self_modulate = Color(1.8, 1.8, 1.8, 1)
 z_index = 10
 texture = ExtResource("10_6dhh6")
 offset = Vector2(0, 12)
