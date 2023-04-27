@@ -137,7 +137,7 @@ collision_mask = 0
 custom_integrator = true
 max_contacts_reported = 2
 contact_monitor = true
-freeze = true
+lock_rotation = true
 freeze_mode = 1
 script = ExtResource("1_xkotw")
 
@@ -158,9 +158,12 @@ libraries = {
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
 one_shot = true
 autostart = true
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

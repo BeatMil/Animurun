@@ -1,9 +1,20 @@
 extends RigidBody2D
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+# Signal
+signal ded
+
+
+# Configs
+var is_moving = false
+var moving_speed = Vector2(-800, 0)
+
+
+func _integrate_forces(_state):
+	if is_moving:
+		linear_velocity = moving_speed
+	else:
+		linear_velocity = Vector2.ZERO
 
 
 func _on_body_entered(body):
@@ -15,3 +26,12 @@ func _on_body_entered(body):
 
 func _on_timer_timeout():
 	$AnimationPlayer.play("spike")
+
+
+func _on_animation_player_animation_started(anim_name):
+	if anim_name == "spike":
+		is_moving = true
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	emit_signal("ded")

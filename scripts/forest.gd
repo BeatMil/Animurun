@@ -5,6 +5,7 @@ extends Node
 var SLIME = preload("res://nodes/slime.tscn")
 var ROCKY = preload("res://nodes/rocky.tscn")
 var BOMBY = preload("res://nodes/bomby.tscn")
+var SPIKE = preload("res://nodes/spike.tscn")
 
 
 # Configs
@@ -12,7 +13,7 @@ var BOMBY = preload("res://nodes/bomby.tscn")
 # var enemy_spawn_order: Array = [spawn_boom_slime_sword]
 # var enemy_spawn_order: Array = [spawn_boom_slime_hand]
 # var enemy_spawn_order: Array = [spawn_slime, spawn_bomby]
-var enemy_spawn_order: Array = []
+var enemy_spawn_order: Array = [spawn_spike]
 var order_index: int = 0 # spawner helper
 var is_random_spawn = false
 var rng = RandomNumberGenerator.new()
@@ -95,6 +96,13 @@ func spawn_speed_bomby() -> void:
 	bomby.position = $"Markers/EnemySpawnPos".position
 	bomby.connect("ded", spawner)
 	add_child(bomby)
+
+
+func spawn_spike() -> void:
+	var spike = SPIKE.instantiate()
+	spike.position = $"Markers/SpikeSpawnPos".position
+	spike.connect("ded", spawner)
+	add_child(spike)
 
 
 func spawn_triple01() -> void:

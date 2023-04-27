@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://sa8iqc45gidu"]
+[gd_scene load_steps=77 format=3 uid="uid://sa8iqc45gidu"]
 
 [ext_resource type="Script" path="res://scripts/forest.gd" id="1_trs0b"]
 [ext_resource type="Texture2D" uid="uid://dh13bx01yu78m" path="res://media/sprites/kaisouko_look.png" id="2_b416e"]
@@ -38,7 +38,6 @@
 [ext_resource type="Texture2D" uid="uid://c37avc23ljqxu" path="res://media/sprites/chiichan/chiichan_parry_success.png" id="30_pk4jm"]
 [ext_resource type="Texture2D" uid="uid://n8o1ai764yv1" path="res://media/sprites/chiichan/chiichan_super_hit_hand02.png" id="31_elekm"]
 [ext_resource type="AudioStream" uid="uid://di8b0mm7tq04a" path="res://media/sfx/laserShoot.wav" id="31_h70ww"]
-[ext_resource type="PackedScene" uid="uid://b3vaybudghovl" path="res://nodes/spike.tscn" id="39_ovai2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vax0k"]
 bounce = 0.8
@@ -1928,11 +1927,11 @@ position = Vector2(2400, 767)
 [node name="ChiichanDefaultPos" type="Marker2D" parent="Markers"]
 position = Vector2(523, 749)
 
+[node name="SpikeSpawnPos" type="Marker2D" parent="Markers"]
+position = Vector2(960, 704)
+
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 0.5
-
-[node name="Spike" parent="." instance=ExtResource("39_ovai2")]
-position = Vector2(893, 673)
 
 [connection signal="animation_finished" from="Chiichan/AnimationPlayer" to="Chiichan" method="_on_animation_player_animation_finished"]
 [connection signal="animation_started" from="Chiichan/AnimationPlayer" to="Chiichan" method="_on_animation_player_animation_started"]
