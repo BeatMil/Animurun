@@ -24,13 +24,16 @@ func _on_body_entered(body):
 		body.push(Vector2(-2000, -1000))
 
 
+func set_is_moving(_value: bool) -> void:
+	is_moving = _value
+
+
 func _on_timer_timeout():
 	$AnimationPlayer.play("spike")
 
 
 func _on_animation_player_animation_started(anim_name):
-	if anim_name == "spike":
-		is_moving = true
+	pass
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():

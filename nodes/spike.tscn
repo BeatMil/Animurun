@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://b3vaybudghovl"]
+[gd_scene load_steps=10 format=3 uid="uid://b3vaybudghovl"]
 
 [ext_resource type="Texture2D" uid="uid://civtwboshnc0s" path="res://media/sprites/taiga/taiga_spikes.png" id="1_1ew73"]
 [ext_resource type="Script" path="res://scripts/spike.gd" id="1_xkotw"]
 [ext_resource type="AudioStream" uid="uid://tohd2wesynxp" path="res://media/sfx/spike.wav" id="3_5f78s"]
+[ext_resource type="AudioStream" uid="uid://buqe4ddxwekc2" path="res://media/sfx/charge01.wav" id="3_jcnej"]
+[ext_resource type="Texture2D" uid="uid://edudquxnk6ry" path="res://media/sprites/taiga/pre_spike.png" id="4_tqegg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2n7o"]
 size = Vector2(150, 464)
@@ -57,10 +59,22 @@ tracks/3/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PreSpike:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.392157, 0.392157, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_arya7"]
 resource_name = "spike"
-length = 0.3
+length = 1.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -68,7 +82,7 @@ tracks/0/path = NodePath("TaigaSpikes:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(1, 1.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 208), Vector2(0, 0)]
@@ -80,7 +94,7 @@ tracks/1/path = NodePath("TaigaSpikes:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(1, 1.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -92,7 +106,7 @@ tracks/2/path = NodePath(".:collision_layer")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(1, 1.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 4]
@@ -104,7 +118,7 @@ tracks/3/path = NodePath(".:collision_mask")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(1, 1.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 3]
@@ -119,11 +133,41 @@ tracks/4/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
+"stream": ExtResource("3_jcnej")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
 "stream": ExtResource("3_5f78s")
 }],
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0, 1)
 }
 tracks/4/use_blend = true
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PreSpike:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.392157, 0.392157, 0), Color(1, 0.392157, 0.392157, 0.45098), Color(1, 0.392157, 0.392157, 0)]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [true],
+"method": &"set_is_moving"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fppn1"]
 _data = {
@@ -162,6 +206,11 @@ one_shot = true
 autostart = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="PreSpike" type="Sprite2D" parent="."]
+modulate = Color(1, 0.392157, 0.392157, 0)
+position = Vector2(5, -6)
+texture = ExtResource("4_tqegg")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]
