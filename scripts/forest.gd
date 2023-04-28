@@ -12,12 +12,12 @@ var SPIKE = preload("res://nodes/spike.tscn")
 # var enemy_spawn_order: Array = [spawn_triple01, spawn_triple02, spawn_triple03, spawn_triple04, spawn_triple05, spawn_five_bombs, spawn_five_ground_bombs, spawn_2rock_1speed, spawn_2rock_1slime, spawn_slime_rocks, spawn_2bomb_rock_slime]
 # var enemy_spawn_order: Array = [spawn_boom_slime_sword]
 # var enemy_spawn_order: Array = [spawn_boom_slime_hand]
-# var enemy_spawn_order: Array = [spawn_slime, spawn_bomby]
-var enemy_spawn_order: Array = [spawn_spike]
+var enemy_spawn_order: Array = [spawn_slime, spawn_bomby]
+# var enemy_spawn_order: Array = [spawn_spike]
 var order_index: int = 0 # spawner helper
 var is_random_spawn = false
 var rng = RandomNumberGenerator.new()
-var tutorial_phase_helper = 0
+var tutorial_phase_helper = 3
 
 
 # Reference
@@ -57,7 +57,7 @@ func spawn_tutorial_phase() -> void:
 
 
 func spawn_phase_one() -> void:
-	enemy_spawn_order = [spawn_triple01, spawn_triple03, spawn_triple02]
+	enemy_spawn_order = [spawn_triple_slime, spawn_triple_slime]
 	enemy_order_size = enemy_spawn_order.size()
 
 
@@ -150,6 +150,29 @@ func spawn_triple02() -> void:
 
 	add_child(slime3)
 	slime3.throw_slime(Vector2(-1900, -1900))
+
+
+func spawn_triple_slime() -> void:
+	var slime1 = SLIME.instantiate()
+	slime1.position = $"Markers/EnemySpawnPos".position
+
+	var slime2 = SLIME.instantiate()
+	slime2.position = $"Markers/EnemySpawnPos".position
+
+	var slime3 = SLIME.instantiate()
+	slime3.connect("ded", spawner)
+	slime3.position = $"Markers/EnemySpawnPos".position
+
+	add_child(slime1)
+	slime1.throw_slime(Vector2(-2000, -2000))
+	await get_tree().create_timer(0.3, false).timeout
+
+	add_child(slime2)
+	slime2.throw_slime(Vector2(-2000, -2000))
+	await get_tree().create_timer(0.3, false).timeout
+
+	add_child(slime3)
+	slime3.throw_slime(Vector2(-2000, -2000))
 
 
 func spawn_triple03() -> void:
