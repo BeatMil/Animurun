@@ -99,12 +99,11 @@ func _input(event):
 		attack01()
 
 	if event.is_action_pressed("block"):
-		if state not in [States.BLOCK_IMPACT, States.ATTACKING, States.DODGING]:
-			block()
+		if state not in [States.ATTACKING, States.BLOCK_IMPACT]:
+			parry()
 
 	if event.is_action_pressed("dodge"):
-		if state not in [States.BLOCK_IMPACT, States.ATTACKING]:
-			dodge()
+		dodge()
 
 
 func lerp_velocity_x():
@@ -155,6 +154,9 @@ func push(power: Vector2):
 	if state in [States.PARRY, States.PARRY_SUCCESS]:
 		anim_player.play("parry_success")
 		state = States.PARRY_SUCCESS
+	elif state in [States.BLOCKING, States.BLOCK_IMPACT]:
+		anim_player.play("block_impact")
+		velocity += (power / 2)
 	else:
 		anim_player.play("hurt")
 		velocity += power
@@ -194,9 +196,8 @@ func set_state(_state) -> void:
 	state = _state
 
 
-func block():
-	state = States.BLOCKING
-	anim_player.play("block")
+func parry():
+	anim_player.play("parry")
 
 
 func dodge():
@@ -244,7 +245,7 @@ func _on_animation_player_animation_finished(anim_name):
 	if anim_name in [
 		"attack01",
 		"hurt",
-		"block",
+		"parry",
 		"block_impact",
 		"attack01_2",
 		"dodge",
