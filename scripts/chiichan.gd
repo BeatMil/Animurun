@@ -201,7 +201,6 @@ func parry():
 
 
 func dodge():
-	state = States.DODGING
 	anim_player.play("dodge")
 
 

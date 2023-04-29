@@ -1,43 +1,43 @@
 [gd_scene load_steps=77 format=3 uid="uid://sa8iqc45gidu"]
 
 [ext_resource type="Script" path="res://scripts/forest.gd" id="1_trs0b"]
-[ext_resource type="Texture2D" uid="uid://dh13bx01yu78m" path="res://Media/sprites/kaisouko_look.png" id="2_b416e"]
+[ext_resource type="Texture2D" uid="uid://dh13bx01yu78m" path="res://media/sprites/kaisouko_look.png" id="2_b416e"]
 [ext_resource type="Script" path="res://scripts/parallax_controller.gd" id="3_6vke0"]
-[ext_resource type="Texture2D" uid="uid://dqya23lpwqwc5" path="res://Media/sprites/clouds.png" id="3_6vtol"]
+[ext_resource type="Texture2D" uid="uid://dqya23lpwqwc5" path="res://media/sprites/clouds.png" id="3_6vtol"]
 [ext_resource type="Script" path="res://scripts/parallax_layer_auto.gd" id="3_qw77j"]
-[ext_resource type="Texture2D" uid="uid://c6cckqobux4ov" path="res://Media/sprites/mountain.png" id="4_oa7ea"]
-[ext_resource type="Texture2D" uid="uid://o3mgqx5thpxh" path="res://Media/sprites/ground.png" id="5_rf2wy"]
+[ext_resource type="Texture2D" uid="uid://c6cckqobux4ov" path="res://media/sprites/mountain.png" id="4_oa7ea"]
+[ext_resource type="Texture2D" uid="uid://o3mgqx5thpxh" path="res://media/sprites/ground.png" id="5_rf2wy"]
 [ext_resource type="Script" path="res://scripts/chiichan.gd" id="6_b8mqq"]
 [ext_resource type="Script" path="res://scripts/background_dim.gd" id="8_qtgtl"]
-[ext_resource type="AudioStream" uid="uid://dd4t8hc1wr3s0" path="res://Media/sfx/sword_attack02.wav" id="9_7jirt"]
-[ext_resource type="AudioStream" uid="uid://4v3ipdlb1tan" path="res://Media/sfx/sword_attack01.wav" id="10_2yepl"]
-[ext_resource type="Texture2D" uid="uid://lwgm73y41uvc" path="res://Media/sprites/chiichan/chiichan_jump.png" id="10_6dhh6"]
-[ext_resource type="Texture2D" uid="uid://dgcyrp7yhf30r" path="res://Media/sprites/chiichan/sword_attack01_b.png" id="11_felwj"]
-[ext_resource type="AudioStream" uid="uid://cj0tmbngsm3js" path="res://Media/sfx/block02.wav" id="12_dybn8"]
-[ext_resource type="Texture2D" uid="uid://d0vgnfre8gwpw" path="res://Media/sprites/chiichan/chiichan_block_hands.png" id="14_cnjnu"]
-[ext_resource type="AudioStream" uid="uid://bl505quhmyg4f" path="res://Media/sfx/hitHurt2.wav" id="14_d0pk3"]
-[ext_resource type="Texture2D" uid="uid://bv2i0f07e50fw" path="res://Media/sprites/chiichan/chiichan_block_impact.png" id="16_arhhh"]
-[ext_resource type="AudioStream" uid="uid://cpwu06ws2r1cl" path="res://Media/sfx/hitHurt.wav" id="17_ghv7i"]
-[ext_resource type="Texture2D" uid="uid://dqutvk52hfl70" path="res://Media/sprites/chiichan/chiichan_dodge_hands.png" id="18_02cit"]
-[ext_resource type="AudioStream" uid="uid://b030i7g3mmmse" path="res://Media/sfx/smol_jump.wav" id="18_snu5y"]
-[ext_resource type="Texture2D" uid="uid://coe2xhuyo7vme" path="res://Media/sprites/chiichan/chiichan_hitted_hands.png" id="19_hrs51"]
-[ext_resource type="Texture2D" uid="uid://kba1gj20m6bi" path="res://Media/sprites/chiichan/chiichan_jump_hand.png" id="21_4kcug"]
-[ext_resource type="AudioStream" uid="uid://q2ijwyc88yom" path="res://Media/sfx/sword_deflect.wav" id="21_ve0hw"]
+[ext_resource type="AudioStream" uid="uid://dd4t8hc1wr3s0" path="res://media/sfx/sword_attack02.wav" id="9_7jirt"]
+[ext_resource type="AudioStream" uid="uid://4v3ipdlb1tan" path="res://media/sfx/sword_attack01.wav" id="10_2yepl"]
+[ext_resource type="Texture2D" uid="uid://lwgm73y41uvc" path="res://media/sprites/chiichan/chiichan_jump.png" id="10_6dhh6"]
+[ext_resource type="Texture2D" uid="uid://dgcyrp7yhf30r" path="res://media/sprites/chiichan/sword_attack01_b.png" id="11_felwj"]
+[ext_resource type="AudioStream" uid="uid://cj0tmbngsm3js" path="res://media/sfx/block02.wav" id="12_dybn8"]
+[ext_resource type="Texture2D" uid="uid://d0vgnfre8gwpw" path="res://media/sprites/chiichan/chiichan_block_hands.png" id="14_cnjnu"]
+[ext_resource type="AudioStream" uid="uid://bl505quhmyg4f" path="res://media/sfx/hitHurt2.wav" id="14_d0pk3"]
+[ext_resource type="Texture2D" uid="uid://bv2i0f07e50fw" path="res://media/sprites/chiichan/chiichan_block_impact.png" id="16_arhhh"]
+[ext_resource type="AudioStream" uid="uid://cpwu06ws2r1cl" path="res://media/sfx/hitHurt.wav" id="17_ghv7i"]
+[ext_resource type="Texture2D" uid="uid://dqutvk52hfl70" path="res://media/sprites/chiichan/chiichan_dodge_hands.png" id="18_02cit"]
+[ext_resource type="AudioStream" uid="uid://b030i7g3mmmse" path="res://media/sfx/smol_jump.wav" id="18_snu5y"]
+[ext_resource type="Texture2D" uid="uid://coe2xhuyo7vme" path="res://media/sprites/chiichan/chiichan_hitted_hands.png" id="19_hrs51"]
+[ext_resource type="Texture2D" uid="uid://kba1gj20m6bi" path="res://media/sprites/chiichan/chiichan_jump_hand.png" id="21_4kcug"]
+[ext_resource type="AudioStream" uid="uid://q2ijwyc88yom" path="res://media/sfx/sword_deflect.wav" id="21_ve0hw"]
 [ext_resource type="Script" path="res://scripts/wall.gd" id="22_e3h8j"]
-[ext_resource type="AudioStream" uid="uid://cat3cfvygslnu" path="res://Media/sfx/dedExplosion.wav" id="23_gl0fv"]
-[ext_resource type="Texture2D" uid="uid://dcmn2cf0r3fq5" path="res://Media/sprites/chiichan/chiichan_run_hands.png" id="23_lpcms"]
+[ext_resource type="AudioStream" uid="uid://cat3cfvygslnu" path="res://media/sfx/dedExplosion.wav" id="23_gl0fv"]
+[ext_resource type="Texture2D" uid="uid://dcmn2cf0r3fq5" path="res://media/sprites/chiichan/chiichan_run_hands.png" id="23_lpcms"]
 [ext_resource type="PackedScene" uid="uid://d1h4ur6yhpscs" path="res://scenes/ded_menu.tscn" id="24_3kuhs"]
 [ext_resource type="PackedScene" uid="uid://c1vlse56bmgi3" path="res://scenes/pause_menu.tscn" id="25_pyk6c"]
-[ext_resource type="Texture2D" uid="uid://bcxjtirdkl6pf" path="res://Media/sprites/cinimatics/taiga_phase1/super_hit01.png" id="25_x8hod"]
+[ext_resource type="Texture2D" uid="uid://bcxjtirdkl6pf" path="res://media/sprites/cinimatics/taiga_phase1/super_hit01.png" id="25_x8hod"]
 [ext_resource type="PackedScene" uid="uid://ro6ueq5n41wr" path="res://nodes/taiga.tscn" id="26_et4pp"]
-[ext_resource type="Texture2D" uid="uid://dkyiapdpotj7x" path="res://Media/sprites/cinimatics/taiga_phase1/super_hit02.png" id="26_hqt3g"]
-[ext_resource type="AudioStream" uid="uid://ccvb7cacaeh25" path="res://Media/sfx/charge_02.wav" id="27_7a8he"]
-[ext_resource type="AudioStream" uid="uid://cavppioiw03v4" path="res://Media/sfx/parry01.wav" id="28_68vij"]
-[ext_resource type="Texture2D" uid="uid://dyjx2w2gd2jbp" path="res://Media/sprites/chiichan/sword_deflect.png" id="28_n1xid"]
-[ext_resource type="Texture2D" uid="uid://dh7jrt8ul4g6d" path="res://Media/sprites/chiichan/chiichan_super_hit_hand01.png" id="30_m47r5"]
-[ext_resource type="Texture2D" uid="uid://c37avc23ljqxu" path="res://Media/sprites/chiichan/chiichan_parry_success.png" id="30_pk4jm"]
-[ext_resource type="Texture2D" uid="uid://n8o1ai764yv1" path="res://Media/sprites/chiichan/chiichan_super_hit_hand02.png" id="31_elekm"]
-[ext_resource type="AudioStream" uid="uid://di8b0mm7tq04a" path="res://Media/sfx/laserShoot.wav" id="31_h70ww"]
+[ext_resource type="Texture2D" uid="uid://dkyiapdpotj7x" path="res://media/sprites/cinimatics/taiga_phase1/super_hit02.png" id="26_hqt3g"]
+[ext_resource type="AudioStream" uid="uid://ccvb7cacaeh25" path="res://media/sfx/charge_02.wav" id="27_7a8he"]
+[ext_resource type="AudioStream" uid="uid://cavppioiw03v4" path="res://media/sfx/parry01.wav" id="28_68vij"]
+[ext_resource type="Texture2D" uid="uid://dyjx2w2gd2jbp" path="res://media/sprites/chiichan/sword_deflect.png" id="28_n1xid"]
+[ext_resource type="Texture2D" uid="uid://dh7jrt8ul4g6d" path="res://media/sprites/chiichan/chiichan_super_hit_hand01.png" id="30_m47r5"]
+[ext_resource type="Texture2D" uid="uid://c37avc23ljqxu" path="res://media/sprites/chiichan/chiichan_parry_success.png" id="30_pk4jm"]
+[ext_resource type="Texture2D" uid="uid://n8o1ai764yv1" path="res://media/sprites/chiichan/chiichan_super_hit_hand02.png" id="31_elekm"]
+[ext_resource type="AudioStream" uid="uid://di8b0mm7tq04a" path="res://media/sfx/laserShoot.wav" id="31_h70ww"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vax0k"]
 bounce = 0.8
@@ -521,6 +521,23 @@ tracks/6/keys = {
 "method": &"normal_collision"
 }]
 }
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.416667),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [6],
+"method": &"set_state"
+}, {
+"args": [0],
+"method": &"set_state"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_uv8rb"]
 resource_name = "hurt"
@@ -834,6 +851,129 @@ tracks/7/keys = {
 "times": PackedFloat32Array(),
 "transitions": PackedFloat32Array(),
 "values": []
+}
+
+[sub_resource type="Animation" id="Animation_bucmy"]
+resource_name = "parry"
+length = 0.8
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChiichanPos/sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666666, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1, 0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChiichanPos/sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("14_cnjnu")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ChiichanPos/sprite:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("12_dybn8")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ChiichanPos/sprite:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3332),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.317647, 0.92549, 0.486275, 1), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"normal_collision"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ChiichanPos/sprite:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(36, -30)]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [7],
+"method": &"set_state"
+}, {
+"args": [3],
+"method": &"set_state"
+}]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ChiichanPos/sprite:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1.8, 1.8, 1.8, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_onuwh"]
@@ -1334,129 +1474,6 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0.988235, 0.980392, 0.85098, 1), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_bucmy"]
-resource_name = "parry"
-length = 0.8
-step = 0.0833333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ChiichanPos/sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666666, 0.833333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 0, 1, 0, 1]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ChiichanPos/sprite:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("14_cnjnu")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ChiichanPos/sprite:hframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-tracks/3/type = "audio"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AnimationPlayer/AudioStreamPlayer")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("12_dybn8")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/3/use_blend = true
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("ChiichanPos/sprite:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.3332),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.317647, 0.92549, 0.486275, 1), Color(1, 1, 1, 1)]
-}
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"normal_collision"
-}]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("ChiichanPos/sprite:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(36, -30)]
-}
-tracks/7/type = "method"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath(".")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.333333),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [7],
-"method": &"set_state"
-}, {
-"args": [3],
-"method": &"set_state"
-}]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("ChiichanPos/sprite:self_modulate")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.333333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1.8, 1.8, 1.8, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8jhmc"]
