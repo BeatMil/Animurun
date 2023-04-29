@@ -152,9 +152,8 @@ func spawn_super_hit_hitbox_hand(): # used by AnimationPlayer
 
 func push(power: Vector2):
 	power = (pushback_multiplier * power) + power
-	if state in [States.BLOCKING, States.BLOCK_IMPACT, States.PARRY, States.PARRY_SUCCESS]:
+	if state in [States.PARRY, States.PARRY_SUCCESS]:
 		anim_player.play("parry_success")
-		velocity += (power / 2)
 		state = States.PARRY_SUCCESS
 	else:
 		anim_player.play("hurt")
