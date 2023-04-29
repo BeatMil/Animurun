@@ -3,3 +3,5 @@
 
 # Import cache
 .import/
+
+*.import
