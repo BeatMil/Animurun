@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b4uc4kwxn7u3j"
-path="res://.godot/imported/careful02.wav-dc9360ed780e536324dd76cb9a2e8758.sample"
+path="res://.godot/imported/careful02.wav-32524f1cc2b98e67870dd56bf5e20d93.sample"
 
 [deps]
 
-source_file="res://media/sfx/careful02.wav"
-dest_files=["res://.godot/imported/careful02.wav-dc9360ed780e536324dd76cb9a2e8758.sample"]
+source_file="res://Media/sfx/careful02.wav"
+dest_files=["res://.godot/imported/careful02.wav-32524f1cc2b98e67870dd56bf5e20d93.sample"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://divqvt0tvoct3"
-path="res://.godot/imported/missile02.wav-bf66bbc79ec7721c37eb655d2934c679.sample"
+path="res://.godot/imported/missile02.wav-5f49fd558621f2b96e64c16a9152a30e.sample"
 
 [deps]
 
-source_file="res://media/sfx/missile02.wav"
-dest_files=["res://.godot/imported/missile02.wav-bf66bbc79ec7721c37eb655d2934c679.sample"]
+source_file="res://Media/sfx/missile02.wav"
+dest_files=["res://.godot/imported/missile02.wav-5f49fd558621f2b96e64c16a9152a30e.sample"]
 
 [params]
 

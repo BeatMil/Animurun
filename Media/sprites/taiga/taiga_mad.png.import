@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bpjxxoojguoi5"
-path="res://.godot/imported/taiga_mad.png-f9ee8e367cf866e718097e94b2e2a36e.ctex"
+path="res://.godot/imported/taiga_mad.png-b4b09d0df60513c7e7687312977cb459.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://media/sprites/taiga/taiga_mad.png"
-dest_files=["res://.godot/imported/taiga_mad.png-f9ee8e367cf866e718097e94b2e2a36e.ctex"]
+source_file="res://Media/sprites/taiga/taiga_mad.png"
+dest_files=["res://.godot/imported/taiga_mad.png-b4b09d0df60513c7e7687312977cb459.ctex"]
 
 [params]
 

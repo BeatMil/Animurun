@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://2nmwcl48ddwq"
-path="res://.godot/imported/chiichan_block.png-25e27594c9d20dbfacf0ee839744acee.ctex"
+path="res://.godot/imported/chiichan_block.png-44fad23ec6f9e4cfe5eeaccd7f480ae9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://media/sprites/chiichan/chiichan_block.png"
-dest_files=["res://.godot/imported/chiichan_block.png-25e27594c9d20dbfacf0ee839744acee.ctex"]
+source_file="res://Media/sprites/chiichan/chiichan_block.png"
+dest_files=["res://.godot/imported/chiichan_block.png-44fad23ec6f9e4cfe5eeaccd7f480ae9.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1g2xbye7m3uo"
-path="res://.godot/imported/floaty_128.png-517a2980a1d8edce8a35ce307433ca50.ctex"
+path="res://.godot/imported/floaty_128.png-e61f6868c8ddf287b4be77a2627d0ce3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://media/sprites/particle_effects/floaty_128.png"
-dest_files=["res://.godot/imported/floaty_128.png-517a2980a1d8edce8a35ce307433ca50.ctex"]
+source_file="res://Media/sprites/particle_effects/floaty_128.png"
+dest_files=["res://.godot/imported/floaty_128.png-e61f6868c8ddf287b4be77a2627d0ce3.ctex"]
 
 [params]
 

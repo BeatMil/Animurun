@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://cnqobitmei46"
-path="res://.godot/imported/hadoken01.ogg-5ed20a779466bcd80feeb3617d213475.oggvorbisstr"
+path="res://.godot/imported/hadoken01.ogg-0ceb1d835ffe91c91bd57bea6c01c588.oggvorbisstr"
 
 [deps]
 
-source_file="res://media/sfx/hadoken01.ogg"
-dest_files=["res://.godot/imported/hadoken01.ogg-5ed20a779466bcd80feeb3617d213475.oggvorbisstr"]
+source_file="res://Media/sfx/hadoken01.ogg"
+dest_files=["res://.godot/imported/hadoken01.ogg-0ceb1d835ffe91c91bd57bea6c01c588.oggvorbisstr"]
 
 [params]
 

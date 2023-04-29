@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://85xyf3ljucsh"
-path="res://.godot/imported/osu_shoot3.wav-51bc3341a3dcc57f6309d061e4535d7c.sample"
+path="res://.godot/imported/osu_shoot3.wav-2035dae9b9d62b3abf60d2eebbf57290.sample"
 
 [deps]
 
-source_file="res://media/sfx/osu_shoot3.wav"
-dest_files=["res://.godot/imported/osu_shoot3.wav-51bc3341a3dcc57f6309d061e4535d7c.sample"]
+source_file="res://Media/sfx/osu_shoot3.wav"
+dest_files=["res://.godot/imported/osu_shoot3.wav-2035dae9b9d62b3abf60d2eebbf57290.sample"]
 
 [params]
 

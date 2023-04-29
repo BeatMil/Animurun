@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cko14gdy481u6"
-path="res://.godot/imported/throw_bomb.wav-0bf3699f93fdd7c2aa1676233d4a8ac0.sample"
+path="res://.godot/imported/throw_bomb.wav-e88cb803bb71fc1611da3612454d3f1c.sample"
 
 [deps]
 
-source_file="res://media/sfx/throw_bomb.wav"
-dest_files=["res://.godot/imported/throw_bomb.wav-0bf3699f93fdd7c2aa1676233d4a8ac0.sample"]
+source_file="res://Media/sfx/throw_bomb.wav"
+dest_files=["res://.godot/imported/throw_bomb.wav-e88cb803bb71fc1611da3612454d3f1c.sample"]
 
 [params]
 
