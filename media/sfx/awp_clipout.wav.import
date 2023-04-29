@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://nlnfr5wr0oy8"
-path="res://.godot/imported/awp_clipout.wav-886dc19f004bbb395da584dbc527c0cf.sample"
+path="res://.godot/imported/awp_clipout.wav-b43edb85caa8a035120eda05592d2ba4.sample"
 
 [deps]
 
-source_file="res://Media/sfx/awp_clipout.wav"
-dest_files=["res://.godot/imported/awp_clipout.wav-886dc19f004bbb395da584dbc527c0cf.sample"]
+source_file="res://media/sfx/awp_clipout.wav"
+dest_files=["res://.godot/imported/awp_clipout.wav-b43edb85caa8a035120eda05592d2ba4.sample"]
 
 [params]
 

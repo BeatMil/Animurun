@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://tohd2wesynxp"
-path="res://.godot/imported/spike.wav-69c35b3c97cd1e982dfe1e82b1d346dd.sample"
+path="res://.godot/imported/spike.wav-1bfcb0c82d1ada2a9c1fdd206dc65cc8.sample"
 
 [deps]
 
-source_file="res://Media/sfx/spike.wav"
-dest_files=["res://.godot/imported/spike.wav-69c35b3c97cd1e982dfe1e82b1d346dd.sample"]
+source_file="res://media/sfx/spike.wav"
+dest_files=["res://.godot/imported/spike.wav-1bfcb0c82d1ada2a9c1fdd206dc65cc8.sample"]
 
 [params]
 

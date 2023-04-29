@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bh6f3tghypu7y"
-path="res://.godot/imported/taiga_idle.png-743c476b696753e78ecd6940d719428a.ctex"
+path="res://.godot/imported/taiga_idle.png-3c8f9fea2d4476df4f56e3332dce1286.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Media/sprites/taiga/taiga_idle.png"
-dest_files=["res://.godot/imported/taiga_idle.png-743c476b696753e78ecd6940d719428a.ctex"]
+source_file="res://media/sprites/taiga/taiga_idle.png"
+dest_files=["res://.godot/imported/taiga_idle.png-3c8f9fea2d4476df4f56e3332dce1286.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bldl65mghfmvm"
-path="res://.godot/imported/taiga_push.png-725516cdc21f340001e6842efb56b763.ctex"
+path="res://.godot/imported/taiga_push.png-cc3d0fe636cca98cbd11f62375fbcd5e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Media/sprites/taiga/taiga_push.png"
-dest_files=["res://.godot/imported/taiga_push.png-725516cdc21f340001e6842efb56b763.ctex"]
+source_file="res://media/sprites/taiga/taiga_push.png"
+dest_files=["res://.godot/imported/taiga_push.png-cc3d0fe636cca98cbd11f62375fbcd5e.ctex"]
 
 [params]
 

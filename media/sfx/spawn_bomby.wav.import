@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://by7da76os06p5"
-path="res://.godot/imported/spawn_bomby.wav-5d6e3dbfd76384ac6b4a3e375f6125fe.sample"
+path="res://.godot/imported/spawn_bomby.wav-ccb08c31df7f81cc8df521f7a5be6a7e.sample"
 
 [deps]
 
-source_file="res://Media/sfx/spawn_bomby.wav"
-dest_files=["res://.godot/imported/spawn_bomby.wav-5d6e3dbfd76384ac6b4a3e375f6125fe.sample"]
+source_file="res://media/sfx/spawn_bomby.wav"
+dest_files=["res://.godot/imported/spawn_bomby.wav-ccb08c31df7f81cc8df521f7a5be6a7e.sample"]
 
 [params]
 

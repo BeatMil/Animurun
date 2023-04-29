@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://civtwboshnc0s"
-path="res://.godot/imported/taiga_spikes.png-26fe8a43bd1fae375474a42c6428baff.ctex"
+path="res://.godot/imported/taiga_spikes.png-1730011de967fb8c9b30d35fe2879d60.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Media/sprites/taiga/taiga_spikes.png"
-dest_files=["res://.godot/imported/taiga_spikes.png-26fe8a43bd1fae375474a42c6428baff.ctex"]
+source_file="res://media/sprites/taiga/taiga_spikes.png"
+dest_files=["res://.godot/imported/taiga_spikes.png-1730011de967fb8c9b30d35fe2879d60.ctex"]
 
 [params]
 

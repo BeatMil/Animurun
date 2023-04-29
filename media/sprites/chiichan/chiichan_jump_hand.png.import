@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://kba1gj20m6bi"
-path="res://.godot/imported/chiichan_jump_hand.png-272ce7dae3e62c3680a7ef57925b2ec4.ctex"
+path="res://.godot/imported/chiichan_jump_hand.png-95cb6daa27a0886afcb91af471078c4d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Media/sprites/chiichan/chiichan_jump_hand.png"
-dest_files=["res://.godot/imported/chiichan_jump_hand.png-272ce7dae3e62c3680a7ef57925b2ec4.ctex"]
+source_file="res://media/sprites/chiichan/chiichan_jump_hand.png"
+dest_files=["res://.godot/imported/chiichan_jump_hand.png-95cb6daa27a0886afcb91af471078c4d.ctex"]
 
 [params]
 

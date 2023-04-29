@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bcxjtirdkl6pf"
-path="res://.godot/imported/super_hit01.png-8f50616e23b6adfd38a5b25259c43406.ctex"
+path="res://.godot/imported/super_hit01.png-76a984978d124f4e41de3ffe951e86c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Media/sprites/cinimatics/taiga_phase1/super_hit01.png"
-dest_files=["res://.godot/imported/super_hit01.png-8f50616e23b6adfd38a5b25259c43406.ctex"]
+source_file="res://media/sprites/cinimatics/taiga_phase1/super_hit01.png"
+dest_files=["res://.godot/imported/super_hit01.png-76a984978d124f4e41de3ffe951e86c0.ctex"]
 
 [params]
 
