@@ -28,10 +28,6 @@ func set_is_moving(_value: bool) -> void:
 	is_moving = _value
 
 
-func _on_timer_timeout():
-	$AnimationPlayer.play("spike")
-
-
 func _on_animation_player_animation_started(anim_name):
 	pass
 

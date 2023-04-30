@@ -17,7 +17,8 @@ var enemy_spawn_order: Array = [spawn_slime, spawn_bomby]
 var order_index: int = 0 # spawner helper
 var is_random_spawn = false
 var rng = RandomNumberGenerator.new()
-var tutorial_phase_helper = 1
+var tutorial_phase_helper = 3
+var phase_helper = 0
 
 
 # Reference
@@ -36,8 +37,12 @@ func _process(_delta):
 
 
 func spawner() -> void:
-	if tutorial_phase_helper >= 2: # chiichan hits 2 slimes to end tutorial phase
+	if tutorial_phase_helper >= 8: # Finish phase one!
+		phase_two_transition()
+		phase_helper = 2
+	elif tutorial_phase_helper >= 2: # chiichan hits 2 slimes to end tutorial phase
 		spawn_phase_one()
+		phase_helper = 1
 
 	if not enemy_spawn_order.size():
 		return
@@ -53,11 +58,23 @@ func spawner() -> void:
 
 
 func spawn_tutorial_phase() -> void:
+	if phase_helper >= 2: # only do this once enter phase 2
+		return
 	enemy_spawn_order = [spawn_slime, spawn_bomby]
 
 
 func spawn_phase_one() -> void:
-	enemy_spawn_order = [spawn_parry_dodge_chain, spawn_two_slime]
+	if phase_helper >= 1: # only do this once enter phase 1
+		return
+	order_index = 0
+	# enemy_spawn_order = [spawn_parry_dodge_chain, spawn_two_slime, spawn_spike]
+	enemy_spawn_order = [spawn_spike]
+	enemy_order_size = enemy_spawn_order.size()
+
+
+func phase_two_transition() -> void:
+	order_index = 0
+	enemy_spawn_order = [spawn_boom_slime_hand]
 	enemy_order_size = enemy_spawn_order.size()
 
 
@@ -161,6 +178,16 @@ func spawn_triple_slime() -> void:
 func spawn_spike() -> void:
 	var spike = SPIKE.instantiate()
 	spike.position = $"Markers/SpikeSpawnPos".position
+	spike.connect("ded", spawner)
+	add_child(spike)
+
+
+func spawn_spike_follow() -> void:
+	var spike = SPIKE.instantiate()
+	spike.position = $"Chiichan".position
+	# spike.position = $"Markers/SpikeSpawnPos".position
+	# spike.position.x = $"Chiichan".position.x
+	# spike.position.y = $"Markers/SpikeSpawnPos".position.y
 	spike.connect("ded", spawner)
 	add_child(spike)
 
