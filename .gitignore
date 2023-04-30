@@ -4,4 +4,4 @@
 # Import cache
 .import/
 
-*.import
+**.import
