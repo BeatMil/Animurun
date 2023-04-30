@@ -6,6 +6,7 @@ var SLIME = preload("res://nodes/slime.tscn")
 var ROCKY = preload("res://nodes/rocky.tscn")
 var BOMBY = preload("res://nodes/bomby.tscn")
 var SPIKE = preload("res://nodes/spike.tscn")
+var TANK = preload("res://nodes/tank_bomb.tscn")
 
 
 # Configs
@@ -68,7 +69,7 @@ func spawn_phase_one() -> void:
 		return
 	order_index = 0
 	# enemy_spawn_order = [spawn_parry_dodge_chain, spawn_two_slime, spawn_spike]
-	enemy_spawn_order = [spawn_spike]
+	enemy_spawn_order = [spawn_tank]
 	enemy_order_size = enemy_spawn_order.size()
 
 
@@ -108,6 +109,13 @@ func spawn_bomby() -> void:
 	bomby.position = $"Markers/EnemySpawnPos".position
 	bomby.connect("ded", spawner)
 	add_child(bomby)
+
+
+func spawn_tank() -> void:
+	var tank = TANK.instantiate()
+	tank.position = $"Markers/TankSpawnPos".position
+	tank.connect("ded", spawner)
+	add_child(tank)
 
 
 func spawn_speed_bomby() -> void:

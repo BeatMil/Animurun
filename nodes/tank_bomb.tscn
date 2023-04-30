@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://dld4r3a065u52"]
+
+[ext_resource type="Script" path="res://scripts/tank_bomb.gd" id="1_gg5uj"]
+[ext_resource type="AudioStream" uid="uid://c3ro5b1wtd6bi" path="res://media/sfx/missile01.wav" id="2_d8s5q"]
+[ext_resource type="AudioStream" uid="uid://bljh1srovcvs8" path="res://media/sfx/explosion16.wav" id="3_ftttx"]
+
+[sub_resource type="Animation" id="Animation_l0i6w"]
+resource_name = "go"
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_d8s5q")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="Animation" id="Animation_602ly"]
+resource_name = "explode"
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_ftttx")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pld70"]
+_data = {
+"explode": SubResource("Animation_602ly"),
+"go": SubResource("Animation_l0i6w")
+}
+
+[node name="Tank_bomb" type="RigidBody2D"]
+rotation = 0.239951
+collision_layer = 4
+collision_mask = 3
+gravity_scale = 0.0
+max_contacts_reported = 2
+contact_monitor = true
+script = ExtResource("1_gg5uj")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+rotation = -2.35455
+polygon = PackedVector2Array(192, 192, -192, 192, -192, -192, 0, -384, 192, -192)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-0.1875, 0)
+rotation = -2.35225
+scale = Vector2(0.773438, 0.727273)
+color = Color(0.952941, 0.45098, 0.45098, 1)
+polygon = PackedVector2Array(-248, -264, 0.242424, -528, 248.485, -264, 248.485, 264, -248, 264)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "go"
+libraries = {
+"": SubResource("AnimationLibrary_pld70")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

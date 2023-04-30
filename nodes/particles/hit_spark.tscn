@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dbieov118ttq7"]
 
 [ext_resource type="Script" path="res://scripts/particle.gd" id="1_vd7rf"]
-[ext_resource type="Texture2D" uid="uid://b1g2xbye7m3uo" path="res://media/sprites/particle_effects/floaty_128.png" id="2_e7xx1"]
+[ext_resource type="Texture2D" uid="uid://dbd3jq57ufy0s" path="res://media/sprites/particle_effects/floaty_128.png" id="2_e7xx1"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fmtxd"]
 blend_mode = 1
