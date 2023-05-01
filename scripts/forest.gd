@@ -1,6 +1,16 @@
 extends Node
 
 
+enum Phases {
+	TUTORIAL,
+	ONE,
+	ONE_TO_TWO,
+	TWO,
+	TWO_TO_THREE,
+	THREE,
+	}
+
+
 # Preloads
 var SLIME = preload("res://nodes/slime.tscn")
 var ROCKY = preload("res://nodes/rocky.tscn")
@@ -10,16 +20,19 @@ var TANK = preload("res://nodes/tank_bomb.tscn")
 
 
 # Configs
-# var enemy_spawn_order: Array = [spawn_triple01, spawn_triple02, spawn_triple03, spawn_triple04, spawn_triple05, spawn_five_bombs, spawn_five_ground_bombs, spawn_2rock_1speed, spawn_2rock_1slime, spawn_slime_rocks, spawn_2bomb_rock_slime]
-# var enemy_spawn_order: Array = [spawn_boom_slime_sword]
-# var enemy_spawn_order: Array = [spawn_boom_slime_hand]
-var enemy_spawn_order: Array = [spawn_slime, spawn_bomby]
-# var enemy_spawn_order: Array = [spawn_spike]
+var enemy_spawn_order: Array = []
 var order_index: int = 0 # spawner helper
 var is_random_spawn = false
 var rng = RandomNumberGenerator.new()
-var tutorial_phase_helper = 3
-var phase_helper = 0
+var taiga_hp = 0
+var phase_helper = -1 # choose phase then minus 1 
+var phase_transition_helper = false
+
+
+# Phases
+var tutorial_phase_enemy_order: Array = [spawn_slime, spawn_bomby]
+var phase_one_enemy_order: Array = [spawn_parry_dodge_chain, spawn_two_slime, spawn_spike]
+var phase_two_enemy_order: Array = [spawn_tank]
 
 
 # Reference
@@ -38,14 +51,18 @@ func _process(_delta):
 
 
 func spawner() -> void:
-	if tutorial_phase_helper >= 8: # Finish phase one!
-		phase_two_transition()
-		phase_helper = 2
-	elif tutorial_phase_helper >= 2: # chiichan hits 2 slimes to end tutorial phase
-		spawn_phase_one()
-		phase_helper = 1
+	if taiga_hp <= 0:
+		phase_helper += 1
+		if phase_helper == Phases.TUTORIAL:
+			spawn_tutorial_phase()
+		elif phase_helper == Phases.ONE:
+			spawn_phase_one()
+		elif phase_helper == Phases.ONE_TO_TWO:
+			spawn_phase_two_transition()
+		elif phase_helper == Phases.TWO:
+			spawn_phase_two()
 
-	if not enemy_spawn_order.size():
+	if not enemy_spawn_order.size(): # don't spawn when array is empty
 		return
 
 	if is_random_spawn:
@@ -58,24 +75,36 @@ func spawner() -> void:
 	order_index = (order_index + 1) % enemy_order_size 
 
 
+func phase_transition_checker():
+	if phase_helper == Phases.TWO:
+		phase_transition_helper = true
+	elif phase_helper == Phases.THREE:
+		phase_transition_helper = true
+
+
 func spawn_tutorial_phase() -> void:
-	if phase_helper >= 2: # only do this once enter phase 2
-		return
-	enemy_spawn_order = [spawn_slime, spawn_bomby]
-
-
-func spawn_phase_one() -> void:
-	if phase_helper >= 1: # only do this once enter phase 1
-		return
-	order_index = 0
-	# enemy_spawn_order = [spawn_parry_dodge_chain, spawn_two_slime, spawn_spike]
-	enemy_spawn_order = [spawn_tank]
+	taiga_hp = 2
+	enemy_spawn_order = tutorial_phase_enemy_order
 	enemy_order_size = enemy_spawn_order.size()
 
 
-func phase_two_transition() -> void:
+func spawn_phase_one() -> void:
+	taiga_hp = 6
+	order_index = 0
+	enemy_spawn_order = phase_one_enemy_order
+	enemy_order_size = enemy_spawn_order.size()
+
+
+func spawn_phase_two_transition() -> void:
+	taiga_hp = 1
 	order_index = 0
 	enemy_spawn_order = [spawn_boom_slime_hand]
+	enemy_order_size = enemy_spawn_order.size()
+
+
+func spawn_phase_two() -> void:
+	order_index = 0
+	enemy_spawn_order = phase_two_enemy_order
 	enemy_order_size = enemy_spawn_order.size()
 
 
