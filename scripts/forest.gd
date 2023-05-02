@@ -25,14 +25,16 @@ var order_index: int = 0 # spawner helper
 var is_random_spawn = false
 var rng = RandomNumberGenerator.new()
 var taiga_hp = 0
-var phase_helper = -1 # choose phase then minus 1 
+var phase_helper = 2 # choose phase then minus 1 
 var phase_transition_helper = false
 
 
 # Phases
 var tutorial_phase_enemy_order: Array = [spawn_slime, spawn_bomby]
 var phase_one_enemy_order: Array = [spawn_parry_dodge_chain, spawn_two_slime, spawn_spike]
-var phase_two_enemy_order: Array = [spawn_tank, spawn_tank_left_side, spawn_tank_left_side_spike]
+
+# var phase_two_enemy_order: Array = [spawn_tank, spawn_tank_left_side, spawn_tank_left_side_spike]
+var phase_two_enemy_order: Array = [spawn_triple_slime_fake]
 
 
 # Reference
@@ -251,6 +253,28 @@ func spawn_triple_slime() -> void:
 
 	add_child(slime2)
 	slime2.throw_slime(Vector2(-2000, -2000))
+	await get_tree().create_timer(0.3, false).timeout
+
+	add_child(slime3)
+	slime3.throw_slime(Vector2(-2000, -2000))
+
+
+func spawn_triple_slime_fake() -> void:
+	var slime1 = SLIME.instantiate()
+	slime1.position = $"Markers/EnemySpawnPos".position
+
+	var tank = TANK.instantiate()
+	tank.position = $"Markers/TankSpawnPos3".position
+
+	var slime3 = SLIME.instantiate()
+	slime3.connect("ded", spawner)
+	slime3.position = $"Markers/EnemySpawnPos".position
+
+	add_child(slime1)
+	slime1.throw_slime(Vector2(-2000, -2000))
+	await get_tree().create_timer(0.3, false).timeout
+
+	add_child(tank)
 	await get_tree().create_timer(0.3, false).timeout
 
 	add_child(slime3)
