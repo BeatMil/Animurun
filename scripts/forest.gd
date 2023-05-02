@@ -33,8 +33,8 @@ var phase_transition_helper = false
 var tutorial_phase_enemy_order: Array = [spawn_slime, spawn_bomby]
 var phase_one_enemy_order: Array = [spawn_parry_dodge_chain, spawn_two_slime, spawn_spike]
 
-# var phase_two_enemy_order: Array = [spawn_tank, spawn_tank_left_side, spawn_tank_left_side_spike]
-var phase_two_enemy_order: Array = [spawn_triple_slime_fake]
+# var phase_two_enemy_order: Array = [spawn_tank, spawn_tank_left_side, spawn_tank_left_side_spike, spawn_triple_slime, spawn_triple_slime_fake]
+var phase_two_enemy_order: Array = [spawn_spike_storm]
 
 
 # Reference
@@ -296,6 +296,43 @@ func spawn_spike_follow() -> void:
 	# spike.position.y = $"Markers/SpikeSpawnPos".position.y
 	spike.connect("ded", spawner)
 	add_child(spike)
+
+
+func spawn_spike_storm() -> void:
+	var spike1 = SPIKE.instantiate()
+
+	var spike2 = SPIKE.instantiate()
+
+	var spike3 = SPIKE.instantiate()
+
+	var spike4 = SPIKE.instantiate()
+
+	var spike5 = SPIKE.instantiate()
+	spike5.connect("ded", spawner)
+
+	spike1.position = $"Chiichan".position
+	$"Taiga".play("pre_attack")
+	add_child(spike1)
+	await get_tree().create_timer(0.3, false).timeout
+
+	$"Taiga".play("pre_attack")
+	spike2.position = $"Chiichan".position
+	add_child(spike2)
+	await get_tree().create_timer(0.3, false).timeout
+
+	$"Taiga".play("pre_attack")
+	spike3.position = $"Chiichan".position
+	add_child(spike3)
+	await get_tree().create_timer(0.3, false).timeout
+
+	$"Taiga".play("pre_attack")
+	spike4.position = $"Chiichan".position
+	add_child(spike4)
+	await get_tree().create_timer(0.3, false).timeout
+
+	$"Taiga".play("pre_attack")
+	spike5.position = $"Chiichan".position
+	add_child(spike5)
 
 
 func spawn_boom_slime_hand() -> void:

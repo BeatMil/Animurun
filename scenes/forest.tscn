@@ -1927,7 +1927,6 @@ libraries = {
 
 [node name="DedMenu" parent="CanvasLayer" node_paths=PackedStringArray("pause_menu") instance=ExtResource("24_3kuhs")]
 unique_name_in_owner = true
-visible = false
 pause_menu = NodePath("../PauseMenu")
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("25_pyk6c")]
@@ -1961,6 +1960,24 @@ position = Vector2(523, 749)
 
 [node name="SpikeSpawnPos" type="Marker2D" parent="Markers"]
 position = Vector2(1600, 704)
+
+[node name="SpikeSpawnPos2" type="Marker2D" parent="Markers"]
+position = Vector2(1356, 704)
+
+[node name="SpikeSpawnPos3" type="Marker2D" parent="Markers"]
+position = Vector2(1108, 704)
+
+[node name="SpikeSpawnPos4" type="Marker2D" parent="Markers"]
+position = Vector2(892, 704)
+
+[node name="SpikeSpawnPos5" type="Marker2D" parent="Markers"]
+position = Vector2(656, 704)
+
+[node name="SpikeSpawnPos6" type="Marker2D" parent="Markers"]
+position = Vector2(410, 704)
+
+[node name="SpikeSpawnPos7" type="Marker2D" parent="Markers"]
+position = Vector2(166, 704)
 
 [node name="TankSpawnPos1" type="Marker2D" parent="Markers"]
 position = Vector2(2529, -558)
