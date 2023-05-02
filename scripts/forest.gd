@@ -32,9 +32,9 @@ var phase_transition_helper = false
 # Phases
 var tutorial_phase_enemy_order: Array = [spawn_slime, spawn_bomby]
 var phase_one_enemy_order: Array = [spawn_parry_dodge_chain, spawn_two_slime, spawn_spike]
-
 var phase_two_enemy_order: Array = [spawn_tank_left_side_spike, spawn_triple_slime, spawn_triple_slime_fake, spawn_spike_storm]
-# var phase_two_enemy_order: Array = [spawn_spike_storm]
+# var phase_two_enemy_order: Array = [spawn_tank_left_side_spike]
+var phase_three_enemy_order: Array = []
 
 
 # Reference
@@ -63,6 +63,10 @@ func spawner() -> void:
 			spawn_phase_two_transition()
 		elif phase_helper == Phases.TWO:
 			spawn_phase_two()
+		elif phase_helper == Phases.TWO_TO_THREE:
+			spawn_phase_three_transition()
+		elif phase_helper == Phases.THREE:
+			spawn_phase_three()
 
 	if not enemy_spawn_order.size(): # don't spawn when array is empty
 		return
@@ -106,8 +110,22 @@ func spawn_phase_two_transition() -> void:
 
 func spawn_phase_two() -> void:
 	is_random_spawn = true
+	taiga_hp = 20
 	order_index = 0
 	enemy_spawn_order = phase_two_enemy_order
+	enemy_order_size = enemy_spawn_order.size()
+
+
+func spawn_phase_three_transition() -> void:
+	taiga_hp = 1
+	order_index = 0
+	enemy_spawn_order = []
+	enemy_order_size = enemy_spawn_order.size()
+
+
+func spawn_phase_three() -> void:
+	order_index = 0
+	enemy_spawn_order = phase_three_enemy_order
 	enemy_order_size = enemy_spawn_order.size()
 
 
@@ -171,9 +189,6 @@ func spawn_tank_left_side_spike() -> void:
 	var tank1 = TANK.instantiate()
 	tank1.position = $"Markers/TankSpawnPos1".position
 
-	var tank2 = TANK.instantiate()
-	tank2.position = $"Markers/TankSpawnPos2".position
-
 	var spike = SPIKE.instantiate()
 	spike.position = $"Markers/SpikeSpawnPos".position
 
@@ -186,9 +201,6 @@ func spawn_tank_left_side_spike() -> void:
 	await get_tree().create_timer(0.3, false).timeout
 
 	$"Taiga".play("pre_attack")
-	add_child(tank2)
-	await get_tree().create_timer(0.3, false).timeout
-
 	add_child(spike)
 	await get_tree().create_timer(0.3, false).timeout
 

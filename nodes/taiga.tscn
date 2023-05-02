@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://dxnpcapaesn44" path="res://media/sfx/tank_spawn.wav" id="8_af8cu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ulq8r"]
-size = Vector2(332, 704)
+size = Vector2(332, 1026)
 
 [sub_resource type="Animation" id="Animation_w4oxq"]
 length = 0.001
@@ -423,7 +423,7 @@ freeze_mode = 1
 script = ExtResource("1_ghwim")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(14, -186)
+position = Vector2(14, -347)
 shape = SubResource("RectangleShape2D_ulq8r")
 
 [node name="Sprite" type="Sprite2D" parent="."]
