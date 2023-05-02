@@ -25,7 +25,7 @@ var order_index: int = 0 # spawner helper
 var is_random_spawn = false
 var rng = RandomNumberGenerator.new()
 var taiga_hp = 0
-var phase_helper = 2 # choose phase then minus 1 
+var phase_helper = 1 # Use Phases enum
 var phase_transition_helper = false
 
 
@@ -33,8 +33,8 @@ var phase_transition_helper = false
 var tutorial_phase_enemy_order: Array = [spawn_slime, spawn_bomby]
 var phase_one_enemy_order: Array = [spawn_parry_dodge_chain, spawn_two_slime, spawn_spike]
 
-# var phase_two_enemy_order: Array = [spawn_tank, spawn_tank_left_side, spawn_tank_left_side_spike, spawn_triple_slime, spawn_triple_slime_fake]
-var phase_two_enemy_order: Array = [spawn_spike_storm]
+var phase_two_enemy_order: Array = [spawn_tank_left_side_spike, spawn_triple_slime, spawn_triple_slime_fake, spawn_spike_storm]
+# var phase_two_enemy_order: Array = [spawn_spike_storm]
 
 
 # Reference
@@ -105,6 +105,7 @@ func spawn_phase_two_transition() -> void:
 
 
 func spawn_phase_two() -> void:
+	is_random_spawn = true
 	order_index = 0
 	enemy_spawn_order = phase_two_enemy_order
 	enemy_order_size = enemy_spawn_order.size()
@@ -310,6 +311,12 @@ func spawn_spike_storm() -> void:
 	var spike5 = SPIKE.instantiate()
 	spike5.connect("ded", spawner)
 
+	var slime = SLIME.instantiate()
+	slime.position = $"Markers/EnemySpawnPos2".position
+
+	var slime2 = SLIME.instantiate()
+	slime2.position = $"Markers/EnemySpawnPos2".position
+
 	spike1.position = $"Chiichan".position
 	$"Taiga".play("pre_attack")
 	add_child(spike1)
@@ -333,6 +340,14 @@ func spawn_spike_storm() -> void:
 	$"Taiga".play("pre_attack")
 	spike5.position = $"Chiichan".position
 	add_child(spike5)
+	await get_tree().create_timer(0.6, false).timeout
+
+	add_child(slime)
+	slime.throw_slime(Vector2(-3000, -1200))
+	await get_tree().create_timer(0.3, false).timeout
+
+	add_child(slime2)
+	slime2.throw_slime(Vector2(-3000, -1200))
 
 
 func spawn_boom_slime_hand() -> void:
