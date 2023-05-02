@@ -25,14 +25,14 @@ var order_index: int = 0 # spawner helper
 var is_random_spawn = false
 var rng = RandomNumberGenerator.new()
 var taiga_hp = 0
-var phase_helper = 1 # choose phase then minus 1 
+var phase_helper = -1 # choose phase then minus 1 
 var phase_transition_helper = false
 
 
 # Phases
 var tutorial_phase_enemy_order: Array = [spawn_slime, spawn_bomby]
 var phase_one_enemy_order: Array = [spawn_parry_dodge_chain, spawn_two_slime, spawn_spike]
-var phase_two_enemy_order: Array = [spawn_tank]
+var phase_two_enemy_order: Array = [spawn_tank, spawn_tank_left_side, spawn_tank_left_side_spike]
 
 
 # Reference
@@ -142,10 +142,54 @@ func spawn_bomby() -> void:
 
 func spawn_tank() -> void:
 	var tank = TANK.instantiate()
-	tank.position = $"Markers/TankSpawnPos".position
+	tank.position = $"Markers/TankSpawnPos1".position
 	tank.connect("ded", spawner)
 	$"Taiga".play("pre_attack")
 	add_child(tank)
+
+
+func spawn_tank_left_side() -> void:
+	var tank1 = TANK.instantiate()
+	tank1.position = $"Markers/TankSpawnPos1".position
+
+	var tank2 = TANK.instantiate()
+	tank2.position = $"Markers/TankSpawnPos2".position
+	tank2.connect("ded", spawner)
+
+	$"Taiga".play("pre_attack")
+	add_child(tank1)
+	await get_tree().create_timer(0.3, false).timeout
+
+	$"Taiga".play("pre_attack")
+	add_child(tank2)
+
+
+func spawn_tank_left_side_spike() -> void:
+	var tank1 = TANK.instantiate()
+	tank1.position = $"Markers/TankSpawnPos1".position
+
+	var tank2 = TANK.instantiate()
+	tank2.position = $"Markers/TankSpawnPos2".position
+
+	var spike = SPIKE.instantiate()
+	spike.position = $"Markers/SpikeSpawnPos".position
+
+	var slime = SLIME.instantiate()
+	slime.position = $"Markers/EnemySpawnPos".position
+	slime.connect("ded", spawner)
+
+	$"Taiga".play("pre_attack")
+	add_child(tank1)
+	await get_tree().create_timer(0.3, false).timeout
+
+	$"Taiga".play("pre_attack")
+	add_child(tank2)
+	await get_tree().create_timer(0.3, false).timeout
+
+	add_child(spike)
+	await get_tree().create_timer(0.3, false).timeout
+
+	add_child(slime)
 
 
 func spawn_speed_bomby() -> void:

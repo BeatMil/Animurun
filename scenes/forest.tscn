@@ -1961,8 +1961,14 @@ position = Vector2(523, 749)
 [node name="SpikeSpawnPos" type="Marker2D" parent="Markers"]
 position = Vector2(1600, 704)
 
-[node name="TankSpawnPos" type="Marker2D" parent="Markers"]
+[node name="TankSpawnPos1" type="Marker2D" parent="Markers"]
+position = Vector2(2529, -558)
+
+[node name="TankSpawnPos2" type="Marker2D" parent="Markers"]
 position = Vector2(2529, -390)
+
+[node name="TankSpawnPos3" type="Marker2D" parent="Markers"]
+position = Vector2(2529, -184)
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 0.5
