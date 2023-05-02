@@ -25,7 +25,7 @@ var order_index: int = 0 # spawner helper
 var is_random_spawn = false
 var rng = RandomNumberGenerator.new()
 var taiga_hp = 0
-var phase_helper = -1 # choose phase then minus 1 
+var phase_helper = 1 # choose phase then minus 1 
 var phase_transition_helper = false
 
 
@@ -144,6 +144,7 @@ func spawn_tank() -> void:
 	var tank = TANK.instantiate()
 	tank.position = $"Markers/TankSpawnPos".position
 	tank.connect("ded", spawner)
+	$"Taiga".play("pre_attack")
 	add_child(tank)
 
 

@@ -5,6 +5,10 @@ func push_chiichan() -> void:
 	$AnimationPlayer.play("push")
 
 
+func play(anim_name: String) -> void:
+	$AnimationPlayer.play(anim_name)
+
+
 func hurt() -> void:
 	$AnimationPlayer.stop()
 	$AnimationPlayer.play("hurt")
@@ -15,7 +19,7 @@ func freeze() -> void:
 
 
 func _on_animation_player_animation_finished(anim_name) -> void:
-	if anim_name == "push" or anim_name == "hurt":
+	if anim_name in ["push", "hurt", "pre_attack"]:
 		$AnimationPlayer.play("idle")
 	elif anim_name == "mad":
 		$"..".spawner()

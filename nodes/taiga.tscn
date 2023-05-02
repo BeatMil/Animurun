@@ -1,11 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://ro6ueq5n41wr"]
+[gd_scene load_steps=17 format=3 uid="uid://ro6ueq5n41wr"]
 
 [ext_resource type="Script" path="res://scripts/taiga.gd" id="1_ghwim"]
-[ext_resource type="Texture2D" uid="uid://b7hi4l6fvgetw" path="res://media/sprites/taiga/taiga_idle.png" id="2_cxtik"]
-[ext_resource type="Texture2D" uid="uid://crgmyyi77oyme" path="res://media/sprites/taiga/taiga_hurt.png" id="3_a0b0a"]
-[ext_resource type="AudioStream" uid="uid://bme7dafqglwbw" path="res://media/sfx/boss_damaged.wav" id="3_rj035"]
-[ext_resource type="Texture2D" uid="uid://c71fa8wgp8stx" path="res://media/sprites/taiga/taiga_push.png" id="4_c336g"]
-[ext_resource type="Texture2D" uid="uid://c064ftpvl2bua" path="res://media/sprites/taiga/taiga_mad.png" id="6_gp27j"]
+[ext_resource type="Texture2D" uid="uid://caj778istmt80" path="res://media/sprites/taiga/taiga_idle.png" id="2_cxtik"]
+[ext_resource type="Texture2D" uid="uid://c0sh6kkttnji5" path="res://media/sprites/taiga/taiga_hurt.png" id="3_a0b0a"]
+[ext_resource type="AudioStream" uid="uid://cs0mvt5jcv3e7" path="res://media/sfx/boss_damaged.wav" id="3_rj035"]
+[ext_resource type="Texture2D" uid="uid://byisj2uitxdgm" path="res://media/sprites/taiga/taiga_push.png" id="4_c336g"]
+[ext_resource type="Texture2D" uid="uid://dj1upwu7ql8uq" path="res://media/sprites/taiga/taiga_mad.png" id="6_gp27j"]
+[ext_resource type="Texture2D" uid="uid://dbn3d5anot60r" path="res://media/sprites/taiga/taiga_pre_attack.png" id="7_fihag"]
+[ext_resource type="AudioStream" uid="uid://dxnpcapaesn44" path="res://media/sfx/tank_spawn.wav" id="8_af8cu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ulq8r"]
 size = Vector2(332, 381)
@@ -251,10 +253,10 @@ tracks/3/path = NodePath("Sprite:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(699, -4)]
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_vwbud"]
@@ -309,12 +311,80 @@ tracks/3/keys = {
 "values": [Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_os8lo"]
+resource_name = "pre_attack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_fihag")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("8_af8cu")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/4/use_blend = true
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7l6n5"]
 _data = {
 "RESET": SubResource("Animation_w4oxq"),
 "hurt": SubResource("Animation_d6eqo"),
 "idle": SubResource("Animation_88045"),
 "mad": SubResource("Animation_6gr5i"),
+"pre_attack": SubResource("Animation_os8lo"),
 "push": SubResource("Animation_vwbud")
 }
 
