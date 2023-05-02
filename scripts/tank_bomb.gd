@@ -40,6 +40,7 @@ func _on_body_entered(body):
 
 	$"../CameraWrap/CameraPlayer".play("smol_shake")
 	$"AnimationPlayer".play("explode")
+	turn_off_all_collision()
 	spawn_hit_spark()
 
 
@@ -51,3 +52,8 @@ func spawn_hit_spark() -> void:
 
 func _on_timer_timeout():
 	go()
+
+
+func turn_off_all_collision() -> void:
+	collision_layer = 0b00000000000000000000
+	collision_mask = 0b00000000000000000000
