@@ -119,7 +119,7 @@ func spawn_phase_two() -> void:
 func spawn_phase_three_transition() -> void:
 	taiga_hp = 1
 	order_index = 0
-	enemy_spawn_order = []
+	enemy_spawn_order = [spawn_boom_slime_hand]
 	enemy_order_size = enemy_spawn_order.size()
 
 

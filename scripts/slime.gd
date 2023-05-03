@@ -4,6 +4,7 @@ extends RigidBody2D
 var speed: Vector2 = Vector2(-1000, 0)
 @onready var chiichan = $"../Chiichan"
 var BLUE_SPARK = preload("res://nodes/particles/blue_spark.tscn")
+var RED_SPARK = preload("res://nodes/particles/red_spark.tscn")
 
 
 # Config
@@ -47,13 +48,23 @@ func activate_boom(): # hitbox.gd run this
 
 func activate_boom_then(_power: Vector2): # hitbox.gd run this
 	self.apply_impulse(_power)
-	spawn_blue_spark()
+	if $"..".phase_helper == 2:
+		spawn_blue_spark()
+	elif $"..".phase_helper == 4:
+		spawn_red_spark()
+
 	await get_tree().create_timer(0.1, false).timeout
 	self.apply_torque_impulse(100000)
 
 
 func spawn_blue_spark() -> void:
 	var particle = BLUE_SPARK.instantiate()
+	particle.node_to_follow =  self
+	$"..".add_child(particle)
+
+
+func spawn_red_spark() -> void:
+	var particle = RED_SPARK.instantiate()
 	particle.node_to_follow =  self
 	$"..".add_child(particle)
 
