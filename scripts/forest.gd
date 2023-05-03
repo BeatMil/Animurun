@@ -379,34 +379,56 @@ func spawn_spike_slime_jump_parry() -> void:
 	slime.position = $"Markers/EnemySpawnPos2".position
 	var spike = SPIKE.instantiate()
 	spike.position = $"Markers/SpikeSpawnPos3".position
+	var bomby = BOMBY.instantiate()
+	bomby.position = $"Markers/EnemySpawnPos2".position
 
 	var slime2 = SLIME.instantiate()
 	slime2.position = $"Markers/EnemySpawnPos2".position
 	var spike2 = SPIKE.instantiate()
 	spike2.position = $"Markers/SpikeSpawnPos1".position
+	var bomby2 = BOMBY.instantiate()
+	bomby2.position = $"Markers/EnemySpawnPos2".position
 
 	var slime3 = SLIME.instantiate()
 	slime3.position = $"Markers/EnemySpawnPos2".position
 	slime3.connect("ded", spawner)
 	var spike3 = SPIKE.instantiate()
 	spike3.position = $"Markers/SpikeSpawnPos1".position
+	var bomby3 = BOMBY.instantiate()
+	bomby3.position = $"Markers/EnemySpawnPos2".position
+	bomby3.connect("ded", spawner)
 
 	add_child(spike)
 	await get_tree().create_timer(0.9, false).timeout
-	add_child(slime)
-	slime.throw_slime(Vector2(-3000, -2000))
+	var random_int = rng.randi_range(0, 1)
+	if random_int == 0:
+		add_child(bomby)
+		bomby.throw_bomb(Vector2(-3000, -2000))
+	elif random_int == 1:
+		add_child(slime)
+		slime.throw_slime(Vector2(-3000, -2000))
 	await get_tree().create_timer(0.2, false).timeout
 
 	add_child(spike2)
 	await get_tree().create_timer(0.9, false).timeout
-	add_child(slime2)
-	slime2.throw_slime(Vector2(-3000, -2000))
+	random_int = rng.randi_range(0, 1)
+	if random_int == 0:
+		add_child(bomby2)
+		bomby2.throw_bomb(Vector2(-3000, -2000))
+	elif random_int == 1:
+		add_child(slime2)
+		slime2.throw_slime(Vector2(-3000, -2000))
 	await get_tree().create_timer(0.2, false).timeout
 
 	add_child(spike3)
 	await get_tree().create_timer(0.9, false).timeout
-	add_child(slime3)
-	slime3.throw_slime(Vector2(-3000, -2000))
+	random_int = rng.randi_range(0, 1)
+	if random_int == 0:
+		add_child(bomby3)
+		bomby3.throw_bomb(Vector2(-3000, -2000))
+	elif random_int == 1:
+		add_child(slime3)
+		slime3.throw_slime(Vector2(-3000, -2000))
 	await get_tree().create_timer(0.2, false).timeout
 
 ###
