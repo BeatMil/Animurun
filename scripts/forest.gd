@@ -25,7 +25,7 @@ var order_index: int = 0 # spawner helper
 var is_random_spawn = false
 var rng = RandomNumberGenerator.new()
 var taiga_hp = 0
-var phase_helper = 1 # Use Phases enum
+var phase_helper = 3 # Use Phases enum
 var phase_transition_helper = false
 
 
@@ -34,7 +34,7 @@ var tutorial_phase_enemy_order: Array = [spawn_slime, spawn_bomby]
 var phase_one_enemy_order: Array = [spawn_parry_dodge_chain, spawn_two_slime, spawn_spike]
 var phase_two_enemy_order: Array = [spawn_tank_left_side_spike, spawn_triple_slime, spawn_triple_slime_fake, spawn_spike_storm]
 # var phase_two_enemy_order: Array = [spawn_tank_left_side_spike]
-var phase_three_enemy_order: Array = []
+var phase_three_enemy_order: Array = [spawn_spike_slime_jump_parry]
 
 
 # Reference
@@ -124,6 +124,7 @@ func spawn_phase_three_transition() -> void:
 
 
 func spawn_phase_three() -> void:
+	taiga_hp = 20
 	order_index = 0
 	enemy_spawn_order = phase_three_enemy_order
 	enemy_order_size = enemy_spawn_order.size()
@@ -190,7 +191,7 @@ func spawn_tank_left_side_spike() -> void:
 	tank1.position = $"Markers/TankSpawnPos1".position
 
 	var spike = SPIKE.instantiate()
-	spike.position = $"Markers/SpikeSpawnPos".position
+	spike.position = $"Markers/SpikeSpawnPos1".position
 
 	var slime = SLIME.instantiate()
 	slime.position = $"Markers/EnemySpawnPos".position
@@ -296,7 +297,7 @@ func spawn_triple_slime_fake() -> void:
 
 func spawn_spike() -> void:
 	var spike = SPIKE.instantiate()
-	spike.position = $"Markers/SpikeSpawnPos".position
+	spike.position = $"Markers/SpikeSpawnPos1".position
 	spike.connect("ded", spawner)
 	add_child(spike)
 
@@ -370,6 +371,43 @@ func spawn_boom_slime_hand() -> void:
 
 	add_child(slime)
 	slime.throw_slime(Vector2(-3000, -1200))
+
+
+### Phase 3
+func spawn_spike_slime_jump_parry() -> void:
+	var slime = SLIME.instantiate()
+	slime.position = $"Markers/EnemySpawnPos2".position
+	var spike = SPIKE.instantiate()
+	spike.position = $"Markers/SpikeSpawnPos3".position
+
+	var slime2 = SLIME.instantiate()
+	slime2.position = $"Markers/EnemySpawnPos2".position
+	var spike2 = SPIKE.instantiate()
+	spike2.position = $"Markers/SpikeSpawnPos1".position
+
+	var slime3 = SLIME.instantiate()
+	slime3.position = $"Markers/EnemySpawnPos2".position
+	slime3.connect("ded", spawner)
+	var spike3 = SPIKE.instantiate()
+	spike3.position = $"Markers/SpikeSpawnPos1".position
+
+	add_child(spike)
+	await get_tree().create_timer(0.9, false).timeout
+	add_child(slime)
+	slime.throw_slime(Vector2(-3000, -2000))
+	await get_tree().create_timer(0.2, false).timeout
+
+	add_child(spike2)
+	await get_tree().create_timer(0.9, false).timeout
+	add_child(slime2)
+	slime2.throw_slime(Vector2(-3000, -2000))
+	await get_tree().create_timer(0.2, false).timeout
+
+	add_child(spike3)
+	await get_tree().create_timer(0.9, false).timeout
+	add_child(slime3)
+	slime3.throw_slime(Vector2(-3000, -2000))
+	await get_tree().create_timer(0.2, false).timeout
 
 ###
 ### Enemy Patterns

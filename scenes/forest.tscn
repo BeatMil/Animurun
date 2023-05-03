@@ -1958,7 +1958,7 @@ position = Vector2(2400, 767)
 [node name="ChiichanDefaultPos" type="Marker2D" parent="Markers"]
 position = Vector2(523, 749)
 
-[node name="SpikeSpawnPos" type="Marker2D" parent="Markers"]
+[node name="SpikeSpawnPos1" type="Marker2D" parent="Markers"]
 position = Vector2(1600, 704)
 
 [node name="SpikeSpawnPos2" type="Marker2D" parent="Markers"]
