@@ -1,10 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://3q1ujloacd0k"]
+[gd_scene load_steps=17 format=3 uid="uid://3q1ujloacd0k"]
 
 [ext_resource type="Script" path="res://scripts/bomby.gd" id="1_fnt5c"]
 [ext_resource type="AudioStream" uid="uid://bljh1srovcvs8" path="res://media/sfx/explosion16.wav" id="2_yy77h"]
 [ext_resource type="AudioStream" uid="uid://bvf4qsa2bomih" path="res://media/sfx/spawn_bomby.wav" id="3_adu14"]
 [ext_resource type="AudioStream" uid="uid://0ns5ho0vuynk" path="res://media/sfx/charge01.wav" id="3_luyl2"]
-[ext_resource type="AudioStream" uid="uid://c202j8h7tmaho" path="res://media/sfx/bigJump.wav" id="4_t48kb"]
 [ext_resource type="Texture2D" uid="uid://426wgr7bxtyp" path="res://media/sprites/bomby.png" id="4_uehsa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ys26t"]
@@ -203,12 +202,8 @@ tracks/1/path = NodePath("../ShapePlayer/AudioStreamPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("4_t48kb")
-}],
-"times": PackedFloat32Array(0)
+"clips": [],
+"times": PackedFloat32Array()
 }
 tracks/1/use_blend = true
 
