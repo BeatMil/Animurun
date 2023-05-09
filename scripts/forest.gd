@@ -17,6 +17,7 @@ var ROCKY = preload("res://nodes/rocky.tscn")
 var BOMBY = preload("res://nodes/bomby.tscn")
 var SPIKE = preload("res://nodes/spike.tscn")
 var TANK = preload("res://nodes/tank_bomb.tscn")
+var WATERFALL = preload("res://nodes/waterfall.tscn")
 
 
 # Configs
@@ -34,7 +35,8 @@ var tutorial_phase_enemy_order: Array = [spawn_slime, spawn_bomby]
 var phase_one_enemy_order: Array = [spawn_parry_dodge_chain, spawn_two_slime, spawn_spike]
 var phase_two_enemy_order: Array = [spawn_tank_left_side_spike, spawn_triple_slime, spawn_triple_slime_fake, spawn_spike_storm]
 # var phase_two_enemy_order: Array = [spawn_tank_left_side_spike]
-var phase_three_enemy_order: Array = [spawn_spike_slime_jump_parry]
+# var phase_three_enemy_order: Array = [spawn_spike_slime_jump_parry]
+var phase_three_enemy_order: Array = [spawn_waterfall]
 
 
 # Reference
@@ -361,6 +363,28 @@ func spawn_spike_storm() -> void:
 
 	add_child(slime2)
 	slime2.throw_slime(Vector2(-3000, -1200))
+
+
+func spawn_waterfall() -> void:
+	var pos_list = [$"Markers/WaterFall1".position, $"Markers/WaterFall2".position, $"Markers/WaterFall3".position]
+
+	var waterfall1 = WATERFALL.instantiate()
+	waterfall1.position = pos_list.pick_random()
+	pos_list.erase(waterfall1.position)
+
+	var waterfall2 = WATERFALL.instantiate()
+	waterfall2.position = pos_list.pick_random()
+
+	var slime = SLIME.instantiate()
+	slime.position = $"Markers/EnemySpawnPos2".position
+	slime.connect("ded", spawner)
+
+	add_child(waterfall1)
+	add_child(waterfall2)
+
+	await get_tree().create_timer(2, false).timeout
+	add_child(slime)
+	slime.throw_slime(Vector2(-3000, -1200))
 
 
 func spawn_boom_slime_hand() -> void:

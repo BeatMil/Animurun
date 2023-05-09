@@ -1988,6 +1988,15 @@ position = Vector2(2529, -390)
 [node name="TankSpawnPos3" type="Marker2D" parent="Markers"]
 position = Vector2(2529, -184)
 
+[node name="WaterFall1" type="Marker2D" parent="Markers"]
+position = Vector2(56, 362)
+
+[node name="WaterFall2" type="Marker2D" parent="Markers"]
+position = Vector2(759, 362)
+
+[node name="WaterFall3" type="Marker2D" parent="Markers"]
+position = Vector2(1463, 362)
+
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 0.5
 
