@@ -365,28 +365,6 @@ func spawn_spike_storm() -> void:
 	slime2.throw_slime(Vector2(-3000, -1200))
 
 
-func spawn_waterfall() -> void:
-	var pos_list = [$"Markers/WaterFall1".position, $"Markers/WaterFall2".position, $"Markers/WaterFall3".position]
-
-	var waterfall1 = WATERFALL.instantiate()
-	waterfall1.position = pos_list.pick_random()
-	pos_list.erase(waterfall1.position)
-
-	var waterfall2 = WATERFALL.instantiate()
-	waterfall2.position = pos_list.pick_random()
-
-	var slime = SLIME.instantiate()
-	slime.position = $"Markers/EnemySpawnPos2".position
-	slime.connect("ded", spawner)
-
-	add_child(waterfall1)
-	add_child(waterfall2)
-
-	await get_tree().create_timer(2, false).timeout
-	add_child(slime)
-	slime.throw_slime(Vector2(-3000, -1200))
-
-
 func spawn_boom_slime_hand() -> void:
 	var slime = SLIME.instantiate()
 	slime.is_boom_slime = true
@@ -454,6 +432,65 @@ func spawn_spike_slime_jump_parry() -> void:
 		add_child(slime3)
 		slime3.throw_slime(Vector2(-3000, -2000))
 	await get_tree().create_timer(0.2, false).timeout
+
+
+func spawn_waterfall() -> void:
+	var pos_list = [$"Markers/WaterFall1".position, $"Markers/WaterFall2".position, $"Markers/WaterFall3".position]
+
+	var waterfall1 = WATERFALL.instantiate()
+	waterfall1.position = pos_list.pick_random()
+	pos_list.erase(waterfall1.position)
+
+	var waterfall2 = WATERFALL.instantiate()
+	waterfall2.position = pos_list.pick_random()
+
+	var slime1 = SLIME.instantiate()
+	slime1.position = $"Markers/EnemySpawnPos2".position
+	var bomby1 = BOMBY.instantiate()
+	bomby1.position = $"Markers/EnemySpawnPos2".position
+
+	var slime2 = SLIME.instantiate()
+	slime2.position = $"Markers/EnemySpawnPos2".position
+	var bomby2 = BOMBY.instantiate()
+	bomby2.position = $"Markers/EnemySpawnPos2".position
+
+	var slime3 = SLIME.instantiate()
+	slime3.position = $"Markers/EnemySpawnPos2".position
+	slime3.connect("ded", spawner)
+	var bomby3 = BOMBY.instantiate()
+	bomby3.position = $"Markers/EnemySpawnPos2".position
+	bomby3.connect("ded", spawner)
+
+	add_child(waterfall1)
+	add_child(waterfall2)
+	await get_tree().create_timer(0.5, false).timeout
+
+	var random_int = rng.randi_range(0, 1)
+	if random_int == 0:
+		add_child(bomby1)
+		bomby1.throw_bomb(Vector2(-3000, -1500))
+	elif random_int == 1:
+		add_child(slime1)
+		slime1.throw_slime(Vector2(-3000, -1500))
+	await get_tree().create_timer(0.5, false).timeout
+
+	random_int = rng.randi_range(0, 1)
+	if random_int == 0:
+		add_child(bomby2)
+		bomby2.throw_bomb(Vector2(-3000, -1500))
+	elif random_int == 1:
+		add_child(slime2)
+		slime2.throw_slime(Vector2(-3000, -1500))
+	await get_tree().create_timer(0.9, false).timeout
+
+	random_int = rng.randi_range(0, 1)
+	if random_int == 0:
+		add_child(bomby3)
+		bomby3.throw_bomb(Vector2(-3000, -1500))
+	elif random_int == 1:
+		add_child(slime3)
+		slime3.throw_slime(Vector2(-3000, -1500))
+
 
 ###
 ### Enemy Patterns
