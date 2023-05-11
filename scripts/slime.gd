@@ -97,11 +97,13 @@ func _on_body_entered(body):
 				apply_impulse(Vector2(4000, -2000))
 				apply_torque_impulse(100000)
 			else:
-				if body.velocity.y < 0: # if chiichan is jumping up
+				if body.velocity.y < 0: # if slime is not on ground
 					apply_impulse(Vector2(3000, 0))
 					apply_torque_impulse(100000)
 				else:
-					apply_impulse(Vector2(3000, -1900))
+					linear_velocity = Vector2.ZERO
+					await get_tree().create_timer(0.01, false).timeout
+					apply_impulse(Vector2(3000, -1000))
 					apply_torque_impulse(100000)
 		else:
 			# slime got pushed away
