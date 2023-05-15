@@ -517,5 +517,10 @@ func smol_shake() -> void:
 	$"%CameraPlayer".play("smol_shake")
 
 
+func smol_shake_offset() -> void:
+	$"%CameraPlayer2".stop()
+	$"%CameraPlayer2".play("smol_shake_3")
+
+
 func _on_spawn_timer_timeout():
 	spawner()

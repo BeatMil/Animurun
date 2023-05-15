@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://sa8iqc45gidu"]
+[gd_scene load_steps=78 format=3 uid="uid://sa8iqc45gidu"]
 
 [ext_resource type="Script" path="res://scripts/forest.gd" id="1_trs0b"]
 [ext_resource type="Texture2D" uid="uid://dlc8vtgooxfnt" path="res://media/sprites/kaisouko_look.png" id="2_b416e"]
@@ -1678,6 +1678,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(0.8, 0.8)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera2D:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_giwag"]
 resource_name = "shake"
@@ -1754,12 +1766,29 @@ tracks/1/keys = {
 "values": [Vector2(0.8, 0.8), Vector2(1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_3iwx3"]
+resource_name = "smol_shake_3"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -30), Vector2(0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bkvre"]
 _data = {
 "RESET": SubResource("Animation_8j0fk"),
 "shake": SubResource("Animation_giwag"),
 "smol_shake": SubResource("Animation_yuk7d"),
 "smol_shake_2": SubResource("Animation_xbyk0"),
+"smol_shake_3": SubResource("Animation_3iwx3"),
 "super_hit_zoom": SubResource("Animation_gff3c")
 }
 
@@ -1917,6 +1946,13 @@ position = Vector2(960, 540)
 zoom = Vector2(0.8, 0.8)
 
 [node name="CameraPlayer" type="AnimationPlayer" parent="CameraWrap"]
+unique_name_in_owner = true
+editor_description = "Dedwalls plays camera shake"
+libraries = {
+"": SubResource("AnimationLibrary_bkvre")
+}
+
+[node name="CameraPlayer2" type="AnimationPlayer" parent="CameraWrap"]
 unique_name_in_owner = true
 editor_description = "Dedwalls plays camera shake"
 libraries = {

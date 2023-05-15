@@ -241,6 +241,7 @@ func spawn_ora_ora() -> void:
 
 func ora_ora_success() -> void:
 	super_hit()
+	$"..".smol_shake_offset()
 
 
 func ora_ora_fail() -> void:
