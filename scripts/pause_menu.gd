@@ -9,7 +9,7 @@ func _input(event):
 		get_tree().paused = !get_tree().paused
 		if get_tree().paused:
 			$"AnimationPlayer".play("pause")
-			$"VBoxContainer/HBoxContainer/BoxContainer2/RestartButton".grab_focus()
+			$"VBoxContainer/HBoxContainer/BoxContainer2/RestartButton".call_deferred("grab_focus")
 		else:
 			$"AnimationPlayer".play("unpause")
 
