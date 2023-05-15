@@ -8,6 +8,7 @@ signal failed
 var can_ora: bool = false
 var is_success: bool = false
 var ora_count = 0
+var can_interact = true
 
 # Preloads
 var ORA_RYTHM = preload("res://nodes/ora_rythm.tscn")
@@ -34,11 +35,13 @@ func _on_tick_area_exited(_area):
 		can_ora = false # chiichan successfully ora
 		is_success = false
 	else:
-		$AnimationPlayer.play("miss")
-		emit_signal("failed")
+		fail()
 
 
 func _input(event) -> void:
+	if not can_interact:
+		return
+
 	if event.is_action_pressed("block") or event.is_action_pressed("jump") or event.is_action_pressed("dodge"):
 		if can_ora:
 			if ora_count <= 0:
@@ -57,8 +60,12 @@ func _input(event) -> void:
 				$AnimationPlayer.play("success")
 			is_success = true
 		else:
-			$AnimationPlayer.play("miss")
-			emit_signal("failed")
+			fail()
+
+func fail() -> void:
+	$AnimationPlayer.play("miss")
+	emit_signal("failed")
+	can_interact = false
 
 
 func _on_animation_player_animation_finished(anim_name):
