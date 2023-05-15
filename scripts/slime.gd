@@ -30,9 +30,18 @@ func activate_speed():
 
 
 func activate_boom(): # hitbox.gd run this
+	chiichan.super_hit()
+	freeze_everything()
+
+
+func activate_ora_ora():
+	chiichan.ora_ora()
+	freeze_everything()
+
+
+func freeze_everything() -> void:
 	$"../CameraWrap/CameraPlayer".play("super_hit_zoom")
 	disconnect("ded", $"..".spawner)
-	chiichan.super_hit()
 	self.is_moving = false
 	self.linear_velocity = Vector2.ZERO
 	self.angular_velocity = 0
@@ -40,10 +49,6 @@ func activate_boom(): # hitbox.gd run this
 	$"../ParallaxBackground".freeze()
 	$"../Taiga".freeze()
 	$"../BackgroundDim".freeze()
-	# camera.zoom
-	# self.shining_meteo()
-	# self.push_to_taigo
-	pass
 
 
 func activate_boom_then(_power: Vector2): # hitbox.gd run this
@@ -94,8 +99,10 @@ func _on_body_entered(body):
 			if is_boom_slime: # Big cinematic scene XD
 				activate_boom()
 			elif is_speed_slime:
-				apply_impulse(Vector2(4000, -2000))
-				apply_torque_impulse(100000)
+				# spawn ora-ora sequence
+				activate_ora_ora()
+				# apply_impulse(Vector2(4000, -2000))
+				# apply_torque_impulse(100000)
 			else:
 				if body.velocity.y < 0: # if slime is not on ground
 					apply_impulse(Vector2(3000, 0))

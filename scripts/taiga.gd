@@ -44,6 +44,4 @@ func _on_body_entered(body) -> void:
 			$AnimationPlayer.queue("mad")
 
 			# unfreeze stuffs
-			$"../ParallaxBackground".unfreeze()
-			$"../BackgroundDim".unfreeze()
-			$"../CameraWrap/CameraPlayer".play_backwards("super_hit_zoom")
+			$"..".unfreeze()

@@ -22,6 +22,7 @@ func _on_body_entered(body):
 			body.activate_boom_then(Vector2(2200, 1000))
 		elif is_hand:
 			body.activate_boom_then(Vector2(2200, -300))
+			body.is_boom_slime = true
 		body.turn_hit_boss_collision()
 		_spawn_hit_spark(body)
 		$"../CameraWrap/CameraPlayer".play("smol_shake_2")

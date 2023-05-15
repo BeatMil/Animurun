@@ -34,6 +34,8 @@ var is_freezing = false
 var ATTACK01_HITBOX = preload("res://nodes/hitboxes/attack01_hitbox.tscn")
 var SUPER_HIT_HITBOX = preload("res://nodes/hitboxes/super_hit_hitbox.tscn")
 var CHRAGE_PARTICLE = preload("res://nodes/particles/charging_particle.tscn")
+var ORA_ORA = preload("res://nodes/ora_ora.tscn")
+var FAIL_HITBOX = preload("res://nodes/hitboxes/fail_hitbox.tscn")
 const FRICTION = 0.06
 
 
@@ -221,6 +223,37 @@ func unfreeze() -> void: # used during super_hit
 func super_hit() -> void:
 	freeze()
 	$AnimationPlayer.play("super_hit_hand")
+
+
+func ora_ora() -> void:
+	freeze()
+	spawn_ora_ora()
+
+
+func spawn_ora_ora() -> void:
+	var ora = ORA_ORA.instantiate()
+	ora.position += Vector2(0, -300)
+	ora.connect("failed", ora_ora_fail)
+	ora.connect("successful", ora_ora_success)
+	# connect 2 more signals here
+	call_deferred("add_child", ora)
+
+
+func ora_ora_success() -> void:
+	super_hit()
+
+
+func ora_ora_fail() -> void:
+	unfreeze()
+	$"..".unfreeze() # unfreeze background
+	spawn_fail_hitbox()
+	push(Vector2(-2000, 0))
+
+
+func spawn_fail_hitbox() -> void: # free slime from freeze
+	var fail = FAIL_HITBOX.instantiate()
+	fail.position = $Attack01HitboxPos.position
+	add_child(fail)
 
 
 func spawn_charge_particle(): # used by AnimationPlayer

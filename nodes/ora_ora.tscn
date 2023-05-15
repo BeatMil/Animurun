@@ -1,0 +1,242 @@
+[gd_scene load_steps=11 format=3 uid="uid://cbbynehnmxdcp"]
+
+[ext_resource type="Script" path="res://scripts/ora_ora.gd" id="1_yxenm"]
+[ext_resource type="AudioStream" uid="uid://dtd3cpetbik1v" path="res://media/sfx/sfx_sounds_error3.wav" id="2_k7lcv"]
+[ext_resource type="AudioStream" uid="uid://dl0aj7qep4r8r" path="res://media/sfx/ora_success.wav" id="3_6ops6"]
+[ext_resource type="AudioStream" uid="uid://x6rob4kujxxe" path="res://media/sfx/preJump3.wav" id="3_kmik6"]
+
+[sub_resource type="Animation" id="Animation_y4ci8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tick:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8fkyo"]
+resource_name = "miss"
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_k7lcv")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.145098, 0.145098, 1), Color(1, 0.145098, 0.145098, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.18326]
+}
+
+[sub_resource type="Animation" id="Animation_2r0ge"]
+resource_name = "start"
+length = 2.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tick:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-384, 8), Vector2(432, 8)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_kmik6")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_lwjjf"]
+resource_name = "success"
+length = 0.5
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_6ops6")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.196078, 1, 0, 1), Color(1, 0.145098, 0.145098, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jw2u5"]
+_data = {
+"RESET": SubResource("Animation_y4ci8"),
+"miss": SubResource("Animation_8fkyo"),
+"start": SubResource("Animation_2r0ge"),
+"success": SubResource("Animation_lwjjf")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xlix3"]
+size = Vector2(8, 48)
+
+[node name="Oraora" type="Node2D"]
+script = ExtResource("1_yxenm")
+
+[node name="Border" type="Polygon2D" parent="."]
+scale = Vector2(1.32806, 0.368421)
+color = Color(0.266667, 0.94902, 0.788235, 1)
+polygon = PackedVector2Array(0, 0, 337.333, 0, 337.333, 173.714, 0, 173.714)
+
+[node name="Background" type="Polygon2D" parent="."]
+position = Vector2(5, 4)
+scale = Vector2(1.28854, 0.276316)
+color = Color(0, 0, 0, 0.54902)
+polygon = PackedVector2Array(2.32822, 14.4762, 337.592, 14.4762, 337.592, 188.19, 2.32822, 188.19)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "start"
+libraries = {
+"": SubResource("AnimationLibrary_jw2u5")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="TickSpawner1" type="Marker2D" parent="Markers"]
+position = Vector2(64, 8)
+
+[node name="TickSpawner2" type="Marker2D" parent="Markers"]
+position = Vector2(128, 8)
+
+[node name="TickSpawner3" type="Marker2D" parent="Markers"]
+position = Vector2(192, 8)
+
+[node name="TickSpawner4" type="Marker2D" parent="Markers"]
+position = Vector2(256, 8)
+
+[node name="TickSpawner5" type="Marker2D" parent="Markers"]
+position = Vector2(320, 8)
+
+[node name="TickSpawner6" type="Marker2D" parent="Markers"]
+position = Vector2(384, 8)
+
+[node name="Tick" type="Area2D" parent="."]
+position = Vector2(8, 8)
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="Polygon2D" type="Polygon2D" parent="Tick"]
+polygon = PackedVector2Array(0, 0, 8, 0, 8, 48, 0, 48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tick"]
+position = Vector2(4, 24)
+shape = SubResource("RectangleShape2D_xlix3")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="area_entered" from="Tick" to="." method="_on_tick_area_entered"]
+[connection signal="area_exited" from="Tick" to="." method="_on_tick_area_exited"]
