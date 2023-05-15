@@ -41,7 +41,6 @@ func activate_ora_ora():
 
 func freeze_everything() -> void:
 	$"../CameraWrap/CameraPlayer".play("super_hit_zoom")
-	disconnect("ded", $"..".spawner)
 	self.is_moving = false
 	self.linear_velocity = Vector2.ZERO
 	self.angular_velocity = 0
@@ -52,6 +51,7 @@ func freeze_everything() -> void:
 
 
 func activate_boom_then(_power: Vector2): # hitbox.gd run this
+	disconnect("ded", $"..".spawner)
 	self.apply_impulse(_power)
 	if $"..".phase_helper == 2:
 		spawn_blue_spark()
