@@ -47,14 +47,17 @@ func _input(event) -> void:
 			if ora_count <= 0:
 				if $Tick.has_overlapping_areas():
 					$Tick.get_overlapping_areas()[0].play_anim("hit1")
+					$"..".play_wavedash(1.5)
 				ora_count += 1
 			elif ora_count == 1:
 				if $Tick.has_overlapping_areas():
 					$Tick.get_overlapping_areas()[0].play_anim("hit2")
+					$"..".play_wavedash(2)
 				ora_count += 1
 			elif ora_count == 2:
 				if $Tick.has_overlapping_areas():
 					$Tick.get_overlapping_areas()[0].play_anim("hit3")
+					$"..".play_wavedash(3)
 				ora_count = 0
 				emit_signal("successful")
 				$AnimationPlayer.play("success")
@@ -63,6 +66,7 @@ func _input(event) -> void:
 			fail()
 
 func fail() -> void:
+	$Tick.set_deferred("monitoring", false)
 	$AnimationPlayer.play("miss")
 	emit_signal("failed")
 	can_interact = false

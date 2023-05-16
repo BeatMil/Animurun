@@ -227,6 +227,7 @@ func super_hit() -> void:
 
 func ora_ora() -> void:
 	freeze()
+	$AnimationPlayer.play("wavedash")
 	spawn_ora_ora()
 
 
@@ -240,7 +241,7 @@ func spawn_ora_ora() -> void:
 
 
 func ora_ora_success() -> void:
-	super_hit()
+	$AnimationPlayer.play("ewgf")
 	$"..".smol_shake_offset()
 
 
@@ -254,7 +255,11 @@ func ora_ora_fail() -> void:
 func spawn_fail_hitbox() -> void: # free slime from freeze
 	var fail = FAIL_HITBOX.instantiate()
 	fail.position = $Attack01HitboxPos.position
-	add_child(fail)
+	call_deferred("add_child", fail)
+
+
+func play_wavedash(_speed: float) -> void:
+	$AnimationPlayer.play("wavedash", -1, _speed)
 
 
 func spawn_charge_particle(): # used by AnimationPlayer
@@ -292,7 +297,7 @@ func _on_animation_player_animation_finished(anim_name):
 			$"ChiichanPos/sprite".self_modulate = Color(1, 0.6, 0.5)
 		elif pushback_multiplier >= 1:
 			$"ChiichanPos/sprite".self_modulate = Color(0.9, 0.9, 0.4)
-	elif anim_name in ["super_hit", "super_hit_hand"]:
+	elif anim_name in ["super_hit", "super_hit_hand", "ewgf"]:
 		self.unfreeze()
 		state = States.RUNNING
 

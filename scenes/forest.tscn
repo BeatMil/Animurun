@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://sa8iqc45gidu"]
+[gd_scene load_steps=85 format=3 uid="uid://sa8iqc45gidu"]
 
 [ext_resource type="Script" path="res://scripts/forest.gd" id="1_trs0b"]
 [ext_resource type="Texture2D" uid="uid://dlc8vtgooxfnt" path="res://media/sprites/kaisouko_look.png" id="2_b416e"]
@@ -38,6 +38,11 @@
 [ext_resource type="Texture2D" uid="uid://gqnj6v3d1qma" path="res://media/sprites/chiichan/chiichan_parry_success.png" id="30_pk4jm"]
 [ext_resource type="Texture2D" uid="uid://c2tb3mch4081h" path="res://media/sprites/chiichan/chiichan_super_hit_hand02.png" id="31_elekm"]
 [ext_resource type="AudioStream" uid="uid://wrrl7l36fg2a" path="res://media/sfx/laserShoot.wav" id="31_h70ww"]
+[ext_resource type="Texture2D" uid="uid://38ua085sau7c" path="res://media/sprites/chiichan/chiichan_wavedash.png" id="34_b4rup"]
+[ext_resource type="AudioStream" uid="uid://bvgh6jb3ipky7" path="res://media/sfx/rage_art_start2.wav" id="35_a3oo8"]
+[ext_resource type="Texture2D" uid="uid://lpjn3qarbt8d" path="res://media/sprites/chiichan/chiichan_ewgf_real.png" id="35_dyiit"]
+[ext_resource type="AudioStream" uid="uid://dldgb25mrkls" path="res://media/sfx/wavedash01.wav" id="35_mglyi"]
+[ext_resource type="AudioStream" uid="uid://c47d125l176wn" path="res://media/sfx/electric_only.wav" id="36_20unh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vax0k"]
 bounce = 0.8
@@ -1476,12 +1481,223 @@ tracks/5/keys = {
 "values": [Color(0.988235, 0.980392, 0.85098, 1), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_14apk"]
+resource_name = "wavedash"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChiichanPos/sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("34_b4rup")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChiichanPos/sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 0,
+"values": [Vector2(0.9, 0.9)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ChiichanPos/sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ChiichanPos/sprite:hframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ChiichanPos/sprite:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimationPlayer/AudioStreamPlayer3")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("35_mglyi")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/5/use_blend = true
+
+[sub_resource type="Animation" id="Animation_h4rk1"]
+resource_name = "ewgf"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChiichanPos/sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("34_b4rup"), ExtResource("35_dyiit")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChiichanPos/sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 0,
+"values": [Vector2(0.9, 0.9)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ChiichanPos/sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(0, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(49, -12)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ChiichanPos/sprite:hframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 1]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ChiichanPos/sprite:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.1, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"spawn_charge_particle"
+}, {
+"args": [],
+"method": &"spawn_super_hit_hitbox_hand"
+}]
+}
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimationPlayer/AudioStreamPlayer3")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("35_a3oo8")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("28_68vij")
+}],
+"times": PackedFloat32Array(0, 0.9)
+}
+tracks/6/use_blend = true
+tracks/7/type = "audio"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AnimationPlayer/AudioStreamPlayer4")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("36_20unh")
+}],
+"times": PackedFloat32Array(0.9)
+}
+tracks/7/use_blend = true
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("..")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"smol_shake_offset"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8jhmc"]
 _data = {
 "RESET": SubResource("Animation_450t4"),
 "attack01_2": SubResource("Animation_tft38"),
 "block_impact": SubResource("Animation_gbugi"),
 "dodge": SubResource("Animation_snods"),
+"ewgf": SubResource("Animation_h4rk1"),
 "hurt": SubResource("Animation_uv8rb"),
 "jump": SubResource("Animation_fgy5s"),
 "old_attack": SubResource("Animation_gbfl8"),
@@ -1490,7 +1706,8 @@ _data = {
 "run": SubResource("Animation_c0ony"),
 "super_hit": SubResource("Animation_v15od"),
 "super_hit_hand": SubResource("Animation_4nc0g"),
-"sword_deflect": SubResource("Animation_erit4")
+"sword_deflect": SubResource("Animation_erit4"),
+"wavedash": SubResource("Animation_14apk")
 }
 
 [sub_resource type="Animation" id="Animation_vjhwb"]
@@ -1738,6 +1955,22 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(0, -30), Vector2(0, 0), Vector2(0, -30), Vector2(0, 0), Vector2(0, -10), Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_3iwx3"]
+resource_name = "smol_shake_3"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -30), Vector2(0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_gff3c"]
 resource_name = "super_hit_zoom"
 length = 0.3
@@ -1764,22 +1997,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0.8, 0.8), Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_3iwx3"]
-resource_name = "smol_shake_3"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera2D:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, -30), Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bkvre"]
@@ -1886,6 +2103,12 @@ libraries = {
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Chiichan/AnimationPlayer"]
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Chiichan/AnimationPlayer"]
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Chiichan/AnimationPlayer"]
+bus = &"smolBus"
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="Chiichan/AnimationPlayer"]
+bus = &"smolBus"
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Chiichan"]
 root_node = NodePath("../AnimationPlayer")

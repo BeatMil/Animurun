@@ -58,6 +58,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_8fkyo"]
 resource_name = "miss"
+length = 0.2
 tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
