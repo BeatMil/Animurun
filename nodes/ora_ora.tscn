@@ -182,7 +182,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xlix3"]
-size = Vector2(8, 48)
+size = Vector2(16, 48)
 
 [node name="Oraora" type="Node2D"]
 script = ExtResource("1_yxenm")

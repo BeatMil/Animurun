@@ -34,6 +34,7 @@ var is_freezing = false
 var ATTACK01_HITBOX = preload("res://nodes/hitboxes/attack01_hitbox.tscn")
 var SUPER_HIT_HITBOX = preload("res://nodes/hitboxes/super_hit_hitbox.tscn")
 var CHRAGE_PARTICLE = preload("res://nodes/particles/charging_particle.tscn")
+var WAVEDASH_PARTICLE = preload("res://nodes/particles/wavedash_particle.tscn")
 var ORA_ORA = preload("res://nodes/ora_ora.tscn")
 var FAIL_HITBOX = preload("res://nodes/hitboxes/fail_hitbox.tscn")
 const FRICTION = 0.06
@@ -242,6 +243,7 @@ func spawn_ora_ora() -> void:
 
 func ora_ora_success() -> void:
 	$AnimationPlayer.play("ewgf")
+	$AnimationPlayer2.play("wavedash_sfx", -1 , 3)
 	$"..".smol_shake_offset()
 
 
@@ -260,6 +262,18 @@ func spawn_fail_hitbox() -> void: # free slime from freeze
 
 func play_wavedash(_speed: float) -> void:
 	$AnimationPlayer.play("wavedash", -1, _speed)
+
+
+func stop_wavedash_sfx() -> void:
+	$AnimationPlayer2.stop()
+
+
+func spawn_wavedash_particle(): # used by AnimationPlayer
+	var hitbox = WAVEDASH_PARTICLE.instantiate()
+	hitbox.time_before_queue_free = 0.9
+	hitbox.z_index = 9
+	hitbox.position += Vector2(-80, 120)
+	add_child(hitbox)
 
 
 func spawn_charge_particle(): # used by AnimationPlayer
