@@ -36,7 +36,7 @@ func _on_body_entered(body):
 		body.push(Vector2(-9000, -1900))
 	
 	if body.is_in_group("ground") and is_throw_bomb:
-		spawn_hitbox()
+		# spawn_hitbox()
 		jump_off_screen()
 
 
