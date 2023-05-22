@@ -182,6 +182,7 @@ func release_jump():
 
 func ded():
 	is_alive = false
+	$"..".save_checkpoint()
 	$"%DedMenu".show_menu()
 
 

@@ -1,6 +1,9 @@
 extends Node
 
 
+var checkpoint = -1 # respawn chiichan at certain phase
+
+
 func _ready():
 	# 120 fps?
 	Engine.physics_ticks_per_second = 120

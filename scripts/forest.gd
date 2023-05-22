@@ -26,7 +26,7 @@ var order_index: int = 0 # spawner helper
 var is_random_spawn = false
 var rng = RandomNumberGenerator.new()
 var taiga_hp = 0
-var phase_helper = 4 # Use Phases enum
+var phase_helper = -1 # Use Phases enum
 var phase_transition_helper = false
 
 
@@ -34,9 +34,8 @@ var phase_transition_helper = false
 var tutorial_phase_enemy_order: Array = [spawn_slime, spawn_bomby]
 var phase_one_enemy_order: Array = [spawn_parry_dodge_chain, spawn_two_slime, spawn_spike]
 var phase_two_enemy_order: Array = [spawn_tank_left_side_spike, spawn_triple_slime, spawn_triple_slime_fake, spawn_spike_storm]
-# var phase_two_enemy_order: Array = [spawn_tank_left_side_spike]
-# var phase_three_enemy_order: Array = [spawn_spike_slime_jump_parry, spawn_waterfall]
-var phase_three_enemy_order: Array = [spawn_ora_ora]
+var phase_three_enemy_order: Array = [spawn_spike_slime_jump_parry, spawn_waterfall, spawn_ora_ora]
+# var phase_three_enemy_order: Array = [spawn_ora_ora]
 
 
 # Reference
@@ -44,7 +43,7 @@ var phase_three_enemy_order: Array = [spawn_ora_ora]
 
 
 func _ready() -> void:
-	pass
+	phase_helper = $/root/Config.checkpoint
 	spawner()
 
 
@@ -504,6 +503,10 @@ func spawn_ora_ora() -> void:
 ###
 ### Enemy Patterns
 ### Ends
+
+
+func save_checkpoint() -> void:
+	$"/root/Config".checkpoint  = phase_helper - 1
 
 
 func unfreeze() -> void:
