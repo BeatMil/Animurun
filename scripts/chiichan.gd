@@ -204,6 +204,7 @@ func parry():
 
 
 func dodge():
+	anim_player.stop()
 	anim_player.play("dodge")
 
 
