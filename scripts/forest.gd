@@ -111,7 +111,7 @@ func spawn_phase_two_transition() -> void:
 
 func spawn_phase_two() -> void:
 	is_random_spawn = true
-	taiga_hp = 20
+	taiga_hp = 16
 	order_index = 0
 	enemy_spawn_order = phase_two_enemy_order
 	enemy_order_size = enemy_spawn_order.size()

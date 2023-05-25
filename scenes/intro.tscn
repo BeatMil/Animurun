@@ -1,0 +1,107 @@
+[gd_scene load_steps=12 format=3 uid="uid://oa30cee1j3wd"]
+
+[ext_resource type="Texture2D" uid="uid://uj1xdeutnbke" path="res://media/sprites/intro/intro_01.png" id="1_hlarh"]
+[ext_resource type="Script" path="res://scripts/intro.gd" id="1_kydok"]
+[ext_resource type="Texture2D" uid="uid://bt7cfr267koxl" path="res://media/sprites/intro/intro_02.png" id="2_rd53n"]
+[ext_resource type="Texture2D" uid="uid://di1128e6627mf" path="res://media/sprites/intro/intro_03.png" id="3_tlgjd"]
+[ext_resource type="Texture2D" uid="uid://381j34akxi6u" path="res://media/sprites/intro/intro_04.png" id="4_hjufp"]
+
+[sub_resource type="Animation" id="Animation_xnx2w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Intro01:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_hlarh")]
+}
+
+[sub_resource type="Animation" id="Animation_r4orf"]
+resource_name = "intro_01"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Intro01:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_hlarh")]
+}
+
+[sub_resource type="Animation" id="Animation_6ofme"]
+resource_name = "intro_2"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Intro01:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_rd53n")]
+}
+
+[sub_resource type="Animation" id="Animation_qqlts"]
+resource_name = "intro_3"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Intro01:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_tlgjd")]
+}
+
+[sub_resource type="Animation" id="Animation_y0r0r"]
+resource_name = "intro_4"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Intro01:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_hjufp")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w8hkv"]
+_data = {
+"RESET": SubResource("Animation_xnx2w"),
+"intro_01": SubResource("Animation_r4orf"),
+"intro_2": SubResource("Animation_6ofme"),
+"intro_3": SubResource("Animation_qqlts"),
+"intro_4": SubResource("Animation_y0r0r")
+}
+
+[node name="intro" type="Node2D"]
+script = ExtResource("1_kydok")
+
+[node name="Intro01" type="Sprite2D" parent="."]
+position = Vector2(960, 536)
+texture = ExtResource("1_hlarh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_w8hkv")
+}
