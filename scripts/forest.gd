@@ -320,40 +320,26 @@ func spawn_spike_storm() -> void:
 
 	var spike3 = SPIKE.instantiate()
 
-	var spike4 = SPIKE.instantiate()
-
-	var spike5 = SPIKE.instantiate()
-	spike5.connect("ded", spawner)
-
 	var slime = SLIME.instantiate()
 	slime.position = $"Markers/EnemySpawnPos2".position
 
 	var slime2 = SLIME.instantiate()
 	slime2.position = $"Markers/EnemySpawnPos2".position
+	slime2.connect("ded", spawner)
 
 	spike1.position = $"Chiichan".position
 	$"Taiga".play("pre_attack")
 	add_child(spike1)
-	await get_tree().create_timer(0.3, false).timeout
+	await get_tree().create_timer(0.6, false).timeout
 
 	$"Taiga".play("pre_attack")
 	spike2.position = $"Chiichan".position
 	add_child(spike2)
-	await get_tree().create_timer(0.3, false).timeout
+	await get_tree().create_timer(0.6, false).timeout
 
 	$"Taiga".play("pre_attack")
 	spike3.position = $"Chiichan".position
 	add_child(spike3)
-	await get_tree().create_timer(0.3, false).timeout
-
-	$"Taiga".play("pre_attack")
-	spike4.position = $"Chiichan".position
-	add_child(spike4)
-	await get_tree().create_timer(0.3, false).timeout
-
-	$"Taiga".play("pre_attack")
-	spike5.position = $"Chiichan".position
-	add_child(spike5)
 	await get_tree().create_timer(0.6, false).timeout
 
 	add_child(slime)
