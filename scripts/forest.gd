@@ -195,7 +195,7 @@ func spawn_tank_left_side_spike() -> void:
 	spike.position = $"Markers/SpikeSpawnPos1".position
 
 	var slime = SLIME.instantiate()
-	slime.position = $"Markers/EnemySpawnPos".position
+	slime.position = $"Markers/EnemySpawnPos2".position
 	slime.connect("ded", spawner)
 
 	$"Taiga".play("pre_attack")
@@ -207,6 +207,7 @@ func spawn_tank_left_side_spike() -> void:
 	await get_tree().create_timer(0.3, false).timeout
 
 	add_child(slime)
+	slime.throw_slime(Vector2(-3000, -1200))
 
 
 func spawn_speed_bomby() -> void:
