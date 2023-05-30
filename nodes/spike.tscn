@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d26pmhu51yr4j" path="res://media/sprites/taiga/pre_spike.png" id="4_tqegg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2n7o"]
-size = Vector2(150, 317)
+size = Vector2(76, 317)
 
 [sub_resource type="Animation" id="Animation_kq8h8"]
 length = 0.001

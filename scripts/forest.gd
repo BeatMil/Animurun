@@ -34,8 +34,7 @@ var phase_transition_helper = false
 var tutorial_phase_enemy_order: Array = [spawn_slime, spawn_bomby]
 var phase_one_enemy_order: Array = [spawn_parry_dodge_chain, spawn_two_slime, spawn_spike]
 var phase_two_enemy_order: Array = [spawn_tank_left_side_spike, spawn_triple_slime, spawn_triple_slime_fake, spawn_spike_storm]
-var phase_three_enemy_order: Array = [spawn_spike_slime_jump_parry, spawn_waterfall, spawn_ora_ora]
-# var phase_three_enemy_order: Array = [spawn_ora_ora]
+var phase_three_enemy_order: Array = [spawn_spike_slime_jump_parry, spawn_waterfall, spawn_ora_ora, spawn_tank_storm]
 
 
 # Reference
@@ -349,6 +348,36 @@ func spawn_spike_storm() -> void:
 
 	add_child(slime2)
 	slime2.throw_slime(Vector2(-3000, -1200))
+
+
+func spawn_tank_storm() -> void:
+	var tank1 = TANK.instantiate()
+	tank1.position = $"Markers/TankSpawnPos1".position
+
+	var tank2 = TANK.instantiate()
+	tank2.position = $"Markers/TankSpawnPos3".position
+
+	var tank3 = TANK.instantiate()
+	tank3.position = $"Markers/TankSpawnPos2".position
+
+	var slime3 = SLIME.instantiate()
+	slime3.connect("ded", spawner)
+	slime3.position = $"Markers/EnemySpawnPos".position
+	slime3.connect("ded", spawner)
+
+	$"Taiga".play("pre_attack")
+	add_child(tank1)
+	await get_tree().create_timer(0.3, false).timeout
+
+	$"Taiga".play("pre_attack")
+	add_child(tank2)
+	await get_tree().create_timer(0.3, false).timeout
+
+	$"Taiga".play("pre_attack")
+	add_child(tank3)
+	await get_tree().create_timer(0.6, false).timeout
+
+	add_child(slime3)
 
 
 func spawn_boom_slime_hand() -> void:

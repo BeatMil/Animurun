@@ -41,7 +41,8 @@ const FRICTION = 0.06
 
 
 func _ready():
-	pass
+	if Config.checkpoint == -1:
+		$AnimationPlayer2.play("intro")
 
 
 func _physics_process(delta):
@@ -205,7 +206,7 @@ func parry():
 
 
 func dodge():
-	anim_player.stop()
+	# anim_player.stop() # uncomment this to chain dodge
 	anim_player.play("dodge")
 
 

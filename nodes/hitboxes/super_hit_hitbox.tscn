@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/super_hit_hitbox.gd" id="1_dk4dq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pcvt"]
-size = Vector2(470, 486)
+size = Vector2(1095, 486)
 
 [node name="SuperHitbox" type="Area2D" groups=["attack", "attack01"]]
 collision_layer = 0
@@ -12,6 +12,7 @@ priority = 1.0
 script = ExtResource("1_dk4dq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-312.5, 0)
 shape = SubResource("RectangleShape2D_3pcvt")
 
 [node name="Timer" type="Timer" parent="."]
