@@ -8,6 +8,7 @@ enum Phases {
 	TWO,
 	TWO_TO_THREE,
 	THREE,
+	END,
 	}
 
 
@@ -34,7 +35,7 @@ var phase_transition_helper = false
 var tutorial_phase_enemy_order: Array = [spawn_slime, spawn_bomby]
 var phase_one_enemy_order: Array = [spawn_parry_dodge_chain, spawn_two_slime, spawn_spike]
 var phase_two_enemy_order: Array = [spawn_tank_left_side_spike, spawn_triple_slime, spawn_triple_slime_fake, spawn_spike_storm]
-var phase_three_enemy_order: Array = [spawn_spike_slime_jump_parry, spawn_waterfall, spawn_ora_ora, spawn_tank_storm]
+var phase_three_enemy_order: Array = [spawn_spike_slime_jump_parry, spawn_waterfall, spawn_tank_storm]
 
 
 # Reference
@@ -67,6 +68,8 @@ func spawner() -> void:
 			spawn_phase_three_transition()
 		elif phase_helper == Phases.THREE:
 			spawn_phase_three()
+		elif phase_helper == Phases.END:
+			spawn_phase_end()
 
 	if not enemy_spawn_order.size(): # don't spawn when array is empty
 		return
@@ -124,9 +127,16 @@ func spawn_phase_three_transition() -> void:
 
 
 func spawn_phase_three() -> void:
-	taiga_hp = 20
+	taiga_hp = 10
 	order_index = 0
 	enemy_spawn_order = phase_three_enemy_order
+	enemy_order_size = enemy_spawn_order.size()
+
+
+func spawn_phase_end() -> void:
+	taiga_hp = 1
+	order_index = 0
+	enemy_spawn_order = [spawn_ora_ora]
 	enemy_order_size = enemy_spawn_order.size()
 
 
@@ -367,15 +377,15 @@ func spawn_tank_storm() -> void:
 
 	$"Taiga".play("pre_attack")
 	add_child(tank1)
-	await get_tree().create_timer(0.3, false).timeout
+	await get_tree().create_timer(0.8, false).timeout
 
 	$"Taiga".play("pre_attack")
 	add_child(tank2)
-	await get_tree().create_timer(0.3, false).timeout
+	await get_tree().create_timer(0.8, false).timeout
 
 	$"Taiga".play("pre_attack")
 	add_child(tank3)
-	await get_tree().create_timer(0.6, false).timeout
+	await get_tree().create_timer(0.8, false).timeout
 
 	add_child(slime3)
 
@@ -487,7 +497,7 @@ func spawn_waterfall() -> void:
 	elif random_int == 1:
 		add_child(slime1)
 		slime1.throw_slime(Vector2(-3000, -1500))
-	await get_tree().create_timer(0.5, false).timeout
+	await get_tree().create_timer(0.9, false).timeout
 
 	random_int = rng.randi_range(0, 1)
 	if random_int == 0:
