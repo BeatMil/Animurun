@@ -1,6 +1,13 @@
 extends RigidBody2D
 
 
+# preloads
+var HIT_SPARK = preload("res://nodes/particles/hit_spark.tscn")
+
+
+var rng = RandomNumberGenerator.new()
+
+
 func push_chiichan() -> void:
 	$AnimationPlayer.play("push")
 
@@ -16,6 +23,15 @@ func hurt() -> void:
 
 func freeze() -> void:
 	$AnimationPlayer.pause()
+
+
+func _spawn_hit_spark() -> void:
+	var hitbox = HIT_SPARK.instantiate()
+	var offset_x = rng.randi_range(-100, 0)
+	var offset_y = rng.randi_range(-100, 100)
+	hitbox.position += Vector2(offset_x, offset_y)
+	add_child(hitbox)
+	print("SPAWN HITSPARK!!!")
 
 
 func _on_animation_player_animation_finished(anim_name) -> void:
@@ -40,8 +56,11 @@ func _on_body_entered(body) -> void:
 		hurt()
 		$"..".taiga_hp -= 1 # progress through tutorial phase
 
-		if body.is_boom_slime: # hit by chiichan super_hit
+		if body.is_speed_slime: # hit by ewgf
+			$AnimationPlayer.queue("explode")
+		elif body.is_boom_slime: # hit by chiichan super_hit
 			$AnimationPlayer.queue("mad")
 
-			# unfreeze stuffs
-			$"..".unfreeze()
+		# unfreeze stuffs
+		$"..".unfreeze()
+
