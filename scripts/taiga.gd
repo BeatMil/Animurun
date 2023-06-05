@@ -58,9 +58,11 @@ func _on_body_entered(body) -> void:
 
 		if body.is_speed_slime: # hit by ewgf
 			$AnimationPlayer.queue("explode")
+			# unfreeze stuffs
+			$"..".unfreeze()
 		elif body.is_boom_slime: # hit by chiichan super_hit
 			$AnimationPlayer.queue("mad")
+			# unfreeze stuffs
+			$"..".unfreeze()
 
-		# unfreeze stuffs
-		$"..".unfreeze()
 

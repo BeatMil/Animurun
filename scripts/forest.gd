@@ -127,7 +127,7 @@ func spawn_phase_three_transition() -> void:
 
 
 func spawn_phase_three() -> void:
-	taiga_hp = 10
+	taiga_hp = 8
 	order_index = 0
 	enemy_spawn_order = phase_three_enemy_order
 	enemy_order_size = enemy_spawn_order.size()
