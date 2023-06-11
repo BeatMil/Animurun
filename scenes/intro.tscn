@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://oa30cee1j3wd"]
+[gd_scene load_steps=14 format=3 uid="uid://oa30cee1j3wd"]
 
 [ext_resource type="Texture2D" uid="uid://uj1xdeutnbke" path="res://media/sprites/intro/intro_01.png" id="1_hlarh"]
 [ext_resource type="Script" path="res://scripts/intro.gd" id="1_kydok"]
 [ext_resource type="Texture2D" uid="uid://bt7cfr267koxl" path="res://media/sprites/intro/intro_02.png" id="2_rd53n"]
+[ext_resource type="Texture2D" uid="uid://p758u4oi3dya" path="res://media/sprites/intro/space_bar.png" id="3_nyhka"]
 [ext_resource type="Texture2D" uid="uid://di1128e6627mf" path="res://media/sprites/intro/intro_03.png" id="3_tlgjd"]
 [ext_resource type="Texture2D" uid="uid://381j34akxi6u" path="res://media/sprites/intro/intro_04.png" id="4_hjufp"]
 
@@ -19,6 +20,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("1_hlarh")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpaceBar:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(95.726, 205.5, 345, 81)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpaceBar:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1700, 957)]
 }
 
 [sub_resource type="Animation" id="Animation_r4orf"]
@@ -85,13 +110,42 @@ tracks/0/keys = {
 "values": [ExtResource("4_hjufp")]
 }
 
+[sub_resource type="Animation" id="Animation_4e7tk"]
+resource_name = "space_bar"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpaceBar:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Rect2(95.726, 205.5, 345, 81), Rect2(95.726, 212.5, 342.301, 23), Rect2(95.726, 205.5, 345, 81)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpaceBar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1700, 957), Vector2(1700, 967)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w8hkv"]
 _data = {
 "RESET": SubResource("Animation_xnx2w"),
 "intro_01": SubResource("Animation_r4orf"),
 "intro_2": SubResource("Animation_6ofme"),
 "intro_3": SubResource("Animation_qqlts"),
-"intro_4": SubResource("Animation_y0r0r")
+"intro_4": SubResource("Animation_y0r0r"),
+"space_bar": SubResource("Animation_4e7tk")
 }
 
 [node name="intro" type="Node2D"]
@@ -101,7 +155,20 @@ script = ExtResource("1_kydok")
 position = Vector2(960, 536)
 texture = ExtResource("1_hlarh")
 
+[node name="SpaceBar" type="Sprite2D" parent="."]
+position = Vector2(1700, 957)
+scale = Vector2(0.369141, 0.369141)
+texture = ExtResource("3_nyhka")
+region_enabled = true
+region_rect = Rect2(95.726, 205.5, 345, 81)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_w8hkv")
+}
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+autoplay = "space_bar"
 libraries = {
 "": SubResource("AnimationLibrary_w8hkv")
 }
