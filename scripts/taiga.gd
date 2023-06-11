@@ -35,7 +35,7 @@ func _spawn_hit_spark() -> void:
 
 
 func _on_animation_player_animation_finished(anim_name) -> void:
-	if anim_name in ["push", "hurt", "pre_attack"]:
+	if anim_name in ["push", "hurt", "pre_attack", "pre_attack_2"]:
 		$AnimationPlayer.play("idle")
 	elif anim_name == "mad":
 		$"..".spawner()
