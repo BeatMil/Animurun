@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://oa30cee1j3wd"]
+[gd_scene load_steps=15 format=3 uid="uid://oa30cee1j3wd"]
 
 [ext_resource type="Texture2D" uid="uid://uj1xdeutnbke" path="res://media/sprites/intro/intro_01.png" id="1_hlarh"]
 [ext_resource type="Script" path="res://scripts/intro.gd" id="1_kydok"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://p758u4oi3dya" path="res://media/sprites/intro/space_bar.png" id="3_nyhka"]
 [ext_resource type="Texture2D" uid="uid://di1128e6627mf" path="res://media/sprites/intro/intro_03.png" id="3_tlgjd"]
 [ext_resource type="Texture2D" uid="uid://381j34akxi6u" path="res://media/sprites/intro/intro_04.png" id="4_hjufp"]
+[ext_resource type="AudioStream" uid="uid://c4v0m52pekvwx" path="res://media/sfx/mash.wav" id="5_llshi"]
 
 [sub_resource type="Animation" id="Animation_xnx2w"]
 length = 0.001
@@ -64,7 +65,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_6ofme"]
 resource_name = "intro_2"
-length = 0.001
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -77,10 +78,25 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("2_rd53n")]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_llshi")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_qqlts"]
 resource_name = "intro_3"
-length = 0.001
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -93,10 +109,25 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("3_tlgjd")]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_llshi")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_y0r0r"]
 resource_name = "intro_4"
-length = 0.001
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -109,6 +140,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("4_hjufp")]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_llshi")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_4e7tk"]
 resource_name = "space_bar"
@@ -166,6 +212,8 @@ region_rect = Rect2(95.726, 205.5, 345, 81)
 libraries = {
 "": SubResource("AnimationLibrary_w8hkv")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 autoplay = "space_bar"
