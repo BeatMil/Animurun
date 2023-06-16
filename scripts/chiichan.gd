@@ -159,7 +159,7 @@ func push(power: Vector2):
 		anim_player.play("parry_success")
 		state = States.PARRY_SUCCESS
 	elif state in [States.BLOCKING, States.BLOCK_IMPACT]:
-		anim_player.play("block_impact")
+		anim_player.play("block_impact_hand")
 		velocity += (power / 2)
 	else:
 		anim_player.play("hurt")
@@ -302,6 +302,7 @@ func _on_animation_player_animation_finished(anim_name):
 		"hurt",
 		"parry",
 		"block_impact",
+		"block_impact_hand",
 		"attack01_2",
 		"dodge",
 		"sword_deflect",
