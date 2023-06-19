@@ -3,7 +3,7 @@ extends RigidBody2D
 
 # preloads
 var HIT_SPARK = preload("res://nodes/particles/hit_spark.tscn")
-
+var SWORD = preload("res://nodes/sword.tscn")
 
 var rng = RandomNumberGenerator.new()
 
@@ -32,6 +32,12 @@ func _spawn_hit_spark() -> void:
 	hitbox.position += Vector2(offset_x, offset_y)
 	add_child(hitbox)
 	print("SPAWN HITSPARK!!!")
+
+
+func _spawn_sword() -> void:
+	var sword = SWORD.instantiate()
+	add_child(sword)
+	$"../ParallaxBackground".freeze()
 
 
 func _on_animation_player_animation_finished(anim_name) -> void:

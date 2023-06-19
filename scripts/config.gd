@@ -1,7 +1,7 @@
 extends Node
 
 
-var checkpoint = -1 # respawn chiichan at certain phase
+var checkpoint = 5 # respawn chiichan at certain phase
 
 
 func _ready():
