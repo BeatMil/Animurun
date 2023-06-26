@@ -264,11 +264,16 @@ func spawn_fail_hitbox() -> void: # free slime from freeze
 
 
 func play_wavedash(_speed: float) -> void:
-	$AnimationPlayer.play("wavedash", -1, _speed)
+	anim_player.play("wavedash", -1, _speed)
 
 
 func stop_wavedash_sfx() -> void:
 	$AnimationPlayer2.stop()
+
+
+func stop_moving() -> void:
+	is_freezing = true
+	anim_player.play("stand_still")
 
 
 func spawn_wavedash_particle(): # used by AnimationPlayer

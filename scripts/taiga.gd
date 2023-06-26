@@ -34,10 +34,15 @@ func _spawn_hit_spark() -> void:
 	print("SPAWN HITSPARK!!!")
 
 
+func stop_chiichan_from_moving_stage01_outro() -> void:
+	$"../Chiichan".stop_moving() # stop chiichan from moving to do stage01 outro
+
+
 func _spawn_sword() -> void:
 	var sword = SWORD.instantiate()
 	add_child(sword)
 	$"../ParallaxBackground".freeze()
+	stop_chiichan_from_moving_stage01_outro()
 
 
 func _on_animation_player_animation_finished(anim_name) -> void:
@@ -70,5 +75,3 @@ func _on_body_entered(body) -> void:
 			$AnimationPlayer.queue("mad")
 			# unfreeze stuffs
 			$"..".unfreeze()
-
-
