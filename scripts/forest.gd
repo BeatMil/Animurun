@@ -371,18 +371,20 @@ func spawn_spike_storm() -> void:
 	slime2.position = $"Markers/EnemySpawnPos2".position
 	slime2.connect("ded", spawner)
 
-	spike1.position = $"Chiichan".position
+	var offset = Vector2(200, 0)
+
+	spike1.position = $"Chiichan".position + offset
 	$"Taiga".play("pre_attack")
 	add_child(spike1)
 	await get_tree().create_timer(0.6, false).timeout
 
 	$"Taiga".play("pre_attack")
-	spike2.position = $"Chiichan".position
+	spike2.position = $"Chiichan".position + offset
 	add_child(spike2)
 	await get_tree().create_timer(0.6, false).timeout
 
 	$"Taiga".play("pre_attack")
-	spike3.position = $"Chiichan".position
+	spike3.position = $"Chiichan".position + offset
 	add_child(spike3)
 	await get_tree().create_timer(0.6, false).timeout
 
