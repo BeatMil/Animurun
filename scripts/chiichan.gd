@@ -63,7 +63,7 @@ func _physics_process(delta):
 				anim_player.play("run")
 
 		# Jump
-		if Input.is_action_just_pressed("jump"):
+		if Input.is_action_pressed("jump"):
 			if is_on_floor():
 				jump()
 		elif Input.is_action_just_released("jump"):
