@@ -8,8 +8,6 @@ func _ready():
 	# 120 fps?
 	Engine.physics_ticks_per_second = 120
 
-
-
 	# Debug on second monitor
 	# DisplayServer.window_set_current_screen(1)
 
