@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://sa8iqc45gidu"]
+[gd_scene load_steps=93 format=3 uid="uid://sa8iqc45gidu"]
 
 [ext_resource type="Script" path="res://scripts/forest.gd" id="1_trs0b"]
 [ext_resource type="Texture2D" uid="uid://dlc8vtgooxfnt" path="res://media/sprites/kaisouko_look.png" id="2_b416e"]
@@ -45,6 +45,7 @@
 [ext_resource type="AudioStream" uid="uid://c47d125l176wn" path="res://media/sfx/electric_only.wav" id="36_20unh"]
 [ext_resource type="Texture2D" uid="uid://dbg3ymccajnsk" path="res://media/sprites/chiichan/block_impact_hand.png" id="39_cdj14"]
 [ext_resource type="Texture2D" uid="uid://bls3i8dawx4th" path="res://media/sprites/chiichan/chiichan_stand_still.png" id="40_ec3ka"]
+[ext_resource type="AudioStream" uid="uid://dxwxd73pytg1" path="res://media/ost/trap_adventure_water.wav" id="46_cde3r"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vax0k"]
 bounce = 0.8
@@ -2270,6 +2271,31 @@ _data = {
 "super_hit_zoom": SubResource("Animation_gff3c")
 }
 
+[sub_resource type="Animation" id="Animation_sofwc"]
+resource_name = "ost"
+length = 6.4
+loop_mode = 1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("46_cde3r")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_13tve"]
+_data = {
+"ost": SubResource("Animation_sofwc")
+}
+
 [node name="Forest" type="Node"]
 script = ExtResource("1_trs0b")
 
@@ -2525,6 +2551,16 @@ position = Vector2(1463, 362)
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="OstPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("AudioStreamPlayer")
+autoplay = "ost"
+libraries = {
+"": SubResource("AnimationLibrary_13tve")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="OstPlayer"]
+volume_db = 5.0
 
 [connection signal="animation_finished" from="Chiichan/AnimationPlayer" to="Chiichan" method="_on_animation_player_animation_finished"]
 [connection signal="animation_started" from="Chiichan/AnimationPlayer" to="Chiichan" method="_on_animation_player_animation_started"]
