@@ -71,6 +71,7 @@ func _on_body_entered(body) -> void:
 			$AnimationPlayer.queue("explode")
 			# unfreeze stuffs
 			$"..".unfreeze()
+			$"..".stop_playing_ost()
 		elif body.is_boom_slime: # hit by chiichan super_hit
 			$AnimationPlayer.queue("mad")
 			# unfreeze stuffs

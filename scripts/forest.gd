@@ -577,6 +577,10 @@ func spawn_ora_ora() -> void:
 ### Ends
 
 
+func stop_playing_ost():
+	$OstPlayer.stop()
+
+
 func save_checkpoint() -> void:
 	$"/root/Config".checkpoint  = phase_helper - 1
 
