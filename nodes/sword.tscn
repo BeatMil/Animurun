@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://nk0cp1c4uch8"]
+[gd_scene load_steps=7 format=3 uid="uid://nk0cp1c4uch8"]
 
 [ext_resource type="Texture2D" uid="uid://do6otdpim0hby" path="res://media/sprites/chiichan/sword.png" id="1_pcl08"]
+[ext_resource type="Script" path="res://scripts/sword.gd" id="2_s6wcc"]
 
 [sub_resource type="Animation" id="Animation_clsxv"]
 length = 0.001
@@ -93,9 +94,12 @@ _data = {
 
 [node name="Sword" type="Sprite2D"]
 texture = ExtResource("1_pcl08")
+script = ExtResource("2_s6wcc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "pop_out"
 libraries = {
 "": SubResource("AnimationLibrary_aacm7")
 }
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

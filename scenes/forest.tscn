@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://sa8iqc45gidu"]
+[gd_scene load_steps=96 format=3 uid="uid://sa8iqc45gidu"]
 
 [ext_resource type="Script" path="res://scripts/forest.gd" id="1_trs0b"]
 [ext_resource type="Texture2D" uid="uid://dlc8vtgooxfnt" path="res://media/sprites/kaisouko_look.png" id="2_b416e"]
@@ -38,6 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://gqnj6v3d1qma" path="res://media/sprites/chiichan/chiichan_parry_success.png" id="30_pk4jm"]
 [ext_resource type="Texture2D" uid="uid://c2tb3mch4081h" path="res://media/sprites/chiichan/chiichan_super_hit_hand02.png" id="31_elekm"]
 [ext_resource type="AudioStream" uid="uid://wrrl7l36fg2a" path="res://media/sfx/laserShoot.wav" id="31_h70ww"]
+[ext_resource type="AudioStream" uid="uid://cit6cq8k7bt4y" path="res://media/sfx/stage1_clear.wav" id="33_phs78"]
 [ext_resource type="Texture2D" uid="uid://38ua085sau7c" path="res://media/sprites/chiichan/chiichan_wavedash.png" id="34_b4rup"]
 [ext_resource type="AudioStream" uid="uid://bvgh6jb3ipky7" path="res://media/sfx/rage_art_start2.wav" id="35_a3oo8"]
 [ext_resource type="Texture2D" uid="uid://lpjn3qarbt8d" path="res://media/sprites/chiichan/chiichan_ewgf_real.png" id="35_dyiit"]
@@ -45,6 +46,7 @@
 [ext_resource type="AudioStream" uid="uid://c47d125l176wn" path="res://media/sfx/electric_only.wav" id="36_20unh"]
 [ext_resource type="Texture2D" uid="uid://dbg3ymccajnsk" path="res://media/sprites/chiichan/block_impact_hand.png" id="39_cdj14"]
 [ext_resource type="Texture2D" uid="uid://bls3i8dawx4th" path="res://media/sprites/chiichan/chiichan_stand_still.png" id="40_ec3ka"]
+[ext_resource type="Texture2D" uid="uid://bccxclhj5sqc7" path="res://media/sprites/chiichan/stage_01_clear.png" id="41_ied5l"]
 [ext_resource type="AudioStream" uid="uid://dxwxd73pytg1" path="res://media/ost/trap_adventure_water.wav" id="46_cde3r"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vax0k"]
@@ -1442,6 +1444,86 @@ tracks/9/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_a60g2"]
+resource_name = "stage1_clear"
+length = 0.6
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChiichanPos/sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChiichanPos/sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("41_ied5l")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ChiichanPos/sprite:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("33_phs78")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ChiichanPos:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.5),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ChiichanPos/sprite:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_qnw1j"]
 resource_name = "stand_still"
 length = 0.500013
@@ -1944,6 +2026,7 @@ _data = {
 "parry": SubResource("Animation_bucmy"),
 "parry_success": SubResource("Animation_onuwh"),
 "run": SubResource("Animation_c0ony"),
+"stage1_clear": SubResource("Animation_a60g2"),
 "stand_still": SubResource("Animation_qnw1j"),
 "super_hit": SubResource("Animation_v15od"),
 "super_hit_hand": SubResource("Animation_4nc0g"),

@@ -276,6 +276,11 @@ func stop_moving() -> void:
 	anim_player.play("stand_still")
 
 
+func play_stage1_clear() -> void:
+	is_freezing = true
+	anim_player.play("stage1_clear")
+
+
 func spawn_wavedash_particle(): # used by AnimationPlayer
 	var hitbox = WAVEDASH_PARTICLE.instantiate()
 	hitbox.time_before_queue_free = 0.9
