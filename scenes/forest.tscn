@@ -2621,7 +2621,7 @@ position = Vector2(2529, -558)
 position = Vector2(2529, -390)
 
 [node name="TankSpawnPos3" type="Marker2D" parent="Markers"]
-position = Vector2(2529, -184)
+position = Vector2(2839, -360)
 
 [node name="WaterFall1" type="Marker2D" parent="Markers"]
 position = Vector2(56, 362)
