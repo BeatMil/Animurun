@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://sa8iqc45gidu"]
+[gd_scene load_steps=104 format=3 uid="uid://sa8iqc45gidu"]
 
 [ext_resource type="Script" path="res://scripts/forest.gd" id="1_trs0b"]
 [ext_resource type="Texture2D" uid="uid://dlc8vtgooxfnt" path="res://media/sprites/kaisouko_look.png" id="2_b416e"]
@@ -47,7 +47,11 @@
 [ext_resource type="Texture2D" uid="uid://dbg3ymccajnsk" path="res://media/sprites/chiichan/block_impact_hand.png" id="39_cdj14"]
 [ext_resource type="Texture2D" uid="uid://bls3i8dawx4th" path="res://media/sprites/chiichan/chiichan_stand_still.png" id="40_ec3ka"]
 [ext_resource type="Texture2D" uid="uid://bccxclhj5sqc7" path="res://media/sprites/chiichan/stage_01_clear.png" id="41_ied5l"]
+[ext_resource type="Texture2D" uid="uid://cvex0en0e61p3" path="res://media/sprites/chiichan/stage_01_clear_b.png" id="43_bc57g"]
+[ext_resource type="AudioStream" uid="uid://bubfjmrnghf2t" path="res://media/sfx/aww__.wav" id="44_t2ymv"]
 [ext_resource type="AudioStream" uid="uid://dxwxd73pytg1" path="res://media/ost/trap_adventure_water.wav" id="46_cde3r"]
+[ext_resource type="Texture2D" uid="uid://c16v0w6mnp5y3" path="res://media/sprites/vol_boss/vol_boss_steal_big_sword.png" id="49_u81l4"]
+[ext_resource type="Script" path="res://scripts/VolBossStealBigSword.gd" id="50_txsu2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vax0k"]
 bounce = 0.8
@@ -2012,6 +2016,86 @@ tracks/5/keys = {
 }
 tracks/5/use_blend = true
 
+[sub_resource type="Animation" id="Animation_hqgqk"]
+resource_name = "stage1_clear_b"
+length = 0.6
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChiichanPos/sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChiichanPos/sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("43_bc57g")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ChiichanPos/sprite:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("44_t2ymv")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ChiichanPos:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.5),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ChiichanPos/sprite:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8jhmc"]
 _data = {
 "RESET": SubResource("Animation_450t4"),
@@ -2027,6 +2111,7 @@ _data = {
 "parry_success": SubResource("Animation_onuwh"),
 "run": SubResource("Animation_c0ony"),
 "stage1_clear": SubResource("Animation_a60g2"),
+"stage1_clear_b": SubResource("Animation_hqgqk"),
 "stand_still": SubResource("Animation_qnw1j"),
 "super_hit": SubResource("Animation_v15od"),
 "super_hit_hand": SubResource("Animation_4nc0g"),
@@ -2379,6 +2464,71 @@ _data = {
 "ost": SubResource("Animation_sofwc")
 }
 
+[sub_resource type="Animation" id="Animation_juqc3"]
+resource_name = "steal_sword"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-0.5, 1),
+"update": 0,
+"values": [Vector2(-523, 433), Vector2(2462, 448)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"despawn_sword"
+}]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("12_dybn8")
+}],
+"times": PackedFloat32Array(0.5)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_d6of1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-523, 433)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u2sts"]
+_data = {
+"RESET": SubResource("Animation_d6of1"),
+"steal_sword": SubResource("Animation_juqc3")
+}
+
 [node name="Forest" type="Node"]
 script = ExtResource("1_trs0b")
 
@@ -2645,8 +2795,22 @@ libraries = {
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="OstPlayer"]
 volume_db = 5.0
 
+[node name="VolBossStealBigSword" type="Sprite2D" parent="."]
+position = Vector2(-523, 433)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("49_u81l4")
+script = ExtResource("50_txsu2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VolBossStealBigSword"]
+libraries = {
+"": SubResource("AnimationLibrary_u2sts")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VolBossStealBigSword/AnimationPlayer"]
+
 [connection signal="animation_finished" from="Chiichan/AnimationPlayer" to="Chiichan" method="_on_animation_player_animation_finished"]
 [connection signal="animation_started" from="Chiichan/AnimationPlayer" to="Chiichan" method="_on_animation_player_animation_started"]
 [connection signal="body_entered" from="DedWalls/Wall" to="DedWalls/Wall" method="_on_body_entered"]
 [connection signal="body_entered" from="DedWalls/DedWallArea2D" to="DedWalls" method="_on_ded_wall_area_2d_body_entered"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="animation_finished" from="VolBossStealBigSword/AnimationPlayer" to="VolBossStealBigSword" method="_on_animation_player_animation_finished"]

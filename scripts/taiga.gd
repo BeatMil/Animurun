@@ -40,6 +40,7 @@ func stop_chiichan_from_moving_stage01_outro() -> void:
 
 func _spawn_sword() -> void:
 	var sword = SWORD.instantiate()
+	sword.name = "sword"
 	add_child(sword)
 	$"../ParallaxBackground".freeze()
 	stop_chiichan_from_moving_stage01_outro()

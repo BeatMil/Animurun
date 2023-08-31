@@ -281,6 +281,11 @@ func play_stage1_clear() -> void:
 	anim_player.play("stage1_clear")
 
 
+func play_stage1_clear_b() -> void:
+	is_freezing = true
+	anim_player.play("stage1_clear_b")
+
+
 func spawn_wavedash_particle(): # used by AnimationPlayer
 	var hitbox = WAVEDASH_PARTICLE.instantiate()
 	hitbox.time_before_queue_free = 0.9
@@ -328,6 +333,8 @@ func _on_animation_player_animation_finished(anim_name):
 	elif anim_name in ["super_hit", "super_hit_hand", "ewgf"]:
 		self.unfreeze()
 		state = States.RUNNING
+	elif anim_name == "stage1_clear":
+		$"../VolBossStealBigSword".play_steal_sword()
 
 
 func _on_animation_player_animation_started(anim_name):
