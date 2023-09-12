@@ -501,14 +501,14 @@ func spawn_spike_slime_jump_parry() -> void:
 
 
 func spawn_waterfall() -> void:
-	var pos_list = [$"Markers/WaterFall1".position, $"Markers/WaterFall2".position, $"Markers/WaterFall3".position]
+	var pos_list = [$"Markers/WaterFall1".position, $"Markers/WaterFall2".position]
 
 	var waterfall1 = WATERFALL.instantiate()
 	waterfall1.position = pos_list.pick_random()
-	pos_list.erase(waterfall1.position)
+	# pos_list.erase(waterfall1.position)
 
 	var waterfall2 = WATERFALL.instantiate()
-	waterfall2.position = pos_list.pick_random()
+	waterfall2.position = $"Markers/WaterFall3".position
 
 	var slime1 = SLIME.instantiate()
 	slime1.position = $"Markers/EnemySpawnPos2".position
