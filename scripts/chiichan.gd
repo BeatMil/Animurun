@@ -27,6 +27,7 @@ var jump_power = 900
 var gravity_power = 30
 var pushback_multiplier = 0.0 # amount of increase pushback
 var is_freezing = false
+var can_jump = true
 
 
 # Constants
@@ -171,9 +172,10 @@ func push(power: Vector2):
 
 
 func jump():
-	state = States.RUNNING
-	anim_player.play("jump")
-	velocity += Vector2(0, -jump_power)
+	if can_jump:
+		state = States.RUNNING
+		anim_player.play("jump")
+		velocity += Vector2(0, -jump_power)
 
 
 func release_jump():

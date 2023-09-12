@@ -35,7 +35,7 @@ func _spawn_hit_spark() -> void:
 
 
 func stop_chiichan_from_moving_stage01_outro() -> void:
-	$"../Chiichan".stop_moving() # stop chiichan from moving to do stage01 outro
+	$"../Chiichan".stop_moving() # stop chiichan from moving
 
 
 func _spawn_sword() -> void:
@@ -73,6 +73,7 @@ func _on_body_entered(body) -> void:
 			# unfreeze stuffs
 			$"..".unfreeze()
 			$"..".stop_playing_ost()
+			$"../Chiichan".can_jump = false
 		elif body.is_boom_slime: # hit by chiichan super_hit
 			$AnimationPlayer.queue("mad")
 			# unfreeze stuffs
