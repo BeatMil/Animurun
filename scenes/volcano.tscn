@@ -2406,8 +2406,8 @@ libraries = {
 "": SubResource("AnimationLibrary_bkvre")
 }
 
-[node name="Slime" parent="." instance=ExtResource("42_4vsib")]
-position = Vector2(2428, 718)
+[node name="SlimeJump" parent="." instance=ExtResource("42_4vsib")]
+position = Vector2(1742, 640)
 
 [connection signal="animation_finished" from="Chiichan/AnimationPlayer" to="Chiichan" method="_on_animation_player_animation_finished"]
 [connection signal="animation_started" from="Chiichan/AnimationPlayer" to="Chiichan" method="_on_animation_player_animation_started"]
