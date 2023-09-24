@@ -2,6 +2,7 @@ extends Control
 
 
 var is_pausable = true
+@onready var current_stage = $"../..".get_stage_path()
 
 
 func _input(event):
@@ -15,8 +16,5 @@ func _input(event):
 
 
 func _on_restart_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/forest.tscn")
+	get_tree().change_scene_to_file(current_stage)
 	get_tree().paused = false
-
-
-

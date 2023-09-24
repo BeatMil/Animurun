@@ -603,3 +603,7 @@ func smol_shake_offset() -> void:
 
 func _on_spawn_timer_timeout():
 	spawner()
+
+
+func get_stage_path() -> String:
+	return "res://scenes/forest.tscn"
