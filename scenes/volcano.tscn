@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://dp8sihvv4o8dt"]
+[gd_scene load_steps=90 format=3 uid="uid://dp8sihvv4o8dt"]
 
 [ext_resource type="Script" path="res://scripts/volcano.gd" id="1_cx5ry"]
 [ext_resource type="Script" path="res://scripts/parallax_controller.gd" id="1_oa6mp"]
@@ -45,6 +45,8 @@
 [ext_resource type="AudioStream" uid="uid://cvjmsdvogiw3a" path="res://media/sfx/sword_deflect.wav" id="40_csmc7"]
 [ext_resource type="AudioStream" uid="uid://mjnasgig34g7" path="res://media/sfx/wavedash01.wav" id="41_mstj8"]
 [ext_resource type="PackedScene" uid="uid://e7hs41uv2d2j" path="res://nodes/slime_jump.tscn" id="42_4vsib"]
+[ext_resource type="Script" path="res://scripts/wall.gd" id="46_0dqi6"]
+[ext_resource type="AudioStream" uid="uid://de0x7vklictcu" path="res://media/sfx/dedExplosion.wav" id="47_56jly"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tquqw"]
 bounce = 0.8
@@ -2299,6 +2301,85 @@ volumetric_fog_length = 80.71
 volumetric_fog_detail_spread = 0.615572
 volumetric_fog_ambient_inject = 0.52
 
+[sub_resource type="GDScript" id="GDScript_gng0h"]
+script/source = "extends Node
+
+
+func _ready():
+	pass # Replace with function body.
+
+
+func _on_ded_wall_area_2d_body_entered(body):
+	if body.is_in_group(\"chiichan\"):
+		# play ded particle and animation
+		$\"AnimationPlayer\".play(\"ded_sfx\")
+		$\"%CameraPlayer\".play(\"shake\")
+
+		if body.is_alive:
+			body.ded() # chiichan is ded
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pno1e"]
+size = Vector2(40, 1768)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vggvm"]
+size = Vector2(5582, 773)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0iyyu"]
+size = Vector2(793.25, 6458.5)
+
+[sub_resource type="Animation" id="Animation_xkxle"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/AudioStreamPlayer:bus")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Master"]
+}
+
+[sub_resource type="Animation" id="Animation_ukyrn"]
+resource_name = "ded_sfx"
+length = 2.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("47_56jly")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/AudioStreamPlayer:bus")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"smolBus"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u3vp8"]
+_data = {
+"RESET": SubResource("Animation_xkxle"),
+"ded_sfx": SubResource("Animation_ukyrn")
+}
+
 [node name="Volcano" type="Node"]
 script = ExtResource("1_cx5ry")
 
@@ -2443,5 +2524,40 @@ position = Vector2(1742, 640)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0glhb")
 
+[node name="DedWalls" type="Node" parent="."]
+script = SubResource("GDScript_gng0h")
+
+[node name="Wall" type="Area2D" parent="DedWalls" node_paths=PackedStringArray("taiga")]
+position = Vector2(2214, 24)
+collision_layer = 0
+collision_mask = 10
+script = ExtResource("46_0dqi6")
+taiga = NodePath("../../Taiga")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DedWalls/Wall"]
+shape = SubResource("RectangleShape2D_pno1e")
+
+[node name="DedWallArea2D" type="Area2D" parent="DedWalls"]
+position = Vector2(-537, 79)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DedWalls/DedWallArea2D"]
+position = Vector2(-1164, 1773.5)
+shape = SubResource("RectangleShape2D_vggvm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DedWalls/DedWallArea2D"]
+position = Vector2(-338, -1886.75)
+shape = SubResource("RectangleShape2D_0iyyu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DedWalls"]
+libraries = {
+"": SubResource("AnimationLibrary_u3vp8")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DedWalls/AnimationPlayer"]
+
 [connection signal="animation_finished" from="Chiichan/AnimationPlayer" to="Chiichan" method="_on_animation_player_animation_finished"]
 [connection signal="animation_started" from="Chiichan/AnimationPlayer" to="Chiichan" method="_on_animation_player_animation_started"]
+[connection signal="body_entered" from="DedWalls/Wall" to="DedWalls/Wall" method="_on_body_entered"]
+[connection signal="body_entered" from="DedWalls/DedWallArea2D" to="DedWalls" method="_on_ded_wall_area_2d_body_entered"]
