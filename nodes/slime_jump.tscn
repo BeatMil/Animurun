@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://e7hs41uv2d2j"]
+[gd_scene load_steps=15 format=3 uid="uid://e7hs41uv2d2j"]
 
 [ext_resource type="Script" path="res://scripts/slime_jump.gd" id="1_vutxa"]
 [ext_resource type="AudioStream" uid="uid://cp40inxk8x6ke" path="res://media/sfx/dead.wav" id="2_cv7dm"]
 [ext_resource type="AudioStream" uid="uid://btuu8w7awxyhf" path="res://media/sfx/spawn_slime.wav" id="3_d0jf3"]
 [ext_resource type="AudioStream" uid="uid://c4wj86d6370m8" path="res://media/sfx/charge01.wav" id="4_yed55"]
 [ext_resource type="Texture2D" uid="uid://dal8iia82mhhc" path="res://media/sprites/slime_spritesheet.png" id="5_euhcp"]
+[ext_resource type="AudioStream" uid="uid://ytq6djavcvk" path="res://media/sfx/smol_jump.wav" id="5_fbaot"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7vn5"]
 size = Vector2(320, 326.5)
@@ -201,11 +202,43 @@ tracks/3/keys = {
 "values": [Color(1.5, 1.5, 1.5, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_8hyjn"]
+resource_name = "jump"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlimeSpritesheet:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_fbaot")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yhx8y"]
 _data = {
 "RESET": SubResource("Animation_jfkii"),
 "hurt": SubResource("Animation_8usju"),
 "idle": SubResource("Animation_q5iy4"),
+"jump": SubResource("Animation_8hyjn"),
 "speed": SubResource("Animation_lctyq")
 }
 
