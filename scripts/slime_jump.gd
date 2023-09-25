@@ -69,4 +69,5 @@ func _on_area_2d_body_entered(body):
 		turn_hit_boss_collision()
 		hurt()
 		# push chiichan 
-		body.push(Vector2(-1500, -100))
+		body.set_state(body.States.RUNNING) # chiichan can't parry this
+		body.push(Vector2(-2000, -1000))

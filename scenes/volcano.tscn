@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://dp8sihvv4o8dt"]
+[gd_scene load_steps=81 format=3 uid="uid://dp8sihvv4o8dt"]
 
 [ext_resource type="Script" path="res://scripts/volcano.gd" id="1_cx5ry"]
 [ext_resource type="Script" path="res://scripts/parallax_controller.gd" id="1_oa6mp"]
@@ -2268,6 +2268,37 @@ _data = {
 "super_hit_zoom": SubResource("Animation_gff3c")
 }
 
+[sub_resource type="Environment" id="Environment_0glhb"]
+background_mode = 3
+ssil_radius = 8.49
+ssil_intensity = 5.07
+ssil_sharpness = 0.4
+sdfgi_bounce_feedback = 0.95
+glow_enabled = true
+glow_levels/1 = 2.46
+glow_levels/2 = 7.69
+glow_levels/3 = 7.46
+glow_intensity = 0.44
+glow_blend_mode = 1
+glow_hdr_threshold = 0.8
+glow_hdr_scale = 0.95
+glow_hdr_luminance_cap = 2.69
+fog_light_color = Color(0.498039, 0.121569, 0.223529, 1)
+fog_light_energy = 6.93
+fog_sun_scatter = 0.34
+fog_density = 0.1772
+fog_height = 20.18
+fog_height_density = 13.5172
+volumetric_fog_density = 0.45
+volumetric_fog_albedo = Color(0.572549, 0.160784, 0.247059, 1)
+volumetric_fog_emission = Color(0.509804, 0.266667, 0.207843, 1)
+volumetric_fog_emission_energy = 243.04
+volumetric_fog_gi_inject = 1.67
+volumetric_fog_anisotropy = 0.33
+volumetric_fog_length = 80.71
+volumetric_fog_detail_spread = 0.615572
+volumetric_fog_ambient_inject = 0.52
+
 [node name="Volcano" type="Node"]
 script = ExtResource("1_cx5ry")
 
@@ -2408,6 +2439,9 @@ libraries = {
 
 [node name="SlimeJump" parent="." instance=ExtResource("42_4vsib")]
 position = Vector2(1742, 640)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0glhb")
 
 [connection signal="animation_finished" from="Chiichan/AnimationPlayer" to="Chiichan" method="_on_animation_player_animation_finished"]
 [connection signal="animation_started" from="Chiichan/AnimationPlayer" to="Chiichan" method="_on_animation_player_animation_started"]
