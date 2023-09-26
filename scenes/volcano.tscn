@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://dp8sihvv4o8dt"]
+[gd_scene load_steps=89 format=3 uid="uid://dp8sihvv4o8dt"]
 
 [ext_resource type="Script" path="res://scripts/volcano.gd" id="1_cx5ry"]
 [ext_resource type="Script" path="res://scripts/parallax_controller.gd" id="1_oa6mp"]
@@ -44,7 +44,6 @@
 [ext_resource type="Texture2D" uid="uid://uwlxfte7vvi3" path="res://media/sprites/chiichan/sword_deflect.png" id="39_iam1j"]
 [ext_resource type="AudioStream" uid="uid://cvjmsdvogiw3a" path="res://media/sfx/sword_deflect.wav" id="40_csmc7"]
 [ext_resource type="AudioStream" uid="uid://mjnasgig34g7" path="res://media/sfx/wavedash01.wav" id="41_mstj8"]
-[ext_resource type="PackedScene" uid="uid://e7hs41uv2d2j" path="res://nodes/slime_jump.tscn" id="42_4vsib"]
 [ext_resource type="Script" path="res://scripts/wall.gd" id="46_0dqi6"]
 [ext_resource type="AudioStream" uid="uid://de0x7vklictcu" path="res://media/sfx/dedExplosion.wav" id="47_56jly"]
 
@@ -2452,7 +2451,7 @@ z_index = 5
 position = Vector2(503, 692)
 collision_layer = 2
 script = ExtResource("6_amjxk")
-default_pos = NodePath("../Markers/ChiichanDefaultPos")
+default_pos = NodePath("")
 
 [node name="ChiichanPos" type="Node2D" parent="Chiichan"]
 
@@ -2518,9 +2517,6 @@ libraries = {
 "": SubResource("AnimationLibrary_bkvre")
 }
 
-[node name="SlimeJump" parent="." instance=ExtResource("42_4vsib")]
-position = Vector2(1742, 640)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0glhb")
 
@@ -2556,6 +2552,11 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DedWalls/AnimationPlayer"]
+
+[node name="Markers" type="Node" parent="."]
+
+[node name="EnemySpawnPos" type="Marker2D" parent="Markers"]
+position = Vector2(2400, 837)
 
 [connection signal="animation_finished" from="Chiichan/AnimationPlayer" to="Chiichan" method="_on_animation_player_animation_finished"]
 [connection signal="animation_started" from="Chiichan/AnimationPlayer" to="Chiichan" method="_on_animation_player_animation_started"]
