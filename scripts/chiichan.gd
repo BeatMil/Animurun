@@ -328,10 +328,10 @@ func _on_animation_player_animation_finished(anim_name):
 		state = States.RUNNING
 		anim_player.play("run")
 
-		if pushback_multiplier >= 1.5:
+		if pushback_multiplier >= 1:
 			$"ChiichanPos/sprite".self_modulate = Color(1, 0.6, 0.5)
-		elif pushback_multiplier >= 1:
-			$"ChiichanPos/sprite".self_modulate = Color(0.9, 0.9, 0.4)
+		elif pushback_multiplier >= 0.5:
+			$"ChiichanPos/sprite".self_modulate = Color(0.89, 0.87, 0.46)
 	elif anim_name in ["super_hit", "super_hit_hand", "ewgf"]:
 		self.unfreeze()
 		state = States.RUNNING

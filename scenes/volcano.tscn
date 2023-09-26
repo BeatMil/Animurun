@@ -164,7 +164,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1.8, 1.8, 1.8, 1)]
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_tft38"]
@@ -1365,7 +1365,7 @@ tracks/7/keys = {
 }
 tracks/8/type = "value"
 tracks/8/imported = false
-tracks/8/enabled = true
+tracks/8/enabled = false
 tracks/8/path = NodePath("ChiichanPos/sprite:self_modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
@@ -2456,7 +2456,6 @@ default_pos = NodePath("")
 [node name="ChiichanPos" type="Node2D" parent="Chiichan"]
 
 [node name="sprite" type="Sprite2D" parent="Chiichan/ChiichanPos"]
-self_modulate = Color(1.8, 1.8, 1.8, 1)
 z_index = 10
 texture = ExtResource("7_jr43s")
 offset = Vector2(0, 12)
