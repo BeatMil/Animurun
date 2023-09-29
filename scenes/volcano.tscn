@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dp8sihvv4o8dt"]
+[gd_scene load_steps=30 format=3 uid="uid://dp8sihvv4o8dt"]
 
 [ext_resource type="Script" path="res://scripts/volcano.gd" id="1_cx5ry"]
 [ext_resource type="Script" path="res://scripts/parallax_controller.gd" id="1_oa6mp"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d1h4ur6yhpscs" path="res://scenes/ded_menu.tscn" id="6_x5lar"]
 [ext_resource type="PackedScene" uid="uid://c1vlse56bmgi3" path="res://scenes/pause_menu.tscn" id="7_7n2ko"]
 [ext_resource type="PackedScene" uid="uid://chuy481yt3hbu" path="res://nodes/chiichan.tscn" id="9_u1mbg"]
+[ext_resource type="Texture2D" uid="uid://bydsxkbe3xtj8" path="res://media/sprites/kisaki/kisaki.png" id="12_n2lpy"]
 [ext_resource type="Script" path="res://scripts/wall.gd" id="46_0dqi6"]
 [ext_resource type="AudioStream" uid="uid://3day7q25cqtg" path="res://media/sfx/dedExplosion.wav" id="47_56jly"]
 
@@ -408,6 +409,11 @@ libraries = {
 
 [node name="EnemySpawnPos" type="Marker2D" parent="Markers"]
 position = Vector2(2400, 837)
+
+[node name="Kisaki" type="Sprite2D" parent="."]
+self_modulate = Color(0.8, 0.8, 0.8, 1)
+position = Vector2(1962, 615)
+texture = ExtResource("12_n2lpy")
 
 [connection signal="body_entered" from="DedWalls/Wall" to="DedWalls/Wall" method="_on_body_entered"]
 [connection signal="body_entered" from="DedWalls/DedWallArea2D" to="DedWalls" method="_on_ded_wall_area_2d_body_entered"]
