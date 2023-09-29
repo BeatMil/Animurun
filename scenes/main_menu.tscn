@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_futl5"]
 [ext_resource type="Script" path="res://scripts/audio_test.gd" id="1_ontde"]
-[ext_resource type="Texture2D" uid="uid://dlc8vtgooxfnt" path="res://media/sprites/kaisouko_look.png" id="1_pu5it"]
-[ext_resource type="AudioStream" uid="uid://c202j8h7tmaho" path="res://media/sfx/bigJump.wav" id="2_cwtth"]
+[ext_resource type="Texture2D" uid="uid://bnh2lv34nivku" path="res://media/sprites/kaisouko_look.png" id="1_pu5it"]
+[ext_resource type="AudioStream" uid="uid://vun3buu6xir8" path="res://media/sfx/bigJump.wav" id="2_cwtth"]
 
 [sub_resource type="Animation" id="Animation_ufldj"]
 resource_name = "test_sound"

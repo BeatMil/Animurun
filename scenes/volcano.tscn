@@ -3,49 +3,49 @@
 [ext_resource type="Script" path="res://scripts/volcano.gd" id="1_cx5ry"]
 [ext_resource type="Script" path="res://scripts/parallax_controller.gd" id="1_oa6mp"]
 [ext_resource type="Script" path="res://scripts/parallax_layer_auto.gd" id="2_ha2j0"]
-[ext_resource type="Texture2D" uid="uid://dfdkael0w7crn" path="res://media/sprites/clouds.png" id="3_vukop"]
-[ext_resource type="Texture2D" uid="uid://c27d22taypjc3" path="res://media/sprites/mountain.png" id="4_g5y16"]
-[ext_resource type="Texture2D" uid="uid://c4lolkux0suj3" path="res://media/sprites/ground.png" id="5_888dq"]
+[ext_resource type="Texture2D" uid="uid://c5p1a8sbq4oeu" path="res://media/sprites/clouds.png" id="3_vukop"]
+[ext_resource type="Texture2D" uid="uid://bwjdojfiq7as4" path="res://media/sprites/mountain.png" id="4_g5y16"]
+[ext_resource type="Texture2D" uid="uid://loah2i22waew" path="res://media/sprites/ground.png" id="5_888dq"]
 [ext_resource type="Script" path="res://scripts/chiichan.gd" id="6_amjxk"]
 [ext_resource type="PackedScene" uid="uid://d1h4ur6yhpscs" path="res://scenes/ded_menu.tscn" id="6_x5lar"]
 [ext_resource type="PackedScene" uid="uid://c1vlse56bmgi3" path="res://scenes/pause_menu.tscn" id="7_7n2ko"]
-[ext_resource type="Texture2D" uid="uid://bo1dqtgcf8dfa" path="res://media/sprites/chiichan/chiichan_jump.png" id="7_jr43s"]
-[ext_resource type="Texture2D" uid="uid://bjrdxyrfa2l1f" path="res://media/sprites/chiichan/sword_attack01_b.png" id="8_5iac0"]
-[ext_resource type="AudioStream" uid="uid://ku7mk3rowqj2" path="res://media/sfx/sword_attack02.wav" id="9_ysy40"]
-[ext_resource type="AudioStream" uid="uid://c0vkn7ictivyv" path="res://media/sfx/sword_attack01.wav" id="10_ny5wi"]
-[ext_resource type="Texture2D" uid="uid://dx88ykfsm5vdn" path="res://media/sprites/chiichan/chiichan_block_impact.png" id="11_x7uma"]
-[ext_resource type="AudioStream" uid="uid://byjq6n8n8tara" path="res://media/sfx/hitHurt2.wav" id="12_3wqwm"]
-[ext_resource type="Texture2D" uid="uid://bwhstcleoiftm" path="res://media/sprites/chiichan/block_impact_hand.png" id="13_jjbdq"]
-[ext_resource type="Texture2D" uid="uid://c6tjsop4cf7hd" path="res://media/sprites/chiichan/chiichan_dodge_hands.png" id="14_n02yb"]
-[ext_resource type="AudioStream" uid="uid://cog4iukhcmvri" path="res://media/sfx/block02.wav" id="15_8fd7e"]
-[ext_resource type="Texture2D" uid="uid://rr7d6kkgffk6" path="res://media/sprites/chiichan/chiichan_wavedash.png" id="16_imjme"]
-[ext_resource type="Texture2D" uid="uid://hcvejayl3hlo" path="res://media/sprites/chiichan/chiichan_ewgf_real.png" id="17_qm5i0"]
-[ext_resource type="AudioStream" uid="uid://0dutnj83rkqq" path="res://media/sfx/rage_art_start2.wav" id="18_l3wr2"]
-[ext_resource type="AudioStream" uid="uid://x14iba6w07ex" path="res://media/sfx/parry01.wav" id="19_48lbq"]
-[ext_resource type="AudioStream" uid="uid://6071sgx77lkl" path="res://media/sfx/electric_only.wav" id="20_65h7e"]
-[ext_resource type="Texture2D" uid="uid://bhmk8kbi24225" path="res://media/sprites/chiichan/chiichan_hitted_hands.png" id="21_qj87e"]
-[ext_resource type="AudioStream" uid="uid://defuhcrehb1ks" path="res://media/sfx/hitHurt.wav" id="22_j8mk6"]
-[ext_resource type="Texture2D" uid="uid://c7xbo5ksxp5dh" path="res://media/sprites/chiichan/chiichan_jump_hand.png" id="23_8gica"]
-[ext_resource type="AudioStream" uid="uid://ytq6djavcvk" path="res://media/sfx/smol_jump.wav" id="24_egdgi"]
-[ext_resource type="Texture2D" uid="uid://bf01wgdnmma8r" path="res://media/sprites/chiichan/chiichan_block_hands.png" id="25_vynjw"]
-[ext_resource type="Texture2D" uid="uid://bttth0ddmcgx0" path="res://media/sprites/chiichan/chiichan_parry_success.png" id="26_oiqvs"]
-[ext_resource type="AudioStream" uid="uid://fsdomf6kb6n7" path="res://media/sfx/laserShoot.wav" id="27_bl261"]
-[ext_resource type="Texture2D" uid="uid://dvcwojvilonjg" path="res://media/sprites/chiichan/chiichan_run_hands.png" id="28_u0nge"]
-[ext_resource type="Texture2D" uid="uid://bq51b1egiy5bm" path="res://media/sprites/chiichan/stage_01_clear.png" id="29_7qjjw"]
-[ext_resource type="AudioStream" uid="uid://cpilf2upqq1is" path="res://media/sfx/stage1_clear.wav" id="30_coc3o"]
-[ext_resource type="Texture2D" uid="uid://sy7bme70lq6j" path="res://media/sprites/chiichan/stage_01_clear_b.png" id="31_50h73"]
-[ext_resource type="AudioStream" uid="uid://bthwnmqs18ehs" path="res://media/sfx/aww__.wav" id="32_njfk6"]
-[ext_resource type="Texture2D" uid="uid://oj1bf74eqkk7" path="res://media/sprites/chiichan/chiichan_stand_still.png" id="33_bs0in"]
-[ext_resource type="Texture2D" uid="uid://bec5325st6ryj" path="res://media/sprites/cinimatics/taiga_phase1/super_hit01.png" id="34_2hjvv"]
-[ext_resource type="Texture2D" uid="uid://d4gnol7tek1yu" path="res://media/sprites/cinimatics/taiga_phase1/super_hit02.png" id="35_4voi4"]
-[ext_resource type="AudioStream" uid="uid://b340g4jxprgqv" path="res://media/sfx/charge_02.wav" id="36_ahjxt"]
-[ext_resource type="Texture2D" uid="uid://bb7sm8lgikd0y" path="res://media/sprites/chiichan/chiichan_super_hit_hand01.png" id="37_m5w0h"]
-[ext_resource type="Texture2D" uid="uid://bse3b5i4n656x" path="res://media/sprites/chiichan/chiichan_super_hit_hand02.png" id="38_p0n7n"]
-[ext_resource type="Texture2D" uid="uid://uwlxfte7vvi3" path="res://media/sprites/chiichan/sword_deflect.png" id="39_iam1j"]
-[ext_resource type="AudioStream" uid="uid://cvjmsdvogiw3a" path="res://media/sfx/sword_deflect.wav" id="40_csmc7"]
-[ext_resource type="AudioStream" uid="uid://mjnasgig34g7" path="res://media/sfx/wavedash01.wav" id="41_mstj8"]
+[ext_resource type="Texture2D" uid="uid://ddpw40j4gt8rq" path="res://media/sprites/chiichan/chiichan_jump.png" id="7_jr43s"]
+[ext_resource type="Texture2D" uid="uid://b4pg6eo3vw2he" path="res://media/sprites/chiichan/sword_attack01_b.png" id="8_5iac0"]
+[ext_resource type="AudioStream" uid="uid://xfcp8fkyaei6" path="res://media/sfx/sword_attack02.wav" id="9_ysy40"]
+[ext_resource type="AudioStream" uid="uid://cdvvphc70inhf" path="res://media/sfx/sword_attack01.wav" id="10_ny5wi"]
+[ext_resource type="Texture2D" uid="uid://bhhhrtytdandp" path="res://media/sprites/chiichan/chiichan_block_impact.png" id="11_x7uma"]
+[ext_resource type="AudioStream" uid="uid://28kd3rjti2rk" path="res://media/sfx/hitHurt2.wav" id="12_3wqwm"]
+[ext_resource type="Texture2D" uid="uid://cuvde36nx315a" path="res://media/sprites/chiichan/block_impact_hand.png" id="13_jjbdq"]
+[ext_resource type="Texture2D" uid="uid://5okcbrc3kwpn" path="res://media/sprites/chiichan/chiichan_dodge_hands.png" id="14_n02yb"]
+[ext_resource type="AudioStream" uid="uid://bdw0x0mhge1yb" path="res://media/sfx/block02.wav" id="15_8fd7e"]
+[ext_resource type="Texture2D" uid="uid://c4lkkmdawkrhs" path="res://media/sprites/chiichan/chiichan_wavedash.png" id="16_imjme"]
+[ext_resource type="Texture2D" uid="uid://de15ct0eu345b" path="res://media/sprites/chiichan/chiichan_ewgf_real.png" id="17_qm5i0"]
+[ext_resource type="AudioStream" uid="uid://cxim7l6omjerj" path="res://media/sfx/rage_art_start2.wav" id="18_l3wr2"]
+[ext_resource type="AudioStream" uid="uid://b0jk0frnhsbii" path="res://media/sfx/parry01.wav" id="19_48lbq"]
+[ext_resource type="AudioStream" uid="uid://dpb8msbdl6bn5" path="res://media/sfx/electric_only.wav" id="20_65h7e"]
+[ext_resource type="Texture2D" uid="uid://driw0ojt0f3qv" path="res://media/sprites/chiichan/chiichan_hitted_hands.png" id="21_qj87e"]
+[ext_resource type="AudioStream" uid="uid://phdh6bg57xbl" path="res://media/sfx/hitHurt.wav" id="22_j8mk6"]
+[ext_resource type="Texture2D" uid="uid://cd6pfnblgggix" path="res://media/sprites/chiichan/chiichan_jump_hand.png" id="23_8gica"]
+[ext_resource type="AudioStream" uid="uid://uun0h0c332mc" path="res://media/sfx/smol_jump.wav" id="24_egdgi"]
+[ext_resource type="Texture2D" uid="uid://djcaeyulgy444" path="res://media/sprites/chiichan/chiichan_block_hands.png" id="25_vynjw"]
+[ext_resource type="Texture2D" uid="uid://cksodtyf0ga1f" path="res://media/sprites/chiichan/chiichan_parry_success.png" id="26_oiqvs"]
+[ext_resource type="AudioStream" uid="uid://d34gtlpqcmnox" path="res://media/sfx/laserShoot.wav" id="27_bl261"]
+[ext_resource type="Texture2D" uid="uid://p3pt15wnbg66" path="res://media/sprites/chiichan/chiichan_run_hands.png" id="28_u0nge"]
+[ext_resource type="Texture2D" uid="uid://dy5ov5ikvu154" path="res://media/sprites/chiichan/stage_01_clear.png" id="29_7qjjw"]
+[ext_resource type="AudioStream" uid="uid://jgpeapd7wj2i" path="res://media/sfx/stage1_clear.wav" id="30_coc3o"]
+[ext_resource type="Texture2D" uid="uid://qto5cor6nrai" path="res://media/sprites/chiichan/stage_01_clear_b.png" id="31_50h73"]
+[ext_resource type="AudioStream" uid="uid://b6j7kxu4hydti" path="res://media/sfx/aww__.wav" id="32_njfk6"]
+[ext_resource type="Texture2D" uid="uid://dxivxrl2hifog" path="res://media/sprites/chiichan/chiichan_stand_still.png" id="33_bs0in"]
+[ext_resource type="Texture2D" uid="uid://icckxsctdwtg" path="res://media/sprites/cinimatics/taiga_phase1/super_hit01.png" id="34_2hjvv"]
+[ext_resource type="Texture2D" uid="uid://cqg8wb7vds007" path="res://media/sprites/cinimatics/taiga_phase1/super_hit02.png" id="35_4voi4"]
+[ext_resource type="AudioStream" uid="uid://qanicxh2dkya" path="res://media/sfx/charge_02.wav" id="36_ahjxt"]
+[ext_resource type="Texture2D" uid="uid://dno5eetchuu85" path="res://media/sprites/chiichan/chiichan_super_hit_hand01.png" id="37_m5w0h"]
+[ext_resource type="Texture2D" uid="uid://gqpyt6dl33so" path="res://media/sprites/chiichan/chiichan_super_hit_hand02.png" id="38_p0n7n"]
+[ext_resource type="Texture2D" uid="uid://bxv1s5iep1s2d" path="res://media/sprites/chiichan/sword_deflect.png" id="39_iam1j"]
+[ext_resource type="AudioStream" uid="uid://bx8ir5xfyiv2q" path="res://media/sfx/sword_deflect.wav" id="40_csmc7"]
+[ext_resource type="AudioStream" uid="uid://c8w3u0uhkrcs4" path="res://media/sfx/wavedash01.wav" id="41_mstj8"]
 [ext_resource type="Script" path="res://scripts/wall.gd" id="46_0dqi6"]
-[ext_resource type="AudioStream" uid="uid://de0x7vklictcu" path="res://media/sfx/dedExplosion.wav" id="47_56jly"]
+[ext_resource type="AudioStream" uid="uid://3day7q25cqtg" path="res://media/sfx/dedExplosion.wav" id="47_56jly"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tquqw"]
 bounce = 0.8
@@ -2445,13 +2445,12 @@ physics_material_override = SubResource("PhysicsMaterial_tquqw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundBody"]
 shape = SubResource("RectangleShape2D_vpofv")
 
-[node name="Chiichan" type="CharacterBody2D" parent="." node_paths=PackedStringArray("default_pos") groups=["chiichan"]]
+[node name="Chiichan" type="CharacterBody2D" parent="." groups=["chiichan"]]
 self_modulate = Color(0.980392, 0.933333, 0.411765, 1)
 z_index = 5
 position = Vector2(503, 692)
 collision_layer = 2
 script = ExtResource("6_amjxk")
-default_pos = NodePath("")
 
 [node name="ChiichanPos" type="Node2D" parent="Chiichan"]
 
@@ -2522,12 +2521,11 @@ environment = SubResource("Environment_0glhb")
 [node name="DedWalls" type="Node" parent="."]
 script = SubResource("GDScript_gng0h")
 
-[node name="Wall" type="Area2D" parent="DedWalls" node_paths=PackedStringArray("taiga")]
+[node name="Wall" type="Area2D" parent="DedWalls"]
 position = Vector2(2214, 24)
 collision_layer = 0
 collision_mask = 10
 script = ExtResource("46_0dqi6")
-taiga = NodePath("../../Taiga")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DedWalls/Wall"]
 shape = SubResource("RectangleShape2D_pno1e")
