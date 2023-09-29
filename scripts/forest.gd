@@ -407,7 +407,6 @@ func spawn_tank_storm() -> void:
 	tank3.position = $"Markers/TankSpawnPos2".position
 
 	var slime3 = SLIME.instantiate()
-	slime3.connect("ded", spawner)
 	slime3.position = $"Markers/EnemySpawnPos".position
 	slime3.connect("ded", spawner)
 
