@@ -24,8 +24,12 @@ func _physics_process(delta):
 
 
 func jump() -> void:
-	velocity += Vector2(0, -jump_power)
 	$"AnimationPlayer".play("jump")
+
+
+# Used in jump animation
+func jump_helper() -> void:
+	velocity += Vector2(0, -jump_power)
 
 
 func gravity():
