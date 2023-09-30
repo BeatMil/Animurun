@@ -13,6 +13,7 @@ enum Phases {
 
 # Preloads
 var SLIME_JUMP = preload("res://nodes/slime_jump.tscn")
+var SLIME = preload("res://nodes/slime.tscn")
 
 
 # Configs
@@ -84,7 +85,16 @@ func spawn_phase_one() -> void:
 ### Enemy Patterns
 ### Starts
 func spawn_jump_slime() -> void:
-	var slime = SLIME_JUMP.instantiate()
+	var jump_slime = SLIME_JUMP.instantiate()
+	jump_slime.position = $"Markers/EnemySpawnPos".position
+
+	var slime = SLIME.instantiate()
 	slime.position = $"Markers/EnemySpawnPos".position
 	slime.connect("ded", spawner)
+
+
+	add_child(jump_slime)
+	await get_tree().create_timer(2, false).timeout
+
 	add_child(slime)
+	slime.throw_slime(Vector2(-2000, -2000))
