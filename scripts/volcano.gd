@@ -29,7 +29,7 @@ var rng = RandomNumberGenerator.new()
 
 
 # Phases
-var phase_one_enemy_order: Array = [spawn_slime]
+var phase_one_enemy_order: Array = [spawn_jump_slime]
 
 
 func _ready() -> void:
@@ -83,7 +83,7 @@ func spawn_phase_one() -> void:
 ###
 ### Enemy Patterns
 ### Starts
-func spawn_slime() -> void:
+func spawn_jump_slime() -> void:
 	var slime = SLIME_JUMP.instantiate()
 	slime.position = $"Markers/EnemySpawnPos".position
 	slime.connect("ded", spawner)
