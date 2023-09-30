@@ -1,14 +1,14 @@
 [gd_scene load_steps=15 format=3 uid="uid://e7hs41uv2d2j"]
 
 [ext_resource type="Script" path="res://scripts/slime_jump.gd" id="1_vutxa"]
-[ext_resource type="AudioStream" uid="uid://cp40inxk8x6ke" path="res://media/sfx/dead.wav" id="2_cv7dm"]
-[ext_resource type="AudioStream" uid="uid://btuu8w7awxyhf" path="res://media/sfx/spawn_slime.wav" id="3_d0jf3"]
-[ext_resource type="AudioStream" uid="uid://c4wj86d6370m8" path="res://media/sfx/charge01.wav" id="4_yed55"]
-[ext_resource type="Texture2D" uid="uid://dal8iia82mhhc" path="res://media/sprites/slime_spritesheet.png" id="5_euhcp"]
-[ext_resource type="AudioStream" uid="uid://ytq6djavcvk" path="res://media/sfx/smol_jump.wav" id="5_fbaot"]
+[ext_resource type="AudioStream" uid="uid://cpedd5tjbew6p" path="res://media/sfx/dead.wav" id="2_cv7dm"]
+[ext_resource type="AudioStream" uid="uid://dg80hbjskinfw" path="res://media/sfx/spawn_slime.wav" id="3_d0jf3"]
+[ext_resource type="AudioStream" uid="uid://c4eboqh1bww4j" path="res://media/sfx/charge01.wav" id="4_yed55"]
+[ext_resource type="Texture2D" uid="uid://07dkynkxtg65" path="res://media/sprites/slime_spritesheet.png" id="5_euhcp"]
+[ext_resource type="AudioStream" uid="uid://uun0h0c332mc" path="res://media/sfx/smol_jump.wav" id="5_fbaot"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7vn5"]
-size = Vector2(320, 326.5)
+size = Vector2(240, 256)
 
 [sub_resource type="Animation" id="Animation_jfkii"]
 length = 0.001
@@ -243,19 +243,24 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yswbr"]
-size = Vector2(368, 344)
+size = Vector2(272, 256)
 
 [node name="SlimeJump" type="CharacterBody2D" groups=["enemy", "slime"]]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_vutxa")
 
+[node name="SlimeSpritesheet" type="Sprite2D" parent="."]
+texture = ExtResource("5_euhcp")
+hframes = 2
+frame = 1
+
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(3.8147e-06, -3.50001)
 scale = Vector2(9.6, 8.65)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(16, 3.25)
+position = Vector2(0, 32)
 shape = SubResource("RectangleShape2D_y7vn5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -266,22 +271,16 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
 
-[node name="SlimeSpritesheet" type="Sprite2D" parent="."]
-texture = ExtResource("5_euhcp")
-hframes = 2
-frame = 1
-
 [node name="JumpTimer" type="Timer" parent="."]
 one_shot = true
 autostart = true
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(8, 4)
+position = Vector2(0, 24)
 shape = SubResource("RectangleShape2D_yswbr")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
