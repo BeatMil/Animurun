@@ -93,8 +93,10 @@ func spawn_jump_slime() -> void:
 	slime.connect("ded", spawner)
 
 
+	$Kisaki.play_attack()
 	add_child(jump_slime)
 	await get_tree().create_timer(2, false).timeout
 
+	$Kisaki.play_attack()
 	add_child(slime)
 	slime.throw_slime(Vector2(-2000, -2000))
