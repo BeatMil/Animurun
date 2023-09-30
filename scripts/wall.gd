@@ -1,7 +1,7 @@
 extends Area2D
 
 
-@export var taiga: Node
+@export var boss: Node
 
 
 func _on_body_entered(body):
@@ -9,4 +9,4 @@ func _on_body_entered(body):
 	body.push(Vector2(-4000, 0))
 
 	# tell taiga to do a pose XD
-	taiga.push_chiichan()
+	boss.push_chiichan()

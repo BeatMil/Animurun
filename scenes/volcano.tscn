@@ -376,11 +376,12 @@ environment = SubResource("Environment_0glhb")
 [node name="DedWalls" type="Node" parent="."]
 script = SubResource("GDScript_gng0h")
 
-[node name="Wall" type="Area2D" parent="DedWalls"]
+[node name="Wall" type="Area2D" parent="DedWalls" node_paths=PackedStringArray("boss")]
 position = Vector2(2214, 24)
 collision_layer = 0
 collision_mask = 10
 script = ExtResource("46_0dqi6")
+boss = NodePath("../../Kisaki")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DedWalls/Wall"]
 shape = SubResource("RectangleShape2D_pno1e")

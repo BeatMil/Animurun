@@ -1,6 +1,10 @@
 extends RigidBody2D
 
 
+func push_chiichan():
+	$AnimationPlayer.play("attack")
+
+
 func play_attack():
 	$AnimationPlayer.play("attack")
 

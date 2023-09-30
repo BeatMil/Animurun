@@ -508,12 +508,11 @@ environment = SubResource("Environment_3nkag")
 [node name="DedWalls" type="Node" parent="."]
 script = SubResource("GDScript_8pq36")
 
-[node name="Wall" type="Area2D" parent="DedWalls" node_paths=PackedStringArray("taiga")]
+[node name="Wall" type="Area2D" parent="DedWalls"]
 position = Vector2(2214, 24)
 collision_layer = 0
 collision_mask = 10
 script = ExtResource("22_e3h8j")
-taiga = NodePath("../../Taiga")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DedWalls/Wall"]
 shape = SubResource("RectangleShape2D_ppum3")
