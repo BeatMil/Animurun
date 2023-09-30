@@ -27,6 +27,10 @@ func jump() -> void:
 	$"AnimationPlayer".play("jump")
 
 
+func fake_jump() -> void:
+	$"AnimationPlayer".play("fake_jump")
+
+
 # Used in jump animation
 func jump_helper() -> void:
 	velocity += Vector2(0, -jump_power)
@@ -62,7 +66,8 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 
 func _on_jump_timer_timeout():
-	jump()
+	var actions = [jump, fake_jump]
+	actions.pick_random().call()
 
 
 func _on_area_2d_body_entered(body):
