@@ -67,11 +67,8 @@ func _on_jump_timer_timeout():
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("chiichan"):
-		# it doesn't matter if chiichan is in Parry state or not XD
-		is_moving = false
-		velocity += Vector2(5000, -1000)
-		turn_hit_boss_collision()
 		hurt()
+
 		# push chiichan 
 		body.set_state(body.States.RUNNING) # chiichan can't parry this
 		body.push(Vector2(-2000, -1000))
