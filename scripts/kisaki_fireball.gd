@@ -7,6 +7,9 @@ signal ded
 var rng = RandomNumberGenerator.new()
 
 
+var RED_SPARK = preload("res://nodes/particles/red_spark.tscn")
+
+
 func _ready():
 	if rng.randi_range(0, 1) == 1:
 		apply_impulse(Vector2(-2000, 1000))
@@ -14,6 +17,7 @@ func _ready():
 	else:
 		apply_impulse(Vector2(-4000, 2000))
 		$"AnimationPlayer".play("shoot_fast")
+		spawn_red_spark()
 
 
 func hurt():
@@ -23,6 +27,12 @@ func hurt():
 func turn_hit_boss_collision():
 	collision_layer = 0b00000000000000000100
 	collision_mask = 0b00000000000000010000
+
+
+func spawn_red_spark() -> void:
+	var particle = RED_SPARK.instantiate()
+	particle.node_to_follow =  self
+	$"..".add_child(particle)
 
 
 func _on_body_entered(body):
