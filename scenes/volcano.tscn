@@ -13,6 +13,37 @@
 [ext_resource type="Script" path="res://scripts/wall.gd" id="46_0dqi6"]
 [ext_resource type="AudioStream" uid="uid://3day7q25cqtg" path="res://media/sfx/dedExplosion.wav" id="47_56jly"]
 
+[sub_resource type="Environment" id="Environment_0glhb"]
+background_mode = 3
+ssil_radius = 8.49
+ssil_intensity = 5.07
+ssil_sharpness = 0.4
+sdfgi_bounce_feedback = 0.95
+glow_enabled = true
+glow_levels/1 = 2.46
+glow_levels/2 = 7.69
+glow_levels/3 = 7.46
+glow_intensity = 0.44
+glow_blend_mode = 1
+glow_hdr_threshold = 0.8
+glow_hdr_scale = 0.95
+glow_hdr_luminance_cap = 2.69
+fog_light_color = Color(0.498039, 0.121569, 0.223529, 1)
+fog_light_energy = 6.93
+fog_sun_scatter = 0.34
+fog_density = 0.1772
+fog_height = 20.18
+fog_height_density = 13.5172
+volumetric_fog_density = 0.45
+volumetric_fog_albedo = Color(0.572549, 0.160784, 0.247059, 1)
+volumetric_fog_emission = Color(0.509804, 0.266667, 0.207843, 1)
+volumetric_fog_emission_energy = 243.04
+volumetric_fog_gi_inject = 1.67
+volumetric_fog_anisotropy = 0.33
+volumetric_fog_length = 80.71
+volumetric_fog_detail_spread = 0.615572
+volumetric_fog_ambient_inject = 0.52
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tquqw"]
 bounce = 0.8
 
@@ -171,37 +202,6 @@ _data = {
 "super_hit_zoom": SubResource("Animation_gff3c")
 }
 
-[sub_resource type="Environment" id="Environment_0glhb"]
-background_mode = 3
-ssil_radius = 8.49
-ssil_intensity = 5.07
-ssil_sharpness = 0.4
-sdfgi_bounce_feedback = 0.95
-glow_enabled = true
-glow_levels/1 = 2.46
-glow_levels/2 = 7.69
-glow_levels/3 = 7.46
-glow_intensity = 0.44
-glow_blend_mode = 1
-glow_hdr_threshold = 0.8
-glow_hdr_scale = 0.95
-glow_hdr_luminance_cap = 2.69
-fog_light_color = Color(0.498039, 0.121569, 0.223529, 1)
-fog_light_energy = 6.93
-fog_sun_scatter = 0.34
-fog_density = 0.1772
-fog_height = 20.18
-fog_height_density = 13.5172
-volumetric_fog_density = 0.45
-volumetric_fog_albedo = Color(0.572549, 0.160784, 0.247059, 1)
-volumetric_fog_emission = Color(0.509804, 0.266667, 0.207843, 1)
-volumetric_fog_emission_energy = 243.04
-volumetric_fog_gi_inject = 1.67
-volumetric_fog_anisotropy = 0.33
-volumetric_fog_length = 80.71
-volumetric_fog_detail_spread = 0.615572
-volumetric_fog_ambient_inject = 0.52
-
 [sub_resource type="GDScript" id="GDScript_gng0h"]
 script/source = "extends Node
 
@@ -283,6 +283,9 @@ _data = {
 
 [node name="Volcano" type="Node"]
 script = ExtResource("1_cx5ry")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0glhb")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 script = ExtResource("1_oa6mp")
@@ -370,9 +373,6 @@ libraries = {
 "": SubResource("AnimationLibrary_bkvre")
 }
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_0glhb")
-
 [node name="DedWalls" type="Node" parent="."]
 script = SubResource("GDScript_gng0h")
 
@@ -410,6 +410,9 @@ libraries = {
 
 [node name="EnemySpawnPos" type="Marker2D" parent="Markers"]
 position = Vector2(2400, 837)
+
+[node name="WheelSpawnPos2" type="Marker2D" parent="Markers"]
+position = Vector2(1516, 285)
 
 [node name="Kisaki" parent="." instance=ExtResource("12_twc18")]
 position = Vector2(2058, 649)

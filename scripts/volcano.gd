@@ -14,6 +14,7 @@ enum Phases {
 # Preloads
 var SLIME_JUMP = preload("res://nodes/slime_jump.tscn")
 var SLIME = preload("res://nodes/slime.tscn")
+var WHEEL = preload("res://nodes/kisaki_fireball_wheel.tscn")
 
 
 # Configs
@@ -30,7 +31,7 @@ var rng = RandomNumberGenerator.new()
 
 
 # Phases
-var phase_one_enemy_order: Array = [spawn_jump_slime]
+var phase_one_enemy_order: Array = [spawn_wheel, spawn_jump_slime]
 
 
 func _ready() -> void:
@@ -100,3 +101,11 @@ func spawn_jump_slime() -> void:
 	$Kisaki.play_attack()
 	add_child(slime)
 	slime.throw_slime(Vector2(-2000, -2000))
+
+
+func spawn_wheel() -> void:
+	var wheel = WHEEL.instantiate()
+	wheel.position = $"Markers/WheelSpawnPos2".position
+
+	$Kisaki.play_attack()
+	add_child(wheel)

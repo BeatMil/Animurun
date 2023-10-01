@@ -1,0 +1,268 @@
+[gd_scene load_steps=10 format=3 uid="uid://dgld0r3vbnv3y"]
+
+[ext_resource type="Texture2D" uid="uid://07dkynkxtg65" path="res://media/sprites/slime_spritesheet.png" id="1_8actx"]
+[ext_resource type="Script" path="res://scripts/kisaki_fireball_wheel.gd" id="1_p0uww"]
+[ext_resource type="AudioStream" uid="uid://clhv5qi0jy3np" path="res://media/sfx/preJump3.wav" id="3_bkuh0"]
+[ext_resource type="AudioStream" uid="uid://bxqqis44bmqlu" path="res://media/sfx/whatDis02.wav" id="3_rhovc"]
+
+[sub_resource type="Curve2D" id="Curve2D_mwjog"]
+_data = {
+"points": PackedVector2Array(-82.7472, 89.797, 82.7472, -89.797, -126, -131, -90.8679, -115.385, 90.8679, 115.385, 156, -113, 36.6118, -75.079, -36.6118, 75.079, 159, 134, 57.0281, 105.952, -57.0281, -105.952, -148, 101, -42.6021, 57.8241, 42.6021, -57.8241, -126, -130)
+}
+point_count = 5
+
+[sub_resource type="Animation" id="Animation_5gn2q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PathFollow2D3:progress_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.3355]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PathFollow2D2:progress_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.694273]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7hf74"]
+resource_name = "cycle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PathFollow2D3:progress_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.605606, 1),
+"transitions": PackedFloat32Array(1, 0, 1, 1),
+"update": 0,
+"values": [0.3355, 1.0, 0.0, 0.3355]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PathFollow2D2:progress_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.305505, 1),
+"transitions": PackedFloat32Array(1, 0, 1, 1),
+"update": 0,
+"values": [0.694273, 1.0, 0.0, 0.694273]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 1.81032,
+"start_offset": 0.0,
+"stream": ExtResource("3_rhovc")
+}, {
+"end_offset": 1.82249,
+"start_offset": 0.0,
+"stream": ExtResource("3_rhovc")
+}],
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/3/use_blend = true
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("..")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"shoot_fire_ball"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_tjy4q"]
+resource_name = "intro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PathFollow2D3:progress_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.605606, 1),
+"transitions": PackedFloat32Array(1, 0, 1, 1),
+"update": 0,
+"values": [0.3355, 1.0, 0.0, 0.3355]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PathFollow2D2:progress_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.305505, 1),
+"transitions": PackedFloat32Array(1, 0, 1, 1),
+"update": 0,
+"values": [0.694273, 1.0, 0.0, 0.694273]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_bkuh0")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/4/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a0dmk"]
+_data = {
+"RESET": SubResource("Animation_5gn2q"),
+"cycle": SubResource("Animation_7hf74"),
+"intro": SubResource("Animation_tjy4q")
+}
+
+[node name="KisakiFireballWheel" type="Node2D" node_paths=PackedStringArray("fire_balls")]
+script = ExtResource("1_p0uww")
+fire_balls = [NodePath("Path2D/PathFollow2D/Sprite2D"), NodePath("Path2D/PathFollow2D2/Sprite2D"), NodePath("Path2D/PathFollow2D3/Sprite2D")]
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_mwjog")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-126, -130)
+rotation = 2.07953
+progress = 1202.6
+rotates = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D"]
+self_modulate = Color(1.4, 1.4, 1.4, 1)
+rotation = -2.49582
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_8actx")
+hframes = 2
+frame = 1
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-55.8044, 171.807)
+rotation = 2.07953
+progress = 834.935
+rotates = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D2"]
+self_modulate = Color(1.4, 1.4, 1.4, 1)
+rotation = -2.49582
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_8actx")
+hframes = 2
+frame = 1
+
+[node name="PathFollow2D3" type="PathFollow2D" parent="Path2D"]
+position = Vector2(193.752, -52.4531)
+rotation = 2.07953
+progress = 403.473
+rotates = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D3"]
+self_modulate = Color(1.4, 1.4, 1.4, 1)
+rotation = -2.49582
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_8actx")
+hframes = 2
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D"]
+autoplay = "intro"
+libraries = {
+"": SubResource("AnimationLibrary_a0dmk")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Path2D/AnimationPlayer"]
+
+[connection signal="animation_finished" from="Path2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
