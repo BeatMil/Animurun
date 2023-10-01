@@ -29,6 +29,11 @@ func turn_hit_boss_collision():
 	collision_mask = 0b00000000000000010000
 
 
+func turn_off_all_collision():
+	collision_layer = 0b00000000000000000000
+	collision_mask = 0b00000000000000000000
+
+
 func spawn_red_spark() -> void:
 	var particle = RED_SPARK.instantiate()
 	particle.node_to_follow =  self
@@ -37,15 +42,22 @@ func spawn_red_spark() -> void:
 
 func _on_body_entered(body):
 	if body.is_in_group("chiichan"):
-		# push slime
-		if body.state == body.States.PARRY:
-			turn_hit_boss_collision()
-			hurt()
+		hurt()
+		linear_velocity = Vector2.ZERO
 
-			linear_velocity = Vector2.ZERO
+		if body.state == body.States.PARRY:
+			# bounce to boss if chiichan parried
+			turn_hit_boss_collision()
 			await get_tree().create_timer(0.01, false).timeout
 			apply_impulse(Vector2(3000, -1000))
 			apply_torque_impulse(100000)
+		else:
+			# small bounce and fall off the screen
+			turn_off_all_collision()
+			await get_tree().create_timer(0.01, false).timeout
+			apply_impulse(Vector2(100, -1000))
+			apply_torque_impulse(100000)
+
 
 		# push chiichan
 		body.push(Vector2(-1500, -100))
