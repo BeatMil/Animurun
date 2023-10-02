@@ -15,6 +15,7 @@ enum Phases {
 var SLIME_JUMP = preload("res://nodes/slime_jump.tscn")
 var SLIME = preload("res://nodes/slime.tscn")
 var WHEEL = preload("res://nodes/kisaki_fireball_wheel.tscn")
+var CAPSULE = preload("res://nodes/capsule.tscn")
 
 
 # Configs
@@ -31,7 +32,8 @@ var rng = RandomNumberGenerator.new()
 
 
 # Phases
-var phase_one_enemy_order: Array = [spawn_wheel, spawn_jump_slime]
+# var phase_one_enemy_order: Array = [spawn_wheel, spawn_jump_slime]
+var phase_one_enemy_order: Array = [spawn_capsule]
 
 
 func _ready() -> void:
@@ -109,3 +111,13 @@ func spawn_wheel() -> void:
 
 	$Kisaki.play_attack()
 	add_child(wheel)
+
+
+func spawn_capsule() -> void:
+	var capsule = CAPSULE.instantiate()
+	capsule.position = $"Markers/CapsuleSpawnPos".position
+	capsule.connect("ded", spawner)
+
+	$Kisaki.play_attack()
+	add_child(capsule)
+

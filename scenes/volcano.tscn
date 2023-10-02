@@ -411,8 +411,14 @@ libraries = {
 [node name="EnemySpawnPos" type="Marker2D" parent="Markers"]
 position = Vector2(2400, 837)
 
+[node name="EnemySpawnPos2" type="Marker2D" parent="Markers"]
+position = Vector2(2397, 577)
+
 [node name="WheelSpawnPos2" type="Marker2D" parent="Markers"]
 position = Vector2(1516, 285)
+
+[node name="CapsuleSpawnPos" type="Marker2D" parent="Markers"]
+position = Vector2(1728, 544)
 
 [node name="Kisaki" parent="." instance=ExtResource("12_twc18")]
 position = Vector2(2058, 649)
