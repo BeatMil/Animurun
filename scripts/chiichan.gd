@@ -313,6 +313,15 @@ func normal_collision():
 	collision_mask = 0b00000000000000000001
 
 
+func display_health():
+		if pushback_multiplier >= 1:
+			$"ChiichanPos/sprite".self_modulate = Color(1, 0.6, 0.5)
+		elif pushback_multiplier >= 0.5:
+			$"ChiichanPos/sprite".self_modulate = Color(0.89, 0.87, 0.46)
+		else:
+			$"ChiichanPos/sprite".self_modulate = Color(1, 1, 1)
+
+
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name in [
 		"attack01",
@@ -328,10 +337,7 @@ func _on_animation_player_animation_finished(anim_name):
 		state = States.RUNNING
 		anim_player.play("run")
 
-		if pushback_multiplier >= 1:
-			$"ChiichanPos/sprite".self_modulate = Color(1, 0.6, 0.5)
-		elif pushback_multiplier >= 0.5:
-			$"ChiichanPos/sprite".self_modulate = Color(0.89, 0.87, 0.46)
+		display_health()
 	elif anim_name in ["super_hit", "super_hit_hand", "ewgf"]:
 		self.unfreeze()
 		state = States.RUNNING
@@ -342,3 +348,7 @@ func _on_animation_player_animation_finished(anim_name):
 func _on_animation_player_animation_started(anim_name):
 	if anim_name == "jump":
 		$"ChiichanPos/sprite".modulate = Color(1, 1, 1)
+	
+	if anim_name == "parry_success":
+		display_health()
+
