@@ -418,7 +418,7 @@ position = Vector2(2397, 577)
 position = Vector2(1516, 285)
 
 [node name="CapsuleSpawnPos" type="Marker2D" parent="Markers"]
-position = Vector2(1728, 544)
+position = Vector2(1728, 704)
 
 [node name="Kisaki" parent="." instance=ExtResource("12_twc18")]
 position = Vector2(2058, 649)
