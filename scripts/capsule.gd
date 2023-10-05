@@ -5,7 +5,6 @@ signal ded
 
 
 func _on_area_2d_body_entered(body):
-	print(body)
 	if body.is_in_group("chiichan"):
 		body.set_state(body.States.RUNNING) # chiichan can't parry this
 		body.push(Vector2(-2000, -100))
