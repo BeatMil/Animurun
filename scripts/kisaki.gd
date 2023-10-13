@@ -17,4 +17,5 @@ func _on_animation_player_animation_finished(anim_name):
 func _on_body_entered(body):
 	if body.is_in_group("slime"):
 		$AnimationPlayer.play("hurt")
+		$"..".kisaki_hp -= 1
 

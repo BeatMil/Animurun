@@ -3,7 +3,6 @@ extends Node
 
 enum Phases {
 	ONE,
-	ONE_TO_TWO,
 	TWO,
 	TWO_TO_THREE,
 	THREE,
@@ -32,8 +31,8 @@ var rng = RandomNumberGenerator.new()
 
 
 # Phases
-# var phase_one_enemy_order: Array = [spawn_wheel, spawn_jump_slime]
-var phase_one_enemy_order: Array = [spawn_capsule]
+var phase_one_enemy_order: Array = [spawn_wheel, spawn_jump_slime, spawn_capsule]
+var phase_two_enemy_order: Array = []
 
 
 func _ready() -> void:
@@ -50,6 +49,8 @@ func spawner() -> void:
 		phase_helper += 1
 		if phase_helper == Phases.ONE:
 			spawn_phase_one()
+		elif phase_helper == Phases.TWO:
+			spawn_phase_two()
 
 	if not enemy_spawn_order.size(): # don't spawn when array is empty
 		return
@@ -62,11 +63,6 @@ func spawner() -> void:
 	## very complicated way of doing by Jero (chatGPT)
 	## Reset spawn order cycle
 	order_index = (order_index + 1) % enemy_order_size 
-	# print("▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦")
-	# print(phase_helper)
-	# print(Phases.ONE)
-	# print("▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦▦")
-
 
 
 func save_checkpoint() -> void:
@@ -78,9 +74,16 @@ func get_stage_path() -> String:
 
 
 func spawn_phase_one() -> void:
-	kisaki_hp = 6
+	kisaki_hp = 1
 	order_index = 0
 	enemy_spawn_order = phase_one_enemy_order
+	enemy_order_size = enemy_spawn_order.size()
+
+
+func spawn_phase_two() -> void:
+	kisaki_hp = 6
+	order_index = 0
+	enemy_spawn_order = phase_two_enemy_order
 	enemy_order_size = enemy_spawn_order.size()
 
 
