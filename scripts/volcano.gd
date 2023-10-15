@@ -32,7 +32,7 @@ var rng = RandomNumberGenerator.new()
 
 # Phases
 var phase_one_enemy_order: Array = [spawn_wheel, spawn_jump_slime, spawn_capsule]
-var phase_two_enemy_order: Array = [spawn_capsule_faster]
+var phase_two_enemy_order: Array = [spawn_wheel_faster]
 
 
 func _ready() -> void:
@@ -133,3 +133,12 @@ func spawn_capsule_faster() -> void:
 
 	$Kisaki.play_attack()
 	add_child(capsule)
+
+
+func spawn_wheel_faster() -> void:
+	var wheel = WHEEL.instantiate()
+	wheel.position = $"Markers/WheelSpawnPos2".position
+	wheel.is_faster = true
+
+	$Kisaki.play_attack()
+	add_child(wheel)

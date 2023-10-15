@@ -3,6 +3,9 @@ extends Node2D
 
 @export var fire_balls: Array[Sprite2D]
 
+#Config
+var is_faster = false
+
 
 var KISAKIFIREBALL = preload("res://nodes/kisaki_fireball.tscn")
 
@@ -26,7 +29,10 @@ func shoot_fire_ball():
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "intro":
-		$"Path2D/AnimationPlayer".play("cycle")
+		if is_faster:
+			$"Path2D/AnimationPlayer".play("cycle", -1, 2)
+		else:
+			$"Path2D/AnimationPlayer".play("cycle")
 
 
 # used in shoot_fire_ball
