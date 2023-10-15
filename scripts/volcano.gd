@@ -32,7 +32,7 @@ var rng = RandomNumberGenerator.new()
 
 # Phases
 var phase_one_enemy_order: Array = [spawn_wheel, spawn_jump_slime, spawn_capsule]
-var phase_two_enemy_order: Array = []
+var phase_two_enemy_order: Array = [spawn_capsule_faster]
 
 
 func _ready() -> void:
@@ -124,3 +124,12 @@ func spawn_capsule() -> void:
 	$Kisaki.play_attack()
 	add_child(capsule)
 
+
+func spawn_capsule_faster() -> void:
+	var capsule = CAPSULE.instantiate()
+	capsule.position = $"Markers/CapsuleSpawnPos".position
+	capsule.connect("ded", spawner)
+	capsule.is_faster = true
+
+	$Kisaki.play_attack()
+	add_child(capsule)
