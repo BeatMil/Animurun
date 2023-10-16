@@ -19,7 +19,7 @@ var CAPSULE = preload("res://nodes/capsule.tscn")
 
 # Configs
 var enemy_spawn_order: Array = []
-var phase_helper = -1 # Use Phases enum
+var phase_helper = 0 # Use Phases enum
 var order_index: int = 0 # spawner helper
 var kisaki_hp = 0
 var is_random_spawn = false
@@ -32,7 +32,7 @@ var rng = RandomNumberGenerator.new()
 
 # Phases
 var phase_one_enemy_order: Array = [spawn_wheel, spawn_jump_slime, spawn_capsule]
-var phase_two_enemy_order: Array = [spawn_wheel_faster]
+var phase_two_enemy_order: Array = [spawn_wheel_faster, spawn_capsule_faster, spawn_jump_slime]
 
 
 func _ready() -> void:

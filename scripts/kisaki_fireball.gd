@@ -15,7 +15,7 @@ func _ready():
 		apply_impulse(Vector2(-2000, 1000))
 		$"AnimationPlayer".play("shoot")
 	else:
-		apply_impulse(Vector2(-4000, 2000))
+		apply_impulse(Vector2(-3000, 2000))
 		$"AnimationPlayer".play("shoot_fast")
 		spawn_red_spark()
 
