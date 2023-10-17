@@ -19,7 +19,7 @@ var CAPSULE = preload("res://nodes/capsule.tscn")
 
 # Configs
 var enemy_spawn_order: Array = []
-var phase_helper = 0 # Use Phases enum
+var phase_helper = -1 # Use Phases enum
 var order_index: int = 0 # spawner helper
 var kisaki_hp = 0
 var is_random_spawn = false
@@ -28,6 +28,7 @@ var rng = RandomNumberGenerator.new()
 
 # Reference
 @onready var enemy_order_size: int = len(enemy_spawn_order)
+@onready var kisaki = $"Kisaki"
 
 
 # Phases
@@ -50,7 +51,14 @@ func spawner() -> void:
 		if phase_helper == Phases.ONE:
 			spawn_phase_one()
 		elif phase_helper == Phases.TWO:
+			if kisaki.is_angry == false:
+				kisaki.is_angry = true
+				kisaki.play_angry()
+
 			spawn_phase_two()
+			return
+			# kisaki do angry animation then spawn phase two
+
 
 	if not enemy_spawn_order.size(): # don't spawn when array is empty
 		return
@@ -74,7 +82,7 @@ func get_stage_path() -> String:
 
 
 func spawn_phase_one() -> void:
-	kisaki_hp = 1
+	kisaki_hp = 10
 	order_index = 0
 	enemy_spawn_order = phase_one_enemy_order
 	enemy_order_size = enemy_spawn_order.size()
