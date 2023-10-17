@@ -216,7 +216,7 @@ fire_balls = [NodePath("Path2D/PathFollow2D/Sprite2D"), NodePath("Path2D/PathFol
 curve = SubResource("Curve2D_mwjog")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(-126, -130)
+position = Vector2(-126.001, -129.999)
 rotation = 2.07953
 progress = 1202.6
 rotates = false
@@ -230,7 +230,7 @@ hframes = 2
 frame = 1
 
 [node name="PathFollow2D2" type="PathFollow2D" parent="Path2D"]
-position = Vector2(-55.8039, 171.807)
+position = Vector2(-55.8035, 171.807)
 rotation = 2.07953
 progress = 834.934
 rotates = false
@@ -244,7 +244,7 @@ hframes = 2
 frame = 1
 
 [node name="PathFollow2D3" type="PathFollow2D" parent="Path2D"]
-position = Vector2(193.752, -52.4532)
+position = Vector2(193.752, -52.4533)
 rotation = 2.07953
 progress = 403.473
 rotates = false

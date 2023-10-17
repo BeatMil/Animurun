@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://c5lyymlagon7a"]
+[gd_scene load_steps=15 format=3 uid="uid://c5lyymlagon7a"]
 
 [ext_resource type="Texture2D" uid="uid://bj8qxfnjqftbo" path="res://media/sprites/kisaki/kisaki_push.png" id="1_2mij5"]
 [ext_resource type="Script" path="res://scripts/kisaki.gd" id="1_ahu0f"]
 [ext_resource type="Texture2D" uid="uid://xutursv1tf2b" path="res://media/sprites/kisaki/kisaki_idle.png" id="1_i5inb"]
 [ext_resource type="Texture2D" uid="uid://xshefddalrcd" path="res://media/sprites/kisaki/kisaki_hurt.png" id="4_qchxv"]
 [ext_resource type="AudioStream" uid="uid://bsjbg5wbtqkq0" path="res://media/sfx/boss_damaged.wav" id="5_t874p"]
+[ext_resource type="Texture2D" uid="uid://32nv6vyueqtl" path="res://media/sprites/kisaki/kisaki_angry.png" id="6_oat4s"]
+[ext_resource type="AudioStream" uid="uid://c5arfhug6dhx1" path="res://media/sfx/careful02.wav" id="7_7nqea"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wu8je"]
 size = Vector2(140, 1156)
@@ -268,9 +270,88 @@ tracks/3/keys = {
 "values": [2]
 }
 
+[sub_resource type="Animation" id="Animation_aoxa6"]
+resource_name = "angry"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Kisaki:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Kisaki:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_oat4s")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Kisaki:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_7nqea")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Kisaki:offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, 0), Vector2(0, -5), Vector2(0, 0), Vector2(0, -5), Vector2(0, 0), Vector2(0, -5), Vector2(0, 0), Vector2(0, -5), Vector2(0, 0), Vector2(0, -5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Kisaki:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.505882, 0.890196, 0.745098, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0lsfu"]
 _data = {
 "RESET": SubResource("Animation_pay2i"),
+"angry": SubResource("Animation_aoxa6"),
 "attack": SubResource("Animation_bd2sm"),
 "hurt": SubResource("Animation_xja46"),
 "idle": SubResource("Animation_k2v0u")
