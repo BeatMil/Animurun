@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dp8sihvv4o8dt"]
+[gd_scene load_steps=35 format=3 uid="uid://dp8sihvv4o8dt"]
 
 [ext_resource type="Script" path="res://scripts/volcano.gd" id="1_cx5ry"]
 [ext_resource type="Script" path="res://scripts/parallax_controller.gd" id="1_oa6mp"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c1vlse56bmgi3" path="res://scenes/pause_menu.tscn" id="7_7n2ko"]
 [ext_resource type="PackedScene" uid="uid://chuy481yt3hbu" path="res://nodes/chiichan.tscn" id="9_u1mbg"]
 [ext_resource type="PackedScene" uid="uid://c5lyymlagon7a" path="res://nodes/kisaki.tscn" id="12_twc18"]
+[ext_resource type="Script" path="res://scripts/background_dim.gd" id="13_p56fu"]
 [ext_resource type="Script" path="res://scripts/wall.gd" id="46_0dqi6"]
 [ext_resource type="AudioStream" uid="uid://3day7q25cqtg" path="res://media/sfx/dedExplosion.wav" id="47_56jly"]
 
@@ -281,6 +282,60 @@ _data = {
 "ded_sfx": SubResource("Animation_ukyrn")
 }
 
+[sub_resource type="Animation" id="Animation_4dq5q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackgroundDim:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5sbwe"]
+resource_name = "dim"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackgroundDim:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.47)]
+}
+
+[sub_resource type="Animation" id="Animation_lsb2t"]
+resource_name = "undim"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackgroundDim:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.47), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_io1ub"]
+_data = {
+"RESET": SubResource("Animation_4dq5q"),
+"dim": SubResource("Animation_5sbwe"),
+"undim": SubResource("Animation_lsb2t")
+}
+
 [node name="Volcano" type="Node"]
 script = ExtResource("1_cx5ry")
 
@@ -422,6 +477,25 @@ position = Vector2(1728, 704)
 
 [node name="Boss" parent="." instance=ExtResource("12_twc18")]
 position = Vector2(2058, 649)
+
+[node name="BackgroundDim" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -257.0
+offset_top = -144.0
+offset_right = 362.0
+offset_bottom = 187.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+script = ExtResource("13_p56fu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BackgroundDim"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_io1ub")
+}
 
 [connection signal="body_entered" from="DedWalls/Wall" to="DedWalls/Wall" method="_on_body_entered"]
 [connection signal="body_entered" from="DedWalls/DedWallArea2D" to="DedWalls" method="_on_ded_wall_area_2d_body_entered"]

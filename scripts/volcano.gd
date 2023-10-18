@@ -20,7 +20,7 @@ var CAPSULE = preload("res://nodes/capsule.tscn")
 
 # Configs
 var enemy_spawn_order: Array = []
-var phase_helper = -1 # Use Phases enum
+var phase_helper = 3 # Use Phases enum
 var order_index: int = 0 # spawner helper
 var kisaki_hp = 0
 var is_random_spawn = false
@@ -80,6 +80,12 @@ func spawner() -> void:
 	## very complicated way of doing by Jero (chatGPT)
 	## Reset spawn order cycle
 	order_index = (order_index + 1) % enemy_order_size 
+
+
+func unfreeze() -> void:
+	$"ParallaxBackground".unfreeze()
+	$"BackgroundDim".unfreeze()
+	$"CameraWrap/CameraPlayer".play_backwards("super_hit_zoom")
 
 
 func save_checkpoint() -> void:
