@@ -381,7 +381,7 @@ position = Vector2(2214, 24)
 collision_layer = 0
 collision_mask = 10
 script = ExtResource("46_0dqi6")
-boss = NodePath("../../Kisaki")
+boss = NodePath("../../Boss")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DedWalls/Wall"]
 shape = SubResource("RectangleShape2D_pno1e")
@@ -420,7 +420,7 @@ position = Vector2(1516, 285)
 [node name="CapsuleSpawnPos" type="Marker2D" parent="Markers"]
 position = Vector2(1728, 704)
 
-[node name="Kisaki" parent="." instance=ExtResource("12_twc18")]
+[node name="Boss" parent="." instance=ExtResource("12_twc18")]
 position = Vector2(2058, 649)
 
 [connection signal="body_entered" from="DedWalls/Wall" to="DedWalls/Wall" method="_on_body_entered"]

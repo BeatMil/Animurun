@@ -30,7 +30,7 @@ var rng = RandomNumberGenerator.new()
 
 # Reference
 @onready var enemy_order_size: int = len(enemy_spawn_order)
-@onready var kisaki = $Kisaki
+@onready var kisaki = $Boss
 
 
 # Phases

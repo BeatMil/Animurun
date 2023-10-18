@@ -40,6 +40,7 @@ var phase_three_enemy_order: Array = [spawn_spike_slime_jump_parry, spawn_waterf
 
 # Reference
 @onready var enemy_order_size: int = len(enemy_spawn_order)
+@onready var taiga = $Boss
 
 
 func _ready() -> void:
@@ -148,7 +149,7 @@ func spawn_slime() -> void:
 	slime.position = $"Markers/EnemySpawnPos".position
 	slime.connect("ded", spawner)
 
-	$"Taiga".play("pre_attack_2")
+	taiga.play("pre_attack_2")
 	await get_tree().create_timer(0.2, false).timeout
 	add_child(slime)
 
@@ -159,7 +160,7 @@ func spawn_speed_slime() -> void:
 	slime.position = $"Markers/EnemySpawnPos".position
 	slime.connect("ded", spawner)
 
-	$"Taiga".play("pre_attack_2")
+	taiga.play("pre_attack_2")
 	await get_tree().create_timer(0.2, false).timeout
 	add_child(slime)
 
@@ -169,7 +170,7 @@ func spawn_rocky() -> void:
 	rocky.position = $"Markers/EnemySpawnPos".position
 	rocky.connect("ded", spawner)
 
-	$"Taiga".play("pre_attack_2")
+	taiga.play("pre_attack_2")
 	await get_tree().create_timer(0.2, false).timeout
 	add_child(rocky)
 
@@ -179,7 +180,7 @@ func spawn_bomby() -> void:
 	bomby.position = $"Markers/EnemySpawnPos".position
 	bomby.connect("ded", spawner)
 
-	$"Taiga".play("pre_attack_2")
+	taiga.play("pre_attack_2")
 	await get_tree().create_timer(0.2, false).timeout
 	add_child(bomby)
 
@@ -188,7 +189,7 @@ func spawn_tank() -> void:
 	var tank = TANK.instantiate()
 	tank.position = $"Markers/TankSpawnPos1".position
 	tank.connect("ded", spawner)
-	$"Taiga".play("pre_attack")
+	taiga.play("pre_attack")
 	add_child(tank)
 
 
@@ -200,11 +201,11 @@ func spawn_tank_left_side() -> void:
 	tank2.position = $"Markers/TankSpawnPos2".position
 	tank2.connect("ded", spawner)
 
-	$"Taiga".play("pre_attack")
+	taiga.play("pre_attack")
 	add_child(tank1)
 	await get_tree().create_timer(0.3, false).timeout
 
-	$"Taiga".play("pre_attack")
+	taiga.play("pre_attack")
 	add_child(tank2)
 
 
@@ -219,11 +220,11 @@ func spawn_tank_left_side_spike() -> void:
 	slime.position = $"Markers/EnemySpawnPos2".position
 	slime.connect("ded", spawner)
 
-	$"Taiga".play("pre_attack")
+	taiga.play("pre_attack")
 	add_child(tank1)
 	await get_tree().create_timer(0.3, false).timeout
 
-	$"Taiga".play("pre_attack")
+	taiga.play("pre_attack")
 	add_child(spike)
 	await get_tree().create_timer(0.3, false).timeout
 
@@ -237,7 +238,7 @@ func spawn_speed_bomby() -> void:
 	bomby.position = $"Markers/EnemySpawnPos".position
 	bomby.connect("ded", spawner)
 
-	$"Taiga".play("pre_attack_2")
+	taiga.play("pre_attack_2")
 	await get_tree().create_timer(0.2, false).timeout
 	add_child(bomby)
 
@@ -250,7 +251,7 @@ func spawn_two_slime() -> void: # learn to chain parry
 	slime3.connect("ded", spawner)
 	slime3.position = $"Markers/EnemySpawnPos".position
 
-	$"Taiga".play("pre_attack_2")
+	taiga.play("pre_attack_2")
 	await get_tree().create_timer(0.2, false).timeout
 
 	add_child(slime1)
@@ -270,7 +271,7 @@ func spawn_parry_dodge_chain() -> void: # learn to chain parry and dodge
 	slime3.connect("ded", spawner)
 	slime3.position = $"Markers/EnemySpawnPos".position
 
-	$"Taiga".play("pre_attack_2")
+	taiga.play("pre_attack_2")
 	await get_tree().create_timer(0.2, false).timeout
 
 	add_child(slime1)
@@ -293,7 +294,7 @@ func spawn_triple_slime() -> void:
 	slime3.connect("ded", spawner)
 	slime3.position = $"Markers/EnemySpawnPos".position
 
-	$"Taiga".play("pre_attack_2")
+	taiga.play("pre_attack_2")
 	await get_tree().create_timer(0.2, false).timeout
 
 	add_child(slime1)
@@ -320,7 +321,7 @@ func spawn_triple_slime_fake() -> void:
 
 	slime3.position = $"Markers/EnemySpawnPos".position
 
-	$"Taiga".play("pre_attack_2")
+	taiga.play("pre_attack_2")
 	await get_tree().create_timer(0.2, false).timeout
 
 	add_child(slime1)
@@ -339,7 +340,7 @@ func spawn_spike() -> void:
 	spike.position = $"Markers/SpikeSpawnPos1".position
 	spike.connect("ded", spawner)
 
-	$"Taiga".play("pre_attack_2")
+	taiga.play("pre_attack_2")
 	await get_tree().create_timer(0.2, false).timeout
 	add_child(spike)
 
@@ -352,7 +353,7 @@ func spawn_spike_follow() -> void:
 	# spike.position.y = $"Markers/SpikeSpawnPos".position.y
 	spike.connect("ded", spawner)
 
-	$"Taiga".play("pre_attack_2")
+	taiga.play("pre_attack_2")
 	await get_tree().create_timer(0.2, false).timeout
 	add_child(spike)
 
@@ -375,17 +376,17 @@ func spawn_spike_storm() -> void:
 
 	spike1.position = $"Chiichan".position + offset
 	spike1.position.y = 720
-	$"Taiga".play("pre_attack")
+	taiga.play("pre_attack")
 	add_child(spike1)
 	await get_tree().create_timer(0.6, false).timeout
 
-	$"Taiga".play("pre_attack")
+	taiga.play("pre_attack")
 	spike2.position = $"Chiichan".position + offset
 	spike2.position.y = 720
 	add_child(spike2)
 	await get_tree().create_timer(0.6, false).timeout
 
-	$"Taiga".play("pre_attack")
+	taiga.play("pre_attack")
 	spike3.position = $"Chiichan".position + offset
 	spike3.position.y = 720
 	add_child(spike3)
@@ -413,15 +414,15 @@ func spawn_tank_storm() -> void:
 	slime3.position = $"Markers/EnemySpawnPos".position
 	slime3.connect("ded", spawner)
 
-	$"Taiga".play("pre_attack")
+	taiga.play("pre_attack")
 	add_child(tank1)
 	await get_tree().create_timer(0.8, false).timeout
 
-	$"Taiga".play("pre_attack")
+	taiga.play("pre_attack")
 	add_child(tank2)
 	await get_tree().create_timer(0.8, false).timeout
 
-	$"Taiga".play("pre_attack")
+	taiga.play("pre_attack")
 	add_child(tank3)
 	await get_tree().create_timer(0.8, false).timeout
 
@@ -434,7 +435,7 @@ func spawn_boom_slime_hand() -> void:
 	slime.connect("ded", spawner)
 	slime.position = $"Markers/EnemySpawnPos2".position
 
-	$"Taiga".play("pre_attack_2")
+	taiga.play("pre_attack_2")
 	await get_tree().create_timer(0.2, false).timeout
 
 	add_child(slime)
@@ -466,7 +467,7 @@ func spawn_spike_slime_jump_parry() -> void:
 	bomby3.position = $"Markers/EnemySpawnPos2".position
 	bomby3.connect("ded", spawner)
 
-	$"Taiga".play("pre_attack_2")
+	taiga.play("pre_attack_2")
 	await get_tree().create_timer(0.2, false).timeout
 	add_child(spike)
 	await get_tree().create_timer(0.9, false).timeout
@@ -529,7 +530,7 @@ func spawn_waterfall() -> void:
 	bomby3.position = $"Markers/EnemySpawnPos2".position
 	bomby3.connect("ded", spawner)
 
-	$"Taiga".play("pre_attack_2")
+	taiga.play("pre_attack_2")
 	await get_tree().create_timer(0.2, false).timeout
 	add_child(waterfall1)
 	add_child(waterfall2)
@@ -567,7 +568,7 @@ func spawn_ora_ora() -> void:
 	slime.position = $"Markers/EnemySpawnPos2".position
 	slime.connect("ded", spawner)
 
-	$"Taiga".play("pre_attack_2")
+	taiga.play("pre_attack_2")
 	await get_tree().create_timer(0.2, false).timeout
 	add_child(slime)
 	slime.activate_speed()

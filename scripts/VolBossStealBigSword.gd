@@ -14,7 +14,7 @@ func play_steal_sword():
 	$AnimationPlayer.play("steal_sword")
 
 func despawn_sword():
-	$"../Taiga/sword".queue_free()
+	$"../Boss/sword".queue_free()
 
 
 func _on_animation_player_animation_finished(anim_name):

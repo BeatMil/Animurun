@@ -46,7 +46,7 @@ func freeze_everything() -> void:
 	self.angular_velocity = 0
 	self.custom_integrator = true
 	$"../ParallaxBackground".freeze()
-	$"../Taiga".freeze()
+	$"../Boss".freeze()
 	$"../BackgroundDim".freeze()
 
 

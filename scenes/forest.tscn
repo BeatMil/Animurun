@@ -499,7 +499,7 @@ libraries = {
 [node name="Chiichan" parent="." instance=ExtResource("9_b0iuo")]
 position = Vector2(584, 720)
 
-[node name="Taiga" parent="." instance=ExtResource("26_et4pp")]
+[node name="Boss" parent="." instance=ExtResource("26_et4pp")]
 position = Vector2(1969, 629)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
