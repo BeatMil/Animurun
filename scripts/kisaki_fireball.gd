@@ -6,6 +6,9 @@ signal ded
 
 var rng = RandomNumberGenerator.new()
 
+var is_boom_slime = false # ALWAYS FALSE
+# I should have code better than this... XD
+
 
 var RED_SPARK = preload("res://nodes/particles/red_spark.tscn")
 
@@ -65,3 +68,7 @@ func _on_body_entered(body):
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	emit_signal("ded")
+
+
+func let_blue_spark_go() -> void: # keep here or break
+	pass
