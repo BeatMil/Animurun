@@ -3,6 +3,7 @@ extends Node
 
 enum Phases {
 	ONE,
+	ONE_TO_TWO,
 	TWO,
 	TWO_TO_THREE,
 	THREE,
@@ -26,19 +27,22 @@ var is_random_spawn = false
 var rng = RandomNumberGenerator.new()
 
 
+
 # Reference
 @onready var enemy_order_size: int = len(enemy_spawn_order)
-@onready var kisaki = $"Kisaki"
+@onready var kisaki = $Kisaki
 
 
 # Phases
 var phase_one_enemy_order: Array = [spawn_wheel, spawn_jump_slime, spawn_capsule]
 var phase_two_enemy_order: Array = [spawn_wheel_faster, spawn_capsule_faster, spawn_jump_slime]
+var phase_three_enemy_order: Array = [spawn_boom_slime_hand]
 
 
 func _ready() -> void:
 	# phase_helper = $/root/Config.checkpoint
 	spawner()
+	print("hp: ", kisaki_hp)
 
 
 """
@@ -46,19 +50,24 @@ At the end of attack pattern, a mob will signal spanwer to spawn next
 attack pattern
 """
 func spawner() -> void:
+	print("hp: ", kisaki_hp)
+	print(Phases.find_key(phase_helper))
 	if kisaki_hp <= 0:
 		phase_helper += 1
 		if phase_helper == Phases.ONE:
 			spawn_phase_one()
-		elif phase_helper == Phases.TWO:
-			if kisaki.is_angry == false:
-				kisaki.is_angry = true
-				kisaki.play_angry()
-
-			spawn_phase_two()
+		elif phase_helper == Phases.ONE_TO_TWO:
+			kisaki.play_angry()
+			print("====ME ANGY====")
 			return
-			# kisaki do angry animation then spawn phase two
-
+		elif phase_helper == Phases.TWO:
+			spawn_phase_two()
+		elif phase_helper == Phases.TWO_TO_THREE:
+			kisaki.play_angry()
+			print("====ME ANGY2====")
+			return
+		elif phase_helper == Phases.THREE:
+			spawn_phase_three()
 
 	if not enemy_spawn_order.size(): # don't spawn when array is empty
 		return
@@ -82,16 +91,23 @@ func get_stage_path() -> String:
 
 
 func spawn_phase_one() -> void:
-	kisaki_hp = 10
+	kisaki_hp = 1
 	order_index = 0
 	enemy_spawn_order = phase_one_enemy_order
 	enemy_order_size = enemy_spawn_order.size()
 
 
 func spawn_phase_two() -> void:
-	kisaki_hp = 6
+	kisaki_hp = 1
 	order_index = 0
 	enemy_spawn_order = phase_two_enemy_order
+	enemy_order_size = enemy_spawn_order.size()
+
+
+func spawn_phase_three() -> void:
+	kisaki_hp = 6
+	order_index = 0
+	enemy_spawn_order = phase_three_enemy_order
 	enemy_order_size = enemy_spawn_order.size()
 
 
@@ -107,11 +123,11 @@ func spawn_jump_slime() -> void:
 	slime.connect("ded", spawner)
 
 
-	$Kisaki.play_attack()
+	kisaki.play_attack()
 	add_child(jump_slime)
 	await get_tree().create_timer(2, false).timeout
 
-	$Kisaki.play_attack()
+	kisaki.play_attack()
 	add_child(slime)
 	slime.throw_slime(Vector2(-2000, -2000))
 
@@ -120,7 +136,7 @@ func spawn_wheel() -> void:
 	var wheel = WHEEL.instantiate()
 	wheel.position = $"Markers/WheelSpawnPos2".position
 
-	$Kisaki.play_attack()
+	kisaki.play_attack()
 	add_child(wheel)
 
 
@@ -129,7 +145,7 @@ func spawn_capsule() -> void:
 	capsule.position = $"Markers/CapsuleSpawnPos".position
 	capsule.connect("ded", spawner)
 
-	$Kisaki.play_attack()
+	kisaki.play_attack()
 	add_child(capsule)
 
 
@@ -139,7 +155,7 @@ func spawn_capsule_faster() -> void:
 	capsule.connect("ded", spawner)
 	capsule.is_faster = true
 
-	$Kisaki.play_attack()
+	kisaki.play_attack()
 	add_child(capsule)
 
 
@@ -148,5 +164,18 @@ func spawn_wheel_faster() -> void:
 	wheel.position = $"Markers/WheelSpawnPos2".position
 	wheel.is_faster = true
 
-	$Kisaki.play_attack()
+	kisaki.play_attack()
 	add_child(wheel)
+
+
+func spawn_boom_slime_hand() -> void:
+	var slime = SLIME.instantiate()
+	slime.is_boom_slime = true
+	slime.connect("ded", spawner)
+	slime.position = $"Markers/EnemySpawnPos2".position
+
+	kisaki.play_attack()
+	await get_tree().create_timer(0.2, false).timeout
+
+	add_child(slime)
+	slime.throw_slime(Vector2(-3000, -1200))
