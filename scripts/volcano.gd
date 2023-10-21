@@ -68,6 +68,9 @@ func spawner() -> void:
 			return
 		elif phase_helper == Phases.THREE:
 			spawn_phase_three()
+		elif phase_helper == Phases.END:
+			kisaki.play_explode()
+			return
 
 	if not enemy_spawn_order.size(): # don't spawn when array is empty
 		return
@@ -111,7 +114,7 @@ func spawn_phase_two() -> void:
 
 
 func spawn_phase_three() -> void:
-	kisaki_hp = 6
+	kisaki_hp = 1
 	order_index = 0
 	enemy_spawn_order = phase_three_enemy_order
 	enemy_order_size = enemy_spawn_order.size()

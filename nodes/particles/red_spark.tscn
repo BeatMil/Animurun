@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d0wgc0gbjbf14"]
 
 [ext_resource type="Script" path="res://scripts/blue_spark_particle.gd" id="1_sx2ya"]
-[ext_resource type="Texture2D" uid="uid://dbd3jq57ufy0s" path="res://media/sprites/particle_effects/floaty_128.png" id="2_2sdai"]
+[ext_resource type="Texture2D" uid="uid://bvhlsqg3lhu05" path="res://media/sprites/particle_effects/floaty_128.png" id="2_2sdai"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fmtxd"]
 blend_mode = 1
@@ -39,4 +39,10 @@ fixed_fps = 0
 
 [node name="Timer" type="Timer" parent="."]
 
+[node name="StopFollowingTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="StopFollowingTimer" to="." method="_on_stop_following_timer_timeout"]

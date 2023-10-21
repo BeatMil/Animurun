@@ -2,6 +2,10 @@ extends RigidBody2D
 
 
 var is_angry = false
+var HIT_SPARK = preload("res://nodes/particles/hit_spark.tscn")
+
+
+var rng = RandomNumberGenerator.new()
 
 
 func push_chiichan(): # used by wall.gd
@@ -16,6 +20,10 @@ func play_angry():
 	$AnimationPlayer.play("angry")
 
 
+func play_explode():
+	$AnimationPlayer.play("explode")
+
+
 func freeze() -> void:
 	$AnimationPlayer.pause()
 
@@ -25,9 +33,20 @@ func continue_spawner():
 	$"..".spawner()
 
 
+func spawn_hit_spark() -> void: # Used by $AnimationPlayer.play 'explode'
+	var hitbox = HIT_SPARK.instantiate()
+	var offset_x = rng.randi_range(-100, 0)
+	var offset_y = rng.randi_range(-100, 100)
+	hitbox.position += Vector2(offset_x, offset_y)
+	add_child(hitbox)
+
+
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "attack":
 		$AnimationPlayer.play("idle")
+	elif anim_name == "explode":
+		$"../ParallaxBackground".freeze()
+		$"../Chiichan".stop_moving()
 
 
 func _on_body_entered(body):
@@ -42,7 +61,9 @@ func _on_body_entered(body):
 		$"..".kisaki_hp -= 1
 
 		if body.is_boom_slime: # hit by chiichan super_hit
-			$AnimationPlayer.queue("angry")
+			$AnimationPlayer.queue("explode")
+			$"../Chiichan".can_jump = false
+
 			# unfreeze stuffs
 			$"..".unfreeze()
 

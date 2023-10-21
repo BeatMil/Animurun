@@ -21,3 +21,7 @@ func _physics_process(_delta):
 
 func _on_timer_timeout():
 	queue_free()
+
+
+func _on_stop_following_timer_timeout():
+	is_following = false
