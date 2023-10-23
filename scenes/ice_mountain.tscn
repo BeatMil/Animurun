@@ -1,0 +1,610 @@
+[gd_scene load_steps=41 format=3 uid="uid://b8xc2xt6exkr5"]
+
+[ext_resource type="Script" path="res://scripts/ice_mountain.gd" id="1_xn0gv"]
+[ext_resource type="Script" path="res://scripts/parallax_controller.gd" id="2_ni810"]
+[ext_resource type="Script" path="res://scripts/parallax_layer_auto.gd" id="3_jt5lt"]
+[ext_resource type="Texture2D" uid="uid://c5p1a8sbq4oeu" path="res://media/sprites/clouds.png" id="4_trohx"]
+[ext_resource type="Texture2D" uid="uid://bwjdojfiq7as4" path="res://media/sprites/mountain.png" id="5_5tkom"]
+[ext_resource type="Texture2D" uid="uid://loah2i22waew" path="res://media/sprites/ground.png" id="6_bf8dy"]
+[ext_resource type="PackedScene" uid="uid://d1h4ur6yhpscs" path="res://scenes/ded_menu.tscn" id="7_2e6g3"]
+[ext_resource type="PackedScene" uid="uid://c1vlse56bmgi3" path="res://scenes/pause_menu.tscn" id="8_4jje6"]
+[ext_resource type="PackedScene" uid="uid://chuy481yt3hbu" path="res://nodes/chiichan.tscn" id="9_lvtyw"]
+[ext_resource type="Script" path="res://scripts/wall.gd" id="10_ywg1f"]
+[ext_resource type="AudioStream" uid="uid://3day7q25cqtg" path="res://media/sfx/dedExplosion.wav" id="11_4egow"]
+[ext_resource type="Texture2D" uid="uid://bkibl8v4jlx0r" path="res://media/sprites/jahy/jahy_steal_sword.png" id="12_msduj"]
+[ext_resource type="Script" path="res://scripts/VolBossStealBigSword.gd" id="13_lvgff"]
+[ext_resource type="AudioStream" uid="uid://bdw0x0mhge1yb" path="res://media/sfx/block02.wav" id="14_udu3n"]
+[ext_resource type="PackedScene" uid="uid://dgbxq28j3l13c" path="res://nodes/jahy.tscn" id="15_rgnol"]
+[ext_resource type="Script" path="res://scripts/background_dim.gd" id="16_xr1i5"]
+
+[sub_resource type="Environment" id="Environment_0glhb"]
+background_mode = 3
+ssil_radius = 8.49
+ssil_intensity = 5.07
+ssil_sharpness = 0.4
+sdfgi_bounce_feedback = 0.95
+glow_enabled = true
+glow_levels/1 = 2.46
+glow_levels/2 = 7.69
+glow_levels/3 = 7.46
+glow_intensity = 0.44
+glow_blend_mode = 1
+glow_hdr_threshold = 0.8
+glow_hdr_scale = 0.95
+glow_hdr_luminance_cap = 2.69
+fog_light_color = Color(0.498039, 0.121569, 0.223529, 1)
+fog_light_energy = 6.93
+fog_sun_scatter = 0.34
+fog_density = 0.1772
+fog_height = 20.18
+fog_height_density = 13.5172
+volumetric_fog_density = 0.45
+volumetric_fog_albedo = Color(0.572549, 0.160784, 0.247059, 1)
+volumetric_fog_emission = Color(0.509804, 0.266667, 0.207843, 1)
+volumetric_fog_emission_energy = 243.04
+volumetric_fog_gi_inject = 1.67
+volumetric_fog_anisotropy = 0.33
+volumetric_fog_length = 80.71
+volumetric_fog_detail_spread = 0.615572
+volumetric_fog_ambient_inject = 0.52
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tquqw"]
+bounce = 0.8
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpofv"]
+size = Vector2(4108, 287)
+
+[sub_resource type="Animation" id="Animation_8j0fk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 540)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:zoom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.8, 0.8)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera2D:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_giwag"]
+resource_name = "shake"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -30), Vector2(0, 0), Vector2(0, -30), Vector2(0, 0), Vector2(0, -10), Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yuk7d"]
+resource_name = "smol_shake"
+length = 0.40001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -30), Vector2(0, 0), Vector2(0, -30), Vector2(0, 0), Vector2(0, -10), Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xbyk0"]
+resource_name = "smol_shake_2"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -30), Vector2(0, 0), Vector2(0, -30), Vector2(0, 0), Vector2(0, -10), Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3iwx3"]
+resource_name = "smol_shake_3"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -30), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gff3c"]
+resource_name = "super_hit_zoom"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(960, 540), Vector2(1200, 449)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bkvre"]
+_data = {
+"RESET": SubResource("Animation_8j0fk"),
+"shake": SubResource("Animation_giwag"),
+"smol_shake": SubResource("Animation_yuk7d"),
+"smol_shake_2": SubResource("Animation_xbyk0"),
+"smol_shake_3": SubResource("Animation_3iwx3"),
+"super_hit_zoom": SubResource("Animation_gff3c")
+}
+
+[sub_resource type="GDScript" id="GDScript_gng0h"]
+script/source = "extends Node
+
+
+func _ready():
+	pass # Replace with function body.
+
+
+func _on_ded_wall_area_2d_body_entered(body):
+	if body.is_in_group(\"chiichan\"):
+		# play ded particle and animation
+		$\"AnimationPlayer\".play(\"ded_sfx\")
+		$\"%CameraPlayer\".play(\"shake\")
+
+		if body.is_alive:
+			body.ded() # chiichan is ded
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pno1e"]
+size = Vector2(40, 1768)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vggvm"]
+size = Vector2(5582, 773)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0iyyu"]
+size = Vector2(793.25, 6458.5)
+
+[sub_resource type="Animation" id="Animation_xkxle"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/AudioStreamPlayer:bus")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Master"]
+}
+
+[sub_resource type="Animation" id="Animation_ukyrn"]
+resource_name = "ded_sfx"
+length = 2.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("11_4egow")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/AudioStreamPlayer:bus")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"smolBus"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u3vp8"]
+_data = {
+"RESET": SubResource("Animation_xkxle"),
+"ded_sfx": SubResource("Animation_ukyrn")
+}
+
+[sub_resource type="Animation" id="Animation_d6of1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-523, 433)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_juqc3"]
+resource_name = "steal_sword"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-0.5, 1),
+"update": 0,
+"values": [Vector2(-523, 433), Vector2(2462, 448)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"despawn_sword"
+}]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("14_udu3n")
+}],
+"times": PackedFloat32Array(0.5)
+}
+tracks/2/use_blend = true
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u2sts"]
+_data = {
+"RESET": SubResource("Animation_d6of1"),
+"steal_sword": SubResource("Animation_juqc3")
+}
+
+[sub_resource type="Animation" id="Animation_4dq5q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackgroundDim:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5sbwe"]
+resource_name = "dim"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackgroundDim:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.47)]
+}
+
+[sub_resource type="Animation" id="Animation_lsb2t"]
+resource_name = "undim"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackgroundDim:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.47), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_io1ub"]
+_data = {
+"RESET": SubResource("Animation_4dq5q"),
+"dim": SubResource("Animation_5sbwe"),
+"undim": SubResource("Animation_lsb2t")
+}
+
+[node name="IceMountain" type="Node"]
+script = ExtResource("1_xn0gv")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0glhb")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("2_ni810")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1920, 0)
+script = ExtResource("3_jt5lt")
+
+[node name="Clouds" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color(0.231373, 0.886275, 0.988235, 1)
+position = Vector2(960, 540)
+texture = ExtResource("4_trohx")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1920, 0)
+script = ExtResource("3_jt5lt")
+SPEED = -200
+
+[node name="Mountain" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+modulate = Color(0.141176, 0.623529, 0.8, 1)
+position = Vector2(926, 652)
+texture = ExtResource("5_5tkom")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1920, 0)
+script = ExtResource("3_jt5lt")
+SPEED = -600
+
+[node name="Ground" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+modulate = Color(0.215686, 0.52549, 0.776471, 1)
+position = Vector2(1920, 1051)
+texture = ExtResource("6_bf8dy")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DedMenu" parent="CanvasLayer" node_paths=PackedStringArray("pause_menu") instance=ExtResource("7_2e6g3")]
+unique_name_in_owner = true
+pause_menu = NodePath("../PauseMenu")
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("8_4jje6")]
+
+[node name="chiichan_velocity" type="Label" parent="CanvasLayer"]
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 139.0
+offset_bottom = 25.0
+scale = Vector2(3.2052, 3.59681)
+text = "chiichan_velocity: "
+
+[node name="chiichan_state" type="Label" parent="CanvasLayer"]
+offset_left = 1.0
+offset_top = 58.0
+offset_right = 141.0
+offset_bottom = 84.0
+scale = Vector2(3.2052, 3.59681)
+text = "chiichan_state: "
+
+[node name="GroundBody" type="StaticBody2D" parent="." groups=["ground"]]
+position = Vector2(1472, 1066)
+physics_material_override = SubResource("PhysicsMaterial_tquqw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundBody"]
+shape = SubResource("RectangleShape2D_vpofv")
+
+[node name="Chiichan" parent="." instance=ExtResource("9_lvtyw")]
+
+[node name="CameraWrap" type="Node2D" parent="."]
+editor_description = "Dedwalls plays camera shake"
+position = Vector2(960, 540)
+
+[node name="Camera2D" type="Camera2D" parent="CameraWrap"]
+zoom = Vector2(0.8, 0.8)
+
+[node name="CameraPlayer" type="AnimationPlayer" parent="CameraWrap"]
+unique_name_in_owner = true
+editor_description = "Dedwalls plays camera shake"
+libraries = {
+"": SubResource("AnimationLibrary_bkvre")
+}
+
+[node name="CameraPlayer2" type="AnimationPlayer" parent="CameraWrap"]
+unique_name_in_owner = true
+editor_description = "Dedwalls plays camera shake"
+libraries = {
+"": SubResource("AnimationLibrary_bkvre")
+}
+
+[node name="DedWalls" type="Node" parent="."]
+script = SubResource("GDScript_gng0h")
+
+[node name="Wall" type="Area2D" parent="DedWalls"]
+position = Vector2(2214, 24)
+collision_layer = 0
+collision_mask = 10
+script = ExtResource("10_ywg1f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DedWalls/Wall"]
+shape = SubResource("RectangleShape2D_pno1e")
+
+[node name="DedWallArea2D" type="Area2D" parent="DedWalls"]
+position = Vector2(-537, 79)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DedWalls/DedWallArea2D"]
+position = Vector2(-1164, 1773.5)
+shape = SubResource("RectangleShape2D_vggvm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DedWalls/DedWallArea2D"]
+position = Vector2(-338, -1886.75)
+shape = SubResource("RectangleShape2D_0iyyu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DedWalls"]
+libraries = {
+"": SubResource("AnimationLibrary_u3vp8")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DedWalls/AnimationPlayer"]
+
+[node name="BossStealBigSword" type="Sprite2D" parent="."]
+self_modulate = Color(0.9, 0.9, 0.9, 1)
+position = Vector2(-523, 433)
+scale = Vector2(0.703125, 0.703125)
+texture = ExtResource("12_msduj")
+hframes = 2
+frame = 1
+script = ExtResource("13_lvgff")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BossStealBigSword"]
+libraries = {
+"": SubResource("AnimationLibrary_u2sts")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BossStealBigSword/AnimationPlayer"]
+
+[node name="Markers" type="Node" parent="."]
+
+[node name="EnemySpawnPos" type="Marker2D" parent="Markers"]
+position = Vector2(2400, 837)
+
+[node name="EnemySpawnPos2" type="Marker2D" parent="Markers"]
+position = Vector2(2397, 577)
+
+[node name="WheelSpawnPos2" type="Marker2D" parent="Markers"]
+position = Vector2(1516, 285)
+
+[node name="CapsuleSpawnPos" type="Marker2D" parent="Markers"]
+position = Vector2(1728, 704)
+
+[node name="Boss" parent="." instance=ExtResource("15_rgnol")]
+position = Vector2(2063, 651)
+
+[node name="BackgroundDim" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -257.0
+offset_top = -144.0
+offset_right = 362.0
+offset_bottom = 187.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+script = ExtResource("16_xr1i5")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BackgroundDim"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_io1ub")
+}
+
+[connection signal="body_entered" from="DedWalls/Wall" to="DedWalls/Wall" method="_on_body_entered"]
+[connection signal="body_entered" from="DedWalls/DedWallArea2D" to="DedWalls" method="_on_ded_wall_area_2d_body_entered"]
+[connection signal="animation_finished" from="BossStealBigSword/AnimationPlayer" to="BossStealBigSword" method="_on_animation_player_animation_finished"]
