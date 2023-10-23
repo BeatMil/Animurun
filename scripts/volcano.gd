@@ -100,14 +100,14 @@ func get_stage_path() -> String:
 
 
 func spawn_phase_one() -> void:
-	kisaki_hp = 1
+	kisaki_hp = 6
 	order_index = 0
 	enemy_spawn_order = phase_one_enemy_order
 	enemy_order_size = enemy_spawn_order.size()
 
 
 func spawn_phase_two() -> void:
-	kisaki_hp = 1
+	kisaki_hp = 6
 	order_index = 0
 	enemy_spawn_order = phase_two_enemy_order
 	enemy_order_size = enemy_spawn_order.size()
