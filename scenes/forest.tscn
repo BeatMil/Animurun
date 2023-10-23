@@ -380,6 +380,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(-523, 433)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
 
 [sub_resource type="Animation" id="Animation_juqc3"]
 resource_name = "steal_sword"
@@ -424,6 +436,18 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0.5)
 }
 tracks/2/use_blend = true
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u2sts"]
 _data = {
@@ -648,20 +672,20 @@ libraries = {
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="OstPlayer"]
 volume_db = 5.0
 
-[node name="VolBossStealBigSword" type="Sprite2D" parent="."]
+[node name="BossStealBigSword" type="Sprite2D" parent="."]
 position = Vector2(-523, 433)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("49_u81l4")
 script = ExtResource("50_txsu2")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="VolBossStealBigSword"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BossStealBigSword"]
 libraries = {
 "": SubResource("AnimationLibrary_u2sts")
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VolBossStealBigSword/AnimationPlayer"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BossStealBigSword/AnimationPlayer"]
 
 [connection signal="body_entered" from="DedWalls/Wall" to="DedWalls/Wall" method="_on_body_entered"]
 [connection signal="body_entered" from="DedWalls/DedWallArea2D" to="DedWalls" method="_on_ded_wall_area_2d_body_entered"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
-[connection signal="animation_finished" from="VolBossStealBigSword/AnimationPlayer" to="VolBossStealBigSword" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="BossStealBigSword/AnimationPlayer" to="BossStealBigSword" method="_on_animation_player_animation_finished"]

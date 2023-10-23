@@ -342,7 +342,7 @@ func _on_animation_player_animation_finished(anim_name):
 		self.unfreeze()
 		state = States.RUNNING
 	elif anim_name == "stage1_clear":
-		$"../VolBossStealBigSword".play_steal_sword()
+		$"../BossStealBigSword".play_steal_sword()
 
 
 func _on_animation_player_animation_started(anim_name):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dp8sihvv4o8dt"]
+[gd_scene load_steps=41 format=3 uid="uid://dp8sihvv4o8dt"]
 
 [ext_resource type="Script" path="res://scripts/volcano.gd" id="1_cx5ry"]
 [ext_resource type="Script" path="res://scripts/parallax_controller.gd" id="1_oa6mp"]
@@ -9,8 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://d1h4ur6yhpscs" path="res://scenes/ded_menu.tscn" id="6_x5lar"]
 [ext_resource type="PackedScene" uid="uid://c1vlse56bmgi3" path="res://scenes/pause_menu.tscn" id="7_7n2ko"]
 [ext_resource type="PackedScene" uid="uid://chuy481yt3hbu" path="res://nodes/chiichan.tscn" id="9_u1mbg"]
+[ext_resource type="Texture2D" uid="uid://bkibl8v4jlx0r" path="res://media/sprites/jahy/jahy_steal_sword.png" id="12_7e35p"]
 [ext_resource type="PackedScene" uid="uid://c5lyymlagon7a" path="res://nodes/kisaki.tscn" id="12_twc18"]
+[ext_resource type="Script" path="res://scripts/VolBossStealBigSword.gd" id="13_5s6kf"]
 [ext_resource type="Script" path="res://scripts/background_dim.gd" id="13_p56fu"]
+[ext_resource type="AudioStream" uid="uid://bdw0x0mhge1yb" path="res://media/sfx/block02.wav" id="14_7xjca"]
 [ext_resource type="Script" path="res://scripts/wall.gd" id="46_0dqi6"]
 [ext_resource type="AudioStream" uid="uid://3day7q25cqtg" path="res://media/sfx/dedExplosion.wav" id="47_56jly"]
 
@@ -282,6 +285,95 @@ _data = {
 "ded_sfx": SubResource("Animation_ukyrn")
 }
 
+[sub_resource type="Animation" id="Animation_d6of1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-523, 433)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_juqc3"]
+resource_name = "steal_sword"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-0.5, 1),
+"update": 0,
+"values": [Vector2(-523, 433), Vector2(2462, 448)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"despawn_sword"
+}]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("14_7xjca")
+}],
+"times": PackedFloat32Array(0.5)
+}
+tracks/2/use_blend = true
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u2sts"]
+_data = {
+"RESET": SubResource("Animation_d6of1"),
+"steal_sword": SubResource("Animation_juqc3")
+}
+
 [sub_resource type="Animation" id="Animation_4dq5q"]
 length = 0.001
 tracks/0/type = "value"
@@ -461,6 +553,22 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DedWalls/AnimationPlayer"]
 
+[node name="BossStealBigSword" type="Sprite2D" parent="."]
+self_modulate = Color(0.9, 0.9, 0.9, 1)
+position = Vector2(-523, 433)
+scale = Vector2(0.703125, 0.703125)
+texture = ExtResource("12_7e35p")
+hframes = 2
+frame = 1
+script = ExtResource("13_5s6kf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BossStealBigSword"]
+libraries = {
+"": SubResource("AnimationLibrary_u2sts")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BossStealBigSword/AnimationPlayer"]
+
 [node name="Markers" type="Node" parent="."]
 
 [node name="EnemySpawnPos" type="Marker2D" parent="Markers"]
@@ -499,3 +607,4 @@ libraries = {
 
 [connection signal="body_entered" from="DedWalls/Wall" to="DedWalls/Wall" method="_on_body_entered"]
 [connection signal="body_entered" from="DedWalls/DedWallArea2D" to="DedWalls" method="_on_ded_wall_area_2d_body_entered"]
+[connection signal="animation_finished" from="BossStealBigSword/AnimationPlayer" to="BossStealBigSword" method="_on_animation_player_animation_finished"]

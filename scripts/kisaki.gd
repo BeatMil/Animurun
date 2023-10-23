@@ -3,6 +3,7 @@ extends RigidBody2D
 
 var is_angry = false
 var HIT_SPARK = preload("res://nodes/particles/hit_spark.tscn")
+var SWORD = preload("res://nodes/sword.tscn")
 
 
 var rng = RandomNumberGenerator.new()
@@ -31,6 +32,12 @@ func freeze() -> void:
 # Used by $AnimationPlayer.play("angry")
 func continue_spawner():
 	$"..".spawner()
+
+
+func _spawn_sword() -> void:
+	var sword = SWORD.instantiate()
+	sword.name = "sword"
+	add_child(sword)
 
 
 func spawn_hit_spark() -> void: # Used by $AnimationPlayer.play 'explode'

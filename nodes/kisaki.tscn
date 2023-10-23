@@ -351,6 +351,20 @@ tracks/7/keys = {
 "method": &"spawn_hit_spark"
 }]
 }
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_spawn_sword"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_xja46"]
 resource_name = "hurt"
