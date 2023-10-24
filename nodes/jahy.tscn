@@ -1,10 +1,10 @@
 [gd_scene load_steps=17 format=3 uid="uid://dgbxq28j3l13c"]
 
-[ext_resource type="Script" path="res://scripts/kisaki.gd" id="1_8wf81"]
-[ext_resource type="Texture2D" uid="uid://bj8qxfnjqftbo" path="res://media/sprites/kisaki/kisaki_push.png" id="2_emuco"]
+[ext_resource type="Script" path="res://scripts/jahy.gd" id="1_quion"]
 [ext_resource type="Texture2D" uid="uid://67mt87ecaug2" path="res://media/sprites/jahy/jahy_idle.png" id="2_l0jru"]
 [ext_resource type="Texture2D" uid="uid://32nv6vyueqtl" path="res://media/sprites/kisaki/kisaki_angry.png" id="3_qjwk7"]
 [ext_resource type="AudioStream" uid="uid://c5arfhug6dhx1" path="res://media/sfx/careful02.wav" id="4_13hji"]
+[ext_resource type="Texture2D" uid="uid://b2ijb5syxe08t" path="res://media/sprites/jahy/jahy_attack.png" id="5_i2a7d"]
 [ext_resource type="Texture2D" uid="uid://xshefddalrcd" path="res://media/sprites/kisaki/kisaki_hurt.png" id="5_qat5m"]
 [ext_resource type="AudioStream" uid="uid://fsuxq2wo3bhn" path="res://media/sfx/chole_explode.wav" id="6_sut8o"]
 [ext_resource type="AudioStream" uid="uid://bsjbg5wbtqkq0" path="res://media/sfx/boss_damaged.wav" id="7_kor6v"]
@@ -204,7 +204,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_emuco")]
+"values": [ExtResource("5_i2a7d")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -526,7 +526,7 @@ collision_mask = 0
 custom_integrator = true
 max_contacts_reported = 1
 contact_monitor = true
-script = ExtResource("1_8wf81")
+script = ExtResource("1_quion")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -414)
