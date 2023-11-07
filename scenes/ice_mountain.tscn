@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b8xc2xt6exkr5"]
+[gd_scene load_steps=42 format=3 uid="uid://b8xc2xt6exkr5"]
 
 [ext_resource type="Script" path="res://scripts/ice_mountain.gd" id="1_xn0gv"]
 [ext_resource type="Script" path="res://scripts/parallax_controller.gd" id="2_ni810"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://bdw0x0mhge1yb" path="res://media/sfx/block02.wav" id="14_udu3n"]
 [ext_resource type="PackedScene" uid="uid://dgbxq28j3l13c" path="res://nodes/jahy.tscn" id="15_rgnol"]
 [ext_resource type="Script" path="res://scripts/background_dim.gd" id="16_xr1i5"]
+[ext_resource type="PackedScene" uid="uid://vyhb1e7qe2ut" path="res://nodes/afure_gazar.tscn" id="17_ub6wh"]
 
 [sub_resource type="Environment" id="Environment_0glhb"]
 background_mode = 3
@@ -521,7 +522,7 @@ libraries = {
 }
 
 [node name="Boss" parent="." instance=ExtResource("15_rgnol")]
-position = Vector2(2063, 651)
+position = Vector2(1996, 651)
 
 [node name="DedWalls" type="Node" parent="."]
 script = SubResource("GDScript_gng0h")
@@ -605,6 +606,9 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_io1ub")
 }
+
+[node name="AfureGazar" parent="." instance=ExtResource("17_ub6wh")]
+position = Vector2(1920, 920)
 
 [connection signal="body_entered" from="DedWalls/Wall" to="DedWalls/Wall" method="_on_body_entered"]
 [connection signal="body_entered" from="DedWalls/DedWallArea2D" to="DedWalls" method="_on_ded_wall_area_2d_body_entered"]
