@@ -34,7 +34,8 @@ var phase_transition_helper = false
 # Phases
 var tutorial_phase_enemy_order: Array = [spawn_slime, spawn_bomby]
 var phase_one_enemy_order: Array = [spawn_parry_dodge_chain, spawn_two_slime, spawn_spike]
-var phase_two_enemy_order: Array = [spawn_tank_left_side_spike, spawn_triple_slime, spawn_triple_slime_fake, spawn_spike_storm]
+# var phase_two_enemy_order: Array = [spawn_tank_left_side_spike, spawn_triple_slime, spawn_triple_slime_fake, spawn_spike_storm]
+var phase_two_enemy_order: Array = [spawn_triple_slime_fake]
 var phase_three_enemy_order: Array = [spawn_spike_slime_jump_parry, spawn_waterfall, spawn_tank_storm]
 
 
@@ -313,8 +314,10 @@ func spawn_triple_slime_fake() -> void:
 	var slime1 = SLIME.instantiate()
 	slime1.position = $"Markers/EnemySpawnPos".position
 
-	var tank = TANK.instantiate()
-	tank.position = $"Markers/TankSpawnPos3".position
+	# var tank = TANK.instantiate()
+	# tank.position = $"Markers/TankSpawnPos3".position
+	var bomby = BOMBY.instantiate()
+	bomby.position = $"Markers/EnemySpawnPos".position
 
 	var slime3 = SLIME.instantiate()
 	slime3.connect("ded", spawner)
@@ -328,7 +331,8 @@ func spawn_triple_slime_fake() -> void:
 	slime1.throw_slime(Vector2(-2000, -2000))
 	await get_tree().create_timer(0.3, false).timeout
 
-	add_child(tank)
+	add_child(bomby)
+	bomby.throw_bomb(Vector2(-2000, -2000))
 	await get_tree().create_timer(0.3, false).timeout
 
 	add_child(slime3)

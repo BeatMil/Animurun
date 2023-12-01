@@ -65,6 +65,7 @@ func _on_body_entered(body):
 
 		$AnimationPlayer.stop()
 		$AnimationPlayer.play("hurt")
+		spawn_hit_spark()
 		$"..".kisaki_hp -= 1
 
 		if body.is_boom_slime: # hit by chiichan super_hit

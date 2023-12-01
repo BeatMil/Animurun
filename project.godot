@@ -13,6 +13,7 @@ config_version=5
 config/name="animurun"
 run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
+boot_splash/show_image=false
 boot_splash/image="res://media/splash/gurara_meteo_splash.png"
 config/icon="res://media/animu_run_icon.png"
 

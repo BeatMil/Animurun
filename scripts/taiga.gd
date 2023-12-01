@@ -17,6 +17,7 @@ func play(anim_name: String) -> void:
 
 
 func hurt() -> void:
+	_spawn_hit_spark()
 	$AnimationPlayer.stop()
 	$AnimationPlayer.play("hurt")
 
