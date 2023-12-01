@@ -96,7 +96,7 @@ func save_checkpoint() -> void:
 
 
 func get_stage_path() -> String:
-	return "res://scenes/volcano.tscn"
+	return "res://scenes/ice_mountain.tscn"
 
 
 func spawn_phase_one() -> void:
