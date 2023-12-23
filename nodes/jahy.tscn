@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dgbxq28j3l13c"]
+[gd_scene load_steps=19 format=3 uid="uid://dgbxq28j3l13c"]
 
 [ext_resource type="Script" path="res://scripts/jahy.gd" id="1_quion"]
 [ext_resource type="Texture2D" uid="uid://67mt87ecaug2" path="res://media/sprites/jahy/jahy_idle.png" id="2_l0jru"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://xshefddalrcd" path="res://media/sprites/kisaki/kisaki_hurt.png" id="5_qat5m"]
 [ext_resource type="AudioStream" uid="uid://fsuxq2wo3bhn" path="res://media/sfx/chole_explode.wav" id="6_sut8o"]
 [ext_resource type="AudioStream" uid="uid://bsjbg5wbtqkq0" path="res://media/sfx/boss_damaged.wav" id="7_kor6v"]
+[ext_resource type="Texture2D" uid="uid://ds7eqkvd6hbf3" path="res://media/sprites/jahy/jahy_attack2.png" id="9_n1t4p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wu8je"]
 size = Vector2(140, 1156)
@@ -510,11 +511,51 @@ tracks/3/keys = {
 "values": [2]
 }
 
+[sub_resource type="Animation" id="Animation_wfge7"]
+resource_name = "attack_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Jahy:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Jahy:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_n1t4p")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Jahy:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0lsfu"]
 _data = {
 "RESET": SubResource("Animation_pay2i"),
 "angry": SubResource("Animation_aoxa6"),
 "attack": SubResource("Animation_bd2sm"),
+"attack_2": SubResource("Animation_wfge7"),
 "explode": SubResource("Animation_n8s06"),
 "hurt": SubResource("Animation_xja46"),
 "idle": SubResource("Animation_k2v0u")

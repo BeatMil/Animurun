@@ -27,7 +27,6 @@ var is_random_spawn = false
 var rng = RandomNumberGenerator.new()
 
 
-
 # Reference
 @onready var enemy_order_size: int = len(enemy_spawn_order)
 @onready var jahy = $Boss
@@ -147,7 +146,7 @@ func spawn_afure_gazar() -> void:
 	afure_gazar.set_z_index(-6)
 	afure_gazar.connect("ded", spawner)
 
-	jahy.play_attack()
+	jahy.play_attack2()
 	add_child(afure_gazar)
 
 
@@ -181,3 +180,13 @@ func spawn_boom_slime_hand() -> void:
 
 	add_child(slime)
 	slime.throw_slime(Vector2(-3000, -1200))
+
+
+func smol_shake() -> void:
+	$"%CameraPlayer".stop()
+	$"%CameraPlayer".play("smol_shake")
+
+
+func smol_shake_offset() -> void:
+	$"%CameraPlayer2".stop()
+	$"%CameraPlayer2".play("smol_shake_3")

@@ -9,6 +9,10 @@ func _on_area_2d_body_entered(body):
 		body.push(Vector2(-2000, 0))
 
 
+func call_camera_shake():
+	$"..".smol_shake()
+
+
 func _queue_free():
 	emit_signal("ded")
 	queue_free()
