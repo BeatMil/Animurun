@@ -1,6 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://vyhb1e7qe2ut"]
+[gd_scene load_steps=10 format=3 uid="uid://vyhb1e7qe2ut"]
 
 [ext_resource type="Script" path="res://scripts/afure_gazar.gd" id="1_ansxr"]
+[ext_resource type="AudioStream" uid="uid://dc5bpglpu1j2b" path="res://media/sfx/jahy_boss/afure_gazar.wav" id="2_looug"]
+[ext_resource type="AudioStream" uid="uid://7txtum3sxx4u" path="res://media/sfx/jahy_boss/afure_gazar_fall.wav" id="3_mjilw"]
+[ext_resource type="AudioStream" uid="uid://fsuxq2wo3bhn" path="res://media/sfx/chole_explode.wav" id="4_yxfnn"]
 
 [sub_resource type="Environment" id="Environment_viimy"]
 background_mode = 3
@@ -32,58 +35,6 @@ volumetric_fog_anisotropy = 0.33
 volumetric_fog_length = 80.71
 volumetric_fog_detail_spread = 0.615572
 volumetric_fog_ambient_inject = 0.52
-
-[sub_resource type="Animation" id="Animation_rga25"]
-resource_name = "intro"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Polygon2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-0.270001, 6.18456e-10), Vector2(-0.270001, -2504)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Polygon2D:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1.11375, 0.125), Vector2(1.11375, 39.25)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1, 1.9),
-"transitions": PackedFloat32Array(5.46415, 1),
-"update": 0,
-"values": [0.0, -1.5708]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Polygon2D:color")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(1.9, 2.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 0.584314, 1), Color(1, 1, 0.584314, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_avyd4"]
 length = 0.001
@@ -136,6 +87,95 @@ tracks/3/keys = {
 "values": [Color(1, 1, 0.584314, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_rga25"]
+resource_name = "intro"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Polygon2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-0.270001, 6.18456e-10), Vector2(-0.270001, -2504)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Polygon2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.11375, 0.125), Vector2(1.11375, 39.25)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 1.9),
+"transitions": PackedFloat32Array(5.46415, 1),
+"update": 0,
+"values": [0.0, -1.5708]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Polygon2D:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.9, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 0.584314, 1), Color(1, 1, 0.584314, 0)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_queue_free"
+}]
+}
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_looug")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_mjilw")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_yxfnn")
+}],
+"times": PackedFloat32Array(0, 1.1, 1.9)
+}
+tracks/5/use_blend = true
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ayv53"]
 _data = {
 "RESET": SubResource("Animation_avyd4"),
@@ -170,5 +210,7 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(103, -1091)
 shape = SubResource("RectangleShape2D_cfv5q")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
