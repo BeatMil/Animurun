@@ -23,6 +23,10 @@ func play_attack2():
 
 func play_attack3():
 	$AnimationPlayer.play("attack_3")
+	
+
+func play_hurt():
+	$AnimationPlayer.play("hurt")
 
 
 func play_angry():

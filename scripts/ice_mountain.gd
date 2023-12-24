@@ -12,11 +12,9 @@ enum Phases {
 
 
 # Preloads
-var SLIME_JUMP = preload("res://nodes/slime_jump.tscn")
-var SLIME = preload("res://nodes/slime.tscn")
 var AFURE_GAZAR = preload("res://nodes/afure_gazar.tscn")
 var WAVE = preload("res://nodes/jahy_attacks/wave.tscn")
-var CAPSULE = preload("res://nodes/capsule.tscn")
+var MAGIC_CIRCLE = preload("res://nodes/jahy_attacks/magic_circle.tscn")
 
 
 # Configs
@@ -34,9 +32,9 @@ var rng = RandomNumberGenerator.new()
 
 
 # Phases
-var phase_one_enemy_order: Array = [spawn_afure_gazar, spawn_wave]
-var phase_two_enemy_order: Array = [spawn_capsule_faster, spawn_jump_slime]
-var phase_three_enemy_order: Array = [spawn_boom_slime_hand]
+var phase_one_enemy_order: Array = [spawn_afure_gazar, spawn_wave, spawn_magic_circle]
+var phase_two_enemy_order: Array = []
+var phase_three_enemy_order: Array = []
 
 
 func _ready() -> void:
@@ -123,24 +121,6 @@ func spawn_phase_three() -> void:
 ###
 ### Enemy Patterns
 ### Starts
-func spawn_jump_slime() -> void:
-	var jump_slime = SLIME_JUMP.instantiate()
-	jump_slime.position = $"Markers/EnemySpawnPos".position
-
-	var slime = SLIME.instantiate()
-	slime.position = $"Markers/EnemySpawnPos".position
-	slime.connect("ded", spawner)
-
-
-	jahy.play_attack()
-	add_child(jump_slime)
-	await get_tree().create_timer(2, false).timeout
-
-	jahy.play_attack()
-	add_child(slime)
-	slime.throw_slime(Vector2(-2000, -2000))
-
-
 func spawn_afure_gazar() -> void:
 	var afure_gazar = AFURE_GAZAR.instantiate()
 	afure_gazar.position = $"Markers/AfureGazarSpawnPos".position
@@ -160,36 +140,13 @@ func spawn_wave() -> void:
 	add_child(wave)
 
 
-func spawn_capsule() -> void:
-	var capsule = CAPSULE.instantiate()
-	capsule.position = $"Markers/CapsuleSpawnPos".position
-	capsule.connect("ded", spawner)
+func spawn_magic_circle() -> void:
+	var magic = MAGIC_CIRCLE.instantiate()
+	magic.position = $"Markers/MagicCircleSpawnPos".position
+	magic.connect("ded", spawner)
 
-	jahy.play_attack()
-	add_child(capsule)
-
-
-func spawn_capsule_faster() -> void:
-	var capsule = CAPSULE.instantiate()
-	capsule.position = $"Markers/CapsuleSpawnPos".position
-	capsule.connect("ded", spawner)
-	capsule.is_faster = true
-
-	jahy.play_attack()
-	add_child(capsule)
-
-
-func spawn_boom_slime_hand() -> void:
-	var slime = SLIME.instantiate()
-	slime.is_boom_slime = true
-	slime.connect("ded", spawner)
-	slime.position = $"Markers/EnemySpawnPos2".position
-
-	jahy.play_attack()
-	await get_tree().create_timer(0.2, false).timeout
-
-	add_child(slime)
-	slime.throw_slime(Vector2(-3000, -1200))
+	jahy.play_attack3()
+	add_child(magic)
 
 
 func smol_shake() -> void:
