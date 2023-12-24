@@ -178,6 +178,20 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 1.1, 1.9)
 }
 tracks/5/use_blend = true
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_spawn_hit_spark"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ayv53"]
 _data = {
@@ -189,7 +203,7 @@ _data = {
 size = Vector2(226, 2202)
 
 [node name="AfureGazar" type="Node2D"]
-position = Vector2(696, 1064)
+position = Vector2(1432, 1032)
 script = ExtResource("1_ansxr")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
