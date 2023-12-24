@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://cbbynehnmxdcp"]
 
 [ext_resource type="Script" path="res://scripts/ora_ora.gd" id="1_yxenm"]
-[ext_resource type="AudioStream" uid="uid://dtd3cpetbik1v" path="res://media/sfx/sfx_sounds_error3.wav" id="2_k7lcv"]
-[ext_resource type="AudioStream" uid="uid://dl0aj7qep4r8r" path="res://media/sfx/ora_success.wav" id="3_6ops6"]
-[ext_resource type="AudioStream" uid="uid://x6rob4kujxxe" path="res://media/sfx/preJump3.wav" id="3_kmik6"]
+[ext_resource type="AudioStream" uid="uid://cckhjenti5fsm" path="res://media/sfx/sfx_sounds_error3.wav" id="2_k7lcv"]
+[ext_resource type="AudioStream" uid="uid://dn5aswu6jhsb" path="res://media/sfx/ora_success.wav" id="3_6ops6"]
+[ext_resource type="AudioStream" uid="uid://clhv5qi0jy3np" path="res://media/sfx/preJump3.wav" id="3_kmik6"]
 
 [sub_resource type="Animation" id="Animation_y4ci8"]
 length = 0.001
@@ -185,6 +185,7 @@ _data = {
 size = Vector2(16, 48)
 
 [node name="Oraora" type="Node2D"]
+position = Vector2(544, 248)
 script = ExtResource("1_yxenm")
 
 [node name="Border" type="Polygon2D" parent="."]

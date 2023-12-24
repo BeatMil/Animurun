@@ -589,6 +589,9 @@ position = Vector2(1728, 704)
 [node name="AfureGazarSpawnPos" type="Marker2D" parent="Markers"]
 position = Vector2(1920, 920)
 
+[node name="WaveSpawnPos" type="Marker2D" parent="Markers"]
+position = Vector2(1792, 384)
+
 [node name="BackgroundDim" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0

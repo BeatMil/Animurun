@@ -15,6 +15,7 @@ enum Phases {
 var SLIME_JUMP = preload("res://nodes/slime_jump.tscn")
 var SLIME = preload("res://nodes/slime.tscn")
 var AFURE_GAZAR = preload("res://nodes/afure_gazar.tscn")
+var WAVE = preload("res://nodes/jahy_attacks/wave.tscn")
 var CAPSULE = preload("res://nodes/capsule.tscn")
 
 
@@ -33,7 +34,7 @@ var rng = RandomNumberGenerator.new()
 
 
 # Phases
-var phase_one_enemy_order: Array = [spawn_afure_gazar]
+var phase_one_enemy_order: Array = [spawn_afure_gazar, spawn_wave]
 var phase_two_enemy_order: Array = [spawn_capsule_faster, spawn_jump_slime]
 var phase_three_enemy_order: Array = [spawn_boom_slime_hand]
 
@@ -148,6 +149,15 @@ func spawn_afure_gazar() -> void:
 
 	jahy.play_attack2()
 	add_child(afure_gazar)
+
+
+func spawn_wave() -> void:
+	var wave = WAVE.instantiate()
+	wave.position = $"Markers/WaveSpawnPos".position
+	wave.connect("ded", spawner)
+
+	jahy.play_attack3()
+	add_child(wave)
 
 
 func spawn_capsule() -> void:

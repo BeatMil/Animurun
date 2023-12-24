@@ -1,0 +1,118 @@
+[gd_scene load_steps=10 format=3 uid="uid://bm3m8o6xrrjyn"]
+
+[ext_resource type="Script" path="res://scripts/wave.gd" id="1_jf2ev"]
+[ext_resource type="Texture2D" uid="uid://b44ecvpgyq11f" path="res://media/sprites/jahy/wave.png" id="1_vfn2k"]
+[ext_resource type="AudioStream" uid="uid://mn15ccsgo6d6" path="res://media/sfx/star02.wav" id="3_blxc2"]
+[ext_resource type="AudioStream" uid="uid://b7oxomltour71" path="res://media/sfx/missileBlock01.wav" id="3_lb2nu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5ph0"]
+size = Vector2(176, 384)
+
+[sub_resource type="Animation" id="Animation_mwads"]
+resource_name = "intro"
+length = 0.8
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_blxc2")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="Animation" id="Animation_4idbs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wave:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.992157, 1, 0.529412, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pltfu"]
+resource_name = "outro"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wave:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.992157, 1, 0.529412, 1), Color(1, 0.478431, 0.270588, 0)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_lb2nu")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v3anv"]
+_data = {
+"RESET": SubResource("Animation_4idbs"),
+"intro": SubResource("Animation_mwads"),
+"outro": SubResource("Animation_pltfu")
+}
+
+[node name="wave" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 2
+custom_integrator = true
+max_contacts_reported = 2
+contact_monitor = true
+script = ExtResource("1_jf2ev")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(112, 192)
+shape = SubResource("RectangleShape2D_q5ph0")
+
+[node name="Wave" type="Sprite2D" parent="."]
+modulate = Color(0.992157, 1, 0.529412, 1)
+position = Vector2(72, 224)
+texture = ExtResource("1_vfn2k")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(320, 192)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "intro"
+libraries = {
+"": SubResource("AnimationLibrary_v3anv")
+}
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+autoplay = "intro"
+libraries = {
+"": SubResource("AnimationLibrary_v3anv")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

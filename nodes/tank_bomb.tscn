@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://dld4r3a065u52"]
 
 [ext_resource type="Script" path="res://scripts/tank_bomb.gd" id="1_gg5uj"]
-[ext_resource type="AudioStream" uid="uid://c3ro5b1wtd6bi" path="res://media/sfx/missile01.wav" id="2_d8s5q"]
-[ext_resource type="AudioStream" uid="uid://bljh1srovcvs8" path="res://media/sfx/explosion16.wav" id="3_ftttx"]
+[ext_resource type="AudioStream" uid="uid://cdm2w4a7cg1fy" path="res://media/sfx/missile01.wav" id="2_d8s5q"]
+[ext_resource type="AudioStream" uid="uid://d2n3c6601kmfi" path="res://media/sfx/explosion16.wav" id="3_ftttx"]
 
 [sub_resource type="Animation" id="Animation_0cn68"]
 length = 0.001

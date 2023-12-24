@@ -42,8 +42,9 @@ const FRICTION = 0.06
 
 
 func _ready():
-	if Config.checkpoint == -1:
-		$AnimationPlayer2.play("intro")
+	pass
+	#if Config.checkpoint == -1:
+	#	$AnimationPlayer2.play("intro")
 
 
 func _physics_process(delta):

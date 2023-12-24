@@ -21,6 +21,10 @@ func play_attack2():
 	$AnimationPlayer.play("attack_2")
 
 
+func play_attack3():
+	$AnimationPlayer.play("attack_3")
+
+
 func play_angry():
 	$AnimationPlayer.play("angry")
 
@@ -53,7 +57,7 @@ func spawn_hit_spark() -> void: # Used by $AnimationPlayer.play 'explode'
 
 
 func _on_animation_player_animation_finished(anim_name):
-	if anim_name in ["attack", "attack_2"]:
+	if anim_name in ["attack", "attack_2", "attack_3"]:
 		$AnimationPlayer.play("idle")
 	elif anim_name == "explode":
 		$"../ParallaxBackground".freeze()
