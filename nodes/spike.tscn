@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://b3vaybudghovl"]
 
-[ext_resource type="Texture2D" uid="uid://dklsgkuytf3uc" path="res://media/sprites/taiga/taiga_spikes.png" id="1_1ew73"]
+[ext_resource type="Texture2D" uid="uid://crtcqmbphdldt" path="res://media/sprites/taiga/taiga_spikes.png" id="1_1ew73"]
 [ext_resource type="Script" path="res://scripts/spike.gd" id="1_xkotw"]
-[ext_resource type="AudioStream" uid="uid://du5uyyj5q3tui" path="res://media/sfx/spike.wav" id="3_5f78s"]
-[ext_resource type="AudioStream" uid="uid://0ns5ho0vuynk" path="res://media/sfx/charge01.wav" id="3_jcnej"]
-[ext_resource type="Texture2D" uid="uid://d26pmhu51yr4j" path="res://media/sprites/taiga/pre_spike.png" id="4_tqegg"]
+[ext_resource type="AudioStream" uid="uid://wkgvex2vns0e" path="res://media/sfx/spike.wav" id="3_5f78s"]
+[ext_resource type="AudioStream" uid="uid://c4eboqh1bww4j" path="res://media/sfx/charge01.wav" id="3_jcnej"]
+[ext_resource type="Texture2D" uid="uid://cujjdobpbdyah" path="res://media/sprites/taiga/pre_spike.png" id="4_tqegg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2n7o"]
 size = Vector2(76, 317)

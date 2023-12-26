@@ -14,7 +14,9 @@ enum Phases {
 # Preloads
 var AFURE_GAZAR = preload("res://nodes/afure_gazar.tscn")
 var WAVE = preload("res://nodes/jahy_attacks/wave.tscn")
+var WAVE_DODGABLE = preload("res://nodes/jahy_attacks/wave_dodgable.tscn")
 var MAGIC_CIRCLE = preload("res://nodes/jahy_attacks/magic_circle.tscn")
+
 
 
 # Configs
@@ -32,7 +34,8 @@ var rng = RandomNumberGenerator.new()
 
 
 # Phases
-var phase_one_enemy_order: Array = [spawn_afure_gazar, spawn_wave, spawn_magic_circle]
+var phase_one_enemy_order: Array = [spawn_waves]
+# var phase_one_enemy_order: Array = [spawn_wave, spawn_afure_gazar, spawn_magic_circle]
 var phase_two_enemy_order: Array = []
 var phase_three_enemy_order: Array = []
 
@@ -138,6 +141,45 @@ func spawn_wave() -> void:
 
 	jahy.play_attack3()
 	add_child(wave)
+
+
+func spawn_wave_dodgable() -> void:
+	var wave = WAVE_DODGABLE.instantiate()
+	wave.position = $"Markers/WaveSpawnPos".position
+	wave.connect("ded", spawner)
+
+	jahy.play_attack3()
+	add_child(wave)
+
+
+func spawn_waves() -> void:
+	var wave = WAVE.instantiate()
+	var wave2 = WAVE.instantiate()
+	var wave3 = WAVE.instantiate()
+	var wave4 = WAVE.instantiate()
+	wave.position = $"Markers/WaveSpawnPos".position
+	wave2.position = $"Markers/WaveSpawnPos".position
+	wave3.position = $"Markers/WaveSpawnPos".position
+	wave4.position = $"Markers/WaveSpawnPos".position
+
+	var wave_d = WAVE_DODGABLE.instantiate()
+	var wave_d2 = WAVE_DODGABLE.instantiate()
+	var wave_d3 = WAVE_DODGABLE.instantiate()
+	var wave_d4 = WAVE_DODGABLE.instantiate()
+	wave_d.position = $"Markers/WaveSpawnPos".position
+	wave_d2.position = $"Markers/WaveSpawnPos".position
+	wave_d3.position = $"Markers/WaveSpawnPos".position
+	wave_d4.position = $"Markers/WaveSpawnPos".position
+
+	var waves = [wave, wave2, wave3, wave4, wave_d, wave_d2, wave_d3, wave_d4]
+	waves.shuffle()
+
+	for i in range(4):
+		jahy.play_attack3()
+		if i == 3:
+			waves[i].connect("ded", spawner)
+		add_child(waves[i])
+		await get_tree().create_timer(0.6, false).timeout
 
 
 func spawn_magic_circle() -> void:
