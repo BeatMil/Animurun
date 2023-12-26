@@ -209,7 +209,14 @@ func parry():
 
 
 func dodge():
-	# anim_player.stop() # uncomment this to chain dodge
+	if state == States.RUNNING:
+		dodge_chain()
+	else:
+		anim_player.play("dodge")
+
+
+func dodge_chain():
+	anim_player.stop() # uncomment this to chain dodge
 	anim_player.play("dodge")
 
 
