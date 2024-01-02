@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/jahy.gd" id="1_quion"]
 [ext_resource type="Texture2D" uid="uid://67mt87ecaug2" path="res://media/sprites/jahy/jahy_idle.png" id="2_l0jru"]
-[ext_resource type="Texture2D" uid="uid://32nv6vyueqtl" path="res://media/sprites/kisaki/kisaki_angry.png" id="3_qjwk7"]
+[ext_resource type="Texture2D" uid="uid://crwjeyt5l08ua" path="res://media/sprites/jahy/jahy_angry.png" id="3_t0ojo"]
 [ext_resource type="AudioStream" uid="uid://c5arfhug6dhx1" path="res://media/sfx/careful02.wav" id="4_13hji"]
 [ext_resource type="Texture2D" uid="uid://b2ijb5syxe08t" path="res://media/sprites/jahy/jahy_attack.png" id="5_i2a7d"]
 [ext_resource type="Texture2D" uid="uid://xshefddalrcd" path="res://media/sprites/kisaki/kisaki_hurt.png" id="5_qat5m"]
@@ -114,7 +114,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_qjwk7")]
+"values": [ExtResource("3_t0ojo")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -165,7 +165,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.505882, 0.890196, 0.745098, 1)]
+"values": [Color(1, 1, 1, 1), Color(0.890196, 0.654902, 0.505882, 1)]
 }
 tracks/6/type = "method"
 tracks/6/imported = false

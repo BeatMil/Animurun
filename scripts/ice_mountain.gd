@@ -34,8 +34,8 @@ var rng = RandomNumberGenerator.new()
 
 
 # Phases
-var phase_one_enemy_order: Array = [spawn_waves]
-# var phase_one_enemy_order: Array = [spawn_wave, spawn_afure_gazar, spawn_magic_circle]
+# var phase_one_enemy_order: Array = [spawn_magic_circle]
+var phase_one_enemy_order: Array = [spawn_waves, spawn_afure_gazar, spawn_magic_circle]
 var phase_two_enemy_order: Array = []
 var phase_three_enemy_order: Array = []
 
@@ -72,6 +72,8 @@ func spawner() -> void:
 		elif phase_helper == Phases.END:
 			jahy.play_explode()
 			return
+	else:
+		jahy_hp -= 1
 
 	if not enemy_spawn_order.size(): # don't spawn when array is empty
 		return
@@ -84,6 +86,7 @@ func spawner() -> void:
 	## very complicated way of doing by Jero (chatGPT)
 	## Reset spawn order cycle
 	order_index = (order_index + 1) % enemy_order_size 
+
 
 
 func unfreeze() -> void:
@@ -101,7 +104,7 @@ func get_stage_path() -> String:
 
 
 func spawn_phase_one() -> void:
-	jahy_hp = 6
+	jahy_hp = 3
 	order_index = 0
 	enemy_spawn_order = phase_one_enemy_order
 	enemy_order_size = enemy_spawn_order.size()
