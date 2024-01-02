@@ -34,10 +34,10 @@ func _on_body_entered(body):
 		$AnimationPlayer.stop()
 		$AnimationPlayer.play("bounce")
 		bounce_count += 1
-
-	if body.is_in_group("boss"):
+	elif body.is_in_group("boss"):
 		if bounce_count >= 3:
 			# hit boss
+			turn_off_all_collision()
 			$AnimationPlayer.play("explode")
 			body.play_hurt()
 		else:
@@ -46,6 +46,9 @@ func _on_body_entered(body):
 			turn_on_normal_collision()
 			$AnimationPlayer.stop()
 			$AnimationPlayer.play("bounce")
+	else:
+		$AnimationPlayer.play("ground_hit")
+
 
 	# if body.is_in_group("ground"):
 	# 	apply_central_impulse(Vector2(-1500, 0))

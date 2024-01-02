@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://datsw5tep7rie"]
+[gd_scene load_steps=13 format=3 uid="uid://datsw5tep7rie"]
 
 [ext_resource type="Script" path="res://scripts/magic_circle.gd" id="1_3tube"]
 [ext_resource type="Texture2D" uid="uid://cf8uvkjpc5ehj" path="res://media/sprites/jahy/magic_circle.png" id="1_mhy0w"]
 [ext_resource type="AudioStream" uid="uid://c0cgrwkxuhd5h" path="res://media/sfx/jahy_boss/explosion_tobbu.wav" id="3_cbgg4"]
 [ext_resource type="AudioStream" uid="uid://d2n3c6601kmfi" path="res://media/sfx/explosion16.wav" id="4_6byi6"]
+[ext_resource type="AudioStream" uid="uid://cfmy0jsu46r50" path="res://media/sfx/jahy_boss/ground_hit.wav" id="5_k0886"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vu1g5"]
 radius = 256.5
@@ -128,11 +129,42 @@ tracks/1/keys = {
 }
 tracks/1/use_blend = true
 
+[sub_resource type="Animation" id="Animation_4i8aw"]
+resource_name = "ground_hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MagicCircle:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 0.509804, 1), Color(0.6, 0.952941, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_k0886")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3rib7"]
 _data = {
 "RESET": SubResource("Animation_jl726"),
 "bounce": SubResource("Animation_xwclq"),
 "explode": SubResource("Animation_568mo"),
+"ground_hit": SubResource("Animation_4i8aw"),
 "intro": SubResource("Animation_o1pcq")
 }
 

@@ -593,7 +593,7 @@ position = Vector2(1920, 920)
 position = Vector2(1792, 384)
 
 [node name="MagicCircleSpawnPos" type="Marker2D" parent="Markers"]
-position = Vector2(1792, 384)
+position = Vector2(2160, 384)
 
 [node name="BackgroundDim" type="ColorRect" parent="."]
 anchors_preset = 15
