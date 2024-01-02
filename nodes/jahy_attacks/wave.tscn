@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/wave.gd" id="1_jf2ev"]
 [ext_resource type="Texture2D" uid="uid://b44ecvpgyq11f" path="res://media/sprites/jahy/wave.png" id="1_vfn2k"]
 [ext_resource type="AudioStream" uid="uid://mn15ccsgo6d6" path="res://media/sfx/star02.wav" id="3_blxc2"]
-[ext_resource type="AudioStream" uid="uid://b7oxomltour71" path="res://media/sfx/missileBlock01.wav" id="3_lb2nu"]
+[ext_resource type="AudioStream" uid="uid://mf4a53rby0e4" path="res://media/sfx/jahy_boss/explosion_1.wav" id="4_jevtl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5ph0"]
 size = Vector2(176, 384)
@@ -60,14 +60,14 @@ tracks/0/keys = {
 tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/path = NodePath("AudioStreamPlayerBigBus")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("3_lb2nu")
+"stream": ExtResource("4_jevtl")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -113,6 +113,9 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayerBigBus" type="AudioStreamPlayer" parent="."]
+bus = &"BigBus"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
