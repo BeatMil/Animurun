@@ -34,8 +34,7 @@ var phase_transition_helper = false
 # Phases
 var tutorial_phase_enemy_order: Array = [spawn_slime, spawn_bomby]
 var phase_one_enemy_order: Array = [spawn_parry_dodge_chain, spawn_two_slime, spawn_spike]
-# var phase_two_enemy_order: Array = [spawn_tank_left_side_spike, spawn_triple_slime, spawn_triple_slime_fake, spawn_spike_storm]
-var phase_two_enemy_order: Array = [spawn_triple_slime_fake]
+var phase_two_enemy_order: Array = [spawn_tank_left_side_spike, spawn_triple_slime, spawn_triple_slime_fake, spawn_spike_storm]
 var phase_three_enemy_order: Array = [spawn_spike_slime_jump_parry, spawn_waterfall, spawn_tank_storm]
 
 
