@@ -20,6 +20,7 @@ config/icon="res://media/animu_run_icon.png"
 [autoload]
 
 Config="*res://scripts/config.gd"
+SceneTransition="*res://nodes/scene_transition.tscn"
 
 [display]
 
