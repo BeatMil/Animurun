@@ -16,6 +16,7 @@ var AFURE_GAZAR = preload("res://nodes/afure_gazar.tscn")
 var WAVE = preload("res://nodes/jahy_attacks/wave.tscn")
 var WAVE_DODGABLE = preload("res://nodes/jahy_attacks/wave_dodgable.tscn")
 var MAGIC_CIRCLE = preload("res://nodes/jahy_attacks/magic_circle.tscn")
+var SLIME = preload("res://nodes/slime.tscn")
 
 
 
@@ -34,10 +35,9 @@ var rng = RandomNumberGenerator.new()
 
 
 # Phases
-# var phase_one_enemy_order: Array = [spawn_afure_gazar_faint_random]
 var phase_one_enemy_order: Array = [spawn_waves, spawn_afure_gazar, spawn_magic_circle]
 var phase_two_enemy_order: Array = [spawn_waves_faster, spawn_magic_circle_faster, spawn_afure_gazar_faint_random]
-var phase_three_enemy_order: Array = []
+var phase_three_enemy_order: Array = [spawn_boom_slime_hand]
 
 
 func _ready() -> void:
@@ -247,6 +247,19 @@ func spawn_magic_circle_faster() -> void:
 
 	jahy.play_attack3()
 	add_child(magic)
+
+
+func spawn_boom_slime_hand() -> void:
+	var slime = SLIME.instantiate()
+	slime.is_boom_slime = true
+	slime.connect("ded", spawner)
+	slime.position = $"Markers/EnemySpawnPos2".position
+
+	jahy.play_attack()
+	await get_tree().create_timer(0.2, false).timeout
+
+	add_child(slime)
+	slime.throw_slime(Vector2(-3000, -1200))
 
 
 func smol_shake() -> void:

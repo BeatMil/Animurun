@@ -4,6 +4,7 @@ extends RigidBody2D
 var is_angry = false
 var HIT_SPARK = preload("res://nodes/particles/hit_spark.tscn")
 var SWORD = preload("res://nodes/sword.tscn")
+var SLIME = preload("res://nodes/slime.tscn")
 
 
 var rng = RandomNumberGenerator.new()
@@ -77,7 +78,7 @@ func _on_body_entered(body):
 
 		$AnimationPlayer.stop()
 		$AnimationPlayer.play("hurt")
-		$"..".kisaki_hp -= 1
+		$"..".jahy_hp -= 1
 
 		if body.is_boom_slime: # hit by chiichan super_hit
 			$AnimationPlayer.queue("explode")
