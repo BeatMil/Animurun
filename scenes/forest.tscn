@@ -1,22 +1,23 @@
 [gd_scene load_steps=45 format=3 uid="uid://sa8iqc45gidu"]
 
 [ext_resource type="Script" path="res://scripts/forest.gd" id="1_trs0b"]
-[ext_resource type="Texture2D" uid="uid://dqfu7s6tc6jbc" path="res://media/sprites/kaisouko_look.png" id="2_b416e"]
+[ext_resource type="Texture2D" uid="uid://bnh2lv34nivku" path="res://media/sprites/kaisouko_look.png" id="2_b416e"]
 [ext_resource type="Script" path="res://scripts/parallax_controller.gd" id="3_6vke0"]
-[ext_resource type="Texture2D" uid="uid://dfdkael0w7crn" path="res://media/sprites/clouds.png" id="3_6vtol"]
+[ext_resource type="Texture2D" uid="uid://c5p1a8sbq4oeu" path="res://media/sprites/clouds.png" id="3_6vtol"]
 [ext_resource type="Script" path="res://scripts/parallax_layer_auto.gd" id="3_qw77j"]
-[ext_resource type="Texture2D" uid="uid://c27d22taypjc3" path="res://media/sprites/mountain.png" id="4_oa7ea"]
-[ext_resource type="Texture2D" uid="uid://c4lolkux0suj3" path="res://media/sprites/ground.png" id="5_rf2wy"]
+[ext_resource type="Texture2D" uid="uid://bwjdojfiq7as4" path="res://media/sprites/mountain.png" id="4_oa7ea"]
+[ext_resource type="Texture2D" uid="uid://loah2i22waew" path="res://media/sprites/ground.png" id="5_rf2wy"]
 [ext_resource type="Script" path="res://scripts/background_dim.gd" id="8_qtgtl"]
 [ext_resource type="PackedScene" uid="uid://chuy481yt3hbu" path="res://nodes/chiichan.tscn" id="9_b0iuo"]
-[ext_resource type="AudioStream" uid="uid://cog4iukhcmvri" path="res://media/sfx/block02.wav" id="12_dybn8"]
+[ext_resource type="Script" path="res://scripts/ded_wall.gd" id="11_u5n0d"]
+[ext_resource type="AudioStream" uid="uid://bdw0x0mhge1yb" path="res://media/sfx/block02.wav" id="12_dybn8"]
 [ext_resource type="Script" path="res://scripts/wall.gd" id="22_e3h8j"]
-[ext_resource type="AudioStream" uid="uid://de0x7vklictcu" path="res://media/sfx/dedExplosion.wav" id="23_gl0fv"]
+[ext_resource type="AudioStream" uid="uid://3day7q25cqtg" path="res://media/sfx/dedExplosion.wav" id="23_gl0fv"]
 [ext_resource type="PackedScene" uid="uid://d1h4ur6yhpscs" path="res://scenes/ded_menu.tscn" id="24_3kuhs"]
 [ext_resource type="PackedScene" uid="uid://c1vlse56bmgi3" path="res://scenes/pause_menu.tscn" id="25_pyk6c"]
 [ext_resource type="PackedScene" uid="uid://ro6ueq5n41wr" path="res://nodes/taiga.tscn" id="26_et4pp"]
-[ext_resource type="AudioStream" uid="uid://52ybmpwnsar5" path="res://media/ost/trap_adventure_water.wav" id="46_cde3r"]
-[ext_resource type="Texture2D" uid="uid://bd1bpsg66ny8l" path="res://media/sprites/vol_boss/vol_boss_steal_big_sword.png" id="49_u81l4"]
+[ext_resource type="AudioStream" uid="uid://dfpv4gskcker6" path="res://media/ost/trap_adventure_water.wav" id="46_cde3r"]
+[ext_resource type="Texture2D" uid="uid://cvdm6di7dint4" path="res://media/sprites/vol_boss/vol_boss_steal_big_sword.png" id="49_u81l4"]
 [ext_resource type="Script" path="res://scripts/VolBossStealBigSword.gd" id="50_txsu2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vax0k"]
@@ -109,24 +110,6 @@ volumetric_fog_anisotropy = 0.33
 volumetric_fog_length = 80.71
 volumetric_fog_detail_spread = 0.615572
 volumetric_fog_ambient_inject = 0.52
-
-[sub_resource type="GDScript" id="GDScript_8pq36"]
-script/source = "extends Node
-
-
-func _ready():
-	pass # Replace with function body.
-
-
-func _on_ded_wall_area_2d_body_entered(body):
-	if body.is_in_group(\"chiichan\"):
-		# play ded particle and animation
-		$\"AnimationPlayer\".play(\"ded_sfx\")
-		$\"%CameraPlayer\".play(\"shake\")
-
-		if body.is_alive:
-			body.ded() # chiichan is ded
-"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppum3"]
 size = Vector2(40, 1768)
@@ -530,7 +513,7 @@ position = Vector2(1969, 629)
 environment = SubResource("Environment_3nkag")
 
 [node name="DedWalls" type="Node" parent="."]
-script = SubResource("GDScript_8pq36")
+script = ExtResource("11_u5n0d")
 
 [node name="Wall" type="Area2D" parent="DedWalls"]
 position = Vector2(2214, 24)

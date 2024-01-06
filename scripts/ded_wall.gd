@@ -7,5 +7,8 @@ func _on_ded_wall_area_2d_body_entered(body):
 		$"AnimationPlayer".play("ded_sfx")
 		$"%CameraPlayer".play("shake")
 
+		# stop spawning attacks
+		$"..".enemy_spawn_order.clear() 
+
 		if body.is_alive:
 			body.ded() # chiichan is ded

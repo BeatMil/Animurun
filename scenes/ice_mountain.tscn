@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://chuy481yt3hbu" path="res://nodes/chiichan.tscn" id="9_lvtyw"]
 [ext_resource type="Script" path="res://scripts/wall.gd" id="10_ywg1f"]
 [ext_resource type="AudioStream" uid="uid://3day7q25cqtg" path="res://media/sfx/dedExplosion.wav" id="11_4egow"]
+[ext_resource type="Script" path="res://scripts/ded_wall.gd" id="11_08cax"]
 [ext_resource type="Texture2D" uid="uid://bkibl8v4jlx0r" path="res://media/sprites/jahy/jahy_steal_sword.png" id="12_msduj"]
 [ext_resource type="Script" path="res://scripts/VolBossStealBigSword.gd" id="13_lvgff"]
 [ext_resource type="AudioStream" uid="uid://bdw0x0mhge1yb" path="res://media/sfx/block02.wav" id="14_udu3n"]
@@ -205,24 +206,6 @@ _data = {
 "smol_shake_3": SubResource("Animation_3iwx3"),
 "super_hit_zoom": SubResource("Animation_gff3c")
 }
-
-[sub_resource type="GDScript" id="GDScript_gng0h"]
-script/source = "extends Node
-
-
-func _ready():
-	pass # Replace with function body.
-
-
-func _on_ded_wall_area_2d_body_entered(body):
-	if body.is_in_group(\"chiichan\"):
-		# play ded particle and animation
-		$\"AnimationPlayer\".play(\"ded_sfx\")
-		$\"%CameraPlayer\".play(\"shake\")
-
-		if body.is_alive:
-			body.ded() # chiichan is ded
-"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pno1e"]
 size = Vector2(40, 1768)
@@ -524,7 +507,7 @@ libraries = {
 position = Vector2(1996, 651)
 
 [node name="DedWalls" type="Node" parent="."]
-script = SubResource("GDScript_gng0h")
+script = ExtResource("11_08cax")
 
 [node name="Wall" type="Area2D" parent="DedWalls" node_paths=PackedStringArray("boss")]
 position = Vector2(2214, 24)
