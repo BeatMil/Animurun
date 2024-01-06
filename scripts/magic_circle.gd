@@ -6,6 +6,7 @@ signal ded
 
 # Configs
 var speed: Vector2 = Vector2(-2500, 0)
+var is_faster = false
 var bounce_count = 0
 
 
@@ -29,7 +30,10 @@ func go() -> void:
 func _on_body_entered(body):
 	if body.is_in_group("chiichan"):
 		body.push(Vector2(-9000, -1900))
-		apply_central_impulse(Vector2(3000, -300))
+		if is_faster:
+			apply_central_impulse(Vector2(5000, -300))
+		else:
+			apply_central_impulse(Vector2(3000, -300))
 		turn_hit_boss_collision()
 		$AnimationPlayer.stop()
 		$AnimationPlayer.play("bounce")
@@ -42,7 +46,10 @@ func _on_body_entered(body):
 			body.play_hurt()
 		else:
 			body.play_attack3()
-			apply_central_impulse(Vector2(-3000, 0))
+			if is_faster:
+				apply_central_impulse(Vector2(-5000, 0))
+			else:
+				apply_central_impulse(Vector2(-3000, 0))
 			turn_on_normal_collision()
 			$AnimationPlayer.stop()
 			$AnimationPlayer.play("bounce")

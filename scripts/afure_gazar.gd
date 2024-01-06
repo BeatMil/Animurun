@@ -7,6 +7,15 @@ signal ded
 # Preloads
 var HIT_SPARK = preload("res://nodes/particles/hit_spark.tscn")
 
+var is_faint = false
+
+
+func _ready() -> void:
+	if is_faint:
+		$AnimationPlayer.play("intro_faint")
+	else:
+		$AnimationPlayer.play("intro")
+
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("chiichan"):

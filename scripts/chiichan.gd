@@ -155,7 +155,7 @@ func spawn_super_hit_hitbox_hand(): # used by AnimationPlayer
 	$"..".add_child(hitbox)
 
 
-func push(power: Vector2):
+func push(power: Vector2): # determine if chiichan get push or parry
 	power = (pushback_multiplier * power) + power
 	if state in [States.PARRY]:
 		anim_player.play("parry_success")

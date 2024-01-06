@@ -34,9 +34,9 @@ var rng = RandomNumberGenerator.new()
 
 
 # Phases
-# var phase_one_enemy_order: Array = [spawn_magic_circle]
+# var phase_one_enemy_order: Array = [spawn_afure_gazar_faint_random]
 var phase_one_enemy_order: Array = [spawn_waves, spawn_afure_gazar, spawn_magic_circle]
-var phase_two_enemy_order: Array = []
+var phase_two_enemy_order: Array = [spawn_waves_faster, spawn_magic_circle_faster, spawn_afure_gazar_faint_random]
 var phase_three_enemy_order: Array = []
 
 
@@ -137,6 +137,21 @@ func spawn_afure_gazar() -> void:
 	add_child(afure_gazar)
 
 
+func spawn_afure_gazar_faint_random() -> void:
+	var afure_gazar = AFURE_GAZAR.instantiate()
+	afure_gazar.position = $"Markers/AfureGazarSpawnPos".position
+	afure_gazar.set_z_index(-6)
+	afure_gazar.connect("ded", spawner)
+
+	if rng.randi_range(0, 1) >= 1:
+		afure_gazar.is_faint = true
+	else:
+		afure_gazar.is_faint = false
+
+	jahy.play_attack2()
+	add_child(afure_gazar)
+
+
 func spawn_wave() -> void:
 	var wave = WAVE.instantiate()
 	wave.position = $"Markers/WaveSpawnPos".position
@@ -185,10 +200,50 @@ func spawn_waves() -> void:
 		await get_tree().create_timer(0.6, false).timeout
 
 
+func spawn_waves_faster() -> void:
+	var wave = WAVE.instantiate()
+	var wave2 = WAVE.instantiate()
+	var wave3 = WAVE.instantiate()
+	var wave4 = WAVE.instantiate()
+	wave.position = $"Markers/WaveSpawnPos".position
+	wave2.position = $"Markers/WaveSpawnPos".position
+	wave3.position = $"Markers/WaveSpawnPos".position
+	wave4.position = $"Markers/WaveSpawnPos".position
+
+	var wave_d = WAVE_DODGABLE.instantiate()
+	var wave_d2 = WAVE_DODGABLE.instantiate()
+	var wave_d3 = WAVE_DODGABLE.instantiate()
+	var wave_d4 = WAVE_DODGABLE.instantiate()
+	wave_d.position = $"Markers/WaveSpawnPos".position
+	wave_d2.position = $"Markers/WaveSpawnPos".position
+	wave_d3.position = $"Markers/WaveSpawnPos".position
+	wave_d4.position = $"Markers/WaveSpawnPos".position
+
+	var waves = [wave, wave2, wave3, wave4, wave_d, wave_d2, wave_d3, wave_d4]
+	waves.shuffle()
+
+	for i in range(4):
+		jahy.play_attack3()
+		if i == 3:
+			waves[i].connect("ded", spawner)
+		add_child(waves[i])
+		await get_tree().create_timer(0.5, false).timeout
+
+
 func spawn_magic_circle() -> void:
 	var magic = MAGIC_CIRCLE.instantiate()
 	magic.position = $"Markers/MagicCircleSpawnPos".position
 	magic.connect("ded", spawner)
+
+	jahy.play_attack3()
+	add_child(magic)
+
+
+func spawn_magic_circle_faster() -> void:
+	var magic = MAGIC_CIRCLE.instantiate()
+	magic.position = $"Markers/MagicCircleSpawnPos".position
+	magic.connect("ded", spawner)
+	magic.is_faster = true
 
 	jahy.play_attack3()
 	add_child(magic)
