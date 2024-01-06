@@ -613,3 +613,8 @@ func _on_spawn_timer_timeout():
 
 func get_stage_path() -> String:
 	return "res://scenes/forest.tscn"
+
+
+func go_to_next_stage():
+	SceneTransition.change_scene("res://scenes/volcano.tscn")
+	Config.checkpoint = -1

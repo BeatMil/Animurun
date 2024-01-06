@@ -351,6 +351,8 @@ func _on_animation_player_animation_finished(anim_name):
 		state = States.RUNNING
 	elif anim_name == "stage1_clear":
 		$"../BossStealBigSword".play_steal_sword()
+	elif anim_name == "stage1_clear_b":
+		$"..".go_to_next_stage()
 
 
 func _on_animation_player_animation_started(anim_name):

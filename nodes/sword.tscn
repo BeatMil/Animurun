@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://nk0cp1c4uch8"]
 
-[ext_resource type="Texture2D" uid="uid://do6otdpim0hby" path="res://media/sprites/chiichan/sword.png" id="1_pcl08"]
+[ext_resource type="Texture2D" uid="uid://cgrj1u00wjkxp" path="res://media/sprites/chiichan/sword.png" id="1_pcl08"]
 [ext_resource type="Script" path="res://scripts/sword.gd" id="2_s6wcc"]
 
 [sub_resource type="Animation" id="Animation_clsxv"]

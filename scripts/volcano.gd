@@ -188,3 +188,8 @@ func spawn_boom_slime_hand() -> void:
 
 	add_child(slime)
 	slime.throw_slime(Vector2(-3000, -1200))
+
+
+func go_to_next_stage():
+	SceneTransition.change_scene("res://scenes/ice_mountain.tscn")
+	Config.checkpoint = -1

@@ -22,7 +22,7 @@ var SLIME = preload("res://nodes/slime.tscn")
 
 # Configs
 var enemy_spawn_order: Array = []
-var phase_helper = 3 # Use Phases enum
+var phase_helper = 0 # Use Phases enum
 var order_index: int = 0 # spawner helper
 var jahy_hp = 0
 var is_random_spawn = false
@@ -41,7 +41,7 @@ var phase_three_enemy_order: Array = [spawn_boom_slime_hand]
 
 
 func _ready() -> void:
-	phase_helper = $/root/Config.checkpoint
+	phase_helper = Config.checkpoint
 	spawner()
 	print("hp: ", jahy_hp)
 
@@ -111,7 +111,7 @@ func spawn_phase_one() -> void:
 
 
 func spawn_phase_two() -> void:
-	jahy_hp = 6
+	jahy_hp = 3
 	order_index = 0
 	enemy_spawn_order = phase_two_enemy_order
 	enemy_order_size = enemy_spawn_order.size()
