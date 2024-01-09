@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ddr1d01pryqxr" path="res://media/sprites/final_boss/meteo.png" id="4_0r0np"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7vn5"]
-size = Vector2(359, 373)
+size = Vector2(659, 237)
 
 [sub_resource type="Animation" id="Animation_jfkii"]
 length = 0.001
@@ -143,6 +143,20 @@ tracks/2/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.72),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"ded"],
+"method": &"emit_signal"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yhx8y"]
 _data = {
@@ -153,8 +167,8 @@ _data = {
 
 [node name="Meteo" type="RigidBody2D" groups=["enemy"]]
 position = Vector2(328, 136)
-collision_layer = 4
-collision_mask = 3
+collision_layer = 12
+collision_mask = 11
 gravity_scale = 2.0
 max_contacts_reported = 1
 contact_monitor = true
@@ -170,7 +184,8 @@ position = Vector2(6.5, 9.5)
 shape = SubResource("RectangleShape2D_y7vn5")
 
 [node name="MeteoSpritesheet" type="Sprite2D" parent="."]
-scale = Vector2(1.03125, 1.03125)
+position = Vector2(4.00003, 0)
+scale = Vector2(1.51563, 1.03125)
 texture = ExtResource("4_0r0np")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

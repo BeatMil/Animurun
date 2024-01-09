@@ -13,6 +13,7 @@ enum Phases {
 
 # Preloads
 var METEO = preload("res://nodes/final_boss/meteo.tscn")
+var TELEGRAPH = preload("res://nodes/telegraph_meteo.tscn")
 var SLIME = preload("res://nodes/slime.tscn")
 
 
@@ -126,12 +127,61 @@ func spawn_phase_three() -> void:
 ### Enemy Patterns
 ### Starts
 func spawn_meteo() -> void:
+	var spawn_pos = [
+		$"Markers/MeteoSpawnPos1".position,
+		$"Markers/MeteoSpawnPos2".position,
+		$"Markers/MeteoSpawnPos3".position,
+		$"Markers/MeteoSpawnPos4".position,
+		]
+	spawn_pos.shuffle()
+
 	var meteo = METEO.instantiate()
-	meteo.position = $"Markers/MeteoSpawnPos1".position
-	meteo.connect("ded", spawner)
+	meteo.position = spawn_pos[0]
+	var telegraph = TELEGRAPH.instantiate()
+	telegraph.position = spawn_pos.pop_front()
+
+	var meteo2 = METEO.instantiate()
+	meteo2.position = spawn_pos[0]
+	var telegraph2 = TELEGRAPH.instantiate()
+	telegraph2.position = spawn_pos.pop_front()
+
+	var meteo3 = METEO.instantiate()
+	meteo3.position = spawn_pos[0]
+	var telegraph3 = TELEGRAPH.instantiate()
+	telegraph3.position = spawn_pos.pop_front()
+
+	var meteo4 = METEO.instantiate()
+	meteo4.position = spawn_pos[0]
+	var telegraph4 = TELEGRAPH.instantiate()
+	telegraph4.position = spawn_pos.pop_front()
+	meteo4.connect("ded", spawner)
+
 
 	kaisouko.play_attack()
+
+	# first meteo
+	add_child(telegraph)
+	await get_tree().create_timer(0.5, false).timeout
 	add_child(meteo)
+	await get_tree().create_timer(0.5, false).timeout
+
+	# second meteo
+	add_child(telegraph2)
+	await get_tree().create_timer(0.5, false).timeout
+	add_child(meteo2)
+	await get_tree().create_timer(0.5, false).timeout
+
+	# third meteo
+	add_child(telegraph3)
+	await get_tree().create_timer(0.5, false).timeout
+	add_child(meteo3)
+	await get_tree().create_timer(0.5, false).timeout
+
+	# fourth meteo
+	add_child(telegraph4)
+	await get_tree().create_timer(0.5, false).timeout
+	add_child(meteo4)
+	await get_tree().create_timer(0.5, false).timeout
 
 
 func spawn_boom_slime_hand() -> void:

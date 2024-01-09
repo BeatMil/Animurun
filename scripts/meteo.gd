@@ -16,6 +16,11 @@ func spawn_hit_spark() -> void: # Used by $AnimationPlayer.play 'explode'
 	add_child(hitbox)
 
 
+func turn_off_all_collision():
+	collision_layer = 0b00000000000000000000
+	collision_mask = 0b00000000000000000000
+
+
 func _on_body_entered(body):
 	if body.is_in_group("chiichan"):
 		# chiichan got pushed away
@@ -23,3 +28,4 @@ func _on_body_entered(body):
 		body.push(Vector2(-9000, -1900))
 
 	$AnimationPlayer.play("explode")
+	turn_off_all_collision()

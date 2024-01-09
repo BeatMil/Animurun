@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=3 uid="uid://h28w0tx16hke"]
+
+[ext_resource type="AudioStream" uid="uid://c4eboqh1bww4j" path="res://media/sfx/charge01.wav" id="1_lgisx"]
+[ext_resource type="Script" path="res://scripts/telegraph_meteo.gd" id="1_x5o7y"]
+
+[sub_resource type="Animation" id="Animation_okr0f"]
+resource_name = "intro"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.870588, 0.368627, 0.305882, 0), Color(0.870588, 0.368627, 0.305882, 0.607843), Color(0.870588, 0.368627, 0.305882, 0.607843), Color(0.870588, 0.368627, 0.305882, 0)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_lgisx")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_eew3e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.870588, 0.368627, 0.305882, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h4km8"]
+_data = {
+"RESET": SubResource("Animation_eew3e"),
+"intro": SubResource("Animation_okr0f")
+}
+
+[node name="Polygon2D" type="Polygon2D"]
+color = Color(0.870588, 0.368627, 0.305882, 0)
+polygon = PackedVector2Array(-264, -264, 248, -264, 248, 1400, -264, 1400)
+script = ExtResource("1_x5o7y")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "intro"
+libraries = {
+"": SubResource("AnimationLibrary_h4km8")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://drhtm78bhr06e"]
 
 [ext_resource type="Script" path="res://scripts/waterfall.gd" id="1_60gck"]
-[ext_resource type="AudioStream" uid="uid://0ns5ho0vuynk" path="res://media/sfx/charge01.wav" id="2_n7y2t"]
-[ext_resource type="AudioStream" uid="uid://dw57ybqfn6ruf" path="res://media/sfx/waterfall.wav" id="3_oq4eo"]
+[ext_resource type="AudioStream" uid="uid://c4eboqh1bww4j" path="res://media/sfx/charge01.wav" id="2_n7y2t"]
+[ext_resource type="AudioStream" uid="uid://i30gw2pdkonc" path="res://media/sfx/waterfall.wav" id="3_oq4eo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_enqlx"]
 size = Vector2(704, 1280)
