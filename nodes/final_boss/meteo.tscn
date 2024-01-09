@@ -1,0 +1,184 @@
+[gd_scene load_steps=10 format=3 uid="uid://csrq11rtlq8b6"]
+
+[ext_resource type="Script" path="res://scripts/meteo.gd" id="1_7bodl"]
+[ext_resource type="AudioStream" uid="uid://bty6ewm0fln5b" path="res://media/sprites/final_boss/meteo_hit_ground.wav" id="3_gs40t"]
+[ext_resource type="AudioStream" uid="uid://dglweck4md1gg" path="res://media/sprites/final_boss/meteo_long.wav" id="3_vblrw"]
+[ext_resource type="Texture2D" uid="uid://ddr1d01pryqxr" path="res://media/sprites/final_boss/meteo.png" id="4_0r0np"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7vn5"]
+size = Vector2(359, 373)
+
+[sub_resource type="Animation" id="Animation_jfkii"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeteoSpritesheet:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeteoSpritesheet:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_q5iy4"]
+resource_name = "idle"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeteoSpritesheet:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeteoSpritesheet:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeteoSpritesheet:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_vblrw")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
+
+[sub_resource type="Animation" id="Animation_g1s6m"]
+resource_name = "explode"
+step = 0.01
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_gs40t")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeteoSpritesheet:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.02, 0.73),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"spawn_hit_spark"
+}, {
+"args": [],
+"method": &"spawn_hit_spark"
+}, {
+"args": [],
+"method": &"spawn_hit_spark"
+}, {
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yhx8y"]
+_data = {
+"RESET": SubResource("Animation_jfkii"),
+"explode": SubResource("Animation_g1s6m"),
+"idle": SubResource("Animation_q5iy4")
+}
+
+[node name="Meteo" type="RigidBody2D" groups=["enemy"]]
+position = Vector2(328, 136)
+collision_layer = 4
+collision_mask = 3
+gravity_scale = 2.0
+max_contacts_reported = 1
+contact_monitor = true
+freeze_mode = 1
+script = ExtResource("1_7bodl")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(7.5, 2.5)
+scale = Vector2(8.85, 9.25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6.5, 9.5)
+shape = SubResource("RectangleShape2D_y7vn5")
+
+[node name="MeteoSpritesheet" type="Sprite2D" parent="."]
+scale = Vector2(1.03125, 1.03125)
+texture = ExtResource("4_0r0np")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_yhx8y")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
