@@ -29,3 +29,4 @@ func _on_body_entered(body):
 
 	$AnimationPlayer.play("explode")
 	turn_off_all_collision()
+	$"..".smol_shake()
