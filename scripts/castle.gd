@@ -14,6 +14,7 @@ enum Phases {
 # Preloads
 var METEO = preload("res://nodes/final_boss/meteo.tscn")
 var TELEGRAPH = preload("res://nodes/telegraph_meteo.tscn")
+var LASER = preload("res://nodes/final_boss/laser.tscn")
 var SLIME = preload("res://nodes/slime.tscn")
 
 
@@ -32,7 +33,7 @@ var rng = RandomNumberGenerator.new()
 
 
 # Phases
-var phase_one_enemy_order: Array = [spawn_meteo]
+var phase_one_enemy_order: Array = [spawn_laser]
 var phase_two_enemy_order: Array = []
 var phase_three_enemy_order: Array = []
 
@@ -184,17 +185,14 @@ func spawn_meteo() -> void:
 	await get_tree().create_timer(0.5, false).timeout
 
 
-func spawn_boom_slime_hand() -> void:
-	var slime = SLIME.instantiate()
-	slime.is_boom_slime = true
-	slime.connect("ded", spawner)
-	slime.position = $"Markers/EnemySpawnPos2".position
+func spawn_laser() -> void:
+	var laser = LASER.instantiate()
+	laser.position = $"Markers/LaserSpawnPos".position
+	laser.connect("ded", spawner)
 
 	kaisouko.play_attack()
-	await get_tree().create_timer(0.2, false).timeout
 
-	add_child(slime)
-	slime.throw_slime(Vector2(-3000, -1200))
+	add_child(laser)
 
 
 func smol_shake() -> void:

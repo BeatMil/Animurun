@@ -666,6 +666,9 @@ position = Vector2(1288, -448)
 [node name="MeteoSpawnPos4" type="Marker2D" parent="Markers"]
 position = Vector2(1856, -448)
 
+[node name="LaserSpawnPos" type="Marker2D" parent="Markers"]
+position = Vector2(1696, 256)
+
 [node name="BackgroundDim" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0

@@ -1,0 +1,175 @@
+[gd_scene load_steps=8 format=3 uid="uid://cd4mg7eyiela8"]
+
+[ext_resource type="Script" path="res://scripts/Laser.gd" id="1_d1v2b"]
+[ext_resource type="AudioStream" uid="uid://dulyq0n5qrgh6" path="res://media/sprites/final_boss/laser_start02.wav" id="2_kiyti"]
+[ext_resource type="AudioStream" uid="uid://b8hl0u0vd3gcj" path="res://media/sprites/final_boss/laser_slide.wav" id="3_ic0vb"]
+
+[sub_resource type="Animation" id="Animation_t5i1s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:polygon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array(4.36926, -1.52588e-05, -326.839, 816, 297.065, 816, 196.932, -1.52588e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.333333, 0.258824, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D/CollisionShape2D:shape:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(189.861, 33)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Area2D/CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(96.7996, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_etghw"]
+resource_name = "laser"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:polygon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.9, 1.4, 2.1),
+"transitions": PackedFloat32Array(1, 1, 2, 0.5, 1),
+"update": 0,
+"values": [PackedVector2Array(4.36926, -1.52588e-05, 4.36926, 32, 196.932, 32, 196.932, -1.52588e-05), PackedVector2Array(4.36926, -1.52588e-05, -331.209, 664, 292.696, 664, 196.932, -1.52588e-05), PackedVector2Array(4.36926, -1.52588e-05, -331.209, 664, 292.696, 664, 196.932, -1.52588e-05), PackedVector2Array(4.36926, -1.52588e-05, -1756.18, 664, -1270.92, 664, 196.932, -1.52588e-05), PackedVector2Array(4.36926, -1.52588e-05, -2522.06, -1.52588e-05, -2514.36, 96, 196.932, -1.52588e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.1, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.333333, 0.258824, 1), Color(1, 0.333333, 0.258824, 0)]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_kiyti")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_ic0vb")
+}],
+"times": PackedFloat32Array(0, 0.9)
+}
+tracks/2/use_blend = true
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_signal_ded_and_queue_free"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Area2D/CollisionShape2D:shape:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.9, 1, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(189.861, 33), Vector2(374.721, 665), Vector2(374.721, 665), Vector2(433.842, 164.5), Vector2(433.842, 164.5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Area2D/CollisionShape2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.9, 1, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(96.7996, 16), Vector2(58.2869, 336), Vector2(58.2869, 336), Vector2(-34.1434, 584), Vector2(-2183.15, 544)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5oh3u"]
+_data = {
+"RESET": SubResource("Animation_t5i1s"),
+"laser": SubResource("Animation_etghw")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxos4"]
+size = Vector2(189.861, 33)
+
+[node name="Laser" type="Polygon2D"]
+position = Vector2(-4.538, 1.52588e-05)
+scale = Vector2(1.03862, 1)
+color = Color(1, 0.333333, 0.258824, 1)
+polygon = PackedVector2Array(4.36926, -1.52588e-05, -326.839, 816, 297.065, 816, 196.932, -1.52588e-05)
+script = ExtResource("1_d1v2b")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "laser"
+libraries = {
+"": SubResource("AnimationLibrary_5oh3u")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 9
+collision_mask = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(96.7996, 16)
+shape = SubResource("RectangleShape2D_pxos4")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
