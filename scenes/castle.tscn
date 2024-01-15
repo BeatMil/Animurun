@@ -727,6 +727,7 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
 
+[connection signal="animation_finished" from="ParallaxBackground/ParallaxLayer4/FinalBoss/AnimationPlayer" to="ParallaxBackground/ParallaxLayer4/FinalBoss" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="DedWalls/Wall" to="DedWalls/Wall" method="_on_body_entered"]
 [connection signal="body_entered" from="DedWalls/DedWallArea2D" to="DedWalls" method="_on_ded_wall_area_2d_body_entered"]
 [connection signal="animation_finished" from="BossStealBigSword/AnimationPlayer" to="BossStealBigSword" method="_on_animation_player_animation_finished"]
