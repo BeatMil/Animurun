@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://yf3y3xahvd63"]
+[gd_scene load_steps=51 format=3 uid="uid://yf3y3xahvd63"]
 
 [ext_resource type="Script" path="res://scripts/castle.gd" id="1_thnrg"]
 [ext_resource type="Script" path="res://scripts/parallax_controller.gd" id="2_655ho"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://scripts/VolBossStealBigSword.gd" id="15_nkjje"]
 [ext_resource type="AudioStream" uid="uid://bdw0x0mhge1yb" path="res://media/sfx/block02.wav" id="16_2y3f7"]
 [ext_resource type="Script" path="res://scripts/background_dim.gd" id="17_fbhai"]
+[ext_resource type="AudioStream" uid="uid://e00h4d63fvks" path="res://media/sprites/final_boss/strong_wind_high.mp3" id="21_64fhm"]
 
 [sub_resource type="Environment" id="Environment_0glhb"]
 background_mode = 3
@@ -493,6 +494,30 @@ _data = {
 "undim": SubResource("Animation_lsb2t")
 }
 
+[sub_resource type="Animation" id="Animation_n48m6"]
+resource_name = "strong_wind"
+length = 20.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 10.5642,
+"stream": ExtResource("21_64fhm")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n5gxw"]
+_data = {
+"strong_wind": SubResource("Animation_n48m6")
+}
+
 [node name="Castle" type="Node"]
 script = ExtResource("1_thnrg")
 
@@ -519,11 +544,13 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ParallaxBackground/ParallaxLayer4/FinalBoss"]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxClouds" type="ParallaxLayer" parent="ParallaxBackground"]
+unique_name_in_owner = true
 motion_mirroring = Vector2(1920, 0)
 script = ExtResource("3_3asvs")
+SPEED = -300
 
-[node name="Clouds" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+[node name="Clouds" type="Sprite2D" parent="ParallaxBackground/ParallaxClouds"]
 modulate = Color(0.270588, 0.294118, 0.231373, 1)
 position = Vector2(1252, 540)
 scale = Vector2(1.30417, 1)
@@ -669,6 +696,9 @@ position = Vector2(1856, -448)
 [node name="LaserSpawnPos" type="Marker2D" parent="Markers"]
 position = Vector2(1696, 256)
 
+[node name="EnemySpawnPos" type="Marker2D" parent="Markers"]
+position = Vector2(2400, 837)
+
 [node name="BackgroundDim" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
@@ -688,6 +718,14 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_io1ub")
 }
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("AudioStreamPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_n5gxw")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
 
 [connection signal="body_entered" from="DedWalls/Wall" to="DedWalls/Wall" method="_on_body_entered"]
 [connection signal="body_entered" from="DedWalls/DedWallArea2D" to="DedWalls" method="_on_ded_wall_area_2d_body_entered"]

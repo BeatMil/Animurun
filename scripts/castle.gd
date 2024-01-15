@@ -16,6 +16,7 @@ var METEO = preload("res://nodes/final_boss/meteo.tscn")
 var TELEGRAPH = preload("res://nodes/telegraph_meteo.tscn")
 var LASER = preload("res://nodes/final_boss/laser.tscn")
 var SLIME = preload("res://nodes/slime.tscn")
+var BOMBY = preload("res://nodes/bomby.tscn")
 
 
 # Configs
@@ -33,7 +34,7 @@ var rng = RandomNumberGenerator.new()
 
 
 # Phases
-var phase_one_enemy_order: Array = [spawn_laser]
+var phase_one_enemy_order: Array = [spawn_strong_wind, spawn_meteo, spawn_laser]
 var phase_two_enemy_order: Array = []
 var phase_three_enemy_order: Array = []
 
@@ -104,7 +105,7 @@ func get_stage_path() -> String:
 
 
 func spawn_phase_one() -> void:
-	kaisouko_hp = 3
+	kaisouko_hp = 6
 	order_index = 0
 	enemy_spawn_order = phase_one_enemy_order
 	enemy_order_size = enemy_spawn_order.size()
@@ -193,6 +194,55 @@ func spawn_laser() -> void:
 	kaisouko.play_attack()
 
 	add_child(laser)
+
+
+func spawn_strong_wind() -> void:
+	# Set up
+	var enemies = [spawn_slime, spawn_slime,spawn_slime,spawn_bomby,spawn_bomby,spawn_bomby]
+	enemies.shuffle()
+	kaisouko.play_attack()
+	$AnimationPlayer.play("strong_wind")
+	%ParallaxClouds.SPEED = -1000
+	$Chiichan.is_strong_wind = true
+
+	await get_tree().create_timer(1, false).timeout
+
+	# Obstacles
+	for i in range(randi_range(3, 5)):
+		enemies[i].call()
+		await get_tree().create_timer(0.5, false).timeout
+	spawn_slime_ded_signal()
+
+
+func spawn_slime() -> void:
+	var slime1 = SLIME.instantiate()
+	slime1.position = $"Markers/EnemySpawnPos".position
+
+	add_child(slime1)
+	slime1.throw_slime(Vector2(-2000, -2000))
+
+
+func spawn_slime_ded_signal() -> void:
+	var slime1 = SLIME.instantiate()
+	slime1.position = $"Markers/EnemySpawnPos".position
+	slime1.connect("ded", spawner)
+
+	add_child(slime1)
+	slime1.throw_slime(Vector2(-2000, -2000))
+
+
+	# turns off wind
+	$AnimationPlayer.stop()
+	%ParallaxClouds.SPEED = -300
+	$Chiichan.is_strong_wind = false
+
+
+func spawn_bomby() -> void:
+	var bomby = BOMBY.instantiate()
+	bomby.position = $"Markers/EnemySpawnPos".position
+
+	bomby.throw_bomb(Vector2(-2000, -2000))
+	add_child(bomby)
 
 
 func smol_shake() -> void:

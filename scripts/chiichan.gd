@@ -27,6 +27,7 @@ var jump_power = 900
 var gravity_power = 30
 var pushback_multiplier = 0.0 # amount of increase pushback
 var is_freezing = false
+var is_strong_wind = false
 var can_jump = true
 
 
@@ -84,6 +85,11 @@ func _physics_process(delta):
 	elif state == States.BLOCKING: # chiichan can slide block
 		lerp_velocity_x()
 	
+	if is_strong_wind:
+		if velocity.x <= (-speed) * delta: # Cap the pushing wind speed
+			pass
+		else:
+			velocity.x += (-speed*0.9) * delta
 
 	# Add gravity and calculate movements
 	gravity()
@@ -119,7 +125,7 @@ func lerp_velocity_x():
 func move_left(delta) ->  void:
 	var calculated_speed = speed
 	if state == States.ATTACKING:
-		calculated_speed = speed / 2
+		calculated_speed = speed * 0.5
 	elif state == States.DODGING:
 		calculated_speed = speed * 1.5
 	velocity = Vector2(-calculated_speed * delta, velocity.y)
@@ -128,7 +134,7 @@ func move_left(delta) ->  void:
 func move_right(delta) ->  void:
 	var calculated_speed = speed
 	if state == States.ATTACKING:
-		calculated_speed = speed / 2
+		calculated_speed = speed * 0.5
 	elif state == States.DODGING:
 		calculated_speed = speed * 1.5
 	velocity = Vector2(calculated_speed * delta, velocity.y)
