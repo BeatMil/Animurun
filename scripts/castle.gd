@@ -34,8 +34,8 @@ var rng = RandomNumberGenerator.new()
 
 
 # Phases
-var phase_one_enemy_order: Array = [spawn_strong_wind, spawn_meteo, spawn_laser]
-var phase_two_enemy_order: Array = []
+var phase_one_enemy_order: Array = [spawn_laser, spawn_strong_wind, spawn_meteo]
+var phase_two_enemy_order: Array = [spawn_laser_faster, spawn_strong_wind_faster, spawn_meteo_faster]
 var phase_three_enemy_order: Array = []
 
 
@@ -105,7 +105,7 @@ func get_stage_path() -> String:
 
 
 func spawn_phase_one() -> void:
-	kaisouko_hp = 6
+	kaisouko_hp = 1
 	order_index = 0
 	enemy_spawn_order = phase_one_enemy_order
 	enemy_order_size = enemy_spawn_order.size()
@@ -129,6 +129,7 @@ func spawn_phase_three() -> void:
 ### Enemy Patterns
 ### Starts
 func spawn_meteo() -> void:
+	var spawn_rate = 0.5 # interval between each meteo (second)
 	var spawn_pos = [
 		$"Markers/MeteoSpawnPos1".position,
 		$"Markers/MeteoSpawnPos2".position,
@@ -163,27 +164,86 @@ func spawn_meteo() -> void:
 
 	# first meteo
 	add_child(telegraph)
-	await get_tree().create_timer(0.5, false).timeout
+	await get_tree().create_timer(spawn_rate, false).timeout
 	add_child(meteo)
-	await get_tree().create_timer(0.5, false).timeout
+	await get_tree().create_timer(spawn_rate, false).timeout
 
 	# second meteo
 	add_child(telegraph2)
-	await get_tree().create_timer(0.5, false).timeout
+	await get_tree().create_timer(spawn_rate, false).timeout
 	add_child(meteo2)
-	await get_tree().create_timer(0.5, false).timeout
+	await get_tree().create_timer(spawn_rate, false).timeout
 
 	# third meteo
 	add_child(telegraph3)
-	await get_tree().create_timer(0.5, false).timeout
+	await get_tree().create_timer(spawn_rate, false).timeout
 	add_child(meteo3)
-	await get_tree().create_timer(0.5, false).timeout
+	await get_tree().create_timer(spawn_rate, false).timeout
 
 	# fourth meteo
 	add_child(telegraph4)
-	await get_tree().create_timer(0.5, false).timeout
+	await get_tree().create_timer(spawn_rate, false).timeout
 	add_child(meteo4)
-	await get_tree().create_timer(0.5, false).timeout
+	await get_tree().create_timer(spawn_rate, false).timeout
+
+
+func spawn_meteo_faster() -> void:
+	var spawn_rate = 0.2 # interval between each meteo (second)
+	var spawn_pos = [
+		$"Markers/MeteoSpawnPos1".position,
+		$"Markers/MeteoSpawnPos2".position,
+		$"Markers/MeteoSpawnPos3".position,
+		$"Markers/MeteoSpawnPos4".position,
+		]
+	spawn_pos.shuffle()
+
+	var meteo = METEO.instantiate()
+	meteo.position = spawn_pos[0]
+	var telegraph = TELEGRAPH.instantiate()
+	telegraph.position = spawn_pos.pop_front()
+
+	var meteo2 = METEO.instantiate()
+	meteo2.position = spawn_pos[0]
+	var telegraph2 = TELEGRAPH.instantiate()
+	telegraph2.position = spawn_pos.pop_front()
+
+	var meteo3 = METEO.instantiate()
+	meteo3.position = spawn_pos[0]
+	var telegraph3 = TELEGRAPH.instantiate()
+	telegraph3.position = spawn_pos.pop_front()
+
+	var meteo4 = METEO.instantiate()
+	meteo4.position = spawn_pos[0]
+	var telegraph4 = TELEGRAPH.instantiate()
+	telegraph4.position = spawn_pos.pop_front()
+	meteo4.connect("ded", spawner)
+
+
+	kaisouko.play_attack()
+
+	# first meteo
+	add_child(telegraph)
+	await get_tree().create_timer(spawn_rate, false).timeout
+	add_child(meteo)
+	await get_tree().create_timer(spawn_rate, false).timeout
+
+	# second meteo
+	add_child(telegraph2)
+	await get_tree().create_timer(spawn_rate, false).timeout
+	add_child(meteo2)
+	await get_tree().create_timer(spawn_rate, false).timeout
+
+	# third meteo
+	add_child(telegraph3)
+	await get_tree().create_timer(spawn_rate, false).timeout
+	add_child(meteo3)
+	await get_tree().create_timer(spawn_rate, false).timeout
+
+	# fourth meteo
+	add_child(telegraph4)
+	await get_tree().create_timer(spawn_rate, false).timeout
+	add_child(meteo4)
+	await get_tree().create_timer(spawn_rate, false).timeout
 
 
 func spawn_laser() -> void:
@@ -196,7 +256,36 @@ func spawn_laser() -> void:
 	add_child(laser)
 
 
+func spawn_laser_faster() -> void:
+	var laser = LASER.instantiate()
+	laser.is_faster = true
+	laser.position = $"Markers/LaserSpawnPos".position
+	laser.connect("ded", spawner)
+
+	kaisouko.play_attack()
+
+	add_child(laser)
+
+
 func spawn_strong_wind() -> void:
+	# Set up
+	var enemies = [spawn_slime, spawn_slime,spawn_slime,spawn_bomby,spawn_bomby,spawn_bomby]
+	enemies.shuffle()
+	kaisouko.play_attack()
+	$AnimationPlayer.play("strong_wind")
+	%ParallaxClouds.SPEED = -1000
+	$Chiichan.is_strong_wind = true
+
+	await get_tree().create_timer(1, false).timeout
+
+	# Obstacles
+	for i in range(randi_range(3, 5)):
+		enemies[i].call()
+		await get_tree().create_timer(0.9, false).timeout
+	spawn_slime_ded_signal()
+
+
+func spawn_strong_wind_faster() -> void:
 	# Set up
 	var enemies = [spawn_slime, spawn_slime,spawn_slime,spawn_bomby,spawn_bomby,spawn_bomby]
 	enemies.shuffle()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://yf3y3xahvd63"]
+[gd_scene load_steps=54 format=3 uid="uid://yf3y3xahvd63"]
 
 [ext_resource type="Script" path="res://scripts/castle.gd" id="1_thnrg"]
 [ext_resource type="Script" path="res://scripts/parallax_controller.gd" id="2_655ho"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://bwjdojfiq7as4" path="res://media/sprites/mountain.png" id="5_nxnbe"]
 [ext_resource type="Texture2D" uid="uid://loah2i22waew" path="res://media/sprites/ground.png" id="6_nexgc"]
 [ext_resource type="PackedScene" uid="uid://d1h4ur6yhpscs" path="res://scenes/ded_menu.tscn" id="7_5opog"]
+[ext_resource type="Texture2D" uid="uid://dcmojr41l7w08" path="res://media/sprites/final_boss/final_boss_angry.png" id="7_5y381"]
+[ext_resource type="AudioStream" uid="uid://c5arfhug6dhx1" path="res://media/sfx/careful02.wav" id="8_47o0u"]
 [ext_resource type="PackedScene" uid="uid://c1vlse56bmgi3" path="res://scenes/pause_menu.tscn" id="8_di3en"]
 [ext_resource type="PackedScene" uid="uid://chuy481yt3hbu" path="res://nodes/chiichan.tscn" id="9_0tqp1"]
 [ext_resource type="Script" path="res://scripts/ded_wall.gd" id="11_l35vv"]
@@ -79,6 +81,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [ExtResource("3_q5kil")]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_lhlbf"]
 resource_name = "attack"
@@ -125,9 +139,66 @@ tracks/1/keys = {
 }
 tracks/1/use_blend = true
 
+[sub_resource type="Animation" id="Animation_v5wma"]
+resource_name = "angry"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_5y381")]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("8_47o0u")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.560784, 0.560784, 1)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("%FinalBoss/../../..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawner"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pdetd"]
 _data = {
 "RESET": SubResource("Animation_myf4r"),
+"angry": SubResource("Animation_v5wma"),
 "attack": SubResource("Animation_lhlbf"),
 "intro": SubResource("Animation_1ijw7")
 }
