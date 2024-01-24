@@ -273,3 +273,8 @@ func smol_shake() -> void:
 func smol_shake_offset() -> void:
 	$"%CameraPlayer2".stop()
 	$"%CameraPlayer2".play("smol_shake_3")
+
+
+func go_to_next_stage():
+	SceneTransition.change_scene("res://scenes/castle.tscn")
+	Config.checkpoint = -1
