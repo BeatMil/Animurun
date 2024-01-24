@@ -46,11 +46,12 @@ func freeze_everything() -> void:
 	self.angular_velocity = 0
 	self.custom_integrator = true
 	$"../ParallaxBackground".freeze()
-	$"../Boss".freeze()
+	if get_node_or_null("../Boss"):
+		$"../Boss".freeze()
 	$"../BackgroundDim".freeze()
 
 
-func activate_boom_then(_power: Vector2): # hitbox.gd run this
+func activate_boom_then(_power: Vector2): # super_hit_hitbox.gd run this
 	disconnect("ded", $"..".spawner)
 	self.apply_impulse(_power)
 	if $"..".phase_helper == 2:
@@ -81,6 +82,10 @@ func let_blue_spark_go() -> void:
 
 func hurt():
 	$"AnimationPlayer".play("hurt")
+
+
+func play_hit_finalboss():
+	$"AnimationPlayer".play("hit_finalboss")
 
 
 func _on_body_entered(body):
@@ -148,3 +153,11 @@ func turn_hit_boss_collision():
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	emit_signal("ded")
 	queue_free()
+
+
+func push_myself():
+	self.apply_impulse(Vector2(-4000, -1000))
+	self.apply_torque_impulse(100000)
+	$"..".unfreeze()
+	await get_tree().create_timer(0.5).timeout
+	# $"..".spawner()

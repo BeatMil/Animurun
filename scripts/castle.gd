@@ -30,20 +30,21 @@ var rng = RandomNumberGenerator.new()
 
 # Reference
 @onready var enemy_order_size: int = len(enemy_spawn_order)
-@onready var kaisouko = %FinalBoss
+@onready var kaisouko = %Boss
 
 
 # Phases
 var phase_one_enemy_order: Array = [spawn_laser, spawn_strong_wind, spawn_meteo]
 var phase_two_enemy_order: Array = [spawn_laser_faster, spawn_strong_wind_faster, spawn_meteo_faster]
-var phase_three_enemy_order: Array = []
+var phase_three_enemy_order: Array = [spawn_ora_ora]
 
 
 func _ready() -> void:
 	# wait for scene transition to end
 	await get_tree().create_timer(1, false).timeout
 
-	phase_helper = Config.checkpoint
+	# phase_helper = Config.checkpoint
+	phase_helper = 3
 	spawner()
 
 
@@ -105,21 +106,21 @@ func get_stage_path() -> String:
 
 
 func spawn_phase_one() -> void:
-	kaisouko_hp = 1
+	kaisouko_hp = 3
 	order_index = 0
 	enemy_spawn_order = phase_one_enemy_order
 	enemy_order_size = enemy_spawn_order.size()
 
 
 func spawn_phase_two() -> void:
-	kaisouko_hp = 3
+	kaisouko_hp = 6
 	order_index = 0
 	enemy_spawn_order = phase_two_enemy_order
 	enemy_order_size = enemy_spawn_order.size()
 
 
 func spawn_phase_three() -> void:
-	kaisouko_hp = 1
+	kaisouko_hp = 100
 	order_index = 0
 	enemy_spawn_order = phase_three_enemy_order
 	enemy_order_size = enemy_spawn_order.size()
@@ -332,6 +333,18 @@ func spawn_bomby() -> void:
 
 	bomby.throw_bomb(Vector2(-2000, -2000))
 	add_child(bomby)
+
+
+func spawn_ora_ora() -> void:
+	var slime = SLIME.instantiate()
+	slime.position = $"Markers/EnemySpawnPos2".position
+	slime.connect("ded", spawner)
+
+	kaisouko.play_attack()
+	await get_tree().create_timer(0.2, false).timeout
+	add_child(slime)
+	slime.activate_speed()
+	slime.throw_slime(Vector2(-3000, -1200))
 
 
 func smol_shake() -> void:

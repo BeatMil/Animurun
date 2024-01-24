@@ -14,7 +14,7 @@ func _ready():
 
 func _physics_process(_delta):
 	if is_following:
-		position =  node_to_follow.position
+		position = node_to_follow.position
 	else:
 		$"GPUParticles2D".emitting = false
 
