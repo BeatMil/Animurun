@@ -138,7 +138,7 @@ tracks/2/keys = {
 tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("%FinalBoss/../../..")
+tracks/3/path = NodePath("%Boss/../../..")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -600,20 +600,20 @@ script = ExtResource("2_655ho")
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
 
-[node name="FinalBoss" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+[node name="Boss" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
 unique_name_in_owner = true
 z_index = -10
 position = Vector2(1776, 380)
 texture = ExtResource("3_q5kil")
 script = ExtResource("4_e7dim")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/ParallaxLayer4/FinalBoss"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/ParallaxLayer4/Boss"]
 autoplay = "intro"
 libraries = {
 "": SubResource("AnimationLibrary_pdetd")
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ParallaxBackground/ParallaxLayer4/FinalBoss"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ParallaxBackground/ParallaxLayer4/Boss"]
 
 [node name="ParallaxClouds" type="ParallaxLayer" parent="ParallaxBackground"]
 unique_name_in_owner = true
@@ -705,11 +705,12 @@ libraries = {
 [node name="DedWalls" type="Node" parent="."]
 script = ExtResource("11_l35vv")
 
-[node name="Wall" type="Area2D" parent="DedWalls"]
-position = Vector2(2214, 24)
+[node name="Wall" type="Area2D" parent="DedWalls" node_paths=PackedStringArray("boss")]
+position = Vector2(1616, 24)
 collision_layer = 0
 collision_mask = 10
 script = ExtResource("12_0lqs0")
+boss = NodePath("../../ParallaxBackground/ParallaxLayer4/Boss")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DedWalls/Wall"]
 shape = SubResource("RectangleShape2D_pno1e")
@@ -770,6 +771,9 @@ position = Vector2(1696, 256)
 [node name="EnemySpawnPos" type="Marker2D" parent="Markers"]
 position = Vector2(2400, 837)
 
+[node name="EnemySpawnPos2" type="Marker2D" parent="Markers"]
+position = Vector2(2400, 767)
+
 [node name="BackgroundDim" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
@@ -798,7 +802,7 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
 
-[connection signal="animation_finished" from="ParallaxBackground/ParallaxLayer4/FinalBoss/AnimationPlayer" to="ParallaxBackground/ParallaxLayer4/FinalBoss" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="ParallaxBackground/ParallaxLayer4/Boss/AnimationPlayer" to="ParallaxBackground/ParallaxLayer4/Boss" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="DedWalls/Wall" to="DedWalls/Wall" method="_on_body_entered"]
 [connection signal="body_entered" from="DedWalls/DedWallArea2D" to="DedWalls" method="_on_ded_wall_area_2d_body_entered"]
 [connection signal="animation_finished" from="BossStealBigSword/AnimationPlayer" to="BossStealBigSword" method="_on_animation_player_animation_finished"]
