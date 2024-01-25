@@ -43,7 +43,7 @@ func _ready() -> void:
 	# wait for scene transition to end
 	await get_tree().create_timer(1, false).timeout
 
-	# phase_helper = $/root/Config.checkpoint
+	phase_helper = Config.checkpoint
 	spawner()
 	print("hp: ", kisaki_hp)
 

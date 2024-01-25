@@ -43,8 +43,8 @@ func _ready() -> void:
 	# wait for scene transition to end
 	await get_tree().create_timer(1, false).timeout
 
-	# phase_helper = Config.checkpoint
-	phase_helper = 3
+	phase_helper = Config.checkpoint
+	# phase_helper = 3
 	spawner()
 
 
