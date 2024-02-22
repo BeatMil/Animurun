@@ -21,7 +21,7 @@ func _on_body_entered(body):
 	if body.is_in_group("chiichan"):
 		$"../CameraWrap/CameraPlayer".play("smol_shake_2")
 		body.set_state(body.States.RUNNING) # chiichan can't parry this
-		body.push(Vector2(-2000, -1000))
+		body.push(Vector2(-6000, -3000))
 
 
 func set_is_moving(_value: bool) -> void:

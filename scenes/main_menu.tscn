@@ -142,6 +142,7 @@ position = Vector2(1027, 821)
 texture = ExtResource("1_pu5it")
 
 [node name="OptionMenu" type="Node2D" parent="."]
+visible = false
 
 [node name="ColorRect2" type="ColorRect" parent="OptionMenu"]
 offset_left = -79.0
