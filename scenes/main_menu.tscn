@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://tr26pmc6e32n"]
+[gd_scene load_steps=10 format=3 uid="uid://tr26pmc6e32n"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_futl5"]
 [ext_resource type="Script" path="res://scripts/audio_test.gd" id="1_ontde"]
 [ext_resource type="Texture2D" uid="uid://bnh2lv34nivku" path="res://media/sprites/kaisouko_look.png" id="1_pu5it"]
 [ext_resource type="AudioStream" uid="uid://vun3buu6xir8" path="res://media/sfx/bigJump.wav" id="2_cwtth"]
 [ext_resource type="FontFile" uid="uid://bsu0xqkyr8622" path="res://fonts/Code Vein Fonts/DroidSansMono.ttf" id="2_qoou0"]
-[ext_resource type="StyleBox" uid="uid://bu84sh3nsdjgo" path="res://styles_boxs/main_menu_button.tres" id="3_buc3r"]
 
 [sub_resource type="Animation" id="Animation_ufldj"]
 resource_name = "test_sound"
@@ -30,6 +29,12 @@ _data = {
 "test_sound": SubResource("Animation_ufldj")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uo24b"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7muw5"]
+bg_color = Color(0.980392, 0.356863, 0.4, 0.764706)
+
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -39,6 +44,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_futl5")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -126.0
+offset_top = -63.0
+offset_right = 2233.0
+offset_bottom = 1182.0
+color = Color(0.541176, 0.490196, 0.470588, 0.298039)
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -47,18 +60,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_qoou0")
-theme_override_font_sizes/font_size = 96
-theme_override_styles/hover = ExtResource("3_buc3r")
-theme_override_styles/focus = ExtResource("3_buc3r")
-text = "Start"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -87,8 +91,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_qoou0")
 theme_override_font_sizes/font_size = 96
-theme_override_styles/hover = ExtResource("3_buc3r")
-theme_override_styles/focus = ExtResource("3_buc3r")
 text = "Sound Test
 "
 
@@ -99,9 +101,90 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HBoxContainer/VBoxContainer2/HBoxContainer/AnimationPlayer"]
 
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 152.0
+offset_top = 518.0
+offset_right = 570.0
+offset_bottom = 1018.0
+theme_override_constants/separation = 20
+alignment = 2
+
+[node name="StartButton" type="Button" parent="VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_qoou0")
+theme_override_font_sizes/font_size = 62
+theme_override_styles/normal = SubResource("StyleBoxFlat_uo24b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7muw5")
+text = "Start"
+
+[node name="OptionButton" type="Button" parent="VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_qoou0")
+theme_override_font_sizes/font_size = 62
+theme_override_styles/normal = SubResource("StyleBoxFlat_uo24b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7muw5")
+text = "Option"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_qoou0")
+theme_override_font_sizes/font_size = 62
+theme_override_styles/normal = SubResource("StyleBoxFlat_uo24b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7muw5")
+text = "Exit"
+
 [node name="KaisoukoLook" type="Sprite2D" parent="."]
 position = Vector2(1027, 821)
 texture = ExtResource("1_pu5it")
 
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[node name="OptionMenu" type="Node2D" parent="."]
+
+[node name="ColorRect2" type="ColorRect" parent="OptionMenu"]
+offset_left = -79.0
+offset_top = -44.0
+offset_right = 2082.0
+offset_bottom = 1152.0
+color = Color(0.12549, 0.12549, 0.12549, 0.976471)
+metadata/_edit_use_anchors_ = true
+
+[node name="JumpLabel" type="Label" parent="OptionMenu/ColorRect2"]
+layout_mode = 0
+offset_left = 378.0
+offset_top = 223.0
+offset_right = 610.0
+offset_bottom = 339.0
+theme_override_fonts/font = ExtResource("2_qoou0")
+theme_override_font_sizes/font_size = 96
+text = "Jump"
+
+[node name="JumpButtonLabel" type="Label" parent="OptionMenu/ColorRect2"]
+layout_mode = 0
+offset_left = 1148.0
+offset_top = 223.0
+offset_right = 1380.0
+offset_bottom = 339.0
+theme_override_fonts/font = ExtResource("2_qoou0")
+theme_override_font_sizes/font_size = 96
+text = "Space"
+
+[node name="BackButton" type="Button" parent="OptionMenu/ColorRect2"]
+offset_left = 75.0
+offset_top = 45.0
+offset_right = 297.0
+offset_bottom = 118.0
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_qoou0")
+theme_override_font_sizes/font_size = 62
+theme_override_styles/normal = SubResource("StyleBoxFlat_uo24b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7muw5")
+text = "Back"
+
 [connection signal="pressed" from="HBoxContainer/VBoxContainer2/HBoxContainer/Button" to="HBoxContainer/VBoxContainer2/HBoxContainer" method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer3/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer3/OptionButton" to="." method="_on_option_button_pressed"]
+[connection signal="pressed" from="VBoxContainer3/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="OptionMenu/ColorRect2/BackButton" to="." method="_on_back_button_pressed"]
