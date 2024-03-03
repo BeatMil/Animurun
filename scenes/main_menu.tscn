@@ -104,11 +104,43 @@ libraries = {
 [node name="VBoxContainer3" type="VBoxContainer" parent="."]
 layout_mode = 2
 offset_left = 152.0
-offset_top = 518.0
+offset_top = 2.0
 offset_right = 570.0
-offset_bottom = 1018.0
+offset_bottom = 1076.0
 theme_override_constants/separation = 20
 alignment = 2
+
+[node name="StageButton" type="Button" parent="VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_qoou0")
+theme_override_font_sizes/font_size = 62
+theme_override_styles/normal = SubResource("StyleBoxFlat_uo24b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7muw5")
+text = "Stage2"
+
+[node name="StageButton2" type="Button" parent="VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_qoou0")
+theme_override_font_sizes/font_size = 62
+theme_override_styles/normal = SubResource("StyleBoxFlat_uo24b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7muw5")
+text = "Stage3"
+
+[node name="StageButton3" type="Button" parent="VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_qoou0")
+theme_override_font_sizes/font_size = 62
+theme_override_styles/normal = SubResource("StyleBoxFlat_uo24b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7muw5")
+text = "Stage4
+"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="StartButton" type="Button" parent="VBoxContainer3"]
 layout_mode = 2
@@ -173,6 +205,7 @@ theme_override_font_sizes/font_size = 96
 text = "Space"
 
 [node name="BackButton" type="Button" parent="OptionMenu/ColorRect2"]
+layout_mode = 0
 offset_left = 75.0
 offset_top = 45.0
 offset_right = 297.0
@@ -185,6 +218,9 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_7muw5")
 text = "Back"
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer2/HBoxContainer/Button" to="HBoxContainer/VBoxContainer2/HBoxContainer" method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer3/StageButton" to="." method="_on_stage_button_pressed"]
+[connection signal="pressed" from="VBoxContainer3/StageButton2" to="." method="_on_stage_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer3/StageButton3" to="." method="_on_stage_button_3_pressed"]
 [connection signal="pressed" from="VBoxContainer3/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer3/OptionButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="VBoxContainer3/ExitButton" to="." method="_on_exit_button_pressed"]
