@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://tr26pmc6e32n"]
+[gd_scene load_steps=11 format=3 uid="uid://tr26pmc6e32n"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_futl5"]
 [ext_resource type="Script" path="res://scripts/audio_test.gd" id="1_ontde"]
 [ext_resource type="Texture2D" uid="uid://bnh2lv34nivku" path="res://media/sprites/kaisouko_look.png" id="1_pu5it"]
 [ext_resource type="AudioStream" uid="uid://vun3buu6xir8" path="res://media/sfx/bigJump.wav" id="2_cwtth"]
 [ext_resource type="FontFile" uid="uid://bsu0xqkyr8622" path="res://fonts/Code Vein Fonts/DroidSansMono.ttf" id="2_qoou0"]
+[ext_resource type="Script" path="res://scripts/option_menu.gd" id="6_2ohdi"]
 
 [sub_resource type="Animation" id="Animation_ufldj"]
 resource_name = "test_sound"
@@ -174,7 +175,7 @@ position = Vector2(1027, 821)
 texture = ExtResource("1_pu5it")
 
 [node name="OptionMenu" type="Node2D" parent="."]
-visible = false
+script = ExtResource("6_2ohdi")
 
 [node name="ColorRect2" type="ColorRect" parent="OptionMenu"]
 offset_left = -79.0
@@ -184,22 +185,28 @@ offset_bottom = 1152.0
 color = Color(0.12549, 0.12549, 0.12549, 0.976471)
 metadata/_edit_use_anchors_ = true
 
-[node name="JumpLabel" type="Label" parent="OptionMenu/ColorRect2"]
+[node name="Button" type="Button" parent="OptionMenu/ColorRect2"]
 layout_mode = 0
 offset_left = 378.0
 offset_top = 223.0
-offset_right = 610.0
-offset_bottom = 339.0
+offset_right = 666.0
+offset_bottom = 358.0
+
+[node name="JumpLabel" type="Label" parent="OptionMenu/ColorRect2/Button"]
+layout_mode = 0
+offset_right = 289.0
+offset_bottom = 141.0
 theme_override_fonts/font = ExtResource("2_qoou0")
 theme_override_font_sizes/font_size = 96
 text = "Jump"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="JumpButtonLabel" type="Label" parent="OptionMenu/ColorRect2"]
+[node name="JumpKeyLabel" type="Label" parent="OptionMenu/ColorRect2/Button"]
 layout_mode = 0
-offset_left = 1148.0
-offset_top = 223.0
-offset_right = 1380.0
-offset_bottom = 339.0
+offset_left = 770.0
+offset_right = 1060.0
+offset_bottom = 116.0
 theme_override_fonts/font = ExtResource("2_qoou0")
 theme_override_font_sizes/font_size = 96
 text = "Space"
@@ -224,4 +231,5 @@ text = "Back"
 [connection signal="pressed" from="VBoxContainer3/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer3/OptionButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="VBoxContainer3/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="OptionMenu/ColorRect2/Button" to="OptionMenu" method="_on_button_pressed"]
 [connection signal="pressed" from="OptionMenu/ColorRect2/BackButton" to="." method="_on_back_button_pressed"]
