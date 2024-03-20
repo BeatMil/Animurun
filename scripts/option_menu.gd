@@ -10,6 +10,7 @@ func _input(event):
 		InputMap.action_add_event("jump", event)
 		is_jump_key_change = false
 		$ColorRect2/Button/JumpKeyLabel.text = event.as_text()
+		$ColorRect2/Button.release_focus()
 
 
 func _on_button_pressed():

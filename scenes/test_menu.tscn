@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://dm2j2tgkqf42c"]
+
+[ext_resource type="FontFile" uid="uid://bsu0xqkyr8622" path="res://fonts/Code Vein Fonts/DroidSansMono.ttf" id="1_i8u1e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vsait"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8g4g1"]
+bg_color = Color(0.980392, 0.356863, 0.4, 0.764706)
+
+[node name="Test_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 202.0
+offset_top = 505.0
+offset_right = 561.0
+offset_bottom = 948.0
+theme_override_constants/separation = 20
+alignment = 2
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_i8u1e")
+theme_override_font_sizes/font_size = 62
+theme_override_styles/normal = SubResource("StyleBoxFlat_vsait")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8g4g1")
+text = "Start"
+
+[node name="OptionButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_i8u1e")
+theme_override_font_sizes/font_size = 62
+theme_override_styles/normal = SubResource("StyleBoxFlat_vsait")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8g4g1")
+text = "Option"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_i8u1e")
+theme_override_font_sizes/font_size = 62
+theme_override_styles/normal = SubResource("StyleBoxFlat_vsait")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8g4g1")
+text = "Exit"
