@@ -211,6 +211,34 @@ theme_override_fonts/font = ExtResource("2_qoou0")
 theme_override_font_sizes/font_size = 96
 text = "Space"
 
+[node name="BlockButton" type="Button" parent="OptionMenu/ColorRect2"]
+layout_mode = 0
+offset_left = 378.0
+offset_top = 488.0
+offset_right = 666.0
+offset_bottom = 623.0
+
+[node name="Label" type="Label" parent="OptionMenu/ColorRect2/BlockButton"]
+layout_mode = 0
+offset_right = 289.0
+offset_bottom = 141.0
+theme_override_fonts/font = ExtResource("2_qoou0")
+theme_override_font_sizes/font_size = 96
+text = "Block"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KeyLabel" type="Label" parent="OptionMenu/ColorRect2/BlockButton"]
+layout_mode = 0
+offset_left = 770.0
+offset_right = 1060.0
+offset_bottom = 116.0
+theme_override_fonts/font = ExtResource("2_qoou0")
+theme_override_font_sizes/font_size = 96
+text = "j"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="BackButton" type="Button" parent="OptionMenu/ColorRect2"]
 layout_mode = 0
 offset_left = 75.0
@@ -232,4 +260,5 @@ text = "Back"
 [connection signal="pressed" from="VBoxContainer3/OptionButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="VBoxContainer3/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="OptionMenu/ColorRect2/Button" to="OptionMenu" method="_on_button_pressed"]
+[connection signal="pressed" from="OptionMenu/ColorRect2/BlockButton" to="OptionMenu" method="_on_parry_button_pressed"]
 [connection signal="pressed" from="OptionMenu/ColorRect2/BackButton" to="." method="_on_back_button_pressed"]
