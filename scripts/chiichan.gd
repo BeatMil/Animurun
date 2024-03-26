@@ -174,7 +174,8 @@ func push(power: Vector2): # determine if chiichan get push or parry
 		velocity += power
 
 		## add more pushback next times chiichan got hit
-		pushback_multiplier += 0.5
+		if pushback_multiplier <= 3:
+			pushback_multiplier += 0.5
 		state = States.STUNNED
 
 

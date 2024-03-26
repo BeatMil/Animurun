@@ -18,10 +18,12 @@ func _on_exit_button_pressed():
 
 func _on_option_button_pressed():
 	$OptionMenu.visible = true
+	$Chiichan.visible = false
 
 
 func _on_back_button_pressed():
 	$OptionMenu.visible = false
+	$Chiichan.visible = true
 
 
 func _on_stage_button_pressed():
@@ -34,3 +36,13 @@ func _on_stage_button_2_pressed():
 
 func _on_stage_button_3_pressed():
 	SceneTransition.change_scene("res://scenes/castle.tscn")
+
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("chiichan"):
+		body.push(Vector2(-2000, -10))
+
+
+func _on_area_2d_left_body_entered(body):
+	if body.is_in_group("chiichan"):
+		body.push(Vector2(2000, -10))

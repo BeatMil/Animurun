@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://tr26pmc6e32n"]
+[gd_scene load_steps=19 format=3 uid="uid://tr26pmc6e32n"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_futl5"]
 [ext_resource type="Script" path="res://scripts/audio_test.gd" id="1_ontde"]
@@ -6,6 +6,12 @@
 [ext_resource type="AudioStream" uid="uid://vun3buu6xir8" path="res://media/sfx/bigJump.wav" id="2_cwtth"]
 [ext_resource type="FontFile" uid="uid://bsu0xqkyr8622" path="res://fonts/Code Vein Fonts/DroidSansMono.ttf" id="2_qoou0"]
 [ext_resource type="Script" path="res://scripts/option_menu.gd" id="6_2ohdi"]
+[ext_resource type="PackedScene" uid="uid://chuy481yt3hbu" path="res://nodes/chiichan.tscn" id="7_isx8u"]
+[ext_resource type="Script" path="res://scripts/parallax_controller.gd" id="8_wid2e"]
+[ext_resource type="Script" path="res://scripts/parallax_layer_auto.gd" id="9_qw5p6"]
+[ext_resource type="Texture2D" uid="uid://c5p1a8sbq4oeu" path="res://media/sprites/clouds.png" id="10_qihrn"]
+[ext_resource type="Texture2D" uid="uid://bwjdojfiq7as4" path="res://media/sprites/mountain.png" id="11_2tnw8"]
+[ext_resource type="Texture2D" uid="uid://loah2i22waew" path="res://media/sprites/ground.png" id="12_x4qbn"]
 
 [sub_resource type="Animation" id="Animation_ufldj"]
 resource_name = "test_sound"
@@ -36,6 +42,12 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7muw5"]
 bg_color = Color(0.980392, 0.356863, 0.4, 0.764706)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_walrm"]
+size = Vector2(3472, 281)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgigx"]
+size = Vector2(165, 1936)
+
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -44,6 +56,42 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_futl5")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("8_wid2e")
+
+[node name="ParallaxClouds" type="ParallaxLayer" parent="ParallaxBackground"]
+unique_name_in_owner = true
+motion_mirroring = Vector2(1920, 0)
+script = ExtResource("9_qw5p6")
+SPEED = -300
+
+[node name="Clouds" type="Sprite2D" parent="ParallaxBackground/ParallaxClouds"]
+modulate = Color(0.270588, 0.294118, 0.231373, 1)
+position = Vector2(1252, 540)
+scale = Vector2(1.30417, 1)
+texture = ExtResource("10_qihrn")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1920, 0)
+script = ExtResource("9_qw5p6")
+SPEED = -200
+
+[node name="Mountain" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+modulate = Color(0.270588, 0.294118, 0.231373, 1)
+position = Vector2(926, 652)
+texture = ExtResource("11_2tnw8")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1920, 0)
+script = ExtResource("9_qw5p6")
+SPEED = -600
+
+[node name="Ground" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+modulate = Color(0.270588, 0.294118, 0.231373, 1)
+position = Vector2(1920, 1085.5)
+scale = Vector2(1, 1.26953)
+texture = ExtResource("12_x4qbn")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -171,10 +219,35 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_7muw5")
 text = "Exit"
 
 [node name="KaisoukoLook" type="Sprite2D" parent="."]
-position = Vector2(1027, 821)
+position = Vector2(-270, 821)
 texture = ExtResource("1_pu5it")
 
+[node name="Chiichan" parent="." instance=ExtResource("7_isx8u")]
+position = Vector2(986, 738)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(1056, 1056)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_walrm")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(-184, 728)
+rotation = 1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_walrm")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(2176, 728)
+rotation = 1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("RectangleShape2D_walrm")
+
 [node name="OptionMenu" type="Node2D" parent="."]
+visible = false
+z_index = 6
 script = ExtResource("6_2ohdi")
 
 [node name="ColorRect2" type="ColorRect" parent="OptionMenu"]
@@ -200,10 +273,10 @@ text = "Back"
 
 [node name="Button" type="Button" parent="OptionMenu/ColorRect2"]
 layout_mode = 0
-offset_left = 378.0
-offset_top = 121.0
-offset_right = 666.0
-offset_bottom = 256.0
+offset_left = 548.0
+offset_top = 263.0
+offset_right = 836.0
+offset_bottom = 398.0
 
 [node name="JumpLabel" type="Label" parent="OptionMenu/ColorRect2/Button"]
 layout_mode = 0
@@ -226,10 +299,10 @@ text = "Space"
 
 [node name="BlockButton" type="Button" parent="OptionMenu/ColorRect2"]
 layout_mode = 0
-offset_left = 378.0
-offset_top = 304.0
-offset_right = 666.0
-offset_bottom = 439.0
+offset_left = 548.0
+offset_top = 446.0
+offset_right = 836.0
+offset_bottom = 581.0
 
 [node name="Label" type="Label" parent="OptionMenu/ColorRect2/BlockButton"]
 layout_mode = 0
@@ -254,10 +327,10 @@ vertical_alignment = 1
 
 [node name="LeftButton" type="Button" parent="OptionMenu/ColorRect2"]
 layout_mode = 0
-offset_left = 378.0
-offset_top = 485.0
-offset_right = 666.0
-offset_bottom = 620.0
+offset_left = 548.0
+offset_top = 627.0
+offset_right = 836.0
+offset_bottom = 762.0
 
 [node name="Label" type="Label" parent="OptionMenu/ColorRect2/LeftButton"]
 layout_mode = 0
@@ -282,10 +355,10 @@ vertical_alignment = 1
 
 [node name="RightButton" type="Button" parent="OptionMenu/ColorRect2"]
 layout_mode = 0
-offset_left = 378.0
-offset_top = 664.0
-offset_right = 666.0
-offset_bottom = 799.0
+offset_left = 548.0
+offset_top = 806.0
+offset_right = 836.0
+offset_bottom = 941.0
 
 [node name="Label" type="Label" parent="OptionMenu/ColorRect2/RightButton"]
 layout_mode = 0
@@ -308,6 +381,22 @@ text = "d"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(2008, 696)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_dgigx")
+
+[node name="Area2DLeft" type="Area2D" parent="."]
+position = Vector2(-72, 696)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DLeft"]
+shape = SubResource("RectangleShape2D_dgigx")
+
 [connection signal="pressed" from="HBoxContainer/VBoxContainer2/HBoxContainer/Button" to="HBoxContainer/VBoxContainer2/HBoxContainer" method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer3/StageButton" to="." method="_on_stage_button_pressed"]
 [connection signal="pressed" from="VBoxContainer3/StageButton2" to="." method="_on_stage_button_2_pressed"]
@@ -320,3 +409,5 @@ vertical_alignment = 1
 [connection signal="pressed" from="OptionMenu/ColorRect2/BlockButton" to="OptionMenu" method="_on_parry_button_pressed"]
 [connection signal="pressed" from="OptionMenu/ColorRect2/LeftButton" to="OptionMenu" method="_on_left_button_pressed"]
 [connection signal="pressed" from="OptionMenu/ColorRect2/RightButton" to="OptionMenu" method="_on_right_button_pressed"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2DLeft" to="." method="_on_area_2d_left_body_entered"]
