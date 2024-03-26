@@ -3,6 +3,8 @@ extends Node2D
 
 var is_jump_key_change: bool = false
 var is_block_key_change: bool = false
+var is_left_key_change: bool = false
+var is_right_key_change: bool = false
 
 
 func _input(event):
@@ -18,6 +20,18 @@ func _input(event):
 		is_block_key_change = false
 		$ColorRect2/BlockButton/KeyLabel.text = event.as_text()
 		$ColorRect2/Button.release_focus()
+	elif event.is_pressed() and is_left_key_change:
+		InputMap.action_erase_events("move_left")
+		InputMap.action_add_event("move_left", event)
+		is_left_key_change = false
+		$ColorRect2/LeftButton/KeyLabel.text = event.as_text()
+		$ColorRect2/LeftButton.release_focus()
+	elif event.is_pressed() and is_right_key_change:
+		InputMap.action_erase_events("move_right")
+		InputMap.action_add_event("move_right", event)
+		is_right_key_change = false
+		$ColorRect2/RightButton/KeyLabel.text = event.as_text()
+		$ColorRect2/RightButton.release_focus()
 
 
 func _on_button_pressed():
@@ -28,3 +42,13 @@ func _on_button_pressed():
 func _on_parry_button_pressed():
 	$ColorRect2/BlockButton/KeyLabel.text = "?"
 	is_block_key_change = true
+
+
+func _on_left_button_pressed():
+	$ColorRect2/LeftButton/KeyLabel.text = "?"
+	is_left_key_change = true
+
+
+func _on_right_button_pressed():
+	$ColorRect2/RightButton/KeyLabel.text = "?"
+	is_right_key_change = true

@@ -185,12 +185,25 @@ offset_bottom = 1152.0
 color = Color(0.12549, 0.12549, 0.12549, 0.976471)
 metadata/_edit_use_anchors_ = true
 
+[node name="BackButton" type="Button" parent="OptionMenu/ColorRect2"]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 45.0
+offset_right = 297.0
+offset_bottom = 118.0
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_qoou0")
+theme_override_font_sizes/font_size = 62
+theme_override_styles/normal = SubResource("StyleBoxFlat_uo24b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7muw5")
+text = "Back"
+
 [node name="Button" type="Button" parent="OptionMenu/ColorRect2"]
 layout_mode = 0
 offset_left = 378.0
-offset_top = 223.0
+offset_top = 121.0
 offset_right = 666.0
-offset_bottom = 358.0
+offset_bottom = 256.0
 
 [node name="JumpLabel" type="Label" parent="OptionMenu/ColorRect2/Button"]
 layout_mode = 0
@@ -214,9 +227,9 @@ text = "Space"
 [node name="BlockButton" type="Button" parent="OptionMenu/ColorRect2"]
 layout_mode = 0
 offset_left = 378.0
-offset_top = 488.0
+offset_top = 304.0
 offset_right = 666.0
-offset_bottom = 623.0
+offset_bottom = 439.0
 
 [node name="Label" type="Label" parent="OptionMenu/ColorRect2/BlockButton"]
 layout_mode = 0
@@ -239,18 +252,61 @@ text = "j"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BackButton" type="Button" parent="OptionMenu/ColorRect2"]
+[node name="LeftButton" type="Button" parent="OptionMenu/ColorRect2"]
 layout_mode = 0
-offset_left = 75.0
-offset_top = 45.0
-offset_right = 297.0
-offset_bottom = 118.0
-size_flags_vertical = 3
+offset_left = 378.0
+offset_top = 485.0
+offset_right = 666.0
+offset_bottom = 620.0
+
+[node name="Label" type="Label" parent="OptionMenu/ColorRect2/LeftButton"]
+layout_mode = 0
+offset_right = 289.0
+offset_bottom = 141.0
 theme_override_fonts/font = ExtResource("2_qoou0")
-theme_override_font_sizes/font_size = 62
-theme_override_styles/normal = SubResource("StyleBoxFlat_uo24b")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7muw5")
-text = "Back"
+theme_override_font_sizes/font_size = 96
+text = "Left"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KeyLabel" type="Label" parent="OptionMenu/ColorRect2/LeftButton"]
+layout_mode = 0
+offset_left = 770.0
+offset_right = 1060.0
+offset_bottom = 116.0
+theme_override_fonts/font = ExtResource("2_qoou0")
+theme_override_font_sizes/font_size = 96
+text = "a"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RightButton" type="Button" parent="OptionMenu/ColorRect2"]
+layout_mode = 0
+offset_left = 378.0
+offset_top = 664.0
+offset_right = 666.0
+offset_bottom = 799.0
+
+[node name="Label" type="Label" parent="OptionMenu/ColorRect2/RightButton"]
+layout_mode = 0
+offset_right = 289.0
+offset_bottom = 141.0
+theme_override_fonts/font = ExtResource("2_qoou0")
+theme_override_font_sizes/font_size = 96
+text = "Right"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KeyLabel" type="Label" parent="OptionMenu/ColorRect2/RightButton"]
+layout_mode = 0
+offset_left = 770.0
+offset_right = 1060.0
+offset_bottom = 116.0
+theme_override_fonts/font = ExtResource("2_qoou0")
+theme_override_font_sizes/font_size = 96
+text = "d"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer2/HBoxContainer/Button" to="HBoxContainer/VBoxContainer2/HBoxContainer" method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer3/StageButton" to="." method="_on_stage_button_pressed"]
@@ -259,6 +315,8 @@ text = "Back"
 [connection signal="pressed" from="VBoxContainer3/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer3/OptionButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="VBoxContainer3/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="OptionMenu/ColorRect2/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="OptionMenu/ColorRect2/Button" to="OptionMenu" method="_on_button_pressed"]
 [connection signal="pressed" from="OptionMenu/ColorRect2/BlockButton" to="OptionMenu" method="_on_parry_button_pressed"]
-[connection signal="pressed" from="OptionMenu/ColorRect2/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="OptionMenu/ColorRect2/LeftButton" to="OptionMenu" method="_on_left_button_pressed"]
+[connection signal="pressed" from="OptionMenu/ColorRect2/RightButton" to="OptionMenu" method="_on_right_button_pressed"]

@@ -4,7 +4,7 @@ extends Control
 
 func _ready():
 #	$HBoxContainer/VBoxContainer/Button.grab_focus()
-	pass
+	$OptionMenu.visible = false
 
 
 
