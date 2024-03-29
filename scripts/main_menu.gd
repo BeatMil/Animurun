@@ -7,6 +7,9 @@ func _ready():
 	$OptionMenu.visible = false
 
 
+func _input(event):
+	pass
+
 
 func _on_start_button_pressed():
 	SceneTransition.change_scene("res://scenes/intro.tscn")
