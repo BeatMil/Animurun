@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbieov118ttq7"]
+[gd_scene load_steps=6 format=3 uid="uid://b3aelyo286ydy"]
 
-[ext_resource type="Script" path="res://scripts/particle.gd" id="1_vd7rf"]
-[ext_resource type="Texture2D" uid="uid://bvhlsqg3lhu05" path="res://media/sprites/particle_effects/floaty_128.png" id="2_e7xx1"]
+[ext_resource type="Texture2D" uid="uid://bvhlsqg3lhu05" path="res://media/sprites/particle_effects/floaty_128.png" id="2_gnbm4"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fmtxd"]
 blend_mode = 1
@@ -31,16 +30,12 @@ anim_speed_min = 1.0
 anim_speed_max = 1.0
 
 [node name="hit_spark" type="Node2D"]
-script = ExtResource("1_vd7rf")
-time_before_queue_free = 1.0
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_fmtxd")
-emitting = false
 amount = 4
 process_material = SubResource("ParticleProcessMaterial_3326g")
-texture = ExtResource("2_e7xx1")
-one_shot = true
+texture = ExtResource("2_gnbm4")
 speed_scale = 3.0
 explosiveness = 0.51
 fixed_fps = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://yf3y3xahvd63"]
+[gd_scene load_steps=67 format=3 uid="uid://yf3y3xahvd63"]
 
 [ext_resource type="Script" path="res://scripts/castle.gd" id="1_thnrg"]
 [ext_resource type="Script" path="res://scripts/parallax_controller.gd" id="2_655ho"]
@@ -25,6 +25,9 @@
 [ext_resource type="Script" path="res://scripts/background_dim.gd" id="17_fbhai"]
 [ext_resource type="AudioStream" uid="uid://e00h4d63fvks" path="res://media/sprites/final_boss/strong_wind_high.mp3" id="21_64fhm"]
 [ext_resource type="Script" path="res://scripts/BossHitbox.gd" id="24_05asi"]
+[ext_resource type="FontFile" uid="uid://30vkhjlktlst" path="res://fonts/Code Vein Fonts/Roboto-Bold.ttf" id="26_kdprl"]
+[ext_resource type="PackedScene" uid="uid://b3aelyo286ydy" path="res://nodes/particles/hit_spark_you_win.tscn" id="27_87lto"]
+[ext_resource type="AudioStream" uid="uid://cyxabmk1xwipy" path="res://media/sfx/kirby_star.wav" id="27_lp13o"]
 
 [sub_resource type="Environment" id="Environment_0glhb"]
 background_mode = 3
@@ -704,6 +707,83 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slcgc"]
 size = Vector2(384, 1152)
 
+[sub_resource type="Animation" id="Animation_ndnme"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nqgsi"]
+resource_name = "start"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_noqfa"]
+resource_name = "loop"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.870588, 0.72549, 0.513726, 1), Color(0.819608, 0.329412, 0.329412, 1), Color(0.858824, 0.258824, 0.670588, 1), Color(0.65098, 0.435294, 0.929412, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_51pq6"]
+_data = {
+"RESET": SubResource("Animation_ndnme"),
+"loop": SubResource("Animation_noqfa"),
+"start": SubResource("Animation_nqgsi")
+}
+
+[sub_resource type="Animation" id="Animation_tjnyt"]
+resource_name = "start"
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AnimationPlayer2/AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("27_lp13o")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n513o"]
+_data = {
+"start": SubResource("Animation_tjnyt")
+}
+
 [node name="Castle" type="Node"]
 script = ExtResource("1_thnrg")
 
@@ -929,8 +1009,57 @@ script = ExtResource("24_05asi")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossHitbox"]
 shape = SubResource("RectangleShape2D_slcgc")
 
+[node name="YouWinLabel" type="Label" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 152.0
+offset_top = -80.0
+offset_right = 152.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("26_kdprl")
+theme_override_font_sizes/font_size = 169
+text = "You Win!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="YouWinLabel"]
+libraries = {
+"": SubResource("AnimationLibrary_51pq6")
+}
+
+[node name="hitSpark" type="Node2D" parent="YouWinLabel"]
+visible = false
+
+[node name="hit_spark" parent="YouWinLabel/hitSpark" instance=ExtResource("27_87lto")]
+position = Vector2(712, 344)
+
+[node name="hit_spark2" parent="YouWinLabel/hitSpark" instance=ExtResource("27_87lto")]
+position = Vector2(1184, 320)
+
+[node name="hit_spark3" parent="YouWinLabel/hitSpark" instance=ExtResource("27_87lto")]
+position = Vector2(632, 680)
+
+[node name="hit_spark4" parent="YouWinLabel/hitSpark" instance=ExtResource("27_87lto")]
+position = Vector2(1200, 696)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="YouWinLabel"]
+root_node = NodePath("../AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_n513o")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="YouWinLabel/AnimationPlayer2"]
+
 [connection signal="animation_finished" from="ParallaxBackground/ParallaxLayer4/Boss/AnimationPlayer" to="ParallaxBackground/ParallaxLayer4/Boss" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="DedWalls/Wall" to="DedWalls/Wall" method="_on_body_entered"]
 [connection signal="body_entered" from="DedWalls/DedWallArea2D" to="DedWalls" method="_on_ded_wall_area_2d_body_entered"]
 [connection signal="animation_finished" from="bobdontstealsword/AnimationPlayer" to="bobdontstealsword" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="BossHitbox" to="BossHitbox" method="_on_body_entered"]
+[connection signal="animation_finished" from="YouWinLabel/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

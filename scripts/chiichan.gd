@@ -359,6 +359,11 @@ func _on_animation_player_animation_finished(anim_name):
 	elif anim_name == "stage1_clear":
 		if get_node_or_null("../BossStealBigSword"):
 			$"../BossStealBigSword".play_steal_sword()
+			
+		if get_node_or_null("../YouWinLabel"):
+			# play you win here
+			$"../YouWinLabel".visible = true
+			$"../YouWinLabel/AnimationPlayer".play("start")
 	elif anim_name == "stage1_clear_b":
 		$"..".go_to_next_stage()
 

@@ -355,3 +355,10 @@ func smol_shake() -> void:
 func smol_shake_offset() -> void:
 	$"%CameraPlayer2".stop()
 	$"%CameraPlayer2".play("smol_shake_3")
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "start":
+		$YouWinLabel/AnimationPlayer.play("loop")
+		$YouWinLabel/AnimationPlayer2.play("start")
+		$YouWinLabel/hitSpark.visible = true
