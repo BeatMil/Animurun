@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://c1vlse56bmgi3"]
 
 [ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_j44sf"]
-[ext_resource type="AudioStream" uid="uid://b4qonc7kl542n" path="res://media/sfx/pause1.wav" id="2_22ag8"]
-[ext_resource type="AudioStream" uid="uid://cltfju2l8qvow" path="res://media/sfx/pause2.wav" id="3_3p075"]
+[ext_resource type="AudioStream" uid="uid://clpwps8i12ltl" path="res://media/sfx/pause1.wav" id="2_22ag8"]
+[ext_resource type="AudioStream" uid="uid://bi4ie2q38shpn" path="res://media/sfx/pause2.wav" id="3_3p075"]
 
 [sub_resource type="Animation" id="Animation_sl5fl"]
 length = 0.001
@@ -242,7 +242,7 @@ text = "Restart"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Error"
+text = "Main menu"
 
 [node name="BoxContainer3" type="BoxContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -260,3 +260,4 @@ libraries = {
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BoxContainer2/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BoxContainer2/Button2" to="." method="_on_button_2_pressed"]

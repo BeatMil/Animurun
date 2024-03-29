@@ -135,7 +135,7 @@ text = "Restart"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Error"
+text = "Main menu"
 
 [node name="BoxContainer3" type="BoxContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -151,3 +151,4 @@ libraries = {
 }
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BoxContainer2/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BoxContainer2/Button2" to="." method="_on_button_2_pressed"]
