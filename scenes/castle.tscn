@@ -773,6 +773,7 @@ pause_menu = NodePath("../PauseMenu")
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("8_di3en")]
 
 [node name="chiichan_velocity" type="Label" parent="CanvasLayer"]
+visible = false
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 139.0
@@ -781,6 +782,7 @@ scale = Vector2(3.2052, 3.59681)
 text = "chiichan_velocity: "
 
 [node name="chiichan_state" type="Label" parent="CanvasLayer"]
+visible = false
 offset_left = 1.0
 offset_top = 58.0
 offset_right = 141.0

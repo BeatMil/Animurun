@@ -477,6 +477,32 @@ SPEED = -600
 position = Vector2(1920, 1051)
 texture = ExtResource("5_rf2wy")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DedMenu" parent="CanvasLayer" node_paths=PackedStringArray("pause_menu") instance=ExtResource("24_3kuhs")]
+unique_name_in_owner = true
+pause_menu = NodePath("../PauseMenu")
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("25_pyk6c")]
+
+[node name="chiichan_velocity" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 139.0
+offset_bottom = 25.0
+scale = Vector2(3.2052, 3.59681)
+text = "chiichan_velocity: "
+
+[node name="chiichan_state" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 1.0
+offset_top = 58.0
+offset_right = 141.0
+offset_bottom = 84.0
+scale = Vector2(3.2052, 3.59681)
+text = "chiichan_state: "
+
 [node name="GroundBody" type="StaticBody2D" parent="." groups=["ground"]]
 position = Vector2(1472, 1066)
 physics_material_override = SubResource("PhysicsMaterial_vax0k")
@@ -564,30 +590,6 @@ editor_description = "Dedwalls plays camera shake"
 libraries = {
 "": SubResource("AnimationLibrary_bkvre")
 }
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="DedMenu" parent="CanvasLayer" node_paths=PackedStringArray("pause_menu") instance=ExtResource("24_3kuhs")]
-unique_name_in_owner = true
-pause_menu = NodePath("../PauseMenu")
-
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("25_pyk6c")]
-
-[node name="chiichan_velocity" type="Label" parent="CanvasLayer"]
-offset_left = -1.0
-offset_top = -1.0
-offset_right = 139.0
-offset_bottom = 25.0
-scale = Vector2(3.2052, 3.59681)
-text = "chiichan_velocity: "
-
-[node name="chiichan_state" type="Label" parent="CanvasLayer"]
-offset_left = 1.0
-offset_top = 58.0
-offset_right = 141.0
-offset_bottom = 84.0
-scale = Vector2(3.2052, 3.59681)
-text = "chiichan_state: "
 
 [node name="Markers" type="Node" parent="."]
 
