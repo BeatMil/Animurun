@@ -27,7 +27,7 @@ func _on_option_button_pressed():
 func _on_back_button_pressed():
 	$OptionMenu.visible = false
 	$Chiichan.visible = true
-
+	$control_scheme.update_keybinds_display()
 
 func _on_stage_button_pressed():
 	SceneTransition.change_scene("res://scenes/volcano.tscn")

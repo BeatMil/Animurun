@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://tr26pmc6e32n"]
+[gd_scene load_steps=21 format=3 uid="uid://tr26pmc6e32n"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_futl5"]
 [ext_resource type="Script" path="res://scripts/audio_test.gd" id="1_ontde"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://c5p1a8sbq4oeu" path="res://media/sprites/clouds.png" id="10_qihrn"]
 [ext_resource type="Texture2D" uid="uid://bwjdojfiq7as4" path="res://media/sprites/mountain.png" id="11_2tnw8"]
 [ext_resource type="Texture2D" uid="uid://loah2i22waew" path="res://media/sprites/ground.png" id="12_x4qbn"]
+[ext_resource type="Script" path="res://scripts/control_scheme.gd" id="13_dufsu"]
+[ext_resource type="FontFile" uid="uid://dvjq4m431o2pu" path="res://fonts/Code Vein Fonts/Roboto-Regular.ttf" id="13_ycfkh"]
 
 [sub_resource type="Animation" id="Animation_ufldj"]
 resource_name = "test_sound"
@@ -93,6 +95,115 @@ modulate = Color(0.270588, 0.294118, 0.231373, 1)
 position = Vector2(1920, 1085.5)
 scale = Vector2(1, 1.26953)
 texture = ExtResource("12_x4qbn")
+
+[node name="control_scheme" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("13_dufsu")
+
+[node name="moveLeftLabel" type="Label" parent="control_scheme"]
+layout_mode = 0
+offset_left = 608.0
+offset_top = 56.0
+offset_right = 938.0
+offset_bottom = 141.0
+theme_override_fonts/font = ExtResource("13_ycfkh")
+theme_override_font_sizes/font_size = 54
+text = "Move Left: "
+
+[node name="moveLeftKeyLabel" type="Label" parent="control_scheme"]
+layout_mode = 0
+offset_left = 1088.0
+offset_top = 56.0
+offset_right = 1418.0
+offset_bottom = 141.0
+theme_override_fonts/font = ExtResource("13_ycfkh")
+theme_override_font_sizes/font_size = 54
+text = "move_left"
+
+[node name="moveRightLabel" type="Label" parent="control_scheme"]
+layout_mode = 0
+offset_left = 608.0
+offset_top = 152.0
+offset_right = 938.0
+offset_bottom = 237.0
+theme_override_fonts/font = ExtResource("13_ycfkh")
+theme_override_font_sizes/font_size = 54
+text = "Move Right: "
+
+[node name="moveRightKeyLabel" type="Label" parent="control_scheme"]
+layout_mode = 0
+offset_left = 1088.0
+offset_top = 152.0
+offset_right = 1418.0
+offset_bottom = 237.0
+theme_override_fonts/font = ExtResource("13_ycfkh")
+theme_override_font_sizes/font_size = 54
+text = "move_right"
+
+[node name="jumpLabel" type="Label" parent="control_scheme"]
+layout_mode = 0
+offset_left = 608.0
+offset_top = 248.0
+offset_right = 938.0
+offset_bottom = 333.0
+theme_override_fonts/font = ExtResource("13_ycfkh")
+theme_override_font_sizes/font_size = 54
+text = "Jump:"
+
+[node name="jumpKeyLabel" type="Label" parent="control_scheme"]
+layout_mode = 0
+offset_left = 1088.0
+offset_top = 248.0
+offset_right = 1418.0
+offset_bottom = 333.0
+theme_override_fonts/font = ExtResource("13_ycfkh")
+theme_override_font_sizes/font_size = 54
+text = "jump"
+
+[node name="blockLabel" type="Label" parent="control_scheme"]
+layout_mode = 0
+offset_left = 608.0
+offset_top = 344.0
+offset_right = 938.0
+offset_bottom = 429.0
+theme_override_fonts/font = ExtResource("13_ycfkh")
+theme_override_font_sizes/font_size = 54
+text = "Block:"
+
+[node name="blockKeyLabel" type="Label" parent="control_scheme"]
+layout_mode = 0
+offset_left = 1088.0
+offset_top = 344.0
+offset_right = 1418.0
+offset_bottom = 429.0
+theme_override_fonts/font = ExtResource("13_ycfkh")
+theme_override_font_sizes/font_size = 54
+text = "block"
+
+[node name="dodgeLabel" type="Label" parent="control_scheme"]
+layout_mode = 0
+offset_left = 608.0
+offset_top = 432.0
+offset_right = 938.0
+offset_bottom = 517.0
+theme_override_fonts/font = ExtResource("13_ycfkh")
+theme_override_font_sizes/font_size = 54
+text = "Dodge:"
+
+[node name="dodgeKeyLabel" type="Label" parent="control_scheme"]
+layout_mode = 0
+offset_left = 1088.0
+offset_top = 432.0
+offset_right = 1418.0
+offset_bottom = 517.0
+theme_override_fonts/font = ExtResource("13_ycfkh")
+theme_override_font_sizes/font_size = 54
+text = "dodge"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
