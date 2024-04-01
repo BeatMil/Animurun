@@ -2,6 +2,7 @@ extends Node2D
 
 
 var is_jump_key_change: bool = false
+var is_dodge_key_change: bool = false
 var is_block_key_change: bool = false
 var is_left_key_change: bool = false
 var is_right_key_change: bool = false
@@ -32,6 +33,12 @@ func _input(event):
 		is_right_key_change = false
 		$ColorRect2/RightButton/KeyLabel.text = event.as_text()
 		$ColorRect2/RightButton.release_focus()
+	elif event.is_pressed() and is_dodge_key_change:
+		InputMap.action_erase_events("dodge")
+		InputMap.action_add_event("dodge", event)
+		is_dodge_key_change = false
+		$ColorRect2/DodgeButton/KeyLabel.text = event.as_text()
+		$ColorRect2/DodgeButton.release_focus()
 
 
 func _on_button_pressed():
@@ -52,3 +59,8 @@ func _on_left_button_pressed():
 func _on_right_button_pressed():
 	$ColorRect2/RightButton/KeyLabel.text = "?"
 	is_right_key_change = true
+
+
+func _on_dodge_button_pressed():
+	$ColorRect2/DodgeButton/KeyLabel.text = "?"
+	is_dodge_key_change = true

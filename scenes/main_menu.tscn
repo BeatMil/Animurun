@@ -358,7 +358,6 @@ rotation = 1.57079
 shape = SubResource("RectangleShape2D_walrm")
 
 [node name="OptionMenu" type="Node2D" parent="."]
-visible = false
 z_index = 6
 script = ExtResource("6_2ohdi")
 
@@ -385,10 +384,10 @@ text = "Back"
 
 [node name="Button" type="Button" parent="OptionMenu/ColorRect2"]
 layout_mode = 0
-offset_left = 548.0
-offset_top = 263.0
-offset_right = 836.0
-offset_bottom = 398.0
+offset_left = 527.0
+offset_top = 484.0
+offset_right = 815.0
+offset_bottom = 619.0
 
 [node name="JumpLabel" type="Label" parent="OptionMenu/ColorRect2/Button"]
 layout_mode = 0
@@ -411,10 +410,10 @@ text = "Space"
 
 [node name="BlockButton" type="Button" parent="OptionMenu/ColorRect2"]
 layout_mode = 0
-offset_left = 548.0
-offset_top = 446.0
-offset_right = 836.0
-offset_bottom = 581.0
+offset_left = 527.0
+offset_top = 668.0
+offset_right = 815.0
+offset_bottom = 803.0
 
 [node name="Label" type="Label" parent="OptionMenu/ColorRect2/BlockButton"]
 layout_mode = 0
@@ -437,12 +436,40 @@ text = "j"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="DodgeButton" type="Button" parent="OptionMenu/ColorRect2"]
+layout_mode = 0
+offset_left = 527.0
+offset_top = 836.0
+offset_right = 815.0
+offset_bottom = 971.0
+
+[node name="Label" type="Label" parent="OptionMenu/ColorRect2/DodgeButton"]
+layout_mode = 0
+offset_right = 289.0
+offset_bottom = 141.0
+theme_override_fonts/font = ExtResource("2_qoou0")
+theme_override_font_sizes/font_size = 96
+text = "Dodge"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KeyLabel" type="Label" parent="OptionMenu/ColorRect2/DodgeButton"]
+layout_mode = 0
+offset_left = 770.0
+offset_right = 1060.0
+offset_bottom = 116.0
+theme_override_fonts/font = ExtResource("2_qoou0")
+theme_override_font_sizes/font_size = 96
+text = "k"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="LeftButton" type="Button" parent="OptionMenu/ColorRect2"]
 layout_mode = 0
-offset_left = 548.0
-offset_top = 627.0
-offset_right = 836.0
-offset_bottom = 762.0
+offset_left = 527.0
+offset_top = 116.0
+offset_right = 815.0
+offset_bottom = 251.0
 
 [node name="Label" type="Label" parent="OptionMenu/ColorRect2/LeftButton"]
 layout_mode = 0
@@ -467,10 +494,10 @@ vertical_alignment = 1
 
 [node name="RightButton" type="Button" parent="OptionMenu/ColorRect2"]
 layout_mode = 0
-offset_left = 548.0
-offset_top = 806.0
-offset_right = 836.0
-offset_bottom = 941.0
+offset_left = 527.0
+offset_top = 300.0
+offset_right = 815.0
+offset_bottom = 435.0
 
 [node name="Label" type="Label" parent="OptionMenu/ColorRect2/RightButton"]
 layout_mode = 0
@@ -519,6 +546,7 @@ shape = SubResource("RectangleShape2D_dgigx")
 [connection signal="pressed" from="OptionMenu/ColorRect2/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="OptionMenu/ColorRect2/Button" to="OptionMenu" method="_on_button_pressed"]
 [connection signal="pressed" from="OptionMenu/ColorRect2/BlockButton" to="OptionMenu" method="_on_parry_button_pressed"]
+[connection signal="pressed" from="OptionMenu/ColorRect2/DodgeButton" to="OptionMenu" method="_on_dodge_button_pressed"]
 [connection signal="pressed" from="OptionMenu/ColorRect2/LeftButton" to="OptionMenu" method="_on_left_button_pressed"]
 [connection signal="pressed" from="OptionMenu/ColorRect2/RightButton" to="OptionMenu" method="_on_right_button_pressed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
