@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://tr26pmc6e32n"]
+[gd_scene load_steps=26 format=3 uid="uid://tr26pmc6e32n"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_futl5"]
 [ext_resource type="Script" path="res://scripts/audio_test.gd" id="1_ontde"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://loah2i22waew" path="res://media/sprites/ground.png" id="12_x4qbn"]
 [ext_resource type="Script" path="res://scripts/control_scheme.gd" id="13_dufsu"]
 [ext_resource type="FontFile" uid="uid://dvjq4m431o2pu" path="res://fonts/Code Vein Fonts/Roboto-Regular.ttf" id="13_ycfkh"]
+[ext_resource type="AudioStream" uid="uid://bf1d2yahohclo" path="res://media/sfx/openOption.wav" id="15_t5oic"]
+[ext_resource type="AudioStream" uid="uid://blphyibejp3r4" path="res://media/sfx/closeOption.wav" id="16_s5dpj"]
 
 [sub_resource type="Animation" id="Animation_ufldj"]
 resource_name = "test_sound"
@@ -46,6 +48,50 @@ bg_color = Color(0.980392, 0.356863, 0.4, 0.764706)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_walrm"]
 size = Vector2(3472, 281)
+
+[sub_resource type="Animation" id="Animation_lrxt3"]
+resource_name = "open"
+length = 0.1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("15_t5oic")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="Animation" id="Animation_1sepc"]
+resource_name = "close"
+length = 0.1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("16_s5dpj")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_446ju"]
+_data = {
+"close": SubResource("Animation_1sepc"),
+"open": SubResource("Animation_lrxt3")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dgigx"]
 size = Vector2(165, 1936)
@@ -358,6 +404,7 @@ rotation = 1.57079
 shape = SubResource("RectangleShape2D_walrm")
 
 [node name="OptionMenu" type="Node2D" parent="."]
+visible = false
 z_index = 6
 script = ExtResource("6_2ohdi")
 
@@ -519,6 +566,13 @@ theme_override_font_sizes/font_size = 96
 text = "d"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="OptionMenu"]
+libraries = {
+"": SubResource("AnimationLibrary_446ju")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="OptionMenu/AnimationPlayer"]
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(2008, 696)

@@ -22,12 +22,14 @@ func _on_exit_button_pressed():
 func _on_option_button_pressed():
 	$OptionMenu.visible = true
 	$Chiichan.visible = false
+	$OptionMenu/AnimationPlayer.play("open")
 
 
 func _on_back_button_pressed():
 	$OptionMenu.visible = false
 	$Chiichan.visible = true
 	$control_scheme.update_keybinds_display()
+	$OptionMenu/AnimationPlayer.play("close")
 
 func _on_stage_button_pressed():
 	SceneTransition.change_scene("res://scenes/volcano.tscn")
