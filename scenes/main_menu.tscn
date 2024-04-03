@@ -49,25 +49,6 @@ bg_color = Color(0.980392, 0.356863, 0.4, 0.764706)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_walrm"]
 size = Vector2(3472, 281)
 
-[sub_resource type="Animation" id="Animation_lrxt3"]
-resource_name = "open"
-length = 0.1
-tracks/0/type = "audio"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/AudioStreamPlayer")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("15_t5oic")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/0/use_blend = true
-
 [sub_resource type="Animation" id="Animation_1sepc"]
 resource_name = "close"
 length = 0.1
@@ -82,6 +63,25 @@ tracks/0/keys = {
 "end_offset": 0.0,
 "start_offset": 0.0,
 "stream": ExtResource("16_s5dpj")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="Animation" id="Animation_lrxt3"]
+resource_name = "open"
+length = 0.1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("15_t5oic")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -297,7 +297,7 @@ size_flags_stretch_ratio = 0.06
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_qoou0")
-theme_override_font_sizes/font_size = 96
+theme_override_font_sizes/font_size = 69
 text = "Sound Test
 "
 
