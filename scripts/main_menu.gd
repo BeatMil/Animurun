@@ -5,6 +5,7 @@ extends Control
 func _ready():
 #	$HBoxContainer/VBoxContainer/Button.grab_focus()
 	$OptionMenu.visible = false
+	Config.checkpoint = -1
 
 
 func _input(event):
